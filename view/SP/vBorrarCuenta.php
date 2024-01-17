@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!--
-        Descripción: 214DWESLoginLogoutMulticapaPOO -- vBorrarCuenta.php (Castellano)
+        Descripción: Aplicación Final -- vBorrarCuenta.php (Castellano)
         Autor: Carlos García Cachón
         Fecha de creación/modificación: 04/01/2024
 -->

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!--
-        Descripción: 214DWESLoginLogoutMulticapaPOO -- vMiCuenta.php (Castellano)
+        Descripción: Aplicación Final -- vMiCuenta.php (Castellano)
         Autor: Carlos García Cachón
         Fecha de creación/modificación: 04/01/2024
 -->

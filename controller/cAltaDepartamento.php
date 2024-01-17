@@ -6,7 +6,7 @@
  * @since 16/01/2024
  * @copyright Todos los derechos reservados a Carlos García
  * 
- * @Annotation Proyecto LoginLogoutMulticapaPOO - Parte de 'cAltaDepartamento' 
+ * @Annotation Aplicación Final - Parte de 'cAltaDepartamento' 
  * 
  */
 // Estructura del botón salir, si el usuario pulsa el botón 'salir'

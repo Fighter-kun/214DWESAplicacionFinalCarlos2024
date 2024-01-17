@@ -6,7 +6,7 @@
  * @since 02/01/2024
  * @copyright Todos los derechos reservados a Carlos García
  * 
- * @Annotation Proyecto LoginLogoutMulticapaPOO - Parte de 'cMtoDepartamento' 
+ * @Annotation Aplicación Final - Parte de 'cMtoDepartamento' 
  * 
  */
 
@@ -21,6 +21,7 @@ if (isset($_REQUEST['salirDepartamentos'])) {
 
 // Estructura del botón editarDepartamento, si el usuario pulsa el botón del icono de un 'lapiz'
 if (isset($_REQUEST['cConsultarModificarDepartamento'])) {
+    $_SESSION['codDepartamentoActual'] = $_REQUEST['cConsultarModificarDepartamento']; // Almaceno en una variable de sesión el Codigo del Departamento Seleccionado
     $_SESSION['paginaAnterior'] = 'consultarDepartamento'; // Almaceno la página anterior para poder volver
     $_SESSION['paginaEnCurso'] = 'editarDepartamento'; // Asigno a la página en curso la pagina de ConsultarModificarDepartamento
     header('Location: index.php'); // Redirecciono al index de la APP
@@ -29,16 +30,27 @@ if (isset($_REQUEST['cConsultarModificarDepartamento'])) {
 
 // Estructura del botón eliminarDepartamento, si el usuario pulsa el botón del icono de una 'X'
 if (isset($_REQUEST['cEliminarDepartamento'])) {
+    $_SESSION['codDepartamentoActual'] = $_REQUEST['cEliminarDepartamento']; // Almaceno en una variable de sesión el Codigo del Departamento Seleccionado
     $_SESSION['paginaAnterior'] = 'consultarDepartamento'; // Almaceno la página anterior para poder volver
-    $_SESSION['paginaEnCurso'] = 'wip'; // Asigno a la página en curso la pagina de eliminarDepartamento
+    $_SESSION['paginaEnCurso'] = 'eliminarDepartamento'; // Asigno a la página en curso la pagina de eliminarDepartamento
     header('Location: index.php'); // Redirecciono al index de la APP
     exit;
 }
 
-// Estructura del checkbox, si el usuario pulsa el checkbox 
-if (isset($_REQUEST['estadoLogico'])) {
+// Estructura del boton baja, si el usuario pulsa el icono de la flecha roja 
+if (isset($_REQUEST['cBajaLogicaDepartamento'])) {
+    $_SESSION['codDepartamentoActual'] = $_REQUEST['cBajaLogicaDepartamento']; // Almaceno en una variable de sesión el Codigo del Departamento Seleccionado
     $_SESSION['paginaAnterior'] = 'consultarDepartamento'; // Almaceno la página anterior para poder volver
-    $_SESSION['paginaEnCurso'] = 'wip'; // Asigno a la página en curso la pagina de estadoLogico
+    $_SESSION['paginaEnCurso'] = 'bajaDepartamento'; // Asigno a la página en curso la pagina de bajaDepartamento
+    header('Location: index.php'); // Redirecciono al index de la APP
+    exit;
+}
+
+// Estructura del boton alta, si el usuario pulsa el icono de la flecha verde 
+if (isset($_REQUEST['cRehabilitacionDepartamento'])) {
+    $_SESSION['codDepartamentoActual'] = $_REQUEST['cRehabilitacionDepartamento']; // Almaceno en una variable de sesión el Codigo del Departamento Seleccionado
+    $_SESSION['paginaAnterior'] = 'consultarDepartamento'; // Almaceno la página anterior para poder volver
+    $_SESSION['paginaEnCurso'] = 'altaDepartamento'; // Asigno a la página en curso la pagina de altaDepartamento
     header('Location: index.php'); // Redirecciono al index de la APP
     exit;
 }
@@ -106,8 +118,15 @@ if (isset($_REQUEST['enviar'])) {
          */
         $miDB = new PDO(DSN, USERNAME, PASSWORD);
 
+        
+        if (!isset($_SESSION['criterioBusquedaDepartamentos']['estado'])) {
+            $criterioDeBusqueda = '';
+        } else {
+            $criterioDeBusqueda = $_SESSION['criterioBusquedaDepartamentos']['estado'];
+        }
+         
         //Preparamos la consulta
-        $resultadoConsulta = $miDB->query("SELECT * FROM T02_Departamento WHERE T02_DescDepartamento LIKE'%$aRespuestas[DescDepartamento]%';");
+        $resultadoConsulta = $miDB->query("SELECT * FROM T02_Departamento WHERE T02_DescDepartamento LIKE '%" . $criterioDeBusqueda . "%';");
         // Ejecutando la declaración SQL
         if ($resultadoConsulta->rowCount() == 0) {
             $aErrores['DescDepartamento'] = "No existen departamentos con esa descripcion";
@@ -117,12 +136,12 @@ if (isset($_REQUEST['enviar'])) {
         echo ("<table>
                                         <thead>
                                         <tr>
-                                            <th colspan='3'><-T-></th>
-                                            <th>Codigo de Departamento</th>
-                                            <th>Descripcion de Departamento</th>
-                                            <th>Fecha de Creacion</th>
+                                            <th>Código</th>
+                                            <th>Descripción</th>
+                                            <th>Fecha de Creación</th>
                                             <th>Volumen de Negocio</th>
                                             <th>Fecha de Baja</th>
+                                            <th colspan='3'><-T-></th>
                                         </tr>
                                         </thead>");
 
@@ -133,38 +152,48 @@ if (isset($_REQUEST['enviar'])) {
         echo ("<tbody>");
         while ($oDepartamento = $resultadoConsulta->fetchObject()) {
             
+            
             echo ("<tr>");
-            echo ("<td>");
+            
+            echo ("<td>" . $oDepartamento->T02_CodDepartamento . "</td>");
+            echo ("<td>" . $oDepartamento->T02_DescDepartamento . "</td>");
+            echo ("<td>" . $oDepartamento->T02_FechaCreacionDepartamento . "</td>");
+            echo ("<td>" . $oDepartamento->T02_VolumenDeNegocio . "</td>");
+            echo ("<td>" . $oDepartamento->T02_FechaBajaDepartamento . "</td>");
 
             // Formulario para editar
+            echo ("<td>");
             echo ("<form " . (!is_null($oDepartamento->T02_FechaBajaDepartamento) ? 'style="display: none;"' : '') . " method='post'>");
             // Almaceno el código de departamento en una variable de sesión para poder seleccionar un departamento concreto. Tanto para editar como eliminar
-            echo ("<input type='hidden' value='" . ($_SESSION['codDepartamentoEnCurso'] = $oDepartamento->T02_CodDepartamento) . "'>");
-            echo ("<button type='submit' name='cConsultarModificarDepartamento'><svg fill='#666' width='16' height='16' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'><path d='M4.481 15.659c-1.334 3.916-1.48 4.232-1.48 4.587 0 .528.46.749.749.749.352 0 .668-.137 4.574-1.492zm1.06-1.061 3.846 3.846 11.321-11.311c.195-.195.293-.45.293-.707 0-.255-.098-.51-.293-.706-.692-.691-1.742-1.74-2.435-2.432-.195-.195-.451-.293-.707-.293-.254 0-.51.098-.706.293z' fill-rule='evenodd'/></svg></button>");
+            echo ("<input type='hidden' name='cConsultarModificarDepartamento' value='" . $oDepartamento->T02_CodDepartamento . "'>");
+            echo ("<button type='submit'><svg fill='#666' width='16' height='16' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'><path d='M4.481 15.659c-1.334 3.916-1.48 4.232-1.48 4.587 0 .528.46.749.749.749.352 0 .668-.137 4.574-1.492zm1.06-1.061 3.846 3.846 11.321-11.311c.195-.195.293-.45.293-.707 0-.255-.098-.51-.293-.706-.692-.691-1.742-1.74-2.435-2.432-.195-.195-.451-.293-.707-.293-.254 0-.51.098-.706.293z' fill-rule='evenodd'/></svg></button>");
             echo ("</form>");
             echo ("</td>");
 
             // Formulario para eliminar
             echo ("<td>");
             echo ("<form method='post'>");
-            echo ("<input type='hidden' value='" . ($_SESSION['codDepartamentoEnCurso'] = $oDepartamento->T02_CodDepartamento) . "'>");
-            echo ("<button type='submit' name='cEliminarDepartamento'><svg width='16' height='16' clip-rule='evenodd' fill-rule='evenodd' stroke-linejoin='round' stroke-miterlimit='2' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'><path d='m12 10.93 5.719-5.72c.146-.146.339-.219.531-.219.404 0 .75.324.75.749 0 .193-.073.385-.219.532l-5.72 5.719 5.719 5.719c.147.147.22.339.22.531 0 .427-.349.75-.75.75-.192 0-.385-.073-.531-.219l-5.719-5.719-5.719 5.719c-.146.146-.339.219-.531.219-.401 0-.75-.323-.75-.75 0-.192.073-.384.22-.531l5.719-5.719-5.72-5.719c-.146-.147-.219-.339-.219-.532 0-.425.346-.749.75-.749.192 0 .385.073.531.219z' fill='red'/></svg></button>");
+            echo ("<input type='hidden' name='cEliminarDepartamento' value='" . $oDepartamento->T02_CodDepartamento . "'>");
+            echo ("<button type='submit'><svg width='16' height='16' clip-rule='evenodd' fill-rule='evenodd' stroke-linejoin='round' stroke-miterlimit='2' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'><path d='m12 10.93 5.719-5.72c.146-.146.339-.219.531-.219.404 0 .75.324.75.749 0 .193-.073.385-.219.532l-5.72 5.719 5.719 5.719c.147.147.22.339.22.531 0 .427-.349.75-.75.75-.192 0-.385-.073-.531-.219l-5.719-5.719-5.719 5.719c-.146.146-.339.219-.531.219-.401 0-.75-.323-.75-.75 0-.192.073-.384.22-.531l5.719-5.719-5.72-5.719c-.146-.147-.219-.339-.219-.532 0-.425.346-.749.75-.749.192 0 .385.073.531.219z' fill='red'/></svg></button>");
             echo ("</form>");
             echo ("</td>");
 
-            // Formulario para alta/baja logica
+            // Formulario para alta lógica
             echo ("<td>");
             echo ("<form method='post'>");
-            echo ("<input type='checkbox' name='estadoLogico' " . (is_null($oDepartamento->T02_FechaBajaDepartamento) ? 'checked' : '') . " onchange='this.form.submit()'>");
-            echo ("<input type='hidden' value='" . ($_SESSION['codDepartamentoEnCurso'] = $oDepartamento->T02_CodDepartamento) . "'>");
+            echo ("<input type='hidden' name='cRehabilitacionDepartamento' value='" . $oDepartamento->T02_CodDepartamento . "'>");
+            echo ("<button type='submit'>ALTA</button>");
             echo ("</form>");
             echo ("</td>");
-
-            echo ("<td>" . $oDepartamento->T02_CodDepartamento . "</td>");
-            echo ("<td>" . $oDepartamento->T02_DescDepartamento . "</td>");
-            echo ("<td>" . $oDepartamento->T02_FechaCreacionDepartamento . "</td>");
-            echo ("<td>" . $oDepartamento->T02_VolumenDeNegocio . "</td>");
-            echo ("<td>" . $oDepartamento->T02_FechaBajaDepartamento . "</td>");
+            
+            // Formulario para baja lógica
+            echo ("<td>");
+            echo ("<form method='post'>");
+            echo ("<input type='hidden' name='cBajaLogicaDepartamento' value='" . $oDepartamento->T02_CodDepartamento . "'>");
+            echo ("<button type='submit'>BAJA</button>");
+            echo ("</form>");
+            echo ("</td>");
+            
             echo ("</tr>");
         }
 
@@ -187,10 +216,9 @@ if (isset($_REQUEST['enviar'])) {
 //Si la entrada es Ok almacenamos el valor de la respuesta del usuario en el array $aRespuestas
 if ($entradaOK) {
     //Almacenamos el valor en el array
-    $aRespuestas = [
-        'DescDepartamento' => $_REQUEST['DescDepartamento'],
-    ];
-
+    $_SESSION['criterioBusquedaDepartamentos']['estado'] = $_REQUEST['DescDepartamento'];
+    $aRespuestas['DescDepartamento']= $_REQUEST['DescDepartamento'];
+    
     try {
         //Establecimiento de la conexion
         /*
@@ -212,12 +240,12 @@ if ($entradaOK) {
         echo ("<table>
                                         <thead>
                                         <tr>
-                                            <th colspan='3'><-T-></th>
-                                            <th>Codigo de Departamento</th>
-                                            <th>Descripcion de Departamento</th>
-                                            <th>Fecha de Creacion</th>
+                                            <th>Código</th>
+                                            <th>Descripción</th>
+                                            <th>Fecha de Creación</th>
                                             <th>Volumen de Negocio</th>
                                             <th>Fecha de Baja</th>
+                                            <th colspan='3'><-T-></th>
                                         </tr>
                                         </thead>");
 
@@ -228,37 +256,46 @@ if ($entradaOK) {
         echo ("<tbody>");
         while ($oDepartamento = $resultadoConsulta->fetchObject()) {
             echo ("<tr>");
-            echo ("<td>");
+            
+            echo ("<td>" . $oDepartamento->T02_CodDepartamento . "</td>");
+            echo ("<td>" . $oDepartamento->T02_DescDepartamento . "</td>");
+            echo ("<td>" . $oDepartamento->T02_FechaCreacionDepartamento . "</td>");
+            echo ("<td>" . $oDepartamento->T02_VolumenDeNegocio . "</td>");
+            echo ("<td>" . $oDepartamento->T02_FechaBajaDepartamento . "</td>");            
 
             // Formulario para editar
+            echo ("<td>");
             echo ("<form " . (!is_null($oDepartamento->T02_FechaBajaDepartamento) ? 'style="display: none;"' : '') . " method='post'>");
             // Almaceno el código de departamento en una variable de sesión para poder seleccionar un departamento concreto
-            echo ("<input type='hidden' value='" . ($_SESSION['codDepartamentoEnCurso'] = $oDepartamento->T02_CodDepartamento) . "'>");
-            echo ("<button type='submit' name='cConsultarModificarDepartamento'><svg fill='#666' width='16' height='16' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'><path d='M4.481 15.659c-1.334 3.916-1.48 4.232-1.48 4.587 0 .528.46.749.749.749.352 0 .668-.137 4.574-1.492zm1.06-1.061 3.846 3.846 11.321-11.311c.195-.195.293-.45.293-.707 0-.255-.098-.51-.293-.706-.692-.691-1.742-1.74-2.435-2.432-.195-.195-.451-.293-.707-.293-.254 0-.51.098-.706.293z' fill-rule='evenodd'/></svg></button>");
+            echo ("<input type='hidden' name='cConsultarModificarDepartamento' value='" . $oDepartamento->T02_CodDepartamento . "'>");
+            echo ("<button type='submit'><svg fill='#666' width='16' height='16' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'><path d='M4.481 15.659c-1.334 3.916-1.48 4.232-1.48 4.587 0 .528.46.749.749.749.352 0 .668-.137 4.574-1.492zm1.06-1.061 3.846 3.846 11.321-11.311c.195-.195.293-.45.293-.707 0-.255-.098-.51-.293-.706-.692-.691-1.742-1.74-2.435-2.432-.195-.195-.451-.293-.707-.293-.254 0-.51.098-.706.293z' fill-rule='evenodd'/></svg></button>");
             echo ("</form>");
             echo ("</td>");
 
             // Formulario para eliminar
             echo ("<td>");
             echo ("<form method='post'>");
-            echo ("<input type='hidden' value='" . ($_SESSION['codDepartamentoEnCurso'] = $oDepartamento->T02_CodDepartamento) . "'>");
-            echo ("<button type='submit' name='cEliminarDepartamento'><svg width='16' height='16' clip-rule='evenodd' fill-rule='evenodd' stroke-linejoin='round' stroke-miterlimit='2' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'><path d='m12 10.93 5.719-5.72c.146-.146.339-.219.531-.219.404 0 .75.324.75.749 0 .193-.073.385-.219.532l-5.72 5.719 5.719 5.719c.147.147.22.339.22.531 0 .427-.349.75-.75.75-.192 0-.385-.073-.531-.219l-5.719-5.719-5.719 5.719c-.146.146-.339.219-.531.219-.401 0-.75-.323-.75-.75 0-.192.073-.384.22-.531l5.719-5.719-5.72-5.719c-.146-.147-.219-.339-.219-.532 0-.425.346-.749.75-.749.192 0 .385.073.531.219z' fill='red'/></svg></button>");
+            echo ("<input type='hidden' name='cEliminarDepartamento' value='" . $oDepartamento->T02_CodDepartamento . "'>");
+            echo ("<button type='submit'><svg width='16' height='16' clip-rule='evenodd' fill-rule='evenodd' stroke-linejoin='round' stroke-miterlimit='2' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'><path d='m12 10.93 5.719-5.72c.146-.146.339-.219.531-.219.404 0 .75.324.75.749 0 .193-.073.385-.219.532l-5.72 5.719 5.719 5.719c.147.147.22.339.22.531 0 .427-.349.75-.75.75-.192 0-.385-.073-.531-.219l-5.719-5.719-5.719 5.719c-.146.146-.339.219-.531.219-.401 0-.75-.323-.75-.75 0-.192.073-.384.22-.531l5.719-5.719-5.72-5.719c-.146-.147-.219-.339-.219-.532 0-.425.346-.749.75-.749.192 0 .385.073.531.219z' fill='red'/></svg></button>");
             echo ("</form>");
             echo ("</td>");
 
-            // Formulario para alta/baja logica
+            // Formulario para alta lógica
             echo ("<td>");
             echo ("<form method='post'>");
-            echo ("<input type='checkbox' name='estadoLogico' " . (is_null($oDepartamento->T02_FechaBajaDepartamento) ? 'checked' : '') . " onchange='this.form.submit()'>");
-            echo ("<input type='hidden' value='" . ($_SESSION['codDepartamentoEnCurso'] = $oDepartamento->T02_CodDepartamento) . "'>");
+            echo ("<input type='hidden' name='cRehabilitacionDepartamento' value='" . $oDepartamento->T02_CodDepartamento . "'>");
+            echo ("<button type='submit'>ALTA</button>");
+            echo ("</form>");
+            echo ("</td>");
+            
+            // Formulario para baja lógica
+            echo ("<td>");
+            echo ("<form method='post'>");
+            echo ("<input type='hidden' name='cBajaLogicaDepartamento' value='" . $oDepartamento->T02_CodDepartamento . "'>");
+            echo ("<button type='submit'>BAJA</button>");
             echo ("</form>");
             echo ("</td>");
 
-            echo ("<td>" . $oDepartamento->T02_CodDepartamento . "</td>");
-            echo ("<td>" . $oDepartamento->T02_DescDepartamento . "</td>");
-            echo ("<td>" . $oDepartamento->T02_FechaCreacionDepartamento . "</td>");
-            echo ("<td>" . $oDepartamento->T02_VolumenDeNegocio . "</td>");
-            echo ("<td>" . $oDepartamento->T02_FechaBajaDepartamento . "</td>");
             echo ("</tr>");
         }
 

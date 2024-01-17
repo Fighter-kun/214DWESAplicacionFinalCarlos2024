@@ -5,9 +5,6 @@
         Fecha de creación/modificación: 16/01/2024
 -->
 <style>
-    .obligatorio {
-        background-color: #ffff7a;
-    }
     .bloqueado:disabled {
         background-color: #665 ;
         color: white;
@@ -24,6 +21,9 @@
         color:#4CAF50;
         font-weight:bold;
     }
+    .btn-danger {
+        background-color: red;
+    }
     input {
         width: 90%;
     }
@@ -37,7 +37,7 @@
                     <table>
                         <thead>
                             <tr>
-                                <th class="rounded-top" colspan="3"><legend>Modificar Departamento</legend></th>
+                                <th class="rounded-top" colspan="3"><legend>Eliminar Departamento</legend></th>
                         </tr>
                         </thead>
                         <tbody>
@@ -55,21 +55,14 @@
                         </td>
                         </tr>
                         <tr>
-                            <!-- Descripcion Departamento Obligatorio -->
+                            <!-- Descripcion Departamento Deshabilitado -->
                             <td class="d-flex justify-content-start">
-                                <label for="T02_DescDepartamento">Descripción de Departamento:</label>
+                                <label for="descripcionDepartamentoAEditar">Descripción de Departamento:</label>
                             </td>
-                            <td>                                                                                                <!-- El value contiene una operador ternario en el que por medio de un metodo 'isset()'
-                                                                                                                                comprobamos que exista la variable y no sea 'null'. En el caso verdadero devovleremos el contenido del campo
-                                                                                                                                que contiene '$_REQUEST' , en caso falso sobrescribira el campo a '' .-->
-                                <input class="d-flex justify-content-start obligatorio" type="text" name="T02_DescDepartamento" value="<?php echo (isset($_REQUEST['T02_DescDepartamento']) ? $_REQUEST['T02_DescDepartamento'] : $descripcionDepartamentoAEditar); ?>">
+                            <td>                                                                                                
+                                <input class="bloqueado d-flex justify-content-start" type="text" name="descripcionDepartamentoAEditar" value="<?php echo ($descripcionDepartamentoAEditar); ?>" disabled>
                             </td>
                             <td class="error">
-                                <?php
-                                if (!empty($aErrores['T02_DescDepartamento'])) {
-                                    echo $aErrores['T02_DescDepartamento'];
-                                }
-                                ?> <!-- Aquí comprobamos que el campo del array '$aErrores' no esta vacío, si es así, mostramos el error. -->
                             </td>
                         </tr>
                         <tr>
@@ -85,21 +78,14 @@
                             </td>
                         </tr>
                         <tr>
-                            <!-- Volumen Negocio Departamento Opcional -->
+                            <!-- Volumen Negocio Departamento Bloqueado -->
                             <td class="d-flex justify-content-start">
                                 <label for="T02_VolumenDeNegocio_">Volumen de Negocio:</label>
                             </td>
-                            <td>                                                                                                <!-- El value contiene una operador ternario en el que por medio de un metodo 'isset()'
-                                                                                                                                comprobamos que exista la variable y no sea 'null'. En el caso verdadero devovleremos el contenido del campo
-                                                                                                                                que contiene '$_REQUEST' , en caso falso sobrescribira el campo a '' .-->
-                                <input class="d-flex justify-content-start" type="text" name="T02_VolumenDeNegocio_" value="<?php echo (isset($_REQUEST['T02_VolumenDeNegocio']) ? $_REQUEST['T02_VolumenDeNegocio'] : $volumenNegocioAEditar); ?>">
+                            <td>                                                                                                
+                                <input class="bloqueado d-flex justify-content-start" type="number" name="T02_VolumenDeNegocio_" value="<?php echo ($volumenNegocioAEditar); ?>" disabled>
                             </td>
                             <td class="error">
-                                <?php
-                                if (!empty($aErrores['T02_VolumenDeNegocio'])) {
-                                    echo $aErrores['T02_VolumenDeNegocio'];
-                                }
-                                ?> <!-- Aquí comprobamos que el campo del array '$aErrores' no esta vacío, si es así, mostramos el error. -->
                             </td>
                         </tr>
                         <?php
@@ -121,11 +107,11 @@
                         </tbody>
                     </table>
                     <div class="text-center">
-                        <button class="btn btn-secondary" aria-disabled="true" type="submit" name="confirmarCambiosEditar">Confirmar Cambios</button>
-                        <button class="btn btn-secondary" aria-disabled="true" type="submit" name="cancelarEditar">Cancelar</button>
+                        <button class="btn btn-danger" aria-disabled="true" type="submit" name="confirmarCambiosEliminar">Eliminar</button>
+                        <button class="btn btn-secondary" aria-disabled="true" type="submit" name="cancelarEliminar">Cancelar</button>
                     </div>
                 </fieldset>
-            </form> 
+            </form>
         </div>
     </div>
 </div>

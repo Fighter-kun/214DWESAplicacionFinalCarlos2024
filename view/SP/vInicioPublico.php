@@ -1,5 +1,5 @@
 <!--
-        Descripción: 214DWESLoginLogoutMulticapaPOO -- vInicioPublico.php (Castellano)
+        Descripción: Aplicación Final -- vInicioPublico.php (Castellano)
         Autor: Carlos García Cachón
         Fecha de creación/modificación: 10/01/2024
 -->

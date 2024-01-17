@@ -6,7 +6,7 @@
  * @since 03/01/2024
  * Modificado por @author Carlos García Cachón
  * 
- * @Annotation Proyecto LoginLogoutMulticapaPOO - Clase UsuarioPDO
+ * @Annotation Aplicación Final - Clase UsuarioPDO
  * 
  */
 class UsuarioPDO implements UsuarioDB {

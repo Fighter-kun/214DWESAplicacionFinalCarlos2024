@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!--
-        Descripción: 214DWESLoginLogoutMulticapaPOO -- layout.php (Inglés)
+        Descripción: Aplicación Final -- layout.php (Inglés)
         Autor: Carlos García Cachón
         Fecha de creación/modificación: 12/01/2024
 -->
@@ -8,8 +8,8 @@
     <head>
         <meta charset="UTF-8">
         <meta name="author" content="Carlos García Cachón">
-        <meta name="description" content="214DWESLoginLogoutMulticapaPOO">
-        <meta name="keywords" content="214DWESLoginLogoutMulticapaPOO, DWES">
+        <meta name="description" content="Aplicación Final">
+        <meta name="keywords" content="Aplicación Final, DWES">
         <meta name="generator" content="Apache NetBeans IDE 19">
         <meta name="generator" content="60">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -32,7 +32,7 @@
 
     <body>
         <header class="text-center">
-            <h1>App LoginLogoutMulticapaPOO - <?php echo $aTitleLang[$_COOKIE['idioma']][$_SESSION['paginaEnCurso']]?></h1>
+            <h1>App Final - <?php echo $aTitleLang[$_COOKIE['idioma']][$_SESSION['paginaEnCurso']]?></h1>
         </header>
         <main>
             <div class="container">
@@ -51,7 +51,7 @@
                 </div>
                 <div class="footer-item"></div>
                 <div class="footer-item">
-                    <a href="https://github.com/Fighter-kun/214DWESLoginLogoutMulticapaPOO.git" target="_blank"><img
+                    <a href="https://github.com/Fighter-kun/214DWESAplicacionFinalCarlos2024.git" target="_blank"><img
                             src="webroot/media/images/github.png" alt="LogoGitHub" /></a>
                 </div>
             </div>

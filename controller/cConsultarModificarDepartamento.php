@@ -6,7 +6,7 @@
  * @since 11/01/2024
  * @copyright Todos los derechos reservados a Carlos García
  * 
- * @Annotation Proyecto MtoDepartamentosmysPDOTema4 - Parte de 'editarDepartamento' 
+ * @Annotation Aplicación Final - Parte de 'editarDepartamento' 
  * 
  */
 // Estructura del botón cancelar, si el usuario pulsa el botón 'cancelar'
@@ -24,7 +24,7 @@ $entradaOK = true;
 $aErrores = ['T02_DescDepartamento' => '',
     'T02_VolumenDeNegocio' => ''];
 // Recuperamos el código del departamento que hemos seleccionamo mediante el metodo 'POST'
-$codDepartamentoSeleccionado = $_SESSION['codDepartamentoEnCurso'];
+$codDepartamentoSeleccionado = $_SESSION['codDepartamentoActual'];
 // Bloque para recoger datos que mostramos en el formulario
 try {
     $miDB = new PDO(DSN, USERNAME, PASSWORD); // Instanciamos un objeto PDO y establecemos la conexión
@@ -42,7 +42,7 @@ try {
     $fechaBajaDepartamentoAEditar = $oDepartamentoAEditar->T02_FechaBajaDepartamento;
 
     if (isset($_REQUEST['confirmarCambiosEditar'])) { // Comprobamos que el usuario haya enviado el formulario para 'confirmar los cambios'
-        $aErrores['T02_DescDepartamento'] = validacionFormularios::comprobarAlfaNumerico($_REQUEST['T02_DescDepartamento'], 255, 3, 0);
+        $aErrores['T02_DescDepartamento'] = validacionFormularios::comprobarAlfaNumerico($_REQUEST['T02_DescDepartamento'], 255, 3, 1);
         $aErrores['T02_VolumenDeNegocio'] = validacionFormularios::comprobarFloat($_REQUEST['T02_VolumenDeNegocio_'], PHP_FLOAT_MAX, -PHP_FLOAT_MAX, 0);
 
 // Recorremos el array de errores

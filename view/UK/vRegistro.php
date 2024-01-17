@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!--
-        Descripción: 214DWESLoginLogoutMulticapaPOO -- vRegistro.php (Inglés)
+        Descripción: Aplicación Final -- vRegistro.php (Inglés)
         Autor: Carlos García Cachón
         Fecha de creación/modificación: 12/01/2024
 -->

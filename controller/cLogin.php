@@ -5,7 +5,7 @@
  * @since 02/01/2024
  * @copyright Todos los derechos reservados a Carlos García
  * 
- * @Annotation Proyecto LoginLogoutMulticapaPOO - Parte de 'cLogin' 
+ * @Annotation Aplicación Final - Parte de 'cLogin' 
  * 
  */
 
@@ -64,7 +64,7 @@ if($entradaOK) {
      */ 
     $oUsuarioValido = UsuarioPDO::registrarUltimaConexion($oUsuarioValido);
     
-    $_SESSION['user214DWESLoginLogoutMulticapaPOO'] = $oUsuarioValido; // Almaceno el Usuario en una variable de sesión 
+    $_SESSION['usuarioMiAplicacion'] = $oUsuarioValido; // Almaceno el Usuario en una variable de sesión 
     $_SESSION['paginaEnCurso'] = 'inicioPrivado'; // Asigno a la pagina en curso la pagina de inicioPrivado
     header('Location: index.php'); // Redirecciono al index de la APP
     exit;

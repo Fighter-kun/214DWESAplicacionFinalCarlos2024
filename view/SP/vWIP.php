@@ -1,5 +1,5 @@
 <!--
-        Descripción: 214DWESLoginLogoutMulticapaPOO -- vWIP.php (Castellano)
+        Descripción: Aplicación Final -- vWIP.php (Castellano)
         Autor: Carlos García Cachón
         Fecha de creación/modificación: 04/02/2024
 -->

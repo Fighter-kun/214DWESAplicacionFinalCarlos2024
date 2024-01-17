@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!--
-        Descripción: 214DWESLoginLogoutMulticapaPOO -- vInicioPublico.php (Inglés)
+        Descripción: Aplicación Final -- vInicioPublico.php (Inglés)
         Autor: Carlos García Cachón
         Fecha de creación/modificación: 12/01/2024
 -->
@@ -40,7 +40,7 @@
              * @since 04/01/2024
              * @copyright Todos los derechos reservados a Carlos García
              * 
-             * @Annotation Proyecto LoginLogoutMulticapaPOO - Parte de 'cInicioPrivado' 
+             * @Annotation Aplicación Final - Parte de 'cInicioPrivado' 
              * 
              */
             if ($numeroConexionesUsuario == 1) { // Compruebo si es la primera vez que se conecta y omito la fecha y hora de última conexión

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!--
-        Descripción: 214DWESLoginLogoutMulticapaPOO -- vLogin.php (Castellano)
+        Descripción: Aplicación Final -- vLogin.php (Castellano)
         Autor: Carlos García Cachón
         Fecha de creación/modificación: 02/01/2024
 -->

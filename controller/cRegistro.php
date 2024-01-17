@@ -6,7 +6,7 @@
  * @since 02/01/2024
  * @copyright Todos los derechos reservados a Carlos García
  * 
- * @Annotation Proyecto LoginLogoutMulticapaPOO - Parte de 'cRegistro' 
+ * @Annotation Aplicación Final - Parte de 'cRegistro' 
  * 
  */
 
@@ -88,7 +88,7 @@ if ($entradaOK) {
 
     $oRegistroUsuario = UsuarioPDO::altaUsuario($_REQUEST['T01_CodUsuario'], $_REQUEST['T01_Password'], $_REQUEST['T01_DescUsuario']);
 
-    $_SESSION['user214DWESLoginLogoutMulticapaPOO'] = $oRegistroUsuario; // Almaceno el nuevo Usuario en una variable de sesión 
+    $_SESSION['usuarioMiAplicacion'] = $oRegistroUsuario; // Almaceno el nuevo Usuario en una variable de sesión 
     $_SESSION['paginaEnCurso'] = 'inicioPrivado'; // Asigno a la pagina en curso la pagina de inicioPrivado
     header('Location: index.php'); // Redirecciono al index de la APP
     exit;

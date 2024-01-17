@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!--
-        Descripción: 214DWESLoginLogoutMulticapaPOO - Mto.Departamentos - vMtoDepartamento.php (Castellano)
+        Descripción: Aplicación Final - vMtoDepartamento.php (Castellano)
         Autor: Carlos García Cachón
         Fecha de creación/modificación: 16/01/2024
 -->
@@ -28,6 +28,28 @@
     .grupoDeBotones {
         margin-top: 35%;
     }
+    /*******************/
+    .btn-container {
+        position: relative;
+        display: inline-block;
+    }
+
+    .descripcionExportar {
+        display: none;
+        position: absolute;
+        width: 500px;
+        top: -200%;
+        left: 50%;
+        transform: translateX(-50%);
+        background-color: #555;
+        color: #fff;
+        padding: 5px;
+        border-radius: 5px;
+    }
+
+    .btn-container:hover .descripcionExportar {
+        display: block;
+    }
 </style>
 <div class="container mt-3">
     <div class="row mb-5">
@@ -40,12 +62,12 @@
                             <tr style="background-color: #f2f2f2;">
                                 <!-- CodDepartamento Obligatorio -->
                                 <td class="d-flex justify-content-start" colspan='2'>
-                                    <label for="DescDepartamento"></label>
+                                    <label for="DescDepartamento">Descripción:</label>
                                 </td>
                                 <td>                                                                                                <!-- El value contiene una operador ternario en el que por medio de un metodo 'isset()'
                                                                                                                                     comprobamos que exista la variable y no sea 'null'. En el caso verdadero devovleremos el contenido del campo
                                                                                                                                     que contiene '$_REQUEST' , en caso falso sobrescribira el campo a '' .-->
-                                    <input class="d-flex justify-content-start" type="text" name="DescDepartamento" value="<?php echo (isset($_REQUEST['DescDepartamento']) ? $_REQUEST['DescDepartamento'] : ''); ?>">
+                                    <input class="d-flex justify-content-start" type="text" name="DescDepartamento" value="<?php echo (isset($_REQUEST['DescDepartamento']) ? $_REQUEST['DescDepartamento'] : $criterioDeBusqueda); ?>">
                                 </td>
                                 <td><button class="btn btn-secondary" role="button" aria-disabled="true" type="submit" name="enviar">Buscar</button></td>
                             </tr>
@@ -69,7 +91,10 @@
     <div class="row">
         <div class="col grupoDeBotones">
             <form name="indexMtoDepartamentos" method="post">
-                <button class="btn btn-secondary" role="button" aria-disabled="true" type="submit" name="exportarDepartamentos">Exportar</button>
+                <div class="btn-container">
+                    <div class="descripcionExportar">Si pulsas exportar descarga un fichero '.zip' que contiene todos los departamentos en '.json' y '.xml'</div>
+                    <button id="exportButton" class="btn btn-secondary" role="button" aria-disabled="true" type="submit" name="exportarDepartamentos">Exportar</button>
+                </div>
                 <button class="btn btn-secondary" role="button" aria-disabled="true" type="submit" name="importarDepartamentos">Importar</button>
                 <button class="btn btn-secondary" role="button" aria-disabled="true" type="submit" name="añadirDepartamento">Añadir Departamento</button>
                 <button class="btn btn-secondary" role="button" aria-disabled="true" type="submit" name="salirDepartamentos">Salir</button>

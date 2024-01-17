@@ -1,5 +1,5 @@
 <!--
-        Descripción: 214DWESLoginLogoutMulticapaPOO -- vCambiarContraseña.php (Castellano)
+        Descripción: Aplicación Final -- vCambiarContraseña.php (Castellano)
         Autor: Carlos García Cachón
         Fecha de creación/modificación: 12/01/2024
 -->

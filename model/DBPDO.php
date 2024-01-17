@@ -5,7 +5,7 @@
  * @since 03/01/2024
  * @copyright Todos los derechos reservados a Carlos García
  * 
- * @Annotation Proyecto LoginLogoutMulticapaPOO - Clase DBPDO
+ * @Annotation Aplicación Final - Clase DBPDO
  * 
  */
 class DBPDO implements DB {

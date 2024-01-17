@@ -1,5 +1,5 @@
 <!--
-        Descripción: 214DWESLoginLogoutMulticapaPOO -- vError.php (Castellano)
+        Descripción: Aplicación Final -- vError.php (Castellano)
         Autor: Carlos García Cachón
         Fecha de creación/modificación: 03/02/2024
 -->

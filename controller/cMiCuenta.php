@@ -5,7 +5,7 @@
  * @since 04/01/2024
  * @copyright Todos los derechos reservados a Carlos García
  * 
- * @Annotation Proyecto LoginLogoutMulticapaPOO - Parte de 'cMiCuenta'
+ * @Annotation Aplicación Final - Parte de 'cMiCuenta'
  * 
  */
 
@@ -40,7 +40,7 @@ if(isset($_REQUEST['confirmarCambios'])){
 // Si la entrada esta correcta iniciamos la modificación del la descripción del usuario
 if ($entradaOK) { 
     // Utilizamos el método 'modificarUsuario()' de la clase 'UsuarioPDO' para cambiar la descripción y almacenarla en la variable de sesión
-    $_SESSION['user214DWESLoginLogoutMulticapaPOO'] = UsuarioPDO::modificarUsuario($_SESSION['user214DWESLoginLogoutMulticapaPOO'], $_REQUEST['T01_DescUsuario']);
+    $_SESSION['usuarioMiAplicacion'] = UsuarioPDO::modificarUsuario($_SESSION['usuarioMiAplicacion'], $_REQUEST['T01_DescUsuario']);
     $_SESSION['paginaEnCurso'] = 'inicioPrivado'; // Asigno a la página en curso la pagina de inicioPrivado
     header('Location: index.php'); // Redirecciono al index de la APP
     exit; 
@@ -62,11 +62,11 @@ if(isset($_REQUEST['eliminarU'])){
 
 // Almaceno...
 $aVMiCuenta = [
-    'codigoUsuarioActual' => $_SESSION['user214DWESLoginLogoutMulticapaPOO']->get_codUsuario(), // Código del usuario actual
-    'contraseñaUsuarioActual' => $_SESSION['user214DWESLoginLogoutMulticapaPOO']->get_password(), // Contraseña del usuario actual
-    'descripcionUsuarioActual' => $_SESSION['user214DWESLoginLogoutMulticapaPOO']->get_descUsuario(), // Descripción del usuario actual
-    'nConexionesUsuarioActual' => $_SESSION['user214DWESLoginLogoutMulticapaPOO']->get_numAcceso(), // Numero de conexiones del usuario actual
-    'fechaHoraUltimaConexionAnteriorUsuarioActual' => $_SESSION['user214DWESLoginLogoutMulticapaPOO']->get_fechaHoraUltimaConexionAnterior() // Fecha/Hora conexión anterior del usuario actual
+    'codigoUsuarioActual' => $_SESSION['usuarioMiAplicacion']->get_codUsuario(), // Código del usuario actual
+    'contraseñaUsuarioActual' => $_SESSION['usuarioMiAplicacion']->get_password(), // Contraseña del usuario actual
+    'descripcionUsuarioActual' => $_SESSION['usuarioMiAplicacion']->get_descUsuario(), // Descripción del usuario actual
+    'nConexionesUsuarioActual' => $_SESSION['usuarioMiAplicacion']->get_numAcceso(), // Numero de conexiones del usuario actual
+    'fechaHoraUltimaConexionAnteriorUsuarioActual' => $_SESSION['usuarioMiAplicacion']->get_fechaHoraUltimaConexionAnterior() // Fecha/Hora conexión anterior del usuario actual
 ];
 
 
