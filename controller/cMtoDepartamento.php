@@ -58,7 +58,7 @@ if (isset($_REQUEST['cRehabilitacionDepartamento'])) {
 // Estructura del botón exportar, si el usuario pulsa el botón 'exportar'
 if (isset($_REQUEST['exportarDepartamentos'])) {
     $_SESSION['paginaAnterior'] = 'consultarDepartamento'; // Almaceno la página anterior para poder volver
-    $_SESSION['paginaEnCurso'] = 'wip'; // Asigno a la página en curso la pagina de exportarDepartamentos
+    $_SESSION['paginaEnCurso'] = 'exportarDepartamento'; // Asigno a la página en curso la pagina de exportarDepartamentos
     header('Location: index.php'); // Redirecciono al index de la APP
     exit;
 }

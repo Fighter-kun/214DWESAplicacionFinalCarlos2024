@@ -36,7 +36,9 @@ $aController = [
     'editarDepartamento' => 'controller/cConsultarModificarDepartamento.php',
     'eliminarDepartamento' => 'controller/cEliminarDepartamento.php',
     'bajaDepartamento' => 'controller/cBajaLogicaDepartamento.php',
-    'altaDepartamento' => 'controller/cRehabilitacionDepartamento.php'
+    'altaDepartamento' => 'controller/cRehabilitacionDepartamento.php',
+    'exportarDepartamento' => 'controller/cExportarDepartamentos.php',
+    'importarDepartamento' => 'controller/cImportarDepartamentos.php'
 ];
 
 // En el array de '$aView' almacenamos un array por idioma, para mostrar la vista en el idioma elegído por el usuario
@@ -58,8 +60,7 @@ $aView = [
         'añadirDepartamento' => 'view/SP/vAltaDepartamento.php',
         'editarDepartamento' => 'view/SP/vConsultarModificarDepartamento.php',
         'eliminarDepartamento' => 'view/SP/vEliminarDepartamento.php',
-        'bajaDepartamento' => 'view/SP/vBajaLogicaDepartamento.php',
-        'altaDepartamento' => 'view/SP/vRehabilitacionDepartamento.php'
+        'importarDepartamento' => 'view/SP/vImportarDepartamentos.php'
     ],
     'UK' => [
         'layout' => 'view/UK/layout.php',
@@ -78,8 +79,7 @@ $aView = [
         'añadirDepartamento' => 'view/UK/vAltaDepartamento.php',
         'editarDepartamento' => 'view/UK/vConsultarModificarDepartamento.php',
         'eliminarDepartamento' => 'view/UK/vEliminarDepartamento.php',
-        'bajaDepartamento' => 'view/UK/vBajaLogicaDepartamento.php', // Preguntar por la vista
-        'altaDepartamento' => 'view/UK/vRehabilitacionDepartamento.php' // Preguntar por la vista
+        'importarDepartamento' => 'view/UK/vImportarDepartamentos.php' 
     ]
 ];
 
@@ -100,8 +100,7 @@ $aTitleLang = [
         'añadirDepartamento' => 'Añadir Departamento',
         'editarDepartamento' => 'Editar Departamento',
         'eliminarDepartamento' => 'Eliminar Departamento',
-        'bajaDepartamento' => 'Baja Departamento',
-        'altaDepartamento' => 'Alta Departamento'
+        'importarDepartamento' => 'Importar Departamentos' 
     ],
     'UK' => [ //Inlgés
         'inicioPublico' => 'Public Home',
@@ -118,7 +117,6 @@ $aTitleLang = [
         'añadirDepartamento' => 'Add Department',
         'editarDepartamento' => 'Edit Department',
         'eliminarDepartamento' => 'Delete Department',
-        'bajaDepartamento' => 'Unsubscribe Department',
-        'altaDepartamento' => 'Sign Up Department'
+        'importarDepartamento' => 'Import Departments'
     ]
 ];
