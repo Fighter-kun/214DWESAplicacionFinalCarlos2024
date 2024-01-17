@@ -66,7 +66,7 @@ if (isset($_REQUEST['exportarDepartamentos'])) {
 // Estructura del botón importar, si el usuario pulsa el botón 'importar'
 if (isset($_REQUEST['importarDepartamentos'])) {
     $_SESSION['paginaAnterior'] = 'consultarDepartamento'; // Almaceno la página anterior para poder volver
-    $_SESSION['paginaEnCurso'] = 'wip'; // Asigno a la página en curso la pagina de importarDepartamentos
+    $_SESSION['paginaEnCurso'] = 'importarDepartamento'; // Asigno a la página en curso la pagina de importarDepartamentos
     header('Location: index.php'); // Redirecciono al index de la APP
     exit;
 }

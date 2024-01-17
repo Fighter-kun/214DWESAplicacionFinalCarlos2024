@@ -1,3 +1,9 @@
+<!DOCTYPE html>
+<!--
+        Descripción: Aplicación Final -- vAltaDepartamento.php (Castellano)
+        Autor: Carlos García Cachón
+        Fecha de creación/modificación: 04/01/2024
+-->
 <style>
     .obligatorio {
         background-color: #ffff7a;

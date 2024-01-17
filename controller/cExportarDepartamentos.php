@@ -186,7 +186,11 @@ try {
         unlink($rutaArchivoZIP);
         unlink("../tmp/departamentos.json");
         unlink("../tmp/departamentos.xml");
-        exit(); // Detenemos el script
+        
+        $_SESSION['paginaAnterior'] = 'exportarDepartamento'; // Almaceno la página anterior para poder volver
+        $_SESSION['paginaEnCurso'] = 'consultarDepartamento'; // Asigno a la página en curso la pagina de consultarDepartamento
+        header('Location: index.php'); // Redirecciono al index de la APP
+        exit;
     } else {
         echo "<br><span style='color: red'>Error al exportar el archivo ZIP</span>";
     }
