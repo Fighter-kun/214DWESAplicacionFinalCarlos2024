@@ -141,7 +141,7 @@ if (isset($_REQUEST['enviar'])) {
                                             <th>Fecha de Creación</th>
                                             <th>Volumen de Negocio</th>
                                             <th>Fecha de Baja</th>
-                                            <th colspan='3'><-T-></th>
+                                            <th colspan='4'><-T-></th>
                                         </tr>
                                         </thead>");
 
@@ -174,7 +174,7 @@ if (isset($_REQUEST['enviar'])) {
             echo ("<td>");
             echo ("<form method='post'>");
             echo ("<input type='hidden' name='cEliminarDepartamento' value='" . $oDepartamento->T02_CodDepartamento . "'>");
-            echo ("<button type='submit'><svg width='16' height='16' clip-rule='evenodd' fill-rule='evenodd' stroke-linejoin='round' stroke-miterlimit='2' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'><path d='m12 10.93 5.719-5.72c.146-.146.339-.219.531-.219.404 0 .75.324.75.749 0 .193-.073.385-.219.532l-5.72 5.719 5.719 5.719c.147.147.22.339.22.531 0 .427-.349.75-.75.75-.192 0-.385-.073-.531-.219l-5.719-5.719-5.719 5.719c-.146.146-.339.219-.531.219-.401 0-.75-.323-.75-.75 0-.192.073-.384.22-.531l5.719-5.719-5.72-5.719c-.146-.147-.219-.339-.219-.532 0-.425.346-.749.75-.749.192 0 .385.073.531.219z' fill='red'/></svg></button>");
+            echo ("<button type='submit'><img src='doc/eliminarDepartamento.png' alt='DELETE'></button>");
             echo ("</form>");
             echo ("</td>");
 
@@ -182,7 +182,7 @@ if (isset($_REQUEST['enviar'])) {
             echo ("<td>");
             echo ("<form method='post'>");
             echo ("<input type='hidden' name='cRehabilitacionDepartamento' value='" . $oDepartamento->T02_CodDepartamento . "'>");
-            echo ("<button type='submit'>ALTA</button>");
+            echo ("<button type='submit'><img src='doc/flechaAlta.png' alt='ALTA'></button>");
             echo ("</form>");
             echo ("</td>");
             
@@ -190,7 +190,7 @@ if (isset($_REQUEST['enviar'])) {
             echo ("<td>");
             echo ("<form method='post'>");
             echo ("<input type='hidden' name='cBajaLogicaDepartamento' value='" . $oDepartamento->T02_CodDepartamento . "'>");
-            echo ("<button type='submit'>BAJA</button>");
+            echo ("<button type='submit'><img src='doc/flechaBaja.png' alt='BAJA'></button>");
             echo ("</form>");
             echo ("</td>");
             
@@ -203,7 +203,7 @@ if (isset($_REQUEST['enviar'])) {
          */
         $numeroDeRegistrosConsulta = $resultadoConsulta->rowCount();
         // Y mostramos el número de registros
-        echo ("<tfoot ><tr style='background-color: #666; color:white;'><td colspan='8'>Número de registros en la tabla Departamento: " . $numeroDeRegistrosConsulta . '</td></tr></tfoot>');
+        echo ("<tfoot ><tr style='background-color: #666; color:white;'><td colspan='9'>Número de registros en la tabla Departamento: " . $numeroDeRegistrosConsulta . '</td></tr></tfoot>');
         echo ("</table>");
         echo ("</div>");
         //Mediante PDOExprecion controlamos los errores
@@ -245,7 +245,7 @@ if ($entradaOK) {
                                             <th>Fecha de Creación</th>
                                             <th>Volumen de Negocio</th>
                                             <th>Fecha de Baja</th>
-                                            <th colspan='3'><-T-></th>
+                                            <th colspan='4'><-T-></th>
                                         </tr>
                                         </thead>");
 
@@ -276,7 +276,7 @@ if ($entradaOK) {
             echo ("<td>");
             echo ("<form method='post'>");
             echo ("<input type='hidden' name='cEliminarDepartamento' value='" . $oDepartamento->T02_CodDepartamento . "'>");
-            echo ("<button type='submit'><svg width='16' height='16' clip-rule='evenodd' fill-rule='evenodd' stroke-linejoin='round' stroke-miterlimit='2' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'><path d='m12 10.93 5.719-5.72c.146-.146.339-.219.531-.219.404 0 .75.324.75.749 0 .193-.073.385-.219.532l-5.72 5.719 5.719 5.719c.147.147.22.339.22.531 0 .427-.349.75-.75.75-.192 0-.385-.073-.531-.219l-5.719-5.719-5.719 5.719c-.146.146-.339.219-.531.219-.401 0-.75-.323-.75-.75 0-.192.073-.384.22-.531l5.719-5.719-5.72-5.719c-.146-.147-.219-.339-.219-.532 0-.425.346-.749.75-.749.192 0 .385.073.531.219z' fill='red'/></svg></button>");
+            echo ("<button type='submit'><img src='doc/eliminarDepartamento.png' alt='DELETE'></button>");
             echo ("</form>");
             echo ("</td>");
 
@@ -284,7 +284,7 @@ if ($entradaOK) {
             echo ("<td>");
             echo ("<form method='post'>");
             echo ("<input type='hidden' name='cRehabilitacionDepartamento' value='" . $oDepartamento->T02_CodDepartamento . "'>");
-            echo ("<button type='submit'>ALTA</button>");
+            echo ("<button type='submit'><img src='doc/flechaAlta.png' alt='ALTA'></button>");
             echo ("</form>");
             echo ("</td>");
             
@@ -292,7 +292,7 @@ if ($entradaOK) {
             echo ("<td>");
             echo ("<form method='post'>");
             echo ("<input type='hidden' name='cBajaLogicaDepartamento' value='" . $oDepartamento->T02_CodDepartamento . "'>");
-            echo ("<button type='submit'>BAJA</button>");
+            echo ("<button type='submit'><img src='doc/flechaBaja.png' alt='BAJA'></button>");
             echo ("</form>");
             echo ("</td>");
 
@@ -305,7 +305,7 @@ if ($entradaOK) {
          */
         $numeroDeRegistrosConsulta = $resultadoConsulta->rowCount();
         // Y mostramos el número de registros
-        echo ("<tfoot ><tr style='background-color: #666; color:white;'><td colspan='8'>Número de registros en la tabla Departamento: " . $numeroDeRegistrosConsulta . '</td></tr></tfoot>');
+        echo ("<tfoot ><tr style='background-color: #666; color:white;'><td colspan='9'>Número de registros en la tabla Departamento: " . $numeroDeRegistrosConsulta . '</td></tr></tfoot>');
         echo ("</table>");
         echo ("</div>");
         //Mediante PDOExprecion controlamos los errores
