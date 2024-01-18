@@ -25,8 +25,8 @@
         max-height: 60vh; /* Establece una altura máxima del 50% de la altura visible del navegador */
         overflow-y: auto; /* Agrega una barra de desplazamiento vertical si es necesario */
     }
-    .grupoDeBotones {
-        margin-top: 35%;
+    #buscarDepartamentos {
+        height: 15%;
     }
     /*******************/
     .btn-container {
@@ -52,7 +52,7 @@
     }
 </style>
 <div class="container mt-3">
-    <div class="row mb-5">
+    <div class="row mb-2">
         <div class="col text-center">
             <form name="buscarDepartamentos" id="buscarDepartamentos" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
                 <fieldset>
@@ -67,9 +67,9 @@
                                 <td>                                                                                                <!-- El value contiene una operador ternario en el que por medio de un metodo 'isset()'
                                                                                                                                     comprobamos que exista la variable y no sea 'null'. En el caso verdadero devovleremos el contenido del campo
                                                                                                                                     que contiene '$_REQUEST' , en caso falso sobrescribira el campo a '' .-->
-                                    <input class="d-flex justify-content-start" type="text" name="DescDepartamento" value="<?php echo (isset($_REQUEST['DescDepartamento']) ? $_REQUEST['DescDepartamento'] : $criterioDeBusqueda); ?>">
+                                    <input class="d-flex justify-content-start" type="text" name="DescDepartamento" value="<?php echo $_SESSION['criterioBusquedaDepartamentos']['descripcionBuscada'] ?? ''; ?>">
                                 </td>
-                                <td><button class="btn btn-secondary" role="button" aria-disabled="true" type="submit" name="enviar">Buscar</button></td>
+                                <td><button class="btn btn-secondary" role="button" aria-disabled="true" type="submit" name="buscarDepartamentoPorDesc">Buscar</button></td>
                             </tr>
                             <tr style="background-color: #f2f2f2;">
                                 <td class="error" colspan="3">
@@ -86,6 +86,91 @@
 
                 </fieldset>
             </form>
+            <?php
+            if ($aDepartamentosVista != null) {
+                echo ("<table>
+                        <thead>
+                        <tr>
+                            <th>Código</th>
+                            <th>Descripción</th>
+                            <th>Fecha de Creación</th>
+                            <th>Volumen de Negocio</th>
+                            <th>Fecha de Baja</th>
+                            <th colspan='4'><-T-></th>
+                        </tr>
+                        </thead>");
+                echo ("<div class='list-group text-center tablaMuestra'>");
+                echo ("<tbody>");
+            }
+            ?>
+            <?php
+            if ($aDepartamentosVista) {
+
+                foreach ($aDepartamentosVista as $aDepartamento) {//Recorro el objeto del resultado que contiene un array
+
+
+                    /* Aqui recorremos todos los valores de la tabla, columna por columna, usando el parametro 'PDO::FETCH_ASSOC' , 
+                     * el cual nos indica que los resultados deben ser devueltos como un array asociativo, donde los nombres de las columnas de 
+                     * la tabla se utilizan como claves (keys) en el array.
+                     */
+
+
+                    echo ("<tr>");
+
+                    echo ("<td>" . $aDepartamento['codDepartamento'] . "</td>");
+                    echo ("<td>" . $aDepartamento['descDepartamento'] . "</td>");
+                    echo ("<td>" . $aDepartamento['fechaCreacionDep'] . "</td>");
+                    echo ("<td>" . $aDepartamento['volumenDeNegocio'] . "</td>");
+                    echo ("<td>" . $aDepartamento['fechaBajaDep'] . "</td>");
+
+                    // Formulario para editar
+                    echo ("<td>");
+                    if (empty($aDepartamento['fechaBajaDep'])) {
+                        echo ("<form method='post'>");
+                        echo ("<input type='hidden' name='cConsultarModificarDepartamento' value='" . $aDepartamento['codDepartamento'] . "'>");
+                        echo ("<button type='submit'>EDITAR</button>");
+                        echo ("</form>");
+                    }
+                    echo ("</td>");
+
+                    // Formulario para eliminar
+                    echo ("<td>");
+                    echo ("<form method='post'>");
+                    echo ("<input type='hidden' name='cEliminarDepartamento' value='" . $aDepartamento['codDepartamento'] . "'>");
+                    echo ("<button type='submit'><img src='doc/eliminarDepartamento.png' alt='DELETE'></button>");
+                    echo ("</form>");
+                    echo ("</td>");
+
+                    // Formulario para alta lógica
+                    echo ("<td>");
+                    echo ("<form method='post'>");
+                    echo ("<input type='hidden' name='cRehabilitacionDepartamento' value='" . $aDepartamento['codDepartamento'] . "'>");
+                    echo ("<button type='submit'><img src='doc/flechaAlta.png' alt='ALTA'></button>");
+                    echo ("</form>");
+                    echo ("</td>");
+
+                    // Formulario para baja lógica
+                    echo ("<td>");
+                    echo ("<form method='post'>");
+                    echo ("<input type='hidden' name='cBajaLogicaDepartamento' value='" . $aDepartamento['codDepartamento'] . "'>");
+                    echo ("<button type='submit'><img src='doc/flechaBaja.png' alt='BAJA'></button>");
+                    echo ("</form>");
+                    echo ("</td>");
+
+                    echo ("</tr>");
+                }
+            }
+            if ($aDepartamentosVista != null) {
+                echo ("</tbody>");
+                /* Ahora usamos la función 'rowCount()' que nos devuelve el número de filas afectadas por la consulta y 
+                 * almacenamos el valor en la variable '$numeroDeRegistros'
+                 */
+                // Y mostramos el número de registros
+                echo ("<tfoot ><tr style='background-color: #666; color:white;'><td colspan='9'>Número de registros en la tabla Departamento: " . $numeroDeRegistrosConsulta . '</td></tr></tfoot>');
+                echo ("</table>");
+                echo ("</div>");
+            }
+            ?>
         </div>
     </div>
     <div class="row">

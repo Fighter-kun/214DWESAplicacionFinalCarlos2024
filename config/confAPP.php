@@ -17,6 +17,8 @@ require_once 'model/ErrorApp.php';
 require_once 'model/Usuario.php';
 require_once 'model/UsuarioDB.php';
 require_once 'model/UsuarioPDO.php';
+require_once 'model/Departamento.php';
+require_once 'model/DepartamentoPDO.php';
 
 // Creamos dos 'arrays' para indicar el 'path' de los archivos del controlador y la vista
 $aController = [
