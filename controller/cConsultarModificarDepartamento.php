@@ -53,7 +53,7 @@ if (isset($_REQUEST['confirmarCambiosEditar'])) { // Comprobamos que el usuario 
     $entradaOK = false; // Si el usuario no ha enviado el formulario asignamos a entradaOK el valor false para que rellene el formulario
 }
 if ($entradaOK) { // Si el usuario ha rellenado el formulario correctamente rellenamos el array aFormulario con las respuestas introducidas por el usuario
-    // Y usando el metodo 'modificar' de la clase 'DepartamentoPDO' recuperamos el objeto completo
+    // Y usando el metodo 'modificaDepartamento' de la clase 'DepartamentoPDO' recuperamos el objeto completo
     DepartamentoPDO::modificaDepartamento($_SESSION['codDepartamentoActual'],$_REQUEST['T02_DescDepartamento'],$_REQUEST['T02_VolumenDeNegocio_']);
     $_SESSION['paginaAnterior'] = 'editarDepartamento'; // Almaceno la página anterior para poder volver
     $_SESSION['paginaEnCurso'] = 'consultarDepartamento'; // Asigno a la página en curso la pagina de consultarDepartamento

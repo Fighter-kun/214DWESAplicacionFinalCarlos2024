@@ -30,7 +30,7 @@ if (isset($_REQUEST['cConsultarModificarDepartamento'])) {
 if (isset($_REQUEST['cEliminarDepartamento'])) {
     $_SESSION['codDepartamentoActual'] = $_REQUEST['cEliminarDepartamento']; // Almaceno en una variable de sesión el Codigo del Departamento Seleccionado
     $_SESSION['paginaAnterior'] = 'consultarDepartamento'; // Almaceno la página anterior para poder volver
-    $_SESSION['paginaEnCurso'] = 'wip'; // Asigno a la página en curso la pagina de eliminarDepartamento
+    $_SESSION['paginaEnCurso'] = 'eliminarDepartamento'; // Asigno a la página en curso la pagina de eliminarDepartamento
     header('Location: index.php'); // Redirecciono al index de la APP
     exit;
 }

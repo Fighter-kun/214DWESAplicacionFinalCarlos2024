@@ -65,7 +65,8 @@ class DepartamentoPDO {
                         $oDepartamento->T02_CodDepartamento,
                         $oDepartamento->T02_DescDepartamento,
                         $oDepartamento->T02_FechaCreacionDepartamento,
-                        $oDepartamento->T02_VolumenDeNegocio);
+                        $oDepartamento->T02_VolumenDeNegocio,
+                        $oDepartamento->T02_FechaBajaDepartamento);
             } else {
                 return $oDepartamento; // Si no devuelvo el valor por defecto 'NULL'
             }
@@ -91,5 +92,19 @@ class DepartamentoPDO {
         
         return DBPDO::ejecutaConsulta($consulta); // Ejecutamos y devolvemos la consulta
     }
-    
+    /**
+     * Eliminar un Departamento (Baja Física)
+     *
+     * @param string $codDepartamento Codigo del Departamento a eliminar
+     * 
+     * @return PDOStatment Devuelve el resultado de la coonsulta
+     */
+    public static function bajaFisicaDepartamento($codDepartamento) {
+        // Consulta de busqueda según el valor del parametro introducido
+        $consulta = <<<CONSULTA
+            DELETE FROM T02_Departamento WHERE T02_CodDepartamento = '{$codDepartamento}';
+        CONSULTA;
+        
+        return DBPDO::ejecutaConsulta($consulta); // Ejecutamos y devolvemos la consulta
+    }
 }

@@ -42,14 +42,14 @@
                         </thead>
                         <tbody>
                             <tr>
-                        <input type="hidden" name="codDepartamento" value="<?php echo $codDepartamentoAEditar; ?>">
+                        <input type="hidden" name="codDepartamento" value="<?php echo $codDepartamentoAEliminar; ?>">
                         <!-- Codigo Departamento Deshabilitado -->
                         <td class="d-flex justify-content-start">
                             <label for="codDepartamentoAEditar">Código de Departamento:</label>
                         </td>
                         <td>
                             <input class="bloqueado d-flex justify-content-start" type="text" name="codDepartamentoAEditar"
-                                   value="<?php echo ($codDepartamentoAEditar); ?>" disabled>
+                                   value="<?php echo ($codDepartamentoAEliminar); ?>" disabled>
                         </td>
                         <td class="error">
                         </td>
@@ -60,7 +60,7 @@
                                 <label for="descripcionDepartamentoAEditar">Descripción de Departamento:</label>
                             </td>
                             <td>                                                                                                
-                                <input class="bloqueado d-flex justify-content-start" type="text" name="descripcionDepartamentoAEditar" value="<?php echo ($descripcionDepartamentoAEditar); ?>" disabled>
+                                <input class="bloqueado d-flex justify-content-start" type="text" name="descripcionDepartamentoAEditar" value="<?php echo ($descripcionDepartamentoAEliminar); ?>" disabled>
                             </td>
                             <td class="error">
                             </td>
@@ -72,7 +72,7 @@
                             </td>
                             <td>
                                 <input class="bloqueado d-flex justify-content-start" type="text" name="fechaCreacionDepartamentoAEditar"
-                                       value="<?php echo ($fechaCreacionDepartamentoAEditar); ?>" disabled>
+                                       value="<?php echo ($fechaCreacionDepartamentoAEliminar); ?>" disabled>
                             </td>
                             <td class="error">
                             </td>
@@ -83,13 +83,13 @@
                                 <label for="T02_VolumenDeNegocio_">Volumen de Negocio:</label>
                             </td>
                             <td>                                                                                                
-                                <input class="bloqueado d-flex justify-content-start" type="number" name="T02_VolumenDeNegocio_" value="<?php echo ($volumenNegocioAEditar); ?>" disabled>
+                                <input class="bloqueado d-flex justify-content-start" type="number" name="T02_VolumenDeNegocio_" value="<?php echo ($volumenNegocioAEliminar); ?>" disabled>
                             </td>
                             <td class="error">
                             </td>
                         </tr>
                         <?php
-                        if (!is_null($fechaBajaDepartamentoAEditar)) {
+                        if (!is_null($fechaBajaDepartamentoAEliminar)) {
                             echo ("<tr>
                                                     <!-- Fecha Baja Departamento Deshabilitado -->
                                                     <td class=\"d-flex justify-content-start\">
@@ -97,7 +97,7 @@
                                                     </td>
                                                     <td>
                                                         <input class=\"bloqueado d-flex justify-content-start\" type=\"text\" name=\"fechaBajaDepartamentoAEditar\"
-                                                               value=\"$fechaBajaDepartamentoAEditar\" disabled>
+                                                               value=\"$fechaBajaDepartamentoAEliminar\" disabled>
                                                     </td>
                                                     <td class=\"error\">
                                                     </td>
