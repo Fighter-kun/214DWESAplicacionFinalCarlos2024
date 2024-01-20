@@ -21,7 +21,7 @@ if (isset($_REQUEST['salirDepartamentos'])) {
 if (isset($_REQUEST['cConsultarModificarDepartamento'])) {
     $_SESSION['codDepartamentoActual'] = $_REQUEST['cConsultarModificarDepartamento']; // Almaceno en una variable de sesión el Codigo del Departamento Seleccionado
     $_SESSION['paginaAnterior'] = 'consultarDepartamento'; // Almaceno la página anterior para poder volver
-    $_SESSION['paginaEnCurso'] = 'wip'; // Asigno a la página en curso la pagina de ConsultarModificarDepartamento
+    $_SESSION['paginaEnCurso'] = 'editarDepartamento'; // Asigno a la página en curso la pagina de ConsultarModificarDepartamento
     header('Location: index.php'); // Redirecciono al index de la APP
     exit;
 }
@@ -64,7 +64,7 @@ if (isset($_REQUEST['exportarDepartamentos'])) {
 // Estructura del botón importar, si el usuario pulsa el botón 'importar'
 if (isset($_REQUEST['importarDepartamentos'])) {
     $_SESSION['paginaAnterior'] = 'consultarDepartamento'; // Almaceno la página anterior para poder volver
-    $_SESSION['paginaEnCurso'] = '`wip'; // Asigno a la página en curso la pagina de importarDepartamentos
+    $_SESSION['paginaEnCurso'] = 'wip'; // Asigno a la página en curso la pagina de importarDepartamentos
     header('Location: index.php'); // Redirecciono al index de la APP
     exit;
 }

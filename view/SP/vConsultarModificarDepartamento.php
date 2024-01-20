@@ -102,22 +102,6 @@
                                 ?> <!-- Aquí comprobamos que el campo del array '$aErrores' no esta vacío, si es así, mostramos el error. -->
                             </td>
                         </tr>
-                        <?php
-                        if (!is_null($fechaBajaDepartamentoAEditar)) {
-                            echo ("<tr>
-                                                    <!-- Fecha Baja Departamento Deshabilitado -->
-                                                    <td class=\"d-flex justify-content-start\">
-                                                        <label for=\"fechaBajaDepartamentoAEditar\">Fecha de Baja:</label>
-                                                    </td>
-                                                    <td>
-                                                        <input class=\"bloqueado d-flex justify-content-start\" type=\"text\" name=\"fechaBajaDepartamentoAEditar\"
-                                                               value=\"$fechaBajaDepartamentoAEditar\" disabled>
-                                                    </td>
-                                                    <td class=\"error\">
-                                                    </td>
-                                                </tr>");
-                        }
-                        ?>
                         </tbody>
                     </table>
                     <div class="text-center">
