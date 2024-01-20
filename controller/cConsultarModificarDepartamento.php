@@ -26,7 +26,7 @@ $aErrores = ['T02_DescDepartamento' => '',
 
 /*
  * Recuperamos el código del departamento seleccionado anteriormente por medio de una variable de sesión
- * Y usando el metodo 'validarCodNoExiste' de la clase 'DepartamentoPDO' recuperamos el objeto completo
+ * Y usando el metodo 'buscaDepartamentoPorCod' de la clase 'DepartamentoPDO' recuperamos el objeto completo
  */
 $oDepartamentoAEditar = DepartamentoPDO::buscaDepartamentoPorCod($_SESSION['codDepartamentoActual']);
 

@@ -72,7 +72,7 @@ if (isset($_REQUEST['importarDepartamentos'])) {
 // Estructura del botón añadir departamento, si el usuario pulsa el botón 'añadir departameto'
 if (isset($_REQUEST['añadirDepartamento'])) {
     $_SESSION['paginaAnterior'] = 'consultarDepartamento'; // Almaceno la página anterior para poder volver
-    $_SESSION['paginaEnCurso'] = 'wip'; // Asigno a la página en curso la pagina de añadirDepartamento
+    $_SESSION['paginaEnCurso'] = 'añadirDepartamento'; // Asigno a la página en curso la pagina de añadirDepartamento
     header('Location: index.php'); // Redirecciono al index de la APP
     exit;
 }

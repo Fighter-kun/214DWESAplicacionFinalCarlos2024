@@ -32,11 +32,6 @@ define('OBLIGATORIO', 1);
 define('TAM_MAX_FLOAT', PHP_FLOAT_MAX);
 define('TAM_MIN_FLOAT', PHP_FLOAT_MIN);
 
-// Variable DateTime
-$fechaYHoraActualCreacion = new DateTime('now', new DateTimeZone('Europe/Madrid'));
-// Y formateo la variable '$fechaYHoraActualCreacion' para que aparezca en el input 'YYYY-mm-dd'
-$fechaYHoraActualCreacionFormateada = $fechaYHoraActualCreacion->format('Y-m-d');
-
 $mensajeDeConfirmacion = ''; // Variable para almacenar un mensaje si a salido bien o mal la inserción de datos
 // Declaración de variables de estructura para validar la ENTRADA de RESPUESTAS o ERRORES
 // Valores por defecto
@@ -57,6 +52,12 @@ $aErrores = [
     'VolumenDeNegocio' => "",
     'FechaBajaDepartamento' => ""
 ];
+
+// Variable DateTime
+$fechaYHoraActualCreacion = new DateTime('now', new DateTimeZone('Europe/Madrid'));
+// Y formateo la variable '$fechaYHoraActualCreacion' para que aparezca en el input 'YYYY-mm-dd'
+$fechaYHoraActualCreacionFormateada = $fechaYHoraActualCreacion->format('Y-m-d');
+
 //En el siguiente if pregunto si el '$_REQUEST' recupero el valor 'enviar' que enviamos al pulsar el boton de enviar del formulario.
 if (isset($_REQUEST['añadirDepartamento'])) {
     /*
@@ -69,30 +70,11 @@ if (isset($_REQUEST['añadirDepartamento'])) {
 
     // Ahora validamos que el codigo introducido no exista en la BD, haciendo una consulta 
     if ($aErrores['CodDepartamento'] == null) {
-        try {
-            // CONEXION BASE DE DATOS
-            // Iniciamos la conexión con la BD
-            $miDB = new PDO(DSN, USERNAME, PASSWORD);
-            // CONSULTA
-            // En esta línea utilizo 'quote()' se utiliza para escapar y citar el valor del $_REQUEST['CodDepartamento'], ayudando a prevenir la inyección de SQL.
-            $codDepartamento = $miDB->quote($_REQUEST['CodDepartamento']);
-            // Utilizamos una consulta simple para comprobar el codigo del departamento
-            $consultaComprobarCodDepartamento = $miDB->query("SELECT * FROM T02_Departamento WHERE T02_CodDepartamento = $codDepartamento");
-            // Y obtenemos el resultado de la consulta como un objeto.
-            $departamentoExistente = $consultaComprobarCodDepartamento->fetchObject();
-
-            // COMPROBACION DE ERROR
-            if ($departamentoExistente) {
-                $aErrores['CodDepartamento'] = "El código de departamento ya existe";
-            }
-        } catch (PDOException $miExcepcionPDO) {
-            $errorExcepcion = $miExcepcionPDO->getCode(); // Almacenamos el código del error de la excepción en la variable '$errorExcepcion'
-            $mensajeExcepcion = $miExcepcionPDO->getMessage(); // Almacenamos el mensaje de la excepción en la variable '$mensajeExcepcion'
-
-            echo "<span style='color: red;'>Error: </span>" . $mensajeExcepcion . "<br>"; //Mostramos el mensaje de la excepción
-            echo "<span style='color: red;'>Código del error: </span>" . $errorExcepcion; //Mostramos el código de la excepción
-        } finally {
-            unset($miDB); //Para cerrar la conexión
+        /*
+         * Por medio del metodo 'validarCodNoExiste' de la clase 'DepartamentoPDO' comprobamos que el código no este en uso
+         */
+        if (DepartamentoPDO::validarCodNoExiste($_REQUEST['CodDepartamento'])) {
+            $aErrores['CodDepartamento'] = "El código de departamento ya existe";
         }
     }
     $aErrores['DescDepartamento'] = validacionFormularios::comprobarAlfaNumerico($_REQUEST['DescDepartamento'], 255, 1, OBLIGATORIO);
@@ -115,39 +97,12 @@ if (isset($_REQUEST['añadirDepartamento'])) {
 }
 //En caso de que '$entradaOK' sea true, cargamos las respuestas en el array '$aRespuestas'
 if ($entradaOK) {
-
-    // Utilizamos el bloque 'try'
-    try {
-        // CONEXION CON LA BD
-        // Establecemos la conexión por medio de PDO
-        $miDB = new PDO(DSN, USERNAME, PASSWORD);
-        // Cargo el array con las respuestas
-        $aRespuestas['CodDepartamento'] = strtoupper($_REQUEST['CodDepartamento']);
-        $aRespuestas['DescDepartamento'] = $_REQUEST['DescDepartamento'];
-        $aRespuestas['FechaCreacionDepartamento'] = 'now()'; // Cargo la fecha actual y hora actual
-        $aRespuestas['VolumenDeNegocio'] = $_REQUEST['VolumenDeNegocio'];
-        $aRespuestas['FechaBajaDepartamento'] = 'NULL';
-
-        // CONSULTA CON QUERY()
-        // Se ejecuta la consulta de insercion                    
-        $numeroFilas = $miDB->exec("INSERT INTO T02_Departamento VALUES ('" . $aRespuestas['CodDepartamento'] . "','" . $aRespuestas['DescDepartamento'] . "'," . $aRespuestas['FechaCreacionDepartamento'] . "," . $aRespuestas['VolumenDeNegocio'] . "," . $aRespuestas['FechaBajaDepartamento'] . ");");
-
-        // Ejecutando la declaración SQL y mostramos un mensaje en caso de que se inserte u ocurra un error.
-        if ($numeroFilas > 0) {
-            $_SESSION['paginaAnterior'] = 'añadirDepartamento'; // Almaceno la página anterior para poder volver
-            $_SESSION['paginaEnCurso'] = 'consultarDepartamento'; // Asigno a la página en curso la pagina de consultarDepartamento
-            header('Location: index.php'); // Redirecciono al index de la APP
-            exit;
-        }
-    } catch (PDOException $miExcepcionPDO) {
-        $errorExcepcion = $miExcepcionPDO->getCode(); // Almacenamos el código del error de la excepción en la variable '$errorExcepcion'
-        $mensajeExcepcion = $miExcepcionPDO->getMessage(); // Almacenamos el mensaje de la excepción en la variable '$mensajeExcepcion'
-
-        echo "<span style='color: red;'>Error: </span>" . $mensajeExcepcion . "<br>"; //Mostramos el mensaje de la excepción
-        echo "<span style='color: red;'>Código del error: </span>" . $errorExcepcion; //Mostramos el código de la excepción
-    } finally {
-        unset($miDB); // Para cerrar la conexión
-    }
+    // Usando el metodo 'altaDepartamento' de la clase 'DepartamentoPDO' añadimos el departamento
+    DepartamentoPDO::altaDepartamento($_REQUEST['CodDepartamento'], $_REQUEST['DescDepartamento'], $_REQUEST['VolumenDeNegocio']);
+    $_SESSION['paginaAnterior'] = 'añadirDepartamento'; // Almaceno la página anterior para poder volver
+    $_SESSION['paginaEnCurso'] = 'consultarDepartamento'; // Asigno a la página en curso la pagina de consultarDepartamento
+    header('Location: index.php'); // Redirecciono al index de la APP
+    exit;
 }
 
 require_once $aView[$_COOKIE['idioma']]['layout']; // Cargo la vista de 'AltaDepartamento'
