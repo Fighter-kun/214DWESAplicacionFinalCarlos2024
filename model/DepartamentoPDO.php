@@ -148,4 +148,36 @@ class DepartamentoPDO {
             return false; // Si la consulta falla devuelvo 'false'
         }
     }
+    
+    /**
+     * Modifica el valor de la fecha de baja a un Departamento (Baja Lógica)
+     *
+     * @param string $codDepartamento Codigo del Departamento a modificar
+     * 
+     * @return PDOStatment Devuelve el resultado de la coonsulta
+     */
+    public static function bajaLogicaDepartamento($codDepartamento) {
+        // Consulta - UPDATE
+        $consulta = <<<CONSULTA
+            UPDATE T02_Departamento SET T02_FechaBajaDepartamento = NOW() WHERE T02_CodDepartamento = '{$codDepartamento}';
+        CONSULTA;
+
+        return DBPDO::ejecutaConsulta($consulta); // Ejecutamos y devolvemos la consulta
+    }
+    
+    /**
+     * Modifica el valor de la fecha de baja a un Departamento (Alta Lógica)
+     *
+     * @param string $codDepartamento Codigo del Departamento a modificar
+     * 
+     * @return PDOStatment Devuelve el resultado de la coonsulta
+     */
+    public static function rehabilitaDepartamento($codDepartamento) {
+        // Consulta - UPDATE
+        $consulta = <<<CONSULTA
+            UPDATE T02_Departamento SET T02_FechaBajaDepartamento = NULL WHERE T02_CodDepartamento = '{$codDepartamento}';
+        CONSULTA;
+
+        return DBPDO::ejecutaConsulta($consulta); // Ejecutamos y devolvemos la consulta
+    }
 }

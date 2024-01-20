@@ -128,7 +128,7 @@
                     if (empty($aDepartamento['fechaBajaDep'])) {
                         echo ("<form method='post'>");
                         echo ("<input type='hidden' name='cConsultarModificarDepartamento' value='" . $aDepartamento['codDepartamento'] . "'>");
-                        echo ("<button type='submit'>EDITAR</button>");
+                        echo ("<button type='submit'><img src='doc/consultarModificarDepartamento.png' alt='EDIT'></button>");
                         echo ("</form>");
                     }
                     echo ("</td>");

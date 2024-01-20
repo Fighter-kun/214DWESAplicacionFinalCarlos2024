@@ -39,7 +39,7 @@ if (isset($_REQUEST['cEliminarDepartamento'])) {
 if (isset($_REQUEST['cBajaLogicaDepartamento'])) {
     $_SESSION['codDepartamentoActual'] = $_REQUEST['cBajaLogicaDepartamento']; // Almaceno en una variable de sesión el Codigo del Departamento Seleccionado
     $_SESSION['paginaAnterior'] = 'consultarDepartamento'; // Almaceno la página anterior para poder volver
-    $_SESSION['paginaEnCurso'] = 'wip'; // Asigno a la página en curso la pagina de bajaDepartamento
+    $_SESSION['paginaEnCurso'] = 'bajaDepartamento'; // Asigno a la página en curso la pagina de bajaDepartamento
     header('Location: index.php'); // Redirecciono al index de la APP
     exit;
 }
@@ -48,7 +48,7 @@ if (isset($_REQUEST['cBajaLogicaDepartamento'])) {
 if (isset($_REQUEST['cRehabilitacionDepartamento'])) {
     $_SESSION['codDepartamentoActual'] = $_REQUEST['cRehabilitacionDepartamento']; // Almaceno en una variable de sesión el Codigo del Departamento Seleccionado
     $_SESSION['paginaAnterior'] = 'consultarDepartamento'; // Almaceno la página anterior para poder volver
-    $_SESSION['paginaEnCurso'] = 'wip'; // Asigno a la página en curso la pagina de altaDepartamento
+    $_SESSION['paginaEnCurso'] = 'altaDepartamento'; // Asigno a la página en curso la pagina de altaDepartamento
     header('Location: index.php'); // Redirecciono al index de la APP
     exit;
 }

@@ -9,36 +9,19 @@
  * @Annotation Aplicación Final - Parte de 'cRehabilitacionDepartamento' 
  * 
  */
-// Recuperamos el código del departamento que hemos seleccionamo mediante el metodo 'POST'
-$codDepartamentoSeleccionado = $_SESSION['codDepartamentoActual'];
-try {
-    $miDB = new PDO(DSN, USERNAME, PASSWORD); // Instanciamos un objeto PDO y establecemos la conexión
-    // CONSULTA
-    // Hacemos un 'SELECT' sobre la tabla 'T02_Departamento' para recuperar toda la información del departamento que vamos a modificar
-    $sqlDepartamento = $miDB->prepare("SELECT * FROM T02_Departamento WHERE T02_CodDepartamento = '" . $codDepartamentoSeleccionado . "';");
+/*
+ * Recuperamos el código del departamento por medio de una variable de sesión y 
+ * buscamos el Departamento usando la clase 'buscaDepartamentoPorCod' de la clase DepartamentoPDO
+ */
+$oDepartamentoAlta = DepartamentoPDO::buscaDepartamentoPorCod($_SESSION['codDepartamentoActual']);
 
-    $sqlDepartamento->execute(); // Ejecuto la consulta con el array de parametros
-    $oDepartamentoAEditar = $sqlDepartamento->fetchObject(); // Obtengo un objeto con el departamento
-    // Almaceno la información de la fecha de baja del departamento
-    $fechaBajaDepartamento = $oDepartamentoAEditar->T02_FechaBajaDepartamento;
-    
-    // Ahora pregunto si su valor es distinto de 'NULL'
-    if (!is_null($fechaBajaDepartamento)) {
-        $sqlAltaDepartamento = $miDB->prepare("UPDATE T02_Departamento SET T02_FechaBajaDepartamento = NULL WHERE T02_CodDepartamento = '" . $codDepartamentoSeleccionado . "';");
-        $sqlAltaDepartamento->execute(); // Ejecuto la consulta 
-    } 
-    
-    $_SESSION['paginaAnterior'] = 'altaDepartamento'; // Almaceno la página anterior para poder volver
-    $_SESSION['paginaEnCurso'] = 'consultarDepartamento'; // Asigno a la página en curso la pagina de consultarDepartamento
-    header('Location: index.php'); // Redirecciono al index de la APP
-    exit;
-    
-} catch (PDOException $miExcepcionPDO) {
-    $errorExcepcion = $miExcepcionPDO->getCode(); // Almacenamos el código del error de la excepción en la variable '$errorExcepcion'
-    $mensajeExcepcion = $miExcepcionPDO->getMessage(); // Almacenamos el mensaje de la excepción en la variable '$mensajeExcepcion'
-
-    echo ("<span class='errorException'>Error: </span>" . $mensajeExcepcion . "<br>"); // Mostramos el mensaje de la excepción
-    echo ("<span class='errorException'>Código del error: </span>" . $errorExcepcion); // Mostramos el código de la excepción
-} finally {
-    unset($miDB); //Cerramos la conexión con la base de datos
+// Ahora pregunto si su valor es distinto de 'NULL'
+if (!is_null($oDepartamentoAlta->get_FechaBajaDepartamento())) {
+    // En caso positivo le cambio el valor usando el metodo 'rehabilitaDepartamento' de la clase DepartamentoPDO
+    DepartamentoPDO::rehabilitaDepartamento($_SESSION['codDepartamentoActual']); 
 }
+
+$_SESSION['paginaAnterior'] = 'altaDepartamento'; // Almaceno la página anterior para poder volver
+$_SESSION['paginaEnCurso'] = 'consultarDepartamento'; // Asigno a la página en curso la pagina de consultarDepartamento
+header('Location: index.php'); // Redirecciono al index de la APP
+exit;
