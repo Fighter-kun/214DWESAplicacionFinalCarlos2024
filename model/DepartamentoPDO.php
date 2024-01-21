@@ -148,7 +148,7 @@ class DepartamentoPDO {
             return false; // Si la consulta falla devuelvo 'false'
         }
     }
-    
+
     /**
      * Modifica el valor de la fecha de baja a un Departamento (Baja Lógica)
      *
@@ -164,7 +164,7 @@ class DepartamentoPDO {
 
         return DBPDO::ejecutaConsulta($consulta); // Ejecutamos y devolvemos la consulta
     }
-    
+
     /**
      * Modifica el valor de la fecha de baja a un Departamento (Alta Lógica)
      *
