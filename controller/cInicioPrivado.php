@@ -37,6 +37,13 @@ if(isset($_REQUEST['mtoDepartamentos'])){
     exit;
 }
 
+//Si el usuario pulsa el botón 'Detalle', mando al usuario al index de DWES
+if(isset($_REQUEST['apiREST'])){
+    $_SESSION['paginaEnCurso'] = 'apiREST'; // Asigno a la página en curso la pagina de apiREST
+    header('Location: index.php'); // Redirecciono al index de la APP
+    exit;
+}
+
 $descripcionUsuario = $_SESSION['usuarioMiAplicacion']->get_descUsuario(); // Recupero y almaceno la descripción del usuario actual
 $numeroConexionesUsuario = $_SESSION['usuarioMiAplicacion']->get_numAcceso(); // Recupero y almaceno el número de conexiones del usuario actual
 $fechaHoraUltimaConexionAnterior = $_SESSION['usuarioMiAplicacion']->get_fechaHoraUltimaConexionAnterior(); // Recupero y almaceno la fecha y hora de conexión anterior del usuario actual
