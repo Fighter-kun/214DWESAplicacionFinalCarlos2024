@@ -119,9 +119,9 @@
                 <div class="row d-flex justify-content-start">
                     <div class="col">
                         <form name="Programa" method="post">
-                            <button class="btn btn-secondary" aria-disabled="true" type="submit" name="cambiarContraseña">Change Password</button>
-                            <button class="btn btn-secondary" aria-disabled="true" type="submit" name="confirmarCambios">Confirm Changes</button>
-                            <button class="btn btn-secondary" aria-disabled="true" type="submit" name="salirMiCuenta">Cancel</button>
+                            <button class="botones" aria-disabled="true" type="submit" name="cambiarContraseña">Change Password</button>
+                            <button class="botones" aria-disabled="true" type="submit" name="confirmarCambios">Confirm Changes</button>
+                            <button class="botones" aria-disabled="true" type="submit" name="salirMiCuenta">Cancel</button>
                             <button class="btn btn-danger" aria-disabled="true" type="submit" name="eliminarU">Delete User</button>
                         </form> 
                     </div>

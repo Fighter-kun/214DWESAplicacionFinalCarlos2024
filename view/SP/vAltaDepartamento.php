@@ -127,8 +127,8 @@
                             </tr>
                         </tbody>
                     </table>
-                    <button class="btn btn-secondary" role="button" aria-disabled="true" type="submit" name="añadirDepartamento">Añadir Departamento</button>
-                    <button class="btn btn-secondary" role="button" aria-disabled="true" type="submit" name="salirAñadirDepartamento">Salir</button>
+                    <button class="botones" role="button" aria-disabled="true" type="submit" name="añadirDepartamento">Añadir Departamento</button>
+                    <button class="botones" role="button" aria-disabled="true" type="submit" name="salirAñadirDepartamento">Salir</button>
                 </fieldset>
             </form>
         </div>

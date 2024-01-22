@@ -26,11 +26,11 @@
     <div class="row d-flex justify-content-start">
         <div class="col"><!-- Formulario donde recogemos los botones para ir a detalle o cerrar sesión -->
             <form name="Programa" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
-                <button class="btn btn-secondary" aria-disabled="true" type="submit" name="cerrarSesion">Cerrar Sesion</button><br><br>
-                <button class="btn btn-secondary" aria-disabled="true" type="submit" name="detalle">Detalle</button><br><br>
-                <button class="btn btn-secondary" aria-disabled="true" type="submit" name="editarPerfil">Editar Perfil</button><br><br>
-                <button class="btn btn-secondary" aria-disabled="true" type="submit" name="mtoDepartamentos">Mto. Departamentos</button><br><br>
-                <button class="btn btn-secondary" aria-disabled="true" type="submit" name="apiREST">REST</button>
+                <button class="botones" aria-disabled="true" type="submit" name="cerrarSesion">Cerrar Sesion</button><br><br>
+                <button class="botones" aria-disabled="true" type="submit" name="detalle">Detalle</button><br><br>
+                <button class="botones" aria-disabled="true" type="submit" name="editarPerfil">Editar Perfil</button><br><br>
+                <button class="botones" aria-disabled="true" type="submit" name="mtoDepartamentos">Mto. Departamentos</button><br><br>
+                <button class="botones" aria-disabled="true" type="submit" name="apiREST">REST</button>
             </form>        
         </div>
         <div class="col">

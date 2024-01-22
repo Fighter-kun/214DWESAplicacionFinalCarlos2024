@@ -13,7 +13,7 @@
     <div class="row">
         <div class="col text-center">
             <form method="post" action="index.php">
-                <button class="btn btn-secondary" type="submit" name="salirDeWIP">Salir</button>
+                <button class="botones" type="submit" name="salirDeWIP">Salir</button>
             </form>
         </div>
     </div>

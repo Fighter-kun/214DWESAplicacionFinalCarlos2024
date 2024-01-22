@@ -94,8 +94,8 @@
                         </tbody>
                     </table>
                     <div class="text-center">
-                        <button class="btn btn-secondary" aria-disabled="true" type="submit" name="confirmarCambios">Confirm Changes</button>
-                        <button class="btn btn-secondary" aria-disabled="true" type="submit" name="salirCambiarContraseña">Cancel</button>
+                        <button class="botones" aria-disabled="true" type="submit" name="confirmarCambios">Confirm Changes</button>
+                        <button class="botones" aria-disabled="true" type="submit" name="salirCambiarContraseña">Cancel</button>
                     </div>
                 </fieldset>
             </form>

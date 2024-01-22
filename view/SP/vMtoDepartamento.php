@@ -69,7 +69,7 @@
                                                                                                                                     que contiene '$_REQUEST' , en caso falso sobrescribira el campo a '' .-->
                                     <input class="d-flex justify-content-start" type="text" name="DescDepartamento" value="<?php echo $_SESSION['criterioBusquedaDepartamentos']['descripcionBuscada'] ?? ''; ?>">
                                 </td>
-                                <td><button class="btn btn-secondary" role="button" aria-disabled="true" type="submit" name="buscarDepartamentoPorDesc">Buscar</button></td>
+                                <td><button class="botones" role="button" aria-disabled="true" type="submit" name="buscarDepartamentoPorDesc">Buscar</button></td>
                             </tr>
                             <tr style="background-color: #f2f2f2;">
                                 <td class="error" colspan="3">
@@ -178,11 +178,11 @@
             <form name="indexMtoDepartamentos" method="post">
                 <div class="btn-container">
                     <div class="descripcionExportar">Si pulsas exportar descarga un fichero '.zip' que contiene todos los departamentos en '.json' y '.xml'</div>
-                    <button id="exportButton" class="btn btn-secondary" role="button" aria-disabled="true" type="submit" name="exportarDepartamentos">Exportar</button>
+                    <button id="exportButton" class="botones" role="button" aria-disabled="true" type="submit" name="exportarDepartamentos">Exportar</button>
                 </div>
-                <button class="btn btn-secondary" role="button" aria-disabled="true" type="submit" name="importarDepartamentos">Importar</button>
-                <button class="btn btn-secondary" role="button" aria-disabled="true" type="submit" name="añadirDepartamento">Añadir Departamento</button>
-                <button class="btn btn-secondary" role="button" aria-disabled="true" type="submit" name="salirDepartamentos">Salir</button>
+                <button class="botones" role="button" aria-disabled="true" type="submit" name="importarDepartamentos">Importar</button>
+                <button class="botones" role="button" aria-disabled="true" type="submit" name="añadirDepartamento">Añadir Departamento</button>
+                <button class="botones" role="button" aria-disabled="true" type="submit" name="salirDepartamentos">Salir</button>
             </form>
         </div>
     </div>

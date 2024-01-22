@@ -50,8 +50,8 @@
             </tbody>
         </table>
         <div class="text-center">
-            <button class="btn btn-secondary" aria-disabled="true" type="submit" name="confirmarFechaREST">Solicitar imagen</button>
-            <button class="btn btn-secondary" aria-disabled="true" type="submit" name="salirREST">Salir</button>
+            <button class="botones" aria-disabled="true" type="submit" name="confirmarFechaREST">Solicitar imagen</button>
+            <button class="botones" aria-disabled="true" type="submit" name="salirREST">Salir</button>
         </div>
     </fieldset>
 </form>

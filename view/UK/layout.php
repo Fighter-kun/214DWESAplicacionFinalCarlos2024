@@ -46,7 +46,7 @@
         <footer class="position-fixed bottom-0 end-0">
             <div class="row text-center">
                 <div class="footer-item">
-                    <address>© <a href="../index.html" target="_blank" style="color: white; text-decoration: none; background-color: #666;">Carlos García Cachón</a>
+                    <address>© <a href="../index.html" target="_blank" style="color: black; text-decoration: none;">Carlos García Cachón</a>
                         IES LOS SAUCES 2023-24 </address>
                 </div>
                 <div class="footer-item"></div>

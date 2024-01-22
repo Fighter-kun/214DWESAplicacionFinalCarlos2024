@@ -26,7 +26,7 @@
             <div class="row d-flex justify-content-start">
                 <div class="col">
                     <form name="Programa" method="post">
-                        <button class="btn btn-secondary" aria-disabled="true" type="submit" name="salirBorrarCuenta">Cancelar</button>
+                        <button class="botones" aria-disabled="true" type="submit" name="salirBorrarCuenta">Cancelar</button>
                         <button class="btn btn-danger" aria-disabled="true" type="submit" name="eliminarUsuario">Eliminar Usuario</button>
                     </form> 
                 </div>

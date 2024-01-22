@@ -27,8 +27,8 @@
                     <input class="form-control" type="file" name="archivo" id="archivo" accept=".json , .xml">
                 </div>
                 <br><br>
-                <button class="btn btn-secondary" type="submit" name="importarDepartamentos">Importar</button>
-                <button class="btn btn-secondary" role="button" aria-disabled="true" type="submit" name="salirImportar">Salir</button>
+                <button class="botones" type="submit" name="importarDepartamentos">Importar</button>
+                <button class="botones" role="button" aria-disabled="true" type="submit" name="salirImportar">Salir</button>
             </form>
         </div>
     </div>

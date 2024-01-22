@@ -17,13 +17,14 @@
     }
 }
 /* ESTRUCTURA */
-body {
-    background-color: #f2f2f2; 
+* {
+    font-family: "Times New Roman", Times, serif;
+    background-color: white;
+    color: black;
 }
 
 header {
-    background-color: #666;
-    color: white;
+    
     height: 100%;
 }
 
@@ -51,7 +52,7 @@ main {
 }
 /* TABLAS Y FORMULARIO */
 legend {
-            background-color: #666;
+            background-color: black;
             color: white;
 }
 table {
@@ -67,33 +68,25 @@ th, td {
 }
 
 th {
-    background-color: #666;
+    background-color: black;
     color: white;
 }
-tr:nth-child(even) {
-    background-color: #ddd;
-}
-tr:nth-child(odd) {
-    background-color: #fff;
+
+.botones {
+    background-color: black;
+    color: white;
+    width: 260px;
+    height: 35px;
+    font-family: century-gothic,Arial,sans-serif;
+    text-transform: uppercase;
+    font-weight: bold;
 }
 
-.list-group-item {
-    background-color: #f2f2f2; 
-    margin: 1%;
-    border: none;
-    color:#666;
-    text-shadow: 3px 0px 8px #000000;
-    font-size: 30px;
-}
-
-.list-group-item:hover {
-    color: red;
-}
 
 /* FOOTER */
 footer {
-    background-color: #666;
-    color: white;
+    background-color: white;
+    color: black;
     height: 10%;
     width: 100%;
     padding-top: 2%;

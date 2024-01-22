@@ -11,7 +11,7 @@
 <div class="row d-flex justify-content-start">
     <div class="col">
         <form name="tecnologias" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
-            <button class="btn btn-secondary" aria-disabled="true" type="submit" name="salirTecnologias">Exit</button>
+            <button class="botones" aria-disabled="true" type="submit" name="salirTecnologias">Exit</button>
         </form>        
     </div>
     <div class="col">

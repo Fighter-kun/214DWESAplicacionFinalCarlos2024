@@ -26,10 +26,10 @@
     <div class="row d-flex justify-content-start">
         <div class="col"><!-- Formulario donde recogemos los botones para ir a detalle o cerrar sesión -->
             <form name="Programa" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
-                <button class="btn btn-secondary" aria-disabled="true" type="submit" name="cerrarSesion">Logout</button><br><br>
-                <button class="btn btn-secondary" aria-disabled="true" type="submit" name="detalle">Detail</button><br><br>
-                <button class="btn btn-secondary" aria-disabled="true" type="submit" name="editarPerfil">Edit Profile</button><br><br>
-                <button class="btn btn-secondary" aria-disabled="true" type="submit" name="mtoDepartamentos">Mt. Department</button>
+                <button class="botones" aria-disabled="true" type="submit" name="cerrarSesion">Logout</button><br><br>
+                <button class="botones" aria-disabled="true" type="submit" name="detalle">Detail</button><br><br>
+                <button class="botones" aria-disabled="true" type="submit" name="editarPerfil">Edit Profile</button><br><br>
+                <button class="botones" aria-disabled="true" type="submit" name="mtoDepartamentos">Mt. Department</button>
             </form>        
         </div>
         <div class="col">

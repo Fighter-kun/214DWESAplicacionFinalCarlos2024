@@ -106,8 +106,8 @@
                             </tr>
                         </tbody>
                     </table>
-                    <button class="btn btn-secondary" aria-disabled="true" type="submit" name="registrarse">Sign In</button>
-                    <button class="btn btn-secondary" aria-disabled="true" type="submit" name="cancelar">Cancel</button>
+                    <button class="botones" aria-disabled="true" type="submit" name="registrarse">Sign In</button>
+                    <button class="botones" aria-disabled="true" type="submit" name="cancelar">Cancel</button>
                 </fieldset>
             </form>
         </div>

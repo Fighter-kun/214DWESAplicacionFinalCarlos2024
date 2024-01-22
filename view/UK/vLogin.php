@@ -85,9 +85,9 @@
                                 </tbody>
                             </table>
                             <div class="text-center">
-                                <button class="btn btn-secondary" aria-disabled="true" type="submit" name="iniciarSesion">Login</button>
-                                <button class="btn btn-secondary" aria-disabled="true" type="submit" name="registrarse">Sign In</button>
-                                <button class="btn btn-secondary" aria-disabled="true" type="submit" name="cancelar">Cancel</button>
+                                <button class="botones" aria-disabled="true" type="submit" name="iniciarSesion">Login</button>
+                                <button class="botones" aria-disabled="true" type="submit" name="registrarse">Sign In</button>
+                                <button class="botones" aria-disabled="true" type="submit" name="cancelar">Cancel</button>
                             </div>
                         </fieldset>
                     </form>
