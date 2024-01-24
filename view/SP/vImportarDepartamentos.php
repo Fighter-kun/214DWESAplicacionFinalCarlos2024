@@ -4,19 +4,6 @@
         Autor: Carlos García Cachón
         Fecha de creación/modificación: 04/01/2024
 -->
-<style>
-    .respuestaCorrecta {
-        color:#4CAF50;
-        font-weight:bold;
-    }
-    .form-control {
-        background-color: #666;
-        color: white;
-    }
-    .fileControl {
-        height: 20%;
-    }
-</style>
 
 <div class="container mt-3">
     <div class="row mb-5">

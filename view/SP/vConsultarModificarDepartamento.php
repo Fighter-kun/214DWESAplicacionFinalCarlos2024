@@ -4,30 +4,7 @@
         Autor: Carlos García Cachón
         Fecha de creación/modificación: 16/01/2024
 -->
-<style>
-    .obligatorio {
-        background-color: #ffff7a;
-    }
-    .bloqueado:disabled {
-        background-color: #665 ;
-        color: white;
-    }
-    .error {
-        color: red;
-        width: 450px;
-    }
-    .errorException {
-        color:#FF0000;
-        font-weight:bold;
-    }
-    .respuestaCorrecta {
-        color:#4CAF50;
-        font-weight:bold;
-    }
-    input {
-        width: 90%;
-    }
-</style>
+
 <div class="container mt-3">
     <div class="row d-flex justify-content-start">
         <div class="col">
@@ -35,11 +12,6 @@
             <form name="editarDepartamento" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
                 <fieldset>
                     <table>
-                        <thead>
-                            <tr>
-                                <th class="rounded-top" colspan="3"><legend>Modificar Departamento</legend></th>
-                        </tr>
-                        </thead>
                         <tbody>
                             <tr>
                         <input type="hidden" name="codDepartamento" value="<?php echo $codDepartamentoAEditar; ?>">
@@ -48,7 +20,7 @@
                             <label for="codDepartamentoAEditar">Código de Departamento:</label>
                         </td>
                         <td>
-                            <input class="bloqueado d-flex justify-content-start" type="text" name="codDepartamentoAEditar"
+                            <input class="bloqueado d-flex justify-content-start modDep" type="text" name="codDepartamentoAEditar"
                                    value="<?php echo ($codDepartamentoAEditar); ?>" disabled>
                         </td>
                         <td class="error">
@@ -62,7 +34,7 @@
                             <td>                                                                                                <!-- El value contiene una operador ternario en el que por medio de un metodo 'isset()'
                                                                                                                                 comprobamos que exista la variable y no sea 'null'. En el caso verdadero devovleremos el contenido del campo
                                                                                                                                 que contiene '$_REQUEST' , en caso falso sobrescribira el campo a '' .-->
-                                <input class="d-flex justify-content-start obligatorio" type="text" name="T02_DescDepartamento" value="<?php echo (isset($_REQUEST['T02_DescDepartamento']) ? $_REQUEST['T02_DescDepartamento'] : $descripcionDepartamentoAEditar); ?>">
+                                <input class="d-flex justify-content-start obligatorio modDep" type="text" name="T02_DescDepartamento" value="<?php echo (isset($_REQUEST['T02_DescDepartamento']) ? $_REQUEST['T02_DescDepartamento'] : $descripcionDepartamentoAEditar); ?>">
                             </td>
                             <td class="error">
                                 <?php
@@ -78,7 +50,7 @@
                                 <label for="fechaCreacionDepartamentoAEditar">Fecha de Creación:</label>
                             </td>
                             <td>
-                                <input class="bloqueado d-flex justify-content-start" type="text" name="fechaCreacionDepartamentoAEditar"
+                                <input class="bloqueado d-flex justify-content-start modDep" type="text" name="fechaCreacionDepartamentoAEditar"
                                        value="<?php echo ($fechaCreacionDepartamentoAEditar); ?>" disabled>
                             </td>
                             <td class="error">
@@ -92,7 +64,7 @@
                             <td>                                                                                                <!-- El value contiene una operador ternario en el que por medio de un metodo 'isset()'
                                                                                                                                 comprobamos que exista la variable y no sea 'null'. En el caso verdadero devovleremos el contenido del campo
                                                                                                                                 que contiene '$_REQUEST' , en caso falso sobrescribira el campo a '' .-->
-                                <input class="d-flex justify-content-start" type="text" name="T02_VolumenDeNegocio_" value="<?php echo (isset($_REQUEST['T02_VolumenDeNegocio']) ? $_REQUEST['T02_VolumenDeNegocio'] : $volumenNegocioAEditar); ?>">
+                                <input class="d-flex justify-content-start modDep" type="text" name="T02_VolumenDeNegocio_" value="<?php echo (isset($_REQUEST['T02_VolumenDeNegocio']) ? $_REQUEST['T02_VolumenDeNegocio'] : $volumenNegocioAEditar); ?>">
                             </td>
                             <td class="error">
                                 <?php

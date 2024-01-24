@@ -60,9 +60,9 @@ function updateClockWithImages(clockElement, timeString) {
         // Utilizar la ruta adecuada para cada imagen
         // return '<div class="digit" style="background-image: url(\'../webroot/media/images/' + digit + '.png\')"></div>';
         if (digit == ':') {
-            return '<img class="digit" src="../webroot/media/images/puntos.png"/>';
+            return '<img class="digit" src="webroot/media/images/reloj/puntos.png"/>';
         } else {
-            return '<img class="digit" src="../webroot/media/images/' + digit + '.png"/>';
+            return '<img class="digit" src="webroot/media/images/reloj/' + digit + '.png"/>';
         }
         
         

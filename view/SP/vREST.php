@@ -4,25 +4,13 @@
         Autor: Carlos García Cachón
         Fecha de creación/modificación: 22/01/2024
 -->
-<style>
-    .obligatorio {
-        background-color: #ffff7a;
-    }
-    .error {
-        color: red;
-        width: 450px;
-    }
-    .respuestaCorrecta {
-        color:#4CAF50;
-        font-weight:bold;
-    }
-</style>
+
 <form name="apiREST" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
     <fieldset>
         <table>
             <thead>
                 <tr>
-                    <th class="rounded-top" colspan="3"><legend>API REST</legend></th>
+                    <th class="rounded-top" colspan="3"><legend>IMAGEN DE LA NASA</legend></th>
             </tr>
             </thead>
             <tbody>

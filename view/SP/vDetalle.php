@@ -10,7 +10,7 @@
 </style>
 <div class="row d-flex justify-content-start">
     <div class="col">
-        <form name="detalle" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
+        <form name="detalle" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post"><br>
             <button class="botones" aria-disabled="true" type="submit" name="salirTecnologias">Salir</button>
         </form>        
     </div>

@@ -7,11 +7,6 @@
     <div class="row mb-5">
         <div class="col text-center">
             <table>
-                <thead>
-                    <tr>
-                        <th class="rounded-top" colspan="2"><legend>ERROR</legend></th>
-                    </tr>
-                </thead>
                 <tbody>
                     <tr>
                         <td>Código:</td>

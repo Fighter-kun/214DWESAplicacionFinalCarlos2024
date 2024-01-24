@@ -5,20 +5,6 @@
         Fecha de creación/modificación: 02/01/2024
 -->
 
-<style>
-    .obligatorio {
-        background-color: #ffff7a;
-    }
-    .bloqueado:disabled {
-        background-color: #665 ;
-        color: white;
-    }
-    .error {
-        color: red;
-        width: 450px;
-    }
-</style>
-
 <div class="container mt-3">
     <div class="row text-center">
         <div class="col">
@@ -26,11 +12,6 @@
             <form name="insercionValoresTablaDepartamento" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
                 <fieldset>
                     <table>
-                        <thead>
-                            <tr>
-                                <th class="rounded-top" colspan="3"><legend>Registro</legend></th>
-                        </tr>
-                        </thead>
                         <tbody>
                             <tr>
                                 <!-- T01_CodUsuario Obligatorio -->

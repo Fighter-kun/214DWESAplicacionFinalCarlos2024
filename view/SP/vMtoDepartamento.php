@@ -5,51 +5,7 @@
         Fecha de creación/modificación: 16/01/2024
 -->
 <style>
-    header {
-        height: 6%;
-    }
-    .error {
-        color: red;
-        width: 450px;
-    }
-    input[name="DescDepartamento"] {
-        width: 110%;
-        margin-right: 50%;
-    }
-    .tablaMuestra {
-        position: absolute;
-        top: 20%;
-        right: 15%;
-        width: 70%;
-        /*SOLUCIÓN HASTA IMPLANTAR SISTEMA DE PAGINACIÓN*/
-        max-height: 60vh; /* Establece una altura máxima del 50% de la altura visible del navegador */
-        overflow-y: auto; /* Agrega una barra de desplazamiento vertical si es necesario */
-    }
-    #buscarDepartamentos {
-        height: 15%;
-    }
-    /*******************/
-    .btn-container {
-        position: relative;
-        display: inline-block;
-    }
-
-    .descripcionExportar {
-        display: none;
-        position: absolute;
-        width: 500px;
-        top: -200%;
-        left: 50%;
-        transform: translateX(-50%);
-        background-color: #555;
-        color: #fff;
-        padding: 5px;
-        border-radius: 5px;
-    }
-
-    .btn-container:hover .descripcionExportar {
-        display: block;
-    }
+    
 </style>
 <div class="container mt-3">
     <div class="row mb-2">
@@ -59,7 +15,7 @@
                     <table>
                         <thead></thead>
                         <tbody>
-                            <tr style="background-color: #f2f2f2;">
+                            <tr>
                                 <!-- CodDepartamento Obligatorio -->
                                 <td class="d-flex justify-content-start" colspan='2'>
                                     <label for="DescDepartamento">Descripción:</label>
@@ -71,7 +27,7 @@
                                 </td>
                                 <td><button class="botones" role="button" aria-disabled="true" type="submit" name="buscarDepartamentoPorDesc">Buscar</button></td>
                             </tr>
-                            <tr style="background-color: #f2f2f2;">
+                            <tr>
                                 <td class="error" colspan="3">
                                     <?php
                                     if (!empty($aErrores['DescDepartamento'])) {
@@ -128,7 +84,7 @@
                     if (empty($aDepartamento['fechaBajaDep'])) {
                         echo ("<form method='post'>");
                         echo ("<input type='hidden' name='cConsultarModificarDepartamento' value='" . $aDepartamento['codDepartamento'] . "'>");
-                        echo ("<button type='submit'><img src='doc/consultarModificarDepartamento.png' alt='EDIT'></button>");
+                        echo ("<button type='submit'><img src='webroot/media/images/consultarModificarDepartamento.png' alt='EDIT'></button>");
                         echo ("</form>");
                     }
                     echo ("</td>");
@@ -137,7 +93,7 @@
                     echo ("<td>");
                     echo ("<form method='post'>");
                     echo ("<input type='hidden' name='cEliminarDepartamento' value='" . $aDepartamento['codDepartamento'] . "'>");
-                    echo ("<button type='submit'><img src='doc/eliminarDepartamento.png' alt='DELETE'></button>");
+                    echo ("<button type='submit'><img src='webroot/media/images/eliminarDepartamento.png' alt='DELETE'></button>");
                     echo ("</form>");
                     echo ("</td>");
 
@@ -145,7 +101,7 @@
                     echo ("<td>");
                     echo ("<form method='post'>");
                     echo ("<input type='hidden' name='cRehabilitacionDepartamento' value='" . $aDepartamento['codDepartamento'] . "'>");
-                    echo ("<button type='submit'><img src='doc/flechaAlta.png' alt='ALTA'></button>");
+                    echo ("<button type='submit'><img src='webroot/media/images/flechaAlta.png' alt='ALTA'></button>");
                     echo ("</form>");
                     echo ("</td>");
 
@@ -153,7 +109,7 @@
                     echo ("<td>");
                     echo ("<form method='post'>");
                     echo ("<input type='hidden' name='cBajaLogicaDepartamento' value='" . $aDepartamento['codDepartamento'] . "'>");
-                    echo ("<button type='submit'><img src='doc/flechaBaja.png' alt='BAJA'></button>");
+                    echo ("<button type='submit'><img src='webroot/media/images/flechaBaja.png' alt='BAJA'></button>");
                     echo ("</form>");
                     echo ("</td>");
 
@@ -166,7 +122,7 @@
                  * almacenamos el valor en la variable '$numeroDeRegistros'
                  */
                 // Y mostramos el número de registros
-                echo ("<tfoot ><tr style='background-color: #666; color:white;'><td colspan='9'>Número de registros en la tabla Departamento: " . $numeroDeRegistrosConsulta . '</td></tr></tfoot>');
+                echo ("<tfoot ><tr style='background-color: black; color:white;'><td colspan='9'>Número de registros en la tabla Departamento: " . $numeroDeRegistrosConsulta . '</td></tr></tfoot>');
                 echo ("</table>");
                 echo ("</div>");
             }

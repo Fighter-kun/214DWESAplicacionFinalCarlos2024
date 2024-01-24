@@ -3,27 +3,7 @@
         Autor: Carlos García Cachón
         Fecha de creación/modificación: 12/01/2024
 -->
-<style>
-    .obligatorio {
-        background-color: #ffff7a;
-    }
-    .bloqueado:disabled {
-        background-color: #665 ;
-        color: white;
-    }
-    .error {
-        color: red;
-        width: 450px;
-    }
-    .errorException {
-        color:#FF0000;
-        font-weight:bold;
-    }
-    .respuestaCorrecta {
-        color:#4CAF50;
-        font-weight:bold;
-    }
-</style>
+
 <div class="container mt-3">
     <div class="row d-flex justify-content-start">
         <div class="col">
@@ -31,11 +11,6 @@
             <form name="controlAcceso" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
                 <fieldset>
                     <table>
-                        <thead>
-                            <tr>
-                                <th class="rounded-top" colspan="3"><legend>Cambiar Contraseña</legend></th>
-                        </tr>
-                        </thead>
                         <tbody>
                             <tr>
                                 <!-- contraseñaActual Obligatorio -->

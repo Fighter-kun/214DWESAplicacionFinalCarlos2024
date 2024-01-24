@@ -5,42 +5,12 @@
         Fecha de creación/modificación: 04/01/2024
 -->
 
-<style>
-    .obligatorio {
-        background-color: #ffff7a;
-    }
-    .bloqueado:disabled {
-        background-color: #665 ;
-        color: white;
-    }
-    .error {
-        color: red;
-        width: 450px;
-    }
-    .errorException {
-        color:#FF0000;
-        font-weight:bold;
-    }
-    .respuestaCorrecta {
-        color:#4CAF50;
-        font-weight:bold;
-    }
-    .btn-danger {
-        background-color: red;
-    }
-</style>
-
 <div class="container mt-3">
     <div class="row d-flex justify-content-start">
         <div class="col">
             <form name="editarPerfil" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
                 <fieldset>
                     <table>
-                        <thead>
-                            <tr>
-                                <th class="rounded-top" colspan="3"><legend>Mi Cuenta</legend></th>
-                        </tr>
-                        </thead>
                         <tbody>
                             <tr>
                                 <!-- Usuario deshabilitado -->
@@ -119,10 +89,10 @@
                 <div class="row d-flex justify-content-start">
                     <div class="col">
                         <form name="Programa" method="post">
-                            <button class="botones" aria-disabled="true" type="submit" name="cambiarContraseña">Cambiar Contraseña</button>
-                            <button class="botones" aria-disabled="true" type="submit" name="confirmarCambios">Confirmar Cambios</button>
-                            <button class="botones" aria-disabled="true" type="submit" name="salirMiCuenta">Cancelar</button>
-                            <button class="btn btn-danger" aria-disabled="true" type="submit" name="eliminarU">Eliminar Usuario</button>
+                            <button class="botones" type="submit" name="cambiarContraseña">Cambiar Contraseña</button>
+                            <button class="botones" type="submit" name="confirmarCambios">Confirmar Cambios</button>
+                            <button class="botones" type="submit" name="salirMiCuenta">Cancelar</button>
+                            <button class="botones" type="submit" name="eliminarU">Eliminar Usuario</button>
                         </form> 
                     </div>
                 </div>

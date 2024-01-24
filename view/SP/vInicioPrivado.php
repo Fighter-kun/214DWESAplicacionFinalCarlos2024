@@ -4,25 +4,8 @@
         Autor: Carlos García Cachón
         Fecha de creación/modificación: 03/02/2024
 -->
-
-<style>
-    /* RELOJ */
-    #date {
-        letter-spacing:10px;
-        font-size:20px;
-        font-family:'helvetica';
-        color:#D4AF37;
-    }
-
-    .digit {
-        width: 50px;
-        height: 100px;
-        display: inline-block;
-        background-size: cover;
-    }
-</style>
-
-<div class="container mt-3">
+<script type="text/javascript" src="webroot/js/reloj.js"></script>
+<div onload="startTime()" class="container mt-3">
     <div class="row d-flex justify-content-start">
         <div class="col"><!-- Formulario donde recogemos los botones para ir a detalle o cerrar sesión -->
             <form name="Programa" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
@@ -54,3 +37,12 @@
             ?> 
         </div>
     </div>
+    <div class="row">
+                    <div class="col"></div>
+                    <div class="col mt-5">
+                        <div id="clockdate"><!-- Bloque de código HTML donde va el reloj -->
+                            <div id="clock"></div>
+                            <div id="date"></div>
+                        </div>
+                    </div>
+                </div>

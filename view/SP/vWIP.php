@@ -6,8 +6,7 @@
 <div class="container mt-3">
     <div class="row mb-5">
         <div class="col text-center">
-            <h2 style="color:#666;">Esta página esta en contrucción</h2>
-            <img src="doc/wip.png" class="img-fluid" alt="WIP">
+            <img src="webroot/media/images/wip.png" class="img-fluid" alt="WIP">
         </div>
     </div>
     <div class="row">
