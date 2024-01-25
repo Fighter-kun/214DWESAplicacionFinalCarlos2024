@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <!--
-        Descripción: Aplicación Final -- vBorrarCuenta.php (Inglés)
+        Descripción: Aplicación Final -- vBorrarCuenta.php (Castellano)
         Autor: Carlos García Cachón
-        Fecha de creación/modificación: 12/01/2024
+        Fecha de creación/modificación: 04/01/2024
 -->
 
 <style>
@@ -19,15 +19,15 @@
         <div class="container mt-3">
             <div class="row mb-5">
                 <div class="col text-center">
-                    <h2 style="color:#666;">ARE YOU SURE YOU WANT TO DELETE THE USER?</h2>
-                    <img src="doc/vBorrarCuenta-icono.svg" class="img-fluid icono-rojo" alt="Icono Eliminar Usuario">
+                    <h2>¿SEGURO QUE QUIERES ELIMINAR EL USUARIO?</h2>
+                    <img src="webroot/media/images/vBorrarCuenta-icono.svg" class="img-fluid icono-rojo" alt="Icono Eliminar Usuario">
                 </div>
             </div>
             <div class="row d-flex justify-content-start">
                 <div class="col">
                     <form name="Programa" method="post">
-                        <button class="botones" aria-disabled="true" type="submit" name="salirBorrarCuenta">Cancel</button>
-                        <button class="btn btn-danger" aria-disabled="true" type="submit" name="eliminarUsuario">Delete User</button>
+                        <button class="botones" type="submit" name="salirBorrarCuenta">Cancelar</button>
+                        <button class="botones" type="submit" name="eliminarUsuario">Eliminar Usuario</button>
                     </form> 
                 </div>
             </div>
