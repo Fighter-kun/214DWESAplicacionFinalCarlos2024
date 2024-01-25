@@ -64,8 +64,9 @@
             <div class="container">
                 <div class="row text-center">
                     <div class="col">
-                        <h5>PHP DOC</h5>
-                        <a target="_blank" href="#">PHPDOC</a>
+                        <h5>INFORMACIÓN CORPORATIVA</h5>
+                        <a target="_blank" href="webroot/pdf/Currículum.pdf">Curriculum</a><br>
+                        <a target="_blank" href="doc/index.html">PHPDOC</a>
                     </div>
                     <div class="col">
                         <h5>PAGINA IMITADA</h5>
@@ -100,7 +101,7 @@
                     <div class="col">
                     </div>
                     <div class="col">
-                        <p>©2024 Carlos García Cachón — Reservados todos los derechos</p>
+                        <a target="_blank" href="https://daw214.ieslossauces.es/">©2024 Carlos García Cachón — Reservados todos los derechos</a>
                     </div>
                     <div class="col">
                     </div>

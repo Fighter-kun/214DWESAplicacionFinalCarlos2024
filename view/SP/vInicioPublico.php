@@ -11,12 +11,11 @@
                 <!-- Additional required wrapper -->
                 <div class="swiper-wrapper">
                     <!-- Slides -->
-                    <div class="swiper-slide"><a target="_blank" href="webroot/pdf/230129ArbolDeNavegación.pdf"><img src="webroot/media/images/404.png" class="img-fluid" alt="ArbolDeNavegación"></a></div>
-                    <div class="swiper-slide"><a target="_blank" href="webroot/pdf/230129ArbolDeNavegación.pdf"><img src="webroot/media/images/404.png" class="img-fluid" alt="ArbolDeNavegación"></a></div>
-                    <div class="swiper-slide"><a target="_blank" href="webroot/pdf/230129ArbolDeNavegación.pdf"><img src="webroot/media/images/404.png" class="img-fluid" alt="ArbolDeNavegación"></a></div>
-                    <div class="swiper-slide"><a target="_blank" href="webroot/pdf/230129ArbolDeNavegación.pdf"><img src="webroot/media/images/404.png" class="img-fluid" alt="ArbolDeNavegación"></a></div>
-                    <div class="swiper-slide"><a target="_blank" href="webroot/pdf/230129ArbolDeNavegación.pdf"><img src="webroot/media/images/404.png" class="img-fluid" alt="ArbolDeNavegación"></a></div>
-                    <div class="swiper-slide"><a target="_blank" href="webroot/pdf/230129ArbolDeNavegación.pdf"><img src="webroot/media/images/404.png" class="img-fluid" alt="ArbolDeNavegación"></a></div>
+                    <div class="swiper-slide"><a target="_blank" href="webroot/pdf/230129ArbolDeNavegación.pdf"><img src="webroot/media/images/arbolNavegacionS.png" class="img-fluid" alt="ArbolDeNavegación"></a></div>
+                    <div class="swiper-slide"><a target="_blank" href="webroot/pdf/230129CatalogoDeRequisitos.pdf"><img src="webroot/media/images/catalogoRequisitosS.png" class="img-fluid" alt="ArbolDeNavegación"></a></div>
+                    <div class="swiper-slide"><a target="_blank" href="webroot/pdf/230129DiagramaDeCasosDeUso.pdf"><img src="webroot/media/images/diagramaCasosUsoS.png" class="img-fluid" alt="ArbolDeNavegación"></a></div>
+                    <div class="swiper-slide"><a target="_blank" href="webroot/pdf/230129EstandarDesarrolloDAWyEstructuraAlmacenamientoDWES.pdf"><img src="webroot/media/images/estructuraAlmacenamientoS.png" class="img-fluid" alt="ArbolDeNavegación"></a></div>
+                    <div class="swiper-slide"><a target="_blank" href="webroot/pdf/230131RelacionDeFicheros.pdf"><img src="webroot/media/images/relacionFicherosS.png" class="img-fluid" alt="ArbolDeNavegación"></a></div>
                 </div>
                 <div class="swiper-pagination"></div>
             </div>
