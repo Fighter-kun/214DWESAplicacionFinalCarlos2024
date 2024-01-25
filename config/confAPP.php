@@ -2,10 +2,10 @@
 /**
  * @author Carlos García Cachón
  * @version 1.0
- * @since 27/12/2023
+ * @since 17/01/2024
  * @copyright Todos los derechos reservados a Carlos García
  * 
- * @Annotation Proyecto LoginLogoutMulticapaPOO - Parte de configuración
+ * @Annotation Aplicación Final - Parte de configuración
  * 
  */
 require_once 'core/231018libreriaValidacion.php'; // Incluimos la librería de validación
@@ -17,6 +17,9 @@ require_once 'model/ErrorApp.php';
 require_once 'model/Usuario.php';
 require_once 'model/UsuarioDB.php';
 require_once 'model/UsuarioPDO.php';
+require_once 'model/Departamento.php';
+require_once 'model/DepartamentoPDO.php';
+require_once 'model/REST.php';
 
 // Creamos dos 'arrays' para indicar el 'path' de los archivos del controlador y la vista
 $aController = [
@@ -33,7 +36,13 @@ $aController = [
     'cambiarContraseña' => 'controller/cCambiarPassword.php',
     'consultarDepartamento' => 'controller/cMtoDepartamento.php',
     'añadirDepartamento' => 'controller/cAltaDepartamento.php',
-    'editarDepartamento' => 'controller/cConsultarModificarDepartamento.php'
+    'editarDepartamento' => 'controller/cConsultarModificarDepartamento.php',
+    'eliminarDepartamento' => 'controller/cEliminarDepartamento.php',
+    'bajaDepartamento' => 'controller/cBajaLogicaDepartamento.php',
+    'altaDepartamento' => 'controller/cRehabilitacionDepartamento.php',
+    'exportarDepartamento' => 'controller/cExportarDepartamentos.php',
+    'importarDepartamento' => 'controller/cImportarDepartamentos.php',
+    'apiREST' => 'controller/cREST.php'
 ];
 
 // En el array de '$aView' almacenamos un array por idioma, para mostrar la vista en el idioma elegído por el usuario
@@ -53,7 +62,10 @@ $aView = [
         'cambiarContraseña' => 'view/SP/vCambiarPassword.php',
         'consultarDepartamento' => 'view/SP/vMtoDepartamento.php',
         'añadirDepartamento' => 'view/SP/vAltaDepartamento.php',
-        'editarDepartamento' => 'view/SP/vConsultarModificarDepartamento.php'
+        'editarDepartamento' => 'view/SP/vConsultarModificarDepartamento.php',
+        'eliminarDepartamento' => 'view/SP/vEliminarDepartamento.php',
+        'importarDepartamento' => 'view/SP/vImportarDepartamentos.php',
+        'apiREST' => 'view/SP/vREST.php'
     ],
     'UK' => [
         'layout' => 'view/UK/layout.php',
@@ -70,7 +82,10 @@ $aView = [
         'cambiarContraseña' => 'view/UK/vCambiarPassword.php',
         'consultarDepartamento' => 'view/UK/vMtoDepartamento.php',
         'añadirDepartamento' => 'view/UK/vAltaDepartamento.php',
-        'editarDepartamento' => 'view/UK/vConsultarModificarDepartamento.php'
+        'editarDepartamento' => 'view/UK/vConsultarModificarDepartamento.php',
+        'eliminarDepartamento' => 'view/UK/vEliminarDepartamento.php',
+        'importarDepartamento' => 'view/UK/vImportarDepartamentos.php',
+        'apiREST' => 'view/UK/vREST.php'
     ]
 ];
 
@@ -89,7 +104,10 @@ $aTitleLang = [
         'cambiarContraseña' => 'Cambiar Contraseña',
         'consultarDepartamento' => 'Mantenimiento Departamento',
         'añadirDepartamento' => 'Añadir Departamento',
-        'editarDepartamento' => 'Editar Departamento'
+        'editarDepartamento' => 'Editar Departamento',
+        'eliminarDepartamento' => 'Eliminar Departamento',
+        'importarDepartamento' => 'Importar Departamentos',
+        'apiREST' => 'REST'
     ],
     'UK' => [ //Inlgés
         'inicioPublico' => 'Public Home',
@@ -104,6 +122,9 @@ $aTitleLang = [
         'cambiarContraseña' => 'Change Password',
         'consultarDepartamento' => 'Maintenance Department',
         'añadirDepartamento' => 'Add Department',
-        'editarDepartamento' => 'Edit Department'
+        'editarDepartamento' => 'Edit Department',
+        'eliminarDepartamento' => 'Delete Department',
+        'importarDepartamento' => 'Import Departments',
+        'apiREST' => 'REST'
     ]
 ];

@@ -1,5 +1,5 @@
 <!--
-        Descripción: 214DWESLoginLogoutMulticapaPOO -- vError.php (Castellano)
+        Descripción: Aplicación Final -- vError.php (Castellano)
         Autor: Carlos García Cachón
         Fecha de creación/modificación: 03/02/2024
 -->
@@ -7,11 +7,6 @@
     <div class="row mb-5">
         <div class="col text-center">
             <table>
-                <thead>
-                    <tr>
-                        <th class="rounded-top" colspan="2"><legend>ERROR</legend></th>
-                    </tr>
-                </thead>
                 <tbody>
                     <tr>
                         <td>Código:</td>
@@ -36,7 +31,7 @@
     <div class="row">
         <div class="col text-center">
             <form method="post" action="index.php">
-                <button class="btn btn-secondary" type="submit" name="salirDelError">Salir</button>
+                <button class="botones" type="submit" name="salirDelError">Salir</button>
             </form>
         </div>
     </div>

@@ -1,30 +1,58 @@
 /* RESPONSIVE LETRA DEL FOOTER */
 @media (max-width: 1200px) {
     footer {
-    font-size: 18px; /* Tamaño de fuente máximo para pantallas de hasta 1200px */
+        font-size: 18px; /* Tamaño de fuente máximo para pantallas de hasta 1200px */
     }
 }
 
 @media (max-width: 768px) {
     footer {
-    font-size: 16px; /* Tamaño de fuente máximo para pantallas de hasta 768px */
+        font-size: 16px; /* Tamaño de fuente máximo para pantallas de hasta 768px */
     }
 }
 
 @media (max-width: 576px) {
     footer {
-    font-size: 10px; /* Tamaño de fuente máximo para pantallas de hasta 576px */
+        font-size: 10px; /* Tamaño de fuente máximo para pantallas de hasta 576px */
     }
 }
 /* ESTRUCTURA */
-body {
-    background-color: #f2f2f2; 
+* {
+    font-family: 'icomoon';
 }
 
-header {
-    background-color: #666;
-    color: white;
-    height: 100%;
+
+.titulo {
+    letter-spacing: 25px;
+    font-weight: 600;
+    font-size: 24px;
+    transition: font-size 0.3s;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+body {
+    padding-top: 56px;
+    /* Altura del header */
+    background-color: white;
+    /* Color de fondo */
+    min-height: 100vh;
+    /* Establecer la altura mínima del cuerpo para que funcione correctamente el sticky footer */
+    display: flex;
+    flex-direction: column;
+}
+
+footer {
+    color: #000;
+    padding: 20px;
+    margin-top: auto;
+}
+
+button {
+    all: unset;
 }
 
 .row-description {
@@ -49,10 +77,61 @@ header {
 main {
     margin-bottom: 100px;
 }
-/* TABLAS Y FORMULARIO */
+
+/* ESTILO DEL BANNER */
+#banner {
+    background-color: #000;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+.navbar.scrolled {
+    background-color: #ffffff;
+}
+
+.titulo.scrolled {
+    font-size: 18px;
+}
+
+/* SLIDER */
+swiper-container {
+    width: 100%;
+    height: 100%;
+}
+
+swiper-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+swiper-slide img {
+    display: block;
+    width: 50%;
+    height: 50%;
+    object-fit: cover;
+}
+
+/* RELOJ */
+#date {
+    letter-spacing:10px;
+    font-size:20px;
+    font-family:'helvetica';
+    color:#D4AF37;
+}
+
+.digit {
+    width: 50px;
+    height: 100px;
+    display: inline-block;
+    background-size: cover;
+}
+
+/* TABLAS */
 legend {
-            background-color: #666;
-            color: white;
+    background-color: black;
+    color: white;
 }
 table {
     width: 100%;
@@ -67,38 +146,95 @@ th, td {
 }
 
 th {
-    background-color: #666;
+    background-color: black;
     color: white;
 }
-tr:nth-child(even) {
-    background-color: #ddd;
-}
-tr:nth-child(odd) {
-    background-color: #fff;
+
+.botones {
+    background-color: black;
+    color: white;
+    width: 260px;
+    height: 35px;
+    font-family: century-gothic,Arial,sans-serif;
+    text-transform: uppercase;
+    font-weight: bold;
 }
 
-.list-group-item {
-    background-color: #f2f2f2; 
-    margin: 1%;
-    border: none;
-    color:#666;
-    text-shadow: 3px 0px 8px #000000;
-    font-size: 30px;
+/* FORMULARIOS */
+.obligatorio {
+    background-color: #ffff7a;
 }
-
-.list-group-item:hover {
+.bloqueado:disabled {
+    background-color: #665 ;
+    color: white;
+}
+.error {
     color: red;
+    width: 450px;
+}
+.errorException {
+    color:#FF0000;
+    font-weight:bold;
+}
+.respuestaCorrecta {
+    color:#4CAF50;
+    font-weight:bold;
 }
 
-/* FOOTER */
-footer {
-    background-color: #666;
+.error {
+    color: red;
+    width: 450px;
+}
+input[name="DescDepartamento"] {
+    width: 110%;
+    margin-right: 50%;
+}
+
+/* DEPARTAMENTOS */
+.tablaMuestra {
+    position: absolute;
+    top: 20%;
+    right: 15%;
+    width: 70%;
+    /*SOLUCIÓN HASTA IMPLANTAR SISTEMA DE PAGINACIÓN*/
+    max-height: 60vh; /* Establece una altura máxima del 50% de la altura visible del navegador */
+    overflow-y: auto; /* Agrega una barra de desplazamiento vertical si es necesario */
+}
+#buscarDepartamentos {
+    height: 15%;
+}
+
+.btn-container {
+    position: relative;
+    display: inline-block;
+}
+
+.descripcionExportar {
+    display: none;
+    position: absolute;
+    width: 500px;
+    top: -200%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #555;
+    color: #fff;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.btn-container:hover .descripcionExportar {
+    display: block;
+}
+
+.modDep {
+    width: 90%;
+}
+
+/* IMPORTAR DEPARTAMENTOS */
+.form-control {
+    background-color: black;
     color: white;
-    height: 10%;
-    width: 100%;
-    padding-top: 2%;
 }
-
-.footer-item {
-    width: 33.33%;
+.fileControl {
+    height: 20%;
 }

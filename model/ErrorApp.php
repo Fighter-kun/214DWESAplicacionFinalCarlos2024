@@ -5,7 +5,7 @@
  * @since 03/01/2024
  * @copyright Todos los derechos reservados a Carlos García
  * 
- * @Annotation Proyecto LoginLogoutMulticapaPOO - Clase ErrorApp
+ * @Annotation Aplicación Final - Clase ErrorApp
  * 
  */
 class ErrorApp {

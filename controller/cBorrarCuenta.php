@@ -5,7 +5,7 @@
  * @since 04/01/2024
  * @copyright Todos los derechos reservados a Carlos García
  * 
- * @Annotation Proyecto LoginLogoutMulticapaPOO - Parte de 'cBorrarCuenta'
+ * @Annotation Aplicación Final - Parte de 'cBorrarCuenta'
  * 
  */
 
@@ -17,7 +17,7 @@ if(isset($_REQUEST['salirBorrarCuenta'])){
 }
 
 if (isset($_REQUEST['eliminarUsuario'])) { // Comprobamos que el usuario a pulsado el boton 'Eliminar Usuario'
-    $oUsuarioAEliminar = $_SESSION['user214DWESLoginLogoutMulticapaPOO']->get_codUsuario(); // Recupero y almaceno el código del usuario actual
+    $oUsuarioAEliminar = $_SESSION['usuarioMiAplicacion']->get_codUsuario(); // Recupero y almaceno el código del usuario actual
     
     if (UsuarioPDO::borrarUsuario($oUsuarioAEliminar)) {
         session_destroy(); // Elimino la sesión

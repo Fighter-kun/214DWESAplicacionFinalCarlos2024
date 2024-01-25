@@ -1,29 +1,9 @@
 <!--
-        Descripción: 214DWESLoginLogoutMulticapaPOO -- vCambiarContraseña.php (Inglés)
+        Descripción: Aplicación Final -- vCambiarContraseña.php (Castellano)
         Autor: Carlos García Cachón
         Fecha de creación/modificación: 12/01/2024
 -->
-<style>
-    .obligatorio {
-        background-color: #ffff7a;
-    }
-    .bloqueado:disabled {
-        background-color: #665 ;
-        color: white;
-    }
-    .error {
-        color: red;
-        width: 450px;
-    }
-    .errorException {
-        color:#FF0000;
-        font-weight:bold;
-    }
-    .respuestaCorrecta {
-        color:#4CAF50;
-        font-weight:bold;
-    }
-</style>
+
 <div class="container mt-3">
     <div class="row d-flex justify-content-start">
         <div class="col">
@@ -31,16 +11,11 @@
             <form name="controlAcceso" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
                 <fieldset>
                     <table>
-                        <thead>
-                            <tr>
-                                <th class="rounded-top" colspan="3"><legend>Change Password</legend></th>
-                        </tr>
-                        </thead>
                         <tbody>
                             <tr>
                                 <!-- contraseñaActual Obligatorio -->
                                 <td class="d-flex justify-content-start">
-                                    <label for="contraseñaActual">Current Password:</label>
+                                    <label for="contraseñaActual">Contraseña Actual:</label>
                                 </td>
                                 <td>                                                                                                <!-- El value contiene una operador ternario en el que por medio de un metodo 'isset()'
                                                                                                                                     comprobamos que exista la variable y no sea 'null'. En el caso verdadero devovleremos el contenido del campo
@@ -58,7 +33,7 @@
                             <tr>
                                 <!-- nuevaContraseña Obligatorio -->
                                 <td class="d-flex justify-content-start">
-                                    <label for="nuevaContraseña">New Password:</label>
+                                    <label for="nuevaContraseña">Nueva Contraseña:</label>
                                 </td>
                                 <td>                                                                                                <!-- El value contiene una operador ternario en el que por medio de un metodo 'isset()'
                                                                                                                                     comprobamos que exista la variable y no sea 'null'. En el caso verdadero devovleremos el contenido del campo
@@ -76,7 +51,7 @@
                             <tr>
                                 <!-- repetirNuevaContraseña Obligatorio -->
                                 <td class="d-flex justify-content-start">
-                                    <label for="repetirNuevaContraseña">Repeat New Password:</label>
+                                    <label for="repetirNuevaContraseña">Repetir Nueva Contraseña:</label>
                                 </td>
                                 <td>                                                                                                <!-- El value contiene una operador ternario en el que por medio de un metodo 'isset()'
                                                                                                                                     comprobamos que exista la variable y no sea 'null'. En el caso verdadero devovleremos el contenido del campo
@@ -94,8 +69,8 @@
                         </tbody>
                     </table>
                     <div class="text-center">
-                        <button class="btn btn-secondary" aria-disabled="true" type="submit" name="confirmarCambios">Confirm Changes</button>
-                        <button class="btn btn-secondary" aria-disabled="true" type="submit" name="salirCambiarContraseña">Cancel</button>
+                        <button class="botones" aria-disabled="true" type="submit" name="confirmarCambios">Confirmar Cambios</button>
+                        <button class="botones" aria-disabled="true" type="submit" name="salirCambiarContraseña">Cancelar</button>
                     </div>
                 </fieldset>
             </form>

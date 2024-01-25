@@ -1,7 +1,7 @@
 <!--
-        Descripción: 214DWESLoginLogoutMulticapaPOO -- vDetalle.php (Inglés)
+        Descripción: Aplicación Final -- vDetalle.php (Castellano)
         Autor: Carlos García Cachón
-        Fecha de creación/modificación: 12/01/2024
+        Fecha de creación/modificación: 10/01/2024
 -->
 <style>
     .ejercicio {
@@ -10,8 +10,8 @@
 </style>
 <div class="row d-flex justify-content-start">
     <div class="col">
-        <form name="tecnologias" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
-            <button class="btn btn-secondary" aria-disabled="true" type="submit" name="salirTecnologias">Exit</button>
+        <form name="detalle" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post"><br>
+            <button class="botones" aria-disabled="true" type="submit" name="salirTecnologias">Salir</button>
         </form>        
     </div>
     <div class="col">
@@ -28,16 +28,9 @@
         // $_SESSION
         echo('<div class="ejercicio">');
         echo('<h3>$_SESSION</h3>');
-        foreach ($_SESSION as $key => $valor) {
-            if ($key === 'user214DWESLoginLogoutMulticapaPOO' && $valor instanceof Usuario) {
-                // Accede a las propiedades o métodos del objeto Usuario para obtener la información deseada
-                echo('<pre>');
-                var_dump($_SESSION['user214DWESLoginLogoutMulticapaPOO']);
-                echo ('</pre>');
-            } else {
-                echo('<u>' . $key . '</u> => <b>' . $valor . '</b><br>');
-            }
-        }
+        echo('<pre>');
+                var_dump($_SESSION);
+                echo ('</pre>');  
         echo('</div>');
 
         // $_COOKIE
@@ -71,7 +64,7 @@
                     } elseif (is_object($valor2) && $valor2 instanceof Usuario) {
                         // Accede a las propiedades o métodos del objeto Usuario para obtener la información deseada
                         echo('<pre>');
-                        var_dump($_SESSION['user214DWESLoginLogoutMulticapaPOO']);
+                        var_dump($_SESSION['usuarioMiAplicacion']);
                         echo ('</pre>');
                     } else {
                         // Otros tipos de datos

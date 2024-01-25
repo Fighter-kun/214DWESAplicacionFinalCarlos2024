@@ -1,31 +1,9 @@
 <!DOCTYPE html>
 <!--
-        Descripción: 214DWESLoginLogoutMulticapaPOO -- vLogin.php (Inglés)
+        Descripción: Aplicación Final -- vLogin.php (Castellano)
         Autor: Carlos García Cachón
-        Fecha de creación/modificación: 12/01/2024
+        Fecha de creación/modificación: 02/01/2024
 -->
-
-<style>
-    .obligatorio {
-        background-color: #ffff7a;
-    }
-    .bloqueado:disabled {
-        background-color: #665 ;
-        color: white;
-    }
-    .error {
-        color: red;
-        width: 450px;
-    }
-    .errorException {
-        color:#FF0000;
-        font-weight:bold;
-    }
-    .respuestaCorrecta {
-        color:#4CAF50;
-        font-weight:bold;
-    }
-</style>
 
 <body>
     <main>
@@ -36,16 +14,11 @@
                     <form name="controlAcceso" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
                         <fieldset>
                             <table>
-                                <thead>
-                                    <tr>
-                                        <th class="rounded-top" colspan="3"><legend>Login</legend></th>
-                                </tr>
-                                </thead>
                                 <tbody>
                                     <tr>
                                         <!-- CodDepartamento Obligatorio -->
                                         <td class="d-flex justify-content-start">
-                                            <label for="user">User:</label>
+                                            <label for="user">Usuario:</label>
                                         </td>
                                         <td>
                                             <!-- El value contiene una operador ternario en el que por medio de un metodo 'isset()'
@@ -65,7 +38,7 @@
                                     <tr>
                                         <!-- CodDepartamento Obligatorio -->
                                         <td class="d-flex justify-content-start">
-                                            <label for="password">Password:</label>
+                                            <label for="password">Contraseña:</label>
                                         </td>
                                         <td>
                                             <!-- El value contiene una operador ternario en el que por medio de un metodo 'isset()'
@@ -85,9 +58,9 @@
                                 </tbody>
                             </table>
                             <div class="text-center">
-                                <button class="btn btn-secondary" aria-disabled="true" type="submit" name="iniciarSesion">Login</button>
-                                <button class="btn btn-secondary" aria-disabled="true" type="submit" name="registrarse">Sign In</button>
-                                <button class="btn btn-secondary" aria-disabled="true" type="submit" name="cancelar">Cancel</button>
+                                <button class="botones" aria-disabled="true" type="submit" name="iniciarSesion">Iniciar Sesión</button>
+                                <button class="botones" aria-disabled="true" type="submit" name="registrarse">Registrarse</button>
+                                <button class="botones" aria-disabled="true" type="submit" name="cancelar">Cancelar</button>
                             </div>
                         </fieldset>
                     </form>

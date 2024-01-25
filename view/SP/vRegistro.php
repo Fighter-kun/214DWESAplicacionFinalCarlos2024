@@ -1,23 +1,9 @@
 <!DOCTYPE html>
 <!--
-        Descripción: 214DWESLoginLogoutMulticapaPOO -- vRegistro.php (Castellano)
+        Descripción: Aplicación Final -- vRegistro.php (Castellano)
         Autor: Carlos García Cachón
         Fecha de creación/modificación: 02/01/2024
 -->
-
-<style>
-    .obligatorio {
-        background-color: #ffff7a;
-    }
-    .bloqueado:disabled {
-        background-color: #665 ;
-        color: white;
-    }
-    .error {
-        color: red;
-        width: 450px;
-    }
-</style>
 
 <div class="container mt-3">
     <div class="row text-center">
@@ -26,11 +12,6 @@
             <form name="insercionValoresTablaDepartamento" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
                 <fieldset>
                     <table>
-                        <thead>
-                            <tr>
-                                <th class="rounded-top" colspan="3"><legend>Registro</legend></th>
-                        </tr>
-                        </thead>
                         <tbody>
                             <tr>
                                 <!-- T01_CodUsuario Obligatorio -->
@@ -106,8 +87,8 @@
                             </tr>
                         </tbody>
                     </table>
-                    <button class="btn btn-secondary" aria-disabled="true" type="submit" name="registrarse">Registrarse</button>
-                    <button class="btn btn-secondary" aria-disabled="true" type="submit" name="cancelar">Cancelar</button>
+                    <button class="botones" aria-disabled="true" type="submit" name="registrarse">Registrarse</button>
+                    <button class="botones" aria-disabled="true" type="submit" name="cancelar">Cancelar</button>
                 </fieldset>
             </form>
         </div>

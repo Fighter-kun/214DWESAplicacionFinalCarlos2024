@@ -5,7 +5,7 @@
  * @since 03/02/2024
  * @copyright Todos los derechos reservados a Carlos García
  * 
- * @Annotation Proyecto LoginLogoutMulticapaPOO - Parte de 'cError'
+ * @Annotation Aplicación Final - Parte de 'cError'
  * 
  */
 

@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <!--
-        Descripción: 214DWESLoginLogoutMulticapaPOO -- layout.php (Castellano)
+        Descripción: Aplicación Final -- layout.php (Castellano)
         Autor: Carlos García Cachón
-        Fecha de creación/modificación: 02/01/2024
+        Fecha de creación/modificación: 24/01/2024
 -->
 <html lang="es">
+
     <head>
         <meta charset="UTF-8">
         <meta name="author" content="Carlos García Cachón">
-        <meta name="description" content="214DWESLoginLogoutMulticapaPOO">
-        <meta name="keywords" content="214DWESLoginLogoutMulticapaPOO, DWES">
+        <meta name="description" content="Aplicación Final">
+        <meta name="keywords" content="Aplicación Final, DWES">
         <meta name="generator" content="Apache NetBeans IDE 19">
         <meta name="generator" content="60">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -18,23 +19,33 @@
         <link rel="stylesheet" href="webroot/bootstrap-5.3.2-dist/css/bootstrap.min.css">
         <link rel="stylesheet" href="webroot/css/style.css">
         <style>
-            button {
-                all: unset;
-            }
-            .carousel-control-prev-icon {
-                background-color: #666;
-            }
-            .carousel-control-next-icon {
-                background-color: #666;
-            }
         </style>
     </head>
 
     <body>
-        <header class="text-center">
-            <h1>Aplicación LoginLogoutMulticapaPOO - <?php echo $aTitleLang[$_COOKIE['idioma']][$_SESSION['paginaEnCurso']]?></h1>
+        <header>
+            <div class="row text-center navbar navbar-expand-lg navbar-light bg-light fixed-top">
+                <div class="col">
+                    <form method="post">
+                        <img width="25px" src="webroot/media/images/lupa.png" alt="LUPA"/>
+                </div>
+                <div class="col-6">
+                    <p class="titulo">APLICACION FINAL</p>
+                </div>
+                <div class="col">
+                    <button type="submit" name="login"><img width="45px" src="webroot/media/images/login.svg" alt="LOGIN"/></button>
+                    <img width="25px" src="webroot/media/images/iconoMenu.svg" alt="MENU"/>
+                    </form>
+                </div>
+            </div>
         </header>
+        <script src="webroot/js/scrollBannerTitulo.js"></script>
+
         <main>
+            <!-- Banner -->
+            <div id="banner">
+                <h1><?php echo $aTitleLang[$_COOKIE['idioma']][$_SESSION['paginaEnCurso']] ?></h1>
+            </div>
             <div class="container">
                 <div class="row">
                     <div class="col text-center">
@@ -42,23 +53,62 @@
                     </div>
                 </div>
             </div>
+
+
         </main>
-        <footer class="position-fixed bottom-0 end-0">
-            <div class="row text-center">
-                <div class="footer-item">
-                    <address>© <a href="../index.html" target="_blank" style="color: white; text-decoration: none; background-color: #666;">Carlos García Cachón</a>
-                        IES LOS SAUCES 2023-24 </address>
+
+
+        <!-- Footer -->
+        <footer>
+            <div class="container">
+                <div class="row text-center">
+                    <div class="col">
+                        <h5>PHP DOC</h5>
+                        <a target="_blank" href="#">PHPDOC</a>
+                    </div>
+                    <div class="col">
+                        <h5>PAGINA IMITADA</h5>
+                        <a target="_blank" href="https://www.plein.com/es/home/"><img width="50px" src="webroot/media/images/logoPP.png" alt="LOGO-PP"/></a>
+                    </div>
+                    <div class="col">
+                        <h5>REPOSITORIO</h5>
+                        <a target="_blank" href="https://github.com/Fighter-kun/214DWESAplicacionFinalCarlos2024.git"><img src="webroot/media/images/github.png" alt="GITHUB"/></a>
+                    </div>
+                    <div class="col">
+                        <h5>PAÍS / IDIOMA</h5>
+                        <form class="opcionesDelIdioma">
+                            <button type="submit" value="UK" name="botonIdioma">Inglés</button><br>
+                            <button type="submit" value="SP" name="botonIdioma">Castellano</button>
+                        </form>
+                    </div>
                 </div>
-                <div class="footer-item"></div>
-                <div class="footer-item">
-                    <a href="https://github.com/Fighter-kun/214DWESLoginLogoutMulticapaPOO.git" target="_blank"><img
-                            src="webroot/media/images/github.png" alt="LogoGitHub" /></a>
+                <hr>
+                <div class="row text-center">
+                    <div class="col">
+                        <img src="webroot/media/images/logo1.png" alt="logo1"/>
+                    </div>
+                    <div class="col">
+                        <img src="webroot/media/images/logo2.png" alt="logo2"/>
+                    </div>
+                    <div class="col">
+                        <img src="webroot/media/images/logo3.png" alt="logo3"/>
+                    </div>
+                </div>
+                <hr>
+                <div class="row text-center">
+                    <div class="col">
+                    </div>
+                    <div class="col">
+                        <p>©2024 Carlos García Cachón — Reservados todos los derechos</p>
+                    </div>
+                    <div class="col">
+                    </div>
                 </div>
             </div>
         </footer>
 
         <script src="webroot/bootstrap-5.3.2-dist/js/bootstrap.bundle.min.js"></script>
+
     </body>
 
 </html>
-

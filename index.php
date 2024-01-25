@@ -5,7 +5,7 @@
  * @since 27/12/2023
  * @copyright Todos los derechos reservados a Carlos García
  * 
- * @Annotation Proyecto LoginLogoutMulticapaPOO - Parte de 'index' 
+ * @Annotation Aplicación Final - Parte de 'index' 
  * 
  */
 // Incluyo la configuracion de la app, la Base de Datos y los idiomas
