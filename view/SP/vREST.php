@@ -24,7 +24,7 @@
                              comprobamos que exista la variable y no sea 'null'. En el caso verdadero devolveremos el contenido del campo
                              que contiene '$_REQUEST' , en caso falso sobrescribirá el campo a '' .-->
                         <input class="obligatorio d-flex justify-content-start" type="date" name="fechaImagen"
-                               value="<?php echo (isset($_REQUEST['fechaImagen']) ? $_REQUEST['fechaImagen'] : ''); ?>">
+                               value="<?php echo (isset($_REQUEST['fechaImagen']) ?? ''); ?>">
                     </td>
                     <td class="error">
                         <?php
@@ -64,4 +64,3 @@
     }
     ?>
 </div>
-

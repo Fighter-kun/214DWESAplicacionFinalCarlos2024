@@ -22,7 +22,7 @@ $entradaOK = true;
 $aErrores = ['fechaImagen' => ''];
 // Almaceno el valor de la fecha actual formateada
 $fechaYHoraActualCreacion = new DateTime('now', new DateTimeZone('Europe/Madrid'));
-$fechaYHoraActualFormateada = $fechaYHoraActualCreacion->format('Y-m-d H:i:s');
+$fechaYHoraActualFormateada = $fechaYHoraActualCreacion->format('Y-m-d');
 
 if (isset($_REQUEST['confirmarFechaREST'])) {
 
@@ -47,7 +47,5 @@ if ($entradaOK) {
     header('Location: index.php'); // Redirecciono al index de la APP
     exit;
 }
-
-
 
 require_once $aView[$_COOKIE['idioma']]['layout']; // Cargo la vista de 'REST'
