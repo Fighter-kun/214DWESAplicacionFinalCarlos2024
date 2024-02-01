@@ -25,4 +25,16 @@ if(isset($_REQUEST['tecnologias'])){ // Si desde el footer pulso el boton de tec
     $_SESSION['paginaEnCurso'] = 'tecnologias';
 }
 
+ if (!isset($_COOKIE['idioma'])) { // Comprobamos si la cookie esta declarada
+   setcookie("idioma", "SP", time() + 2592000); // En caso negativo la creamos y ponemos el valor por defecto
+   header('Location: index.php'); // Redirecciono al index de la APP
+   exit();
+}
+
+if (isset($_REQUEST['botonIdioma'])) { // Comprobamos si el usuario a pulsado algún botón de idioma
+    setcookie("idioma", $_REQUEST['botonIdioma'], time() + 2592000); // En caso afirmativo creamos la cookie y la cargamos con el valor seleccionado y ponemos una fecha de caducidad de 1 mes
+    header('Location: index.php'); // Redirecciono al index de la APP
+    exit();
+}
+
 require_once $aController[$_SESSION['paginaEnCurso']]; // Cargo la pagina en curso
