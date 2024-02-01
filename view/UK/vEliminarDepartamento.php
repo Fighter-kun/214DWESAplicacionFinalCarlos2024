@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!--
-        Descripción: Aplicación Final - vConsultarModificarDepartamento.php (Castellano)
+        Descripción: Aplicación Final - vConsultarModificarDepartamento.php (Inglés)
         Autor: Carlos García Cachón
         Fecha de creación/modificación: 16/01/2024
 -->
@@ -17,7 +17,7 @@
                         <input type="hidden" name="codDepartamento" value="<?php echo $codDepartamentoAEliminar; ?>">
                         <!-- Codigo Departamento Deshabilitado -->
                         <td class="d-flex justify-content-start">
-                            <label for="codDepartamentoAEditar">Código de Departamento:</label>
+                            <label for="codDepartamentoAEditar">Department Code:</label>
                         </td>
                         <td>
                             <input class="bloqueado d-flex justify-content-start modDep" type="text" name="codDepartamentoAEditar"
@@ -29,7 +29,7 @@
                         <tr>
                             <!-- Descripcion Departamento Deshabilitado -->
                             <td class="d-flex justify-content-start">
-                                <label for="descripcionDepartamentoAEditar">Descripción de Departamento:</label>
+                                <label for="descripcionDepartamentoAEditar">Department Description:</label>
                             </td>
                             <td>                                                                                                
                                 <input class="bloqueado d-flex justify-content-start modDep" type="text" name="descripcionDepartamentoAEditar" value="<?php echo ($descripcionDepartamentoAEliminar); ?>" disabled>
@@ -40,7 +40,7 @@
                         <tr>
                             <!-- Fecha Creación Departamento Deshabilitado -->
                             <td class="d-flex justify-content-start">
-                                <label for="fechaCreacionDepartamentoAEditar">Fecha de Creación:</label>
+                                <label for="fechaCreacionDepartamentoAEditar">Creation date:</label>
                             </td>
                             <td>
                                 <input class="bloqueado d-flex justify-content-start modDep" type="text" name="fechaCreacionDepartamentoAEditar"
@@ -52,7 +52,7 @@
                         <tr>
                             <!-- Volumen Negocio Departamento Bloqueado -->
                             <td class="d-flex justify-content-start">
-                                <label for="T02_VolumenDeNegocio_">Volumen de Negocio:</label>
+                                <label for="T02_VolumenDeNegocio_">Business Volume:</label>
                             </td>
                             <td>                                                                                                
                                 <input class="bloqueado d-flex justify-content-start modDep" type="number" name="T02_VolumenDeNegocio_" value="<?php echo ($volumenNegocioAEliminar); ?>" disabled>
@@ -79,8 +79,8 @@
                         </tbody>
                     </table>
                     <div class="text-center">
-                        <button class="botones" type="submit" name="confirmarCambiosEliminar">Eliminar</button>
-                        <button class="botones" type="submit" name="cancelarEliminar">Cancelar</button>
+                        <button class="botones" type="submit" name="confirmarCambiosEliminar">Delete</button>
+                        <button class="botones" type="submit" name="cancelarEliminar">Cancel</button>
                     </div>
                 </fieldset>
             </form>

@@ -1,5 +1,5 @@
 <!--
-        Descripción: Aplicación Final -- vDetalle.php (Castellano)
+        Descripción: Aplicación Final -- vDetalle.php (Inglés)
         Autor: Carlos García Cachón
         Fecha de creación/modificación: 10/01/2024
 -->
@@ -11,7 +11,7 @@
 <div class="row d-flex justify-content-start">
     <div class="col">
         <form name="detalle" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post"><br>
-            <button class="botones" aria-disabled="true" type="submit" name="salirTecnologias">Salir</button>
+            <button class="botones" aria-disabled="true" type="submit" name="salirTecnologias">Exit</button>
         </form>        
     </div>
     <div class="col">

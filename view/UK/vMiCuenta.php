@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!--
-        Descripción: Aplicación Final -- vMiCuenta.php (Castellano)
+        Descripción: Aplicación Final -- vMiCuenta.php (Inglés)
         Autor: Carlos García Cachón
         Fecha de creación/modificación: 04/01/2024
 -->
@@ -27,7 +27,7 @@
                             <tr>
                                 <!-- Contraseña deshabilitado -->
                                 <td class="d-flex justify-content-start">
-                                    <label for="passwordUsuarioAEditar">Contraseña:</label>
+                                    <label for="passwordUsuarioAEditar">Password:</label>
                                 </td>
                                 <td>
                                     <input class="bloqueado d-flex justify-content-start" type="password" name="passwordUsuarioAEditar"
@@ -39,7 +39,7 @@
                             <tr>
                                 <!-- descripcionUsuarioAEditar Opcional -->
                                 <td class="d-flex justify-content-start">
-                                    <label for="T01_DescUsuario">Descripción:</label>
+                                    <label for="T01_DescUsuario">Description:</label>
                                 </td>
                                 <td>                                                      <!-- El value contiene una operador ternario en el que por medio de un metodo 'isset()'
                                                                                           comprobamos que exista la variable y no sea 'null'. En el caso verdadero devolveremos el contenido del campo
@@ -58,7 +58,7 @@
                             <tr>
                                 <!-- nConexionesUsuarioAEditar deshabilitado -->
                                 <td class="d-flex justify-content-start">
-                                    <label for="nConexionesUsuarioAEditar">Número de Conexiones:</label>
+                                    <label for="nConexionesUsuarioAEditar">Number of Connections:</label>
                                 </td>
                                 <td>
                                     <input class="bloqueado d-flex justify-content-start" type="text" name="nConexionesUsuarioAEditar"
@@ -89,10 +89,10 @@
                 <div class="row d-flex justify-content-start">
                     <div class="col">
                         <form name="Programa" method="post">
-                            <button class="botones" type="submit" name="cambiarContraseña">Cambiar Contraseña</button>
-                            <button class="botones" type="submit" name="confirmarCambios">Confirmar Cambios</button>
-                            <button class="botones" type="submit" name="salirMiCuenta">Cancelar</button>
-                            <button class="botones" type="submit" name="eliminarU">Eliminar Usuario</button>
+                            <button class="botones" type="submit" name="cambiarContraseña">Change Password</button>
+                            <button class="botones" type="submit" name="confirmarCambios">Confirm Changes</button>
+                            <button class="botones" type="submit" name="salirMiCuenta">Cancel</button>
+                            <button class="botones" type="submit" name="eliminarU">Delete User</button>
                         </form> 
                     </div>
                 </div>

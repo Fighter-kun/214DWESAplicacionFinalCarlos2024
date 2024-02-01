@@ -16,13 +16,14 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <title>Carlos García Cachón</title>
         <link rel="icon" type="image/jpg" href="webroot/media/images/favicon.ico"/>
+        <link rel="stylesheet" href="webroot/swiper/swiper-bundle.min.css" />
         <link rel="stylesheet" href="webroot/bootstrap-5.3.2-dist/css/bootstrap.min.css">
         <link rel="stylesheet" href="webroot/css/style.css">
         <style>
         </style>
     </head>
 
-    <body>
+    <body onload="startTime()">
         <header>
             <div class="row text-center navbar navbar-expand-lg navbar-light bg-light fixed-top">
                 <div class="col">
@@ -63,8 +64,13 @@
             <div class="container">
                 <div class="row text-center">
                     <div class="col">
-                        <h5>PHP DOC</h5>
-                        <a target="_blank" href="#">PHPDOC</a>
+                        <h5>INFORMACIÓN CORPORATIVA</h5>
+                        <a target="_blank" href="webroot/pdf/Currículum.pdf">Curriculum</a><br>
+                        <a target="_blank" href="doc/index.html">PHPDOC</a>
+                        <form method='post'>
+                        <button type="submit" name="tecnologias">Tecnologias</button>
+                        </form>
+                        <a target="_blank" href="webroot/rss/rss.xml">RSS</a>
                     </div>
                     <div class="col">
                         <h5>PAGINA IMITADA</h5>
@@ -99,7 +105,7 @@
                     <div class="col">
                     </div>
                     <div class="col">
-                        <p>©2024 Carlos García Cachón — Reservados todos los derechos</p>
+                        <a target="_blank" href="https://daw214.ieslossauces.es/">©2024 Carlos García Cachón — Reservados todos los derechos</a>
                     </div>
                     <div class="col">
                     </div>

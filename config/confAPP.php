@@ -27,6 +27,7 @@ $aController = [
     'login' => 'controller/cLogin.php',
     'inicioPrivado' => 'controller/cInicioPrivado.php',
     'detalle' => 'controller/cDetalle.php',
+    'tecnologias' => 'controller/cTecnologias.php',
     'rss' => 'controller/cRSS.php',
     'registro' => 'controller/cRegistro.php',
     'miCuenta' => 'controller/cMiCuenta.php',
@@ -53,6 +54,7 @@ $aView = [
         'login' => 'view/SP/vLogin.php',
         'inicioPrivado' => 'view/SP/vInicioPrivado.php',
         'detalle' => 'view/SP/vDetalle.php',
+        'tecnologias' => 'view/SP/vTecnologias.php',
         'rss' => 'view/SP/vRSS.php',
         'registro' => 'view/SP/vRegistro.php',
         'miCuenta' => 'view/SP/vMiCuenta.php',
@@ -73,6 +75,7 @@ $aView = [
         'login' => 'view/UK/vLogin.php',
         'inicioPrivado' => 'view/UK/vInicioPrivado.php',
         'detalle' => 'view/UK/vDetalle.php',
+        'tecnologias' => 'view/UK/vTecnologias.php',
         'rss' => 'view/UK/vRSS.php',
         'registro' => 'view/UK/vRegistro.php',
         'miCuenta' => 'view/UK/vMiCuenta.php',
@@ -96,6 +99,7 @@ $aTitleLang = [
         'login' => 'Inicio de Sesión',
         'inicioPrivado' => 'Inicio Privado',
         'detalle' => 'Detalle',
+        'tecnologias' => 'Tecnologias',
         'registro' => 'Registro',
         'miCuenta' => 'Mi Cuenta',
         'borrarCuenta' => 'Borrar Cuenta',
@@ -109,11 +113,12 @@ $aTitleLang = [
         'importarDepartamento' => 'Importar Departamentos',
         'apiREST' => 'REST'
     ],
-    'UK' => [ //Inlgés
+    'UK' => [ //Inglés
         'inicioPublico' => 'Public Home',
         'login' => 'Login',
         'inicioPrivado' => 'Private Home',
         'detalle' => 'Detail',
+        'tecnologias' => 'Technology',
         'registro' => 'Registration',
         'miCuenta' => 'My Account',
         'borrarCuenta' => 'Delete Account',
@@ -126,5 +131,21 @@ $aTitleLang = [
         'eliminarDepartamento' => 'Delete Department',
         'importarDepartamento' => 'Import Departments',
         'apiREST' => 'REST'
+    ]
+];
+
+// Array asociativo para poner el mensaje de bienvenida en distintos idiomas
+$aMessageLang = [
+    'SP' => [ // Castellano
+        'bienvenido' => 'Bienvenid@ ',
+        'estaEsLa' => ' esta es la ',
+        'vezQueTeConectas' => ' vez que te conectas;',
+        'ustedSeConectoPorUltimaVez' => ' usted se conectó por última vez el '
+    ],
+    'UK' => [ // Inglés
+        'bienvenido' => 'Welcome ',
+        'estaEsLa' => ' is this the ',
+        'vezQueTeConectas' => ' time you connect;',
+        'ustedSeConectoPorUltimaVez' => ' you last logged in on '
     ]
 ];

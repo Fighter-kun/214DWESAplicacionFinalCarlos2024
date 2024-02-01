@@ -1,5 +1,5 @@
 <!--
-        Descripción: Aplicación Final -- vCambiarContraseña.php (Castellano)
+        Descripción: Aplicación Final -- vCambiarContraseña.php (Inglés)
         Autor: Carlos García Cachón
         Fecha de creación/modificación: 12/01/2024
 -->
@@ -15,7 +15,7 @@
                             <tr>
                                 <!-- contraseñaActual Obligatorio -->
                                 <td class="d-flex justify-content-start">
-                                    <label for="contraseñaActual">Contraseña Actual:</label>
+                                    <label for="contraseñaActual">Current password:</label>
                                 </td>
                                 <td>                                                                                                <!-- El value contiene una operador ternario en el que por medio de un metodo 'isset()'
                                                                                                                                     comprobamos que exista la variable y no sea 'null'. En el caso verdadero devovleremos el contenido del campo
@@ -33,7 +33,7 @@
                             <tr>
                                 <!-- nuevaContraseña Obligatorio -->
                                 <td class="d-flex justify-content-start">
-                                    <label for="nuevaContraseña">Nueva Contraseña:</label>
+                                    <label for="nuevaContraseña">New Password:</label>
                                 </td>
                                 <td>                                                                                                <!-- El value contiene una operador ternario en el que por medio de un metodo 'isset()'
                                                                                                                                     comprobamos que exista la variable y no sea 'null'. En el caso verdadero devovleremos el contenido del campo
@@ -51,7 +51,7 @@
                             <tr>
                                 <!-- repetirNuevaContraseña Obligatorio -->
                                 <td class="d-flex justify-content-start">
-                                    <label for="repetirNuevaContraseña">Repetir Nueva Contraseña:</label>
+                                    <label for="repetirNuevaContraseña">Repeat New Password:</label>
                                 </td>
                                 <td>                                                                                                <!-- El value contiene una operador ternario en el que por medio de un metodo 'isset()'
                                                                                                                                     comprobamos que exista la variable y no sea 'null'. En el caso verdadero devovleremos el contenido del campo
@@ -69,8 +69,8 @@
                         </tbody>
                     </table>
                     <div class="text-center">
-                        <button class="botones" aria-disabled="true" type="submit" name="confirmarCambios">Confirmar Cambios</button>
-                        <button class="botones" aria-disabled="true" type="submit" name="salirCambiarContraseña">Cancelar</button>
+                        <button class="botones" aria-disabled="true" type="submit" name="confirmarCambios">Confirm Changes</button>
+                        <button class="botones" aria-disabled="true" type="submit" name="salirCambiarContraseña">Cancel</button>
                     </div>
                 </fieldset>
             </form>

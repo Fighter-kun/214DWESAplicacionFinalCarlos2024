@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!--
-        Descripción: Aplicación Final -- vRegistro.php (Castellano)
+        Descripción: Aplicación Final -- vRegistro.php (Inglés)
         Autor: Carlos García Cachón
         Fecha de creación/modificación: 02/01/2024
 -->
@@ -16,7 +16,7 @@
                             <tr>
                                 <!-- T01_CodUsuario Obligatorio -->
                                 <td class="d-flex justify-content-start">
-                                    <label for="T01_CodUsuario">Usuario:</label>
+                                    <label for="T01_CodUsuario">User:</label>
                                 </td>
                                 <td>                                                                                                <!-- El value contiene una operador ternario en el que por medio de un metodo 'isset()'
                                                                                                                                     comprobamos que exista la variable y no sea 'null'. En el caso verdadero devovleremos el contenido del campo
@@ -34,7 +34,7 @@
                             <tr>
                                 <!-- T01_DescUsuario Obligatorio -->
                                 <td class="d-flex justify-content-start">
-                                    <label for="T01_DescUsuario">Descripcion Usuarios:</label>
+                                    <label for="T01_DescUsuario">Description Users:</label>
                                 </td>
                                 <td>                                                                                                <!-- El value contiene una operador ternario en el que por medio de un metodo 'isset()'
                                                                                                                                     comprobamos que exista la variable y no sea 'null'. En el caso verdadero devovleremos el contenido del campo
@@ -52,7 +52,7 @@
                             <tr>
                                 <!-- T01_Password Obligatorio -->
                                 <td class="d-flex justify-content-start">
-                                    <label for="T01_Password">Contraseña:</label>
+                                    <label for="T01_Password">Password:</label>
                                 </td>
                                 <td>                                                                                                <!-- El value contiene una operador ternario en el que por medio de un metodo 'isset()'
                                                                                                                                     comprobamos que exista la variable y no sea 'null'. En el caso verdadero devovleremos el contenido del campo
@@ -70,7 +70,7 @@
                             <tr>
                                 <!-- repetirPassword Obligatorio -->
                                 <td class="d-flex justify-content-start">
-                                    <label for="T01_Password">Repetir Contraseña:</label>
+                                    <label for="T01_Password">Repit Password:</label>
                                 </td>
                                 <td>                                                                                                <!-- El value contiene una operador ternario en el que por medio de un metodo 'isset()'
                                                                                                                                     comprobamos que exista la variable y no sea 'null'. En el caso verdadero devovleremos el contenido del campo
@@ -87,8 +87,8 @@
                             </tr>
                         </tbody>
                     </table>
-                    <button class="botones" aria-disabled="true" type="submit" name="registrarse">Registrarse</button>
-                    <button class="botones" aria-disabled="true" type="submit" name="cancelar">Cancelar</button>
+                    <button class="botones" aria-disabled="true" type="submit" name="registrarse">Sign In</button>
+                    <button class="botones" aria-disabled="true" type="submit" name="cancelar">Cancel</button>
                 </fieldset>
             </form>
         </div>

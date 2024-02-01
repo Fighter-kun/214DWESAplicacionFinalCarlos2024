@@ -5,7 +5,7 @@
         Fecha de creación/modificación: 03/02/2024
 -->
 <script type="text/javascript" src="webroot/js/reloj.js"></script>
-<div onload="startTime()" class="container mt-3">
+<div class="container mt-3">
     <div class="row d-flex justify-content-start">
         <div class="col"><!-- Formulario donde recogemos los botones para ir a detalle o cerrar sesión -->
             <form name="Programa" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
