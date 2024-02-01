@@ -113,7 +113,7 @@ $aTitleLang = [
         'importarDepartamento' => 'Importar Departamentos',
         'apiREST' => 'REST'
     ],
-    'UK' => [ //Inlgés
+    'UK' => [ //Inglés
         'inicioPublico' => 'Public Home',
         'login' => 'Login',
         'inicioPrivado' => 'Private Home',
@@ -131,5 +131,21 @@ $aTitleLang = [
         'eliminarDepartamento' => 'Delete Department',
         'importarDepartamento' => 'Import Departments',
         'apiREST' => 'REST'
+    ]
+];
+
+// Array asociativo para poner el mensaje de bienvenida en distintos idiomas
+$aMessageLang = [
+    'SP' => [ // Castellano
+        'bienvenido' => 'Bienvenid@ ',
+        'estaEsLa' => ' esta es la ',
+        'vezQueTeConectas' => ' vez que te conectas;',
+        'ustedSeConectoPorUltimaVez' => ' usted se conectó por última vez el '
+    ],
+    'UK' => [ // Inglés
+        'bienvenido' => 'Welcome ',
+        'estaEsLa' => ' is this the ',
+        'vezQueTeConectas' => ' time you connect;',
+        'ustedSeConectoPorUltimaVez' => ' you last logged in on '
     ]
 ];

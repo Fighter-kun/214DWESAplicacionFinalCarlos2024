@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!--
-        Descripción: Aplicación Final -- vREST.php (Castellano)
+        Descripción: Aplicación Final -- vREST.php (Inglés)
         Autor: Carlos García Cachón
         Fecha de creación/modificación: 22/01/2024
 -->
@@ -10,21 +10,21 @@
         <table>
             <thead>
                 <tr>
-                    <th class="rounded-top" colspan="3"><legend>IMAGEN DE LA NASA</legend></th>
+                    <th class="rounded-top" colspan="3"><legend>IMAGE OF THE NASA</legend></th>
             </tr>
             </thead>
             <tbody>
                 <tr>
                     <!-- CodDepartamento Obligatorio -->
                     <td class="d-flex justify-content-start">
-                        <label for="fechaImagen">Fecha de la Imagen:</label>
+                        <label for="fechaImagen">Image Date:</label>
                     </td>
                     <td>
                         <!-- El value contiene una operador ternario en el que por medio de un metodo 'isset()'
                              comprobamos que exista la variable y no sea 'null'. En el caso verdadero devolveremos el contenido del campo
                              que contiene '$_REQUEST' , en caso falso sobrescribirá el campo a '' .-->
                         <input class="obligatorio d-flex justify-content-start" type="date" name="fechaImagen"
-                               value="<?php echo (isset($_REQUEST['fechaImagen']) ? $_REQUEST['fechaImagen'] : ''); ?>">
+                               value="<?php echo (isset($_REQUEST['fechaImagen']) ?? ''); ?>">
                     </td>
                     <td class="error">
                         <?php
@@ -38,8 +38,8 @@
             </tbody>
         </table>
         <div class="text-center">
-            <button class="botones" aria-disabled="true" type="submit" name="confirmarFechaREST">Solicitar imagen</button>
-            <button class="botones" aria-disabled="true" type="submit" name="salirREST">Salir</button>
+            <button class="botones" aria-disabled="true" type="submit" name="confirmarFechaREST">Request image</button>
+            <button class="botones" aria-disabled="true" type="submit" name="salirREST">Exit</button>
         </div>
     </fieldset>
 </form>
@@ -64,4 +64,3 @@
     }
     ?>
 </div>
-

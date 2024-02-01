@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!--
-        Descripción: Aplicación Final -- vLogin.php (Castellano)
+        Descripción: Aplicación Final -- vLogin.php (Inglés)
         Autor: Carlos García Cachón
         Fecha de creación/modificación: 02/01/2024
 -->
@@ -18,7 +18,7 @@
                                     <tr>
                                         <!-- CodDepartamento Obligatorio -->
                                         <td class="d-flex justify-content-start">
-                                            <label for="user">Usuario:</label>
+                                            <label for="user">User:</label>
                                         </td>
                                         <td>
                                             <!-- El value contiene una operador ternario en el que por medio de un metodo 'isset()'
@@ -38,7 +38,7 @@
                                     <tr>
                                         <!-- CodDepartamento Obligatorio -->
                                         <td class="d-flex justify-content-start">
-                                            <label for="password">Contraseña:</label>
+                                            <label for="password">Password:</label>
                                         </td>
                                         <td>
                                             <!-- El value contiene una operador ternario en el que por medio de un metodo 'isset()'
@@ -58,9 +58,9 @@
                                 </tbody>
                             </table>
                             <div class="text-center">
-                                <button class="botones" aria-disabled="true" type="submit" name="iniciarSesion">Iniciar Sesión</button>
-                                <button class="botones" aria-disabled="true" type="submit" name="registrarse">Registrarse</button>
-                                <button class="botones" aria-disabled="true" type="submit" name="cancelar">Cancelar</button>
+                                <button class="botones" aria-disabled="true" type="submit" name="iniciarSesion">Log in</button>
+                                <button class="botones" aria-disabled="true" type="submit" name="registrarse">Check in</button>
+                                <button class="botones" aria-disabled="true" type="submit" name="cancelar">Cancel</button>
                             </div>
                         </fieldset>
                     </form>

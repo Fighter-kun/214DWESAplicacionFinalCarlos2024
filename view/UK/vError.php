@@ -1,5 +1,5 @@
 <!--
-        Descripción: Aplicación Final -- vError.php (Castellano)
+        Descripción: Aplicación Final -- vError.php (Inglés)
         Autor: Carlos García Cachón
         Fecha de creación/modificación: 03/02/2024
 -->
@@ -9,19 +9,19 @@
             <table>
                 <tbody>
                     <tr>
-                        <td>Código:</td>
+                        <td>Code:</td>
                         <td><?php echo $sCodError ?></td>
                     </tr>
                     <tr>
-                        <td>Descripción:</td>
+                        <td>Description:</td>
                         <td><?php echo $sDescError ?></td>
                     </tr>
                     <tr>
-                        <td>Archivo:</td>
+                        <td>File:</td>
                         <td><?php echo $sArchivoError ?></td>
                     </tr>
                     <tr>
-                        <td>Línea:</td>
+                        <td>Line:</td>
                         <td><?php echo $iLineaError ?></td>
                     </tr>
                 </tbody>
@@ -31,7 +31,7 @@
     <div class="row">
         <div class="col text-center">
             <form method="post" action="index.php">
-                <button class="botones" type="submit" name="salirDelError">Salir</button>
+                <button class="botones" type="submit" name="salirDelError">Exit</button>
             </form>
         </div>
     </div>

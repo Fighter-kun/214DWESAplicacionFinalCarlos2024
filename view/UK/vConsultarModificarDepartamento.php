@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!--
-        Descripción: Aplicación Final - vConsultarModificarDepartamento.php (Castellano)
+        Descripción: Aplicación Final - vConsultarModificarDepartamento.php (Inglés)
         Autor: Carlos García Cachón
         Fecha de creación/modificación: 16/01/2024
 -->
@@ -17,7 +17,7 @@
                         <input type="hidden" name="codDepartamento" value="<?php echo $codDepartamentoAEditar; ?>">
                         <!-- Codigo Departamento Deshabilitado -->
                         <td class="d-flex justify-content-start">
-                            <label for="codDepartamentoAEditar">Código de Departamento:</label>
+                            <label for="codDepartamentoAEditar">Department Code:</label>
                         </td>
                         <td>
                             <input class="bloqueado d-flex justify-content-start modDep" type="text" name="codDepartamentoAEditar"
@@ -29,7 +29,7 @@
                         <tr>
                             <!-- Descripcion Departamento Obligatorio -->
                             <td class="d-flex justify-content-start">
-                                <label for="T02_DescDepartamento">Descripción de Departamento:</label>
+                                <label for="T02_DescDepartamento">Department Description:</label>
                             </td>
                             <td>                                                                                                <!-- El value contiene una operador ternario en el que por medio de un metodo 'isset()'
                                                                                                                                 comprobamos que exista la variable y no sea 'null'. En el caso verdadero devovleremos el contenido del campo
@@ -47,7 +47,7 @@
                         <tr>
                             <!-- Fecha Creación Departamento Deshabilitado -->
                             <td class="d-flex justify-content-start">
-                                <label for="fechaCreacionDepartamentoAEditar">Fecha de Creación:</label>
+                                <label for="fechaCreacionDepartamentoAEditar">Creation date:</label>
                             </td>
                             <td>
                                 <input class="bloqueado d-flex justify-content-start modDep" type="text" name="fechaCreacionDepartamentoAEditar"
@@ -59,7 +59,7 @@
                         <tr>
                             <!-- Volumen Negocio Departamento Opcional -->
                             <td class="d-flex justify-content-start">
-                                <label for="T02_VolumenDeNegocio_">Volumen de Negocio:</label>
+                                <label for="T02_VolumenDeNegocio_">Business Volume:</label>
                             </td>
                             <td>                                                                                                <!-- El value contiene una operador ternario en el que por medio de un metodo 'isset()'
                                                                                                                                 comprobamos que exista la variable y no sea 'null'. En el caso verdadero devovleremos el contenido del campo
@@ -77,8 +77,8 @@
                         </tbody>
                     </table>
                     <div class="text-center">
-                        <button class="botones" aria-disabled="true" type="submit" name="confirmarCambiosEditar">Confirmar Cambios</button>
-                        <button class="botones" aria-disabled="true" type="submit" name="cancelarEditar">Cancelar</button>
+                        <button class="botones" aria-disabled="true" type="submit" name="confirmarCambiosEditar">Confirm Changes</button>
+                        <button class="botones" aria-disabled="true" type="submit" name="cancelarEditar">Cancel</button>
                     </div>
                 </fieldset>
             </form> 

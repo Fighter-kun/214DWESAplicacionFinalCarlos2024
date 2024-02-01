@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!--
-        Descripción: Aplicación Final -- vAltaDepartamento.php (Castellano)
+        Descripción: Aplicación Final -- vAltaDepartamento.php (Inglés)
         Autor: Carlos García Cachón
         Fecha de creación/modificación: 04/01/2024
 -->
@@ -16,7 +16,7 @@
                             <tr>
                                 <!-- CodDepartamento Obligatorio -->
                                 <td class="d-flex justify-content-start">
-                                    <label for="CodDepartamento">Codigo de Departamento:</label>
+                                    <label for="CodDepartamento">Department Code:</label>
                                 </td>
                                 <td>                                                                                                <!-- El value contiene una operador ternario en el que por medio de un metodo 'isset()'
                                                                                                                                     comprobamos que exista la variable y no sea 'null'. En el caso verdadero devovleremos el contenido del campo
@@ -34,7 +34,7 @@
                             <tr>
                                 <!-- DescDepartamento Obligatorio -->
                                 <td class="d-flex justify-content-start">
-                                    <label for="DescDepartamento">Descripción de Departamento:</label>
+                                    <label for="DescDepartamento">Department Description:</label>
                                 </td>
                                 <td>                                                                                                <!-- El value contiene una operador ternario en el que por medio de un metodo 'isset()'
                                                                                                                                     comprobamos que exista la variable y no sea 'null'. En el caso verdadero devovleremos el contenido del campo
@@ -52,7 +52,7 @@
                             <tr>
                                 <!-- FechaCreacionDepartamento Opcional -->
                                 <td class="d-flex justify-content-start">
-                                    <label for="FechaCreacionDepartamento">Fecha de Creación:</label>
+                                    <label for="FechaCreacionDepartamento">Creation date:</label>
                                 </td>
                                 <td>                                                                                                <!-- El value contiene una operador ternario en el que por medio de un metodo 'isset()'
                                                                                                                                     comprobamos que exista la variable y no sea 'null'. En el caso verdadero devovleremos el contenido del campo
@@ -70,7 +70,7 @@
                             <tr>
                                 <!-- VolumenNegocio Obligatorio -->
                                 <td class="d-flex justify-content-start">
-                                    <label for="VolumenDeNegocio">Volumen de Negocio:</label>
+                                    <label for="VolumenDeNegocio">Business Volume:</label>
                                 </td>
                                 <td>                                                                                                <!-- El value contiene una operador ternario en el que por medio de un metodo 'isset()'
                                                                                                                                     comprobamos que exista la variable y no sea 'null'. En el caso verdadero devovleremos el contenido del campo
@@ -88,7 +88,7 @@
                             <tr>
                                 <!-- FechaBaja Opcional -->
                                 <td class="d-flex justify-content-start">
-                                    <label for="FechaBaja">Fecha de Baja:</label>
+                                    <label for="FechaBaja">Discharge date:</label>
                                 </td>
                                 <td>                                                                                                <!-- El value contiene una operador ternario en el que por medio de un metodo 'isset()'
                                                                                                                                     comprobamos que exista la variable y no sea 'null'. En el caso verdadero devovleremos el contenido del campo
@@ -105,8 +105,8 @@
                             </tr>
                         </tbody>
                     </table>
-                    <button class="botones" role="button" aria-disabled="true" type="submit" name="añadirDepartamento">Añadir Departamento</button>
-                    <button class="botones" role="button" aria-disabled="true" type="submit" name="salirAñadirDepartamento">Salir</button>
+                    <button class="botones" role="button" aria-disabled="true" type="submit" name="añadirDepartamento">Add Department</button>
+                    <button class="botones" role="button" aria-disabled="true" type="submit" name="salirAñadirDepartamento">Exit</button>
                 </fieldset>
             </form>
         </div>

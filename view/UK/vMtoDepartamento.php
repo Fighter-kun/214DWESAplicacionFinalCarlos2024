@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!--
-        Descripción: Aplicación Final - vMtoDepartamento.php (Castellano)
+        Descripción: Aplicación Final - vMtoDepartamento.php (Inglés)
         Autor: Carlos García Cachón
         Fecha de creación/modificación: 16/01/2024
 -->
@@ -18,14 +18,14 @@
                             <tr>
                                 <!-- CodDepartamento Obligatorio -->
                                 <td class="d-flex justify-content-start" colspan='2'>
-                                    <label for="DescDepartamento">Descripción:</label>
+                                    <label for="DescDepartamento">Description:</label>
                                 </td>
                                 <td>                                                                                                <!-- El value contiene una operador ternario en el que por medio de un metodo 'isset()'
                                                                                                                                     comprobamos que exista la variable y no sea 'null'. En el caso verdadero devovleremos el contenido del campo
                                                                                                                                     que contiene '$_REQUEST' , en caso falso sobrescribira el campo a '' .-->
                                     <input class="d-flex justify-content-start" type="text" name="DescDepartamento" value="<?php echo $_SESSION['criterioBusquedaDepartamentos']['descripcionBuscada'] ?? ''; ?>">
                                 </td>
-                                <td><button class="botones" role="button" aria-disabled="true" type="submit" name="buscarDepartamentoPorDesc">Buscar</button></td>
+                                <td><button class="botones" role="button" aria-disabled="true" type="submit" name="buscarDepartamentoPorDesc">Search</button></td>
                             </tr>
                             <tr>
                                 <td class="error" colspan="3">
@@ -133,12 +133,12 @@
         <div class="col grupoDeBotones">
             <form name="indexMtoDepartamentos" method="post">
                 <div class="btn-container">
-                    <div class="descripcionExportar">Si pulsas exportar descarga un fichero '.zip' que contiene todos los departamentos en '.json' y '.xml'</div>
-                    <button id="exportButton" class="botones" role="button" aria-disabled="true" type="submit" name="exportarDepartamentos">Exportar</button>
+                    <div class="descripcionExportar">If you click export, download a '.zip' file that contains all the departments in '.json' and '.xml'</div>
+                    <button id="exportButton" class="botones" role="button" aria-disabled="true" type="submit" name="exportarDepartamentos">Export</button>
                 </div>
-                <button class="botones" role="button" aria-disabled="true" type="submit" name="importarDepartamentos">Importar</button>
-                <button class="botones" role="button" aria-disabled="true" type="submit" name="añadirDepartamento">Añadir Departamento</button>
-                <button class="botones" role="button" aria-disabled="true" type="submit" name="salirDepartamentos">Salir</button>
+                <button class="botones" role="button" aria-disabled="true" type="submit" name="importarDepartamentos">Import</button>
+                <button class="botones" role="button" aria-disabled="true" type="submit" name="añadirDepartamento">Add Department</button>
+                <button class="botones" role="button" aria-disabled="true" type="submit" name="salirDepartamentos">Exit</button>
             </form>
         </div>
     </div>

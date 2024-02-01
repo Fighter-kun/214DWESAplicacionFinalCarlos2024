@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!--
-        Descripción: Aplicación Final -- vImportarDepartamentos.php (Castellano)
+        Descripción: Aplicación Final -- vImportarDepartamentos.php (Inglés)
         Autor: Carlos García Cachón
         Fecha de creación/modificación: 04/01/2024
 -->
@@ -14,8 +14,8 @@
                     <input class="form-control" type="file" name="archivo" id="archivo" accept=".json , .xml">
                 </div>
                 <br><br>
-                <button class="botones" type="submit" name="importarDepartamentos">Importar</button>
-                <button class="botones" role="button" aria-disabled="true" type="submit" name="salirImportar">Salir</button>
+                <button class="botones" type="submit" name="importarDepartamentos">Import</button>
+                <button class="botones" role="button" aria-disabled="true" type="submit" name="salirImportar">Exit</button>
             </form>
         </div>
     </div>

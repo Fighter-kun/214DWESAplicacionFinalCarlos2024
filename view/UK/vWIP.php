@@ -1,5 +1,5 @@
 <!--
-        Descripción: Aplicación Final -- vWIP.php (Castellano)
+        Descripción: Aplicación Final -- vWIP.php (Inglés)
         Autor: Carlos García Cachón
         Fecha de creación/modificación: 04/02/2024
 -->
@@ -12,7 +12,7 @@
     <div class="row">
         <div class="col text-center">
             <form method="post" action="index.php">
-                <button class="botones" type="submit" name="salirDeWIP">Salir</button>
+                <button class="botones" type="submit" name="salirDeWIP">Exit</button>
             </form>
         </div>
     </div>
