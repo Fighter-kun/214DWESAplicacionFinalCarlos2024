@@ -23,7 +23,7 @@
         </style>
     </head>
 
-    <body>
+    <body onload="startTime()">
         <header>
             <div class="row text-center navbar navbar-expand-lg navbar-light bg-light fixed-top">
                 <div class="col">
@@ -67,6 +67,9 @@
                         <h5>INFORMACIÓN CORPORATIVA</h5>
                         <a target="_blank" href="webroot/pdf/Currículum.pdf">Curriculum</a><br>
                         <a target="_blank" href="doc/index.html">PHPDOC</a>
+                        <form method='post'>
+                        <button type="submit" name="tecnologias">Tecnologias</button>
+                        </form>
                     </div>
                     <div class="col">
                         <h5>PAGINA IMITADA</h5>

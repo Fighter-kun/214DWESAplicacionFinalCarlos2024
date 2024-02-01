@@ -178,6 +178,10 @@ th {
     font-weight: bold;
 }
 
+.table-borderless td {
+    width:80px;
+}
+
 /* FORMULARIOS */
 .obligatorio {
     background-color: #ffff7a;
