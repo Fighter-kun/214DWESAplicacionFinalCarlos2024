@@ -47,11 +47,11 @@
                 echo ("<table>
                         <thead>
                         <tr>
-                            <th>Código</th>
-                            <th>Descripción</th>
-                            <th>Fecha de Creación</th>
-                            <th>Volumen de Negocio</th>
-                            <th>Fecha de Baja</th>
+                            <th>Code</th>
+                            <th>Description</th>
+                            <th>Creation date</th>
+                            <th>Business Volume</th>
+                            <th>Discharge date</th>
                             <th colspan='4'><-T-></th>
                         </tr>
                         </thead>");
@@ -122,7 +122,7 @@
                  * almacenamos el valor en la variable '$numeroDeRegistros'
                  */
                 // Y mostramos el número de registros
-                echo ("<tfoot ><tr style='background-color: black; color:white;'><td colspan='9'>Número de registros en la tabla Departamento: " . $numeroDeRegistrosConsulta . '</td></tr></tfoot>');
+                echo ("<tfoot ><tr style='background-color: black; color:white;'><td colspan='9'>Number of records in the Department table: " . $numeroDeRegistrosConsulta . '</td></tr></tfoot>');
                 echo ("</table>");
                 echo ("</div>");
             }

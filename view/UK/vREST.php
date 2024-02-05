@@ -23,8 +23,7 @@
                         <!-- El value contiene una operador ternario en el que por medio de un metodo 'isset()'
                              comprobamos que exista la variable y no sea 'null'. En el caso verdadero devolveremos el contenido del campo
                              que contiene '$_REQUEST' , en caso falso sobrescribirá el campo a '' .-->
-                        <input class="obligatorio d-flex justify-content-start" type="date" name="fechaImagen"
-                               value="<?php echo (isset($_REQUEST['fechaImagen']) ?? ''); ?>">
+                        <input class="obligatorio d-flex justify-content-start" type="date" name="fechaImagen" value="<?php echo $_SESSION['fechaApi'] ?>">
                     </td>
                     <td class="error">
                         <?php
