@@ -22,13 +22,17 @@ $entradaOK = true;
 $aErrores = ['fechaImagen' => ''];
 // Almaceno el valor de la fecha actual formateada
 $fechaYHoraActualCreacion = new DateTime('now', new DateTimeZone('Europe/Madrid'));
-$fechaYHoraActualFormateada = $fechaYHoraActualCreacion->format('Y-m-d');
+$fechaYHoraActualFormateada = $fechaYHoraActualCreacion->format('Y/m/d');
+
+$fechaActualFormateada = $fechaYHoraActualCreacion->format('Y-m-d');
+
+if (!isset($_SESSION['fechaApi'])) {
+    $_SESSION['fechaApi'] = $fechaActualFormateada;
+}
 
 if (isset($_REQUEST['confirmarFechaREST'])) {
-
-
-    // Valido la sintaxis del usuario y contraseña introducidos
-    $aErrores['fechaImagen'] = validacionFormularios::validarFecha($_REQUEST['fechaImagen'], $fechaYHoraActualFormateada, '01/01/2010', 1);
+    // Valido la fecha
+    $aErrores['fechaImagen'] = validacionFormularios::validarFecha($_REQUEST['fechaImagen'], $fechaYHoraActualFormateada, '06/16/1995', 1);
 
     // Recorremos el array de errores
     foreach ($aErrores as $campo => $error) {
@@ -41,11 +45,13 @@ if (isset($_REQUEST['confirmarFechaREST'])) {
     $entradaOK = false;
 }
 if ($entradaOK) {
-    $_SESSION['apiNasa'] = REST::apiNasa($_REQUEST['fechaImagen']);
+    $_SESSION['fechaApi'] = $_REQUEST['fechaImagen'];
     $_SESSION['paginaAnterior'] = 'inicioPrivado'; // Almaceno la página anterior para poder volver
     $_SESSION['paginaEnCurso'] = 'apiREST'; // Asigno a la página en curso la pagina de apiREST
     header('Location: index.php'); // Redirecciono al index de la APP
     exit;
 }
+
+$_SESSION['apiNasa'] = REST::apiNasa($_SESSION['fechaApi']);
 
 require_once $aView[$_COOKIE['idioma']]['layout']; // Cargo la vista de 'REST'
