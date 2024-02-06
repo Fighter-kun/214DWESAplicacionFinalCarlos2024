@@ -26,6 +26,7 @@ $fechaYHoraActualFormateada = $fechaYHoraActualCreacion->format('Y/m/d');
 
 $fechaActualFormateada = $fechaYHoraActualCreacion->format('Y-m-d');
 
+// Si la variable no se a declarado, le doy un valor por defecto 
 if (!isset($_SESSION['fechaApi'])) {
     $_SESSION['fechaApi'] = $fechaActualFormateada;
 }
@@ -52,6 +53,41 @@ if ($entradaOK) {
     exit;
 }
 
+/*
+ * CREAR LA LÓGICA Y VALIDADCIÓN PARA CUANDO CREEMOS UNA TAREA NUEVA
+ */
+if (isset($_REQUEST['confirmarTarea'])) {
+        $data = ['descripcion' => $_REQUEST['tarea'], 'estado' => 'pendiente'];
+
+    $_SESSION['apiTask'] = REST::apiTask();
+    $_SESSION['paginaAnterior'] = 'inicioPrivado'; // Almaceno la página anterior para poder volver
+    $_SESSION['paginaEnCurso'] = 'apiREST'; // Asigno a la página en curso la pagina de apiREST
+    header('Location: index.php'); // Redirecciono al index de la APP
+    exit;
+}
+
+// Si la variable no se a declarado, le doy un valor por defecto
+if (!isset($_SESSION['casaSeleccionada'])) {
+    $_SESSION['casaSeleccionada'] = "slytherin";
+}
+
+// Si pulso el botón 'Enviar Casa' en la Vista
+if (isset($_REQUEST["pedirHP"])) {
+    // Pregunto si el valor de request es el correcto
+    if ($_REQUEST['casa'] == "gryffindor" || $_REQUEST['casa'] == "slytherin" || $_REQUEST['casa'] == "hufflepuff" || $_REQUEST['casa'] == "ravenclaw" ) {
+        // Si el valor es correcto, cargo el valor de request dentro de una variable de sesión
+        $_SESSION['casaSeleccionada'] = $_REQUEST['casa'];
+        header('Location: index.php');
+        exit; 
+    } else {
+        // Caso incorrecto cargo un mensaje de error
+        $aErrores['casa'] = "Valor incorrecto, prueba con: gryffindor, slytherin, hufflepuff o ravenclaw";
+    }
+}
+
+// Ejecuto las APIs con sus valores por defecto o valores correctos seleccionados por el usuario
 $_SESSION['apiNasa'] = REST::apiNasa($_SESSION['fechaApi']);
+$_SESSION['HP'] = REST::apiHarryPotter($_SESSION['casaSeleccionada']);
+
 
 require_once $aView[$_COOKIE['idioma']]['layout']; // Cargo la vista de 'REST'
