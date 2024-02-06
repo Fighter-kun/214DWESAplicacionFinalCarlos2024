@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @author Carlos García Cachón
  * @version 1.0
@@ -9,7 +10,6 @@
  * 
  */
 require_once 'core/231018libreriaValidacion.php'; // Incluimos la librería de validación
-
 // Incluimos los archivos de la parte del MODELO
 require_once 'model/DB.php';
 require_once 'model/DBPDO.php';
@@ -20,6 +20,11 @@ require_once 'model/UsuarioPDO.php';
 require_once 'model/Departamento.php';
 require_once 'model/DepartamentoPDO.php';
 require_once 'model/REST.php';
+
+// Constantes para la busqueda de Mto.Departamento
+define("ESTADO_TODOS", 0);
+define("ESTADO_ALTAS", 1);
+define("ESTADO_BAJAS", 2);
 
 // Creamos dos 'arrays' para indicar el 'path' de los archivos del controlador y la vista
 $aController = [
@@ -94,7 +99,7 @@ $aView = [
 
 // Array asociativo para poner los titulos en distintos idiomas
 $aTitleLang = [
-    'SP' => [ // Castellano
+    'SP' => [// Castellano
         'inicioPublico' => 'Inicio Público',
         'login' => 'Inicio de Sesión',
         'inicioPrivado' => 'Inicio Privado',
@@ -113,7 +118,7 @@ $aTitleLang = [
         'importarDepartamento' => 'Importar Departamentos',
         'apiREST' => 'REST'
     ],
-    'UK' => [ //Inglés
+    'UK' => [//Inglés
         'inicioPublico' => 'Public Home',
         'login' => 'Login',
         'inicioPrivado' => 'Private Home',
@@ -136,13 +141,13 @@ $aTitleLang = [
 
 // Array asociativo para poner el mensaje de bienvenida en distintos idiomas
 $aMessageLang = [
-    'SP' => [ // Castellano
+    'SP' => [// Castellano
         'bienvenido' => 'Bienvenid@ ',
         'estaEsLa' => ' esta es la ',
         'vezQueTeConectas' => ' vez que te conectas;',
         'ustedSeConectoPorUltimaVez' => ' usted se conectó por última vez el '
     ],
-    'UK' => [ // Inglés
+    'UK' => [// Inglés
         'bienvenido' => 'Welcome ',
         'estaEsLa' => ' is this the ',
         'vezQueTeConectas' => ' time you connect;',

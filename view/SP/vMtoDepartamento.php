@@ -5,7 +5,30 @@
         Fecha de creación/modificación: 16/01/2024
 -->
 <style>
-    
+    input[type="radio"] {
+        /* Oculta el punto predeterminado del radio */
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+
+        width: 12px;
+        height: 12px;
+
+        border-radius: 50%;
+
+        /* Establece el estilo del borde del nuevo punto */
+        border: 2px solid black;
+
+        /* Agrega un margen para separar el punto del texto */
+        margin-right: 5px;
+
+        /* Posiciona el cursor como puntero al pasar sobre el radio */
+        cursor: pointer;
+    }
+    input[type="radio"]:checked {
+        /* Cambia el color del fondo del punto cuando está seleccionado */
+        background-color: black;
+    }
 </style>
 <div class="container mt-3">
     <div class="row mb-2">
@@ -24,6 +47,15 @@
                                                                                                                                     comprobamos que exista la variable y no sea 'null'. En el caso verdadero devovleremos el contenido del campo
                                                                                                                                     que contiene '$_REQUEST' , en caso falso sobrescribira el campo a '' .-->
                                     <input class="d-flex justify-content-start" type="text" name="DescDepartamento" value="<?php echo $_SESSION['criterioBusquedaDepartamentos']['descripcionBuscada'] ?? ''; ?>">
+                                    <div>
+                                        <a class="pBuscarDepartamento">Estado: </a>
+                                        <label for="tipoDepartamentoTodos"><a class="rFiltrarDepartamento">Todos</a></label>
+                                        <input name="estado" id="tipoDepartamentoTodos" type="radio" value="todos" <?php echo isset($_SESSION['criterioBusquedaDepartamentos']['estado']) ? ($_SESSION['criterioBusquedaDepartamentos']['estado'] == ESTADO_TODOS ? 'checked' : '') : 'checked'; ?>>
+                                        <label for="tipoDepartamentoAltas"><a class="rFiltrarDepartamento">Altas</a></label>
+                                        <input name="estado" id="tipoDepartamentoAltas" type="radio" value="altas" <?php echo isset($_SESSION['criterioBusquedaDepartamentos']['estado']) ? ($_SESSION['criterioBusquedaDepartamentos']['estado'] == ESTADO_ALTAS ? 'checked' : '') : ''; ?>>
+                                        <label for="tipoDepartamentoBajas"><a class="rFiltrarDepartamento">Bajas</a></label>
+                                        <input name="estado" id="tipoDepartamentoBajas" type="radio" value="bajas" <?php echo isset($_SESSION['criterioBusquedaDepartamentos']['estado']) ? ($_SESSION['criterioBusquedaDepartamentos']['estado'] == ESTADO_BAJAS ? 'checked' : '') : ''; ?>>
+                                    </div>
                                 </td>
                                 <td><button class="botones" role="button" aria-disabled="true" type="submit" name="buscarDepartamentoPorDesc">Buscar</button></td>
                             </tr>
@@ -118,20 +150,32 @@
             }
             if ($aDepartamentosVista != null) {
                 echo ("</tbody>");
-                /* Ahora usamos la función 'rowCount()' que nos devuelve el número de filas afectadas por la consulta y 
-                 * almacenamos el valor en la variable '$numeroDeRegistros'
-                 */
-                // Y mostramos el número de registros
-                echo ("<tfoot ><tr style='background-color: black; color:white;'><td colspan='9'>Número de registros en la tabla Departamento: " . $numeroDeRegistrosConsulta . '</td></tr></tfoot>');
                 echo ("</table>");
                 echo ("</div>");
             }
             ?>
         </div>
     </div>
-    <div class="row">
-        <div class="col grupoDeBotones">
+    <div class="row grupoDeBotones">
+        <div class="col">
             <form name="indexMtoDepartamentos" method="post">
+                <div class="row grupoDeBotonesPaginacion">
+                    <div class="col">
+                        <button class="botones" type="submit" name="paginaPrimera">PRIMERA PAGINA</button>
+                    </div>
+                    <div class="col">
+                        <button class="botones" type="submit" name="paginaAnterior">PAGINA ANTERIOR</button>
+                    </div>
+                    <div class="col">
+                        <?php echo $_SESSION['numPaginacionDepartamentos'] ?> / <?php echo ceil($iDepartamentosTotales) ?>
+                    </div>
+                    <div class="col">
+                        <button class="botones" type="submit" name="paginaSiguiente">PAGINA SIGUIENTE</button>
+                    </div>
+                    <div class="col">
+                        <button class="botones" type="submit" name="paginaUltima">ULTIMA PAGINA</button>
+                    </div>
+                </div>
                 <div class="btn-container">
                     <div class="descripcionExportar">Si pulsas exportar descarga un fichero '.zip' que contiene todos los departamentos en '.json' y '.xml'</div>
                     <button id="exportButton" class="botones" role="button" aria-disabled="true" type="submit" name="exportarDepartamentos">Exportar</button>

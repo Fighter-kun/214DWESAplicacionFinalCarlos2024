@@ -97,6 +97,7 @@ class REST {
         // Decodificar la respuesta JSON
         $respuestaJson = json_decode($respuesta, true);
 
+        // HACER UN FOR PARA RECORRER CADA ELEMENTO DEL ARRAY (JSON) Y CREAR UN OBJETO DE CADA ELEMENTO, METERLO EN UN ARRAY Y DEVOLVERLO
         return $respuestaJson;
     }
 }

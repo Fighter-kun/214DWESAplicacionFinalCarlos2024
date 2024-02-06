@@ -252,6 +252,14 @@ input[name="DescDepartamento"] {
     width: 90%;
 }
 
+.grupoDeBotones {
+    margin-top: -125px;
+}
+
+.grupoDeBotonesPaginacion {
+    margin-bottom: 75px;
+}
+
 /* IMPORTAR DEPARTAMENTOS */
 .form-control {
     background-color: black;

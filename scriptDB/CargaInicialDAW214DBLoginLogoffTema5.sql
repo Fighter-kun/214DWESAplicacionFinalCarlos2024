@@ -10,7 +10,16 @@ INSERT INTO DB214DWESLoginLogoffTema5.T02_Departamento (T02_CodDepartamento, T02
     ('AAD', 'Departamento de Administracion', NOW(), 100000.50, NULL),
     ('AAE', 'Departamento de I+D', NOW(), 50089.50, NULL),
     ('AAF', 'Departamento de Inversiones', NOW(), 100000.50, NULL),
-    ('AAG', 'Departamento de Recursos Humanos', NOW(), 50089.50, NULL);
+    ('AAG', 'Departamento de Recursos Humanos', NOW(), 50089.50, NULL),
+    ('AAH', 'Departamento de Calidad', NOW(), 80000.40, NULL),
+    ('AAI', 'Departamento de Soporte', NOW(), 95000.70, NULL),
+    ('AAJ', 'Departamento de Tecnología', NOW(), 115000.45, NULL),
+    ('AAK', 'Departamento de Desarrollo', NOW(), 90000.55, NULL),
+    ('AAL', 'Departamento de Comunicaciones', NOW(), 75000.25, NULL),
+    ('AAM', 'Departamento de Legal', NOW(), 110000.60, NULL),
+    ('AAN', 'Departamento de Investigación', NOW(), 85000.80, NULL),
+    ('AAO', 'Departamento de Planificación', NOW(), 90000.40, NULL),
+    ('AAP', 'Departamento de Auditoría', NOW(), 130000.20, NULL);
 
 -- Inserto los datos iniciales en la tabla T01_Usuario con contraseñas cifradas en SHA-256
 INSERT INTO DB214DWESLoginLogoffTema5.T01_Usuario (T01_CodUsuario, T01_Password, T01_DescUsuario, T01_Perfil) VALUES
