@@ -35,7 +35,7 @@ if(isset($_REQUEST['editarPerfil'])){
 //Si el usuario pulsa el botón 'Detalle', mando al usuario al index de DWES
 if(isset($_REQUEST['mtoDepartamentos'])){
     $_SESSION['paginaAnterior'] = 'inicioPrivado'; // Almaceno la página anterior para poder volver
-    $_SESSION['paginaEnCurso'] = 'wip'; // Asigno a la página en curso la pagina de consultarDepartamento
+    $_SESSION['paginaEnCurso'] = 'consultarDepartamento'; // Asigno a la página en curso la pagina de consultarDepartamento
     header('Location: index.php'); // Redirecciono al index de la APP
     exit;
 }

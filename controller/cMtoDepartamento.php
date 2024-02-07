@@ -11,6 +11,7 @@
  */
 // Estructura del botón salir, si el usuario pulsa el botón 'salir'
 if (isset($_REQUEST['salirDepartamentos'])) {
+    $_SESSION['numPaginacionDepartamentos'] = 1; // Si salgo posiciono la página en la primera
     $_SESSION['paginaAnterior'] = 'consultarDepartamento'; // Almaceno la página anterior para poder volver
     $_SESSION['paginaEnCurso'] = 'inicioPrivado'; // Asigno a la página en curso la pagina de inicioPrivado
     header('Location: index.php'); // Redirecciono al index de la APP
@@ -77,8 +78,13 @@ if (isset($_REQUEST['añadirDepartamento'])) {
     exit;
 }
 
+// Si la variable no esta declarada le asigno un valor por defecto
+if (!isset($_SESSION['numPaginacionDepartamentos'])) {
+    $_SESSION['numPaginacionDepartamentos'] = 1;
+}
 
-/// Si la variable no esta declarada le asigno un valor por defecto
+
+// Si la variable no esta declarada le asigno un valor por defecto
 if (!isset($_SESSION['criterioBusquedaDepartamentos']['estado'])) {
     $_SESSION['criterioBusquedaDepartamentos']['estado'] = ESTADO_TODOS;
 }
@@ -169,7 +175,7 @@ $aDepartamentosVista = []; //Array para guardar el contenido de un departamento
  * con los siguientes parametros. 
  * La descripción si esta declarada si no vacío, el estado esta declarado por defecto y el número de paginación también.
  */
-//$aDepartamentosBuscados = DepartamentoPDO::buscaDepartamentosPorEstado($_SESSION['criterioBusquedaDepartamentos']['descripcionBuscada'] ?? '', $_SESSION['criterioBusquedaDepartamentos']['estado'], $_SESSION['numPaginacionDepartamentos']-1); 
+$aDepartamentosBuscados = DepartamentoPDO::buscaDepartamentosPorEstado($_SESSION['criterioBusquedaDepartamentos']['descripcionBuscada'] ?? '', $_SESSION['criterioBusquedaDepartamentos']['estado'], $_SESSION['numPaginacionDepartamentos']-1); 
 
 
 // Ejecutando la declaración SQL
@@ -184,7 +190,11 @@ if ($aDepartamentosBuscados) {
         ]);
     }
 } else {
-    $aErrores['DescDepartamento'] = "No existen departamentos con esa descripcion";
+    if ($_COOKIE['idioma'] == 'SP') {
+        $aErrores['DescDepartamento'] = "No existen departamentos con esa descripcion";
+    } else {
+        $aErrores['DescDepartamento'] = "There are no departments with that description";
+    }
 }
 
 require_once $aView[$_COOKIE['idioma']]['layout']; // Cargo la vista de 'MtoDepartamento'

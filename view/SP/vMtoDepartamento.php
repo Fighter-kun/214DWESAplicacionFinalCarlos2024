@@ -4,32 +4,6 @@
         Autor: Carlos García Cachón
         Fecha de creación/modificación: 16/01/2024
 -->
-<style>
-    input[type="radio"] {
-        /* Oculta el punto predeterminado del radio */
-        appearance: none;
-        -webkit-appearance: none;
-        -moz-appearance: none;
-
-        width: 12px;
-        height: 12px;
-
-        border-radius: 50%;
-
-        /* Establece el estilo del borde del nuevo punto */
-        border: 2px solid black;
-
-        /* Agrega un margen para separar el punto del texto */
-        margin-right: 5px;
-
-        /* Posiciona el cursor como puntero al pasar sobre el radio */
-        cursor: pointer;
-    }
-    input[type="radio"]:checked {
-        /* Cambia el color del fondo del punto cuando está seleccionado */
-        background-color: black;
-    }
-</style>
 <div class="container mt-3">
     <div class="row mb-2">
         <div class="col text-center">
@@ -60,7 +34,7 @@
                                 <td><button class="botones" role="button" aria-disabled="true" type="submit" name="buscarDepartamentoPorDesc">Buscar</button></td>
                             </tr>
                             <tr>
-                                <td class="error" colspan="3">
+                                <td class="error error-MtoDep" colspan="3">
                                     <?php
                                     if (!empty($aErrores['DescDepartamento'])) {
                                         echo $aErrores['DescDepartamento'];
@@ -76,6 +50,7 @@
             </form>
             <?php
             if ($aDepartamentosVista != null) {
+                echo ("<div class='list-group text-center tablaMuestra'>");
                 echo ("<table>
                         <thead>
                         <tr>
@@ -87,7 +62,6 @@
                             <th colspan='4'><-T-></th>
                         </tr>
                         </thead>");
-                echo ("<div class='list-group text-center tablaMuestra'>");
                 echo ("<tbody>");
             }
             ?>

@@ -204,7 +204,9 @@ class DepartamentoPDO {
          * Cada vez que se pasa a una nueva página, se multiplica el número de página por 5 
          * para obtener el índice de inicio de la siguiente página.
          */
-        $iPagina = $iPagina * 5; 
+        $iPagina = $iPagina * 5;
+        
+        // Switch para añadir código a la consulta en función de los parámetros de búsqueda
         switch ($sEstado) {
             case 0:
                 $sEstado = '';
@@ -217,30 +219,33 @@ class DepartamentoPDO {
                 break;
         }
 
-        //Consulta SQL para validar si la descripcion del departamento existe, filtrar por estado, y comprobar el numero de pagina
+        /*
+         * Consulta SQL para validar si la descripción del Departamento existe, filtrar por estado, y comprobar el número de pagina.
+         * Y devolvemos 5 registros desde el 'puntero' asociado a esta variable '$iPagina'.
+         */
         $consultaBuscarDepartamentoDesc = <<<CONSULTA
             SELECT * FROM T02_Departamento WHERE T02_DescDepartamento LIKE '%{$descDepartamento}%' {$sEstado} LIMIT {$iPagina}, 5;
         CONSULTA;
 
-        $oResultado = DBPDO::ejecutaConsulta($consultaBuscarDepartamentoDesc); //Realizo la consulta con la consulta
-        $aDepartamentos = $oResultado->fetchObject(); //Guardo en un array el conjunto de resultados del objeto resultado
-                
-        if($aDepartamentos){ //Si el array no esta vacio, lo recorro y creo un nuevo departamento
-            foreach ($aDepartamentos as $oDepartamento) {
-                $aRespuesta[$oDepartamento['T02_CodDepartamento']] = new Departamento(
-                    $oDepartamento['T02_CodDepartamento'],
-                    $oDepartamento['T02_DescDepartamento'],
-                    $oDepartamento['T02_FechaCreacionDepartamento'],
-                    $oDepartamento['T02_VolumenDeNegocio'],
-                    $oDepartamento['T02_FechaBajaDepartamento']
+        $resultadoConsulta = DBPDO::ejecutaConsulta($consultaBuscarDepartamentoDesc); // Ejecutamos la consulta
+
+        $aDepartamentos = []; // Declaro el array para almacenar los Departamentos
+        if ($resultadoConsulta !== false) {
+            while ($oDepartamento = $resultadoConsulta->fetchObject()) { // Recorro el resultado de la consulta y creo un objeto por iteración (elemento)
+                $aDepartamentos[$oDepartamento->T02_CodDepartamento] = new Departamento( // Creo un array asociativo usando de key el propio código de Departamento y almaceno un objeto Departamento
+                        $oDepartamento->T02_CodDepartamento,
+                        $oDepartamento->T02_DescDepartamento,
+                        $oDepartamento->T02_FechaCreacionDepartamento,
+                        $oDepartamento->T02_VolumenDeNegocio,
+                        $oDepartamento->T02_FechaBajaDepartamento
                 );
             }
-            return $aRespuesta; //Devuelvo el departamento
-        }else{
-            return false; //Devuelvo false
+            return $aDepartamentos; // Devuelvo el 'array' con todos los Departamentos
+        } else {
+            return false; // Si ocurre algún error devolvemos 'false'
         }
     }
-    
+
     /**
      * @author Alberto Fernandez Ramirez
      * @package AppFinal
@@ -257,12 +262,12 @@ class DepartamentoPDO {
      * 
      * @return int El número total de Departamentos
      */
-    public static function buscaDepartamentosTotales($sBusqueda = '', $sEstado = 0){
-        switch ($sEstado){
+    public static function buscaDepartamentosTotales($sBusqueda = '', $sEstado = 0) {
+        switch ($sEstado) {
             case 0:
                 $sEstado = '';
                 break;
-            case 1: 
+            case 1:
                 $sEstado = 'AND T02_FechaBajaDepartamento IS NULL';
                 break;
             case 2:
@@ -273,10 +278,10 @@ class DepartamentoPDO {
         $consultaBuscarDepartamentoTotales = <<<CONSULTA
             SELECT * FROM T02_Departamento WHERE T02_DescDepartamento LIKE '%{$sBusqueda}%' {$sEstado};
         CONSULTA;
-        
+
         $resultadoConsulta = DBPDO::ejecutaConsulta($consultaBuscarDepartamentoTotales); //Ejecuto la consulta
         $iDepartamentos = $resultadoConsulta->rowCount(); //Cuento el total de departamentos que tiene la consulta
-        
+
         return $iDepartamentos; //Devuelvo el total de departamentos
     }
 }
