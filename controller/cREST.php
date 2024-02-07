@@ -53,19 +53,6 @@ if ($entradaOK) {
     exit;
 }
 
-/*
- * CREAR LA LÓGICA Y VALIDADCIÓN PARA CUANDO CREEMOS UNA TAREA NUEVA
- */
-if (isset($_REQUEST['confirmarTarea'])) {
-        $data = ['descripcion' => $_REQUEST['tarea'], 'estado' => 'pendiente'];
-
-    $_SESSION['apiTask'] = REST::apiTask();
-    $_SESSION['paginaAnterior'] = 'inicioPrivado'; // Almaceno la página anterior para poder volver
-    $_SESSION['paginaEnCurso'] = 'apiREST'; // Asigno a la página en curso la pagina de apiREST
-    header('Location: index.php'); // Redirecciono al index de la APP
-    exit;
-}
-
 // Si la variable no se a declarado, le doy un valor por defecto
 if (!isset($_SESSION['casaSeleccionada'])) {
     $_SESSION['casaSeleccionada'] = "slytherin";
