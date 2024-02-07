@@ -6,7 +6,7 @@
 -->
 <br>
 <form method="post">
-    <button class="botones" aria-disabled="true" type="submit" name="salirREST">Salir</button>
+    <button class="botones" aria-disabled="true" type="submit" name="salirREST">Exit</button>
 </form>
 <div class="row">
     <div class="col">

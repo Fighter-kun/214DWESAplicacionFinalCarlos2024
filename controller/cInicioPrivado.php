@@ -52,4 +52,10 @@ $descripcionUsuario = $_SESSION['usuarioMiAplicacion']->get_descUsuario(); // Re
 $numeroConexionesUsuario = $_SESSION['usuarioMiAplicacion']->get_numAcceso(); // Recupero y almaceno el número de conexiones del usuario actual
 $fechaHoraUltimaConexionAnterior = $_SESSION['usuarioMiAplicacion']->get_fechaHoraUltimaConexionAnterior(); // Recupero y almaceno la fecha y hora de conexión anterior del usuario actual
 
+/*
+ * Una vez el usuario este "logeado" de manera correcta, cambiamos el "encabezado" y 
+ * guardamos el nombre del usuario, sustituyendo la imagen de inicio de login
+ */ 
+$_SESSION['encabezadoLogin'] = $descripcionUsuario;
+
 require_once $aView[$_COOKIE['idioma']]['layout']; // Cargo la vista de 'inicioPrivado'

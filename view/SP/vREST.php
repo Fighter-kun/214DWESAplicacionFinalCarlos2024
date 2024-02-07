@@ -10,7 +10,7 @@
 </form>
 <div class="row">
     <div class="col">
-        <p class="card-text">
+        <p class="card-text-instruction">
             Muestra una imagen del espacio con un título y una breve descripción de una fecha concreta que introducimos como parámetro.<br>
             Requiere una APIKEY que se solicita en este enlace: <a target="_blank" href="https://api.nasa.gov/">https://api.nasa.gov/</a><br>
             Enlace web de la API: https://api.nasa.gov/planetary/apod?api_key={$apiKey}&date={$fecha}<br>
@@ -77,7 +77,7 @@
         </form>
     </div>
     <div class="col">
-        <p class="card-text">
+        <p class="card-text-instruction">
             Muestra información del personaje y actor que lo interpreta en la saga de Harry Potter, de una casa concreta que introducimos como parámetro.<br>
             Requiere una APIKEY que se solicita en este enlace: <a target="_blank" href="https://hp-api.onrender.com">https://hp-api.onrender.com</a><br>
             Enlace web de la API:<br> https://hp-api.onrender.com/api/characters/house/{$casa}<br>
@@ -135,7 +135,7 @@
         </div>
     </div>
     <div class="col">
-        <p class="card-text">
+        <p class="card-text-instruction">
             Muestra información del volumen de negocio de un Departamento concreto que solicitamos en el formulario.<br>
         </p>
         <form name="apiREST" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
