@@ -169,7 +169,7 @@ $aDepartamentosVista = []; //Array para guardar el contenido de un departamento
  * con los siguientes parametros. 
  * La descripción si esta declarada si no vacío, el estado esta declarado por defecto y el número de paginación también.
  */
-$aDepartamentosBuscados = DepartamentoPDO::buscaDepartamentosPorEstado($_SESSION['criterioBusquedaDepartamentos']['descripcionBuscada'] ?? '', $_SESSION['criterioBusquedaDepartamentos']['estado'], $_SESSION['numPaginacionDepartamentos']-1); 
+//$aDepartamentosBuscados = DepartamentoPDO::buscaDepartamentosPorEstado($_SESSION['criterioBusquedaDepartamentos']['descripcionBuscada'] ?? '', $_SESSION['criterioBusquedaDepartamentos']['estado'], $_SESSION['numPaginacionDepartamentos']-1); 
 
 
 // Ejecutando la declaración SQL
