@@ -150,18 +150,18 @@
                         <tr>
                             <!-- CodDepartamento Obligatorio -->
                             <td class="d-flex justify-content-start">
-                                <label for="casa">Código:</label>
+                                <label for="codigoDepartamento">Código:</label>
                             </td>
                             <td>
                                 <!-- El value contiene una operador ternario en el que por medio de un metodo 'isset()'
                                      comprobamos que exista la variable y no sea 'null'. En el caso verdadero devolveremos el contenido del campo
                                      que contiene '$_REQUEST' , en caso falso sobrescribirá el campo a '' .-->
-                                <input class="d-flex justify-content-start" type="text" name="casa">
+                                <input class="d-flex justify-content-start" type="text" name="codigoDepartamento">
                             </td>
                             <td class="error">
                                 <?php
-                                if (!empty($aErrores[''])) {
-                                    echo $aErrores[''];
+                                if (!empty($aErrores['codigoDepartamento'])) {
+                                    echo $aErrores['codigoDepartamento'];
                                 }
                                 ?> <!-- Aquí comprobamos que el campo del array '$aErrores' no está vacío, si es así, mostramos el error. -->
                             </td>

@@ -70,8 +70,10 @@ class DepartamentoPDO {
                         $oDepartamento->T02_VolumenDeNegocio,
                         $oDepartamento->T02_FechaBajaDepartamento);
             } else {
-                return $oDepartamento; // Si no devuelvo el valor por defecto 'NULL'
+                return $oDepartamento; // Devuelvo el objeto Departamento
             }
+        } else {
+            return false; // En caso de fallar devuelvo false
         }
     }
 
