@@ -36,7 +36,6 @@
                 <div class="col">
                     <?php echo $_SESSION['encabezadoLogin']?>
                     <button type="submit" name="tecnologias"><img width="25px" src="webroot/media/images/iconoMenu.svg" alt="MENU"/></button>
-                    
                     </form>
                 </div>
             </div>
