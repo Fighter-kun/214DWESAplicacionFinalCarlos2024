@@ -243,7 +243,7 @@ class validacionFormularios {  //ELIMINA EL METODO VALIDATEDATE Y LO INCLUYE EN 
     /**
      * Funcion validarFecha
      * 
-     * Funcion que compueba si el parametro recibido es una fecha valida.
+     * Funcion que compueba si el parametro recibido es una fecha valida. (Formato: m/d/Y)
      * 
      * @param string $fecha Cadena con formato de fecha a comprobar.
      * @param string $fechaMaxima Fecha maxima que se puede introducir

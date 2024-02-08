@@ -4,9 +4,6 @@
         Autor: Carlos García Cachón
         Fecha de creación/modificación: 16/01/2024
 -->
-<style>
-    
-</style>
 <div class="container mt-3">
     <div class="row mb-2">
         <div class="col text-center">
@@ -24,11 +21,20 @@
                                                                                                                                     comprobamos que exista la variable y no sea 'null'. En el caso verdadero devovleremos el contenido del campo
                                                                                                                                     que contiene '$_REQUEST' , en caso falso sobrescribira el campo a '' .-->
                                     <input class="d-flex justify-content-start" type="text" name="DescDepartamento" value="<?php echo $_SESSION['criterioBusquedaDepartamentos']['descripcionBuscada'] ?? ''; ?>">
+                                    <div>
+                                        <a class="pBuscarDepartamento">Estado: </a>
+                                        <label for="tipoDepartamentoTodos"><a class="rFiltrarDepartamento">Todos</a></label>
+                                        <input name="estado" id="tipoDepartamentoTodos" type="radio" value="todos" <?php echo isset($_SESSION['criterioBusquedaDepartamentos']['estado']) ? ($_SESSION['criterioBusquedaDepartamentos']['estado'] == ESTADO_TODOS ? 'checked' : '') : 'checked'; ?>>
+                                        <label for="tipoDepartamentoAltas"><a class="rFiltrarDepartamento">Altas</a></label>
+                                        <input name="estado" id="tipoDepartamentoAltas" type="radio" value="altas" <?php echo isset($_SESSION['criterioBusquedaDepartamentos']['estado']) ? ($_SESSION['criterioBusquedaDepartamentos']['estado'] == ESTADO_ALTAS ? 'checked' : '') : ''; ?>>
+                                        <label for="tipoDepartamentoBajas"><a class="rFiltrarDepartamento">Bajas</a></label>
+                                        <input name="estado" id="tipoDepartamentoBajas" type="radio" value="bajas" <?php echo isset($_SESSION['criterioBusquedaDepartamentos']['estado']) ? ($_SESSION['criterioBusquedaDepartamentos']['estado'] == ESTADO_BAJAS ? 'checked' : '') : ''; ?>>
+                                    </div>
                                 </td>
                                 <td><button class="botones" role="button" aria-disabled="true" type="submit" name="buscarDepartamentoPorDesc">Buscar</button></td>
                             </tr>
                             <tr>
-                                <td class="error" colspan="3">
+                                <td class="error error-MtoDep" colspan="3">
                                     <?php
                                     if (!empty($aErrores['DescDepartamento'])) {
                                         echo $aErrores['DescDepartamento'];
@@ -44,6 +50,7 @@
             </form>
             <?php
             if ($aDepartamentosVista != null) {
+                echo ("<div class='list-group text-center tablaMuestra'>");
                 echo ("<table>
                         <thead>
                         <tr>
@@ -55,7 +62,6 @@
                             <th colspan='4'><-T-></th>
                         </tr>
                         </thead>");
-                echo ("<div class='list-group text-center tablaMuestra'>");
                 echo ("<tbody>");
             }
             ?>
@@ -81,7 +87,8 @@
 
                     // Formulario para editar
                     echo ("<td>");
-                    if (empty($aDepartamento['fechaBajaDep'])) {
+                    // Compruebo la variable que almacena la fecha de baja para mostrar/ocultar el elemento
+                    if (empty($aDepartamento['fechaBajaDep'])) { 
                         echo ("<form method='post'>");
                         echo ("<input type='hidden' name='cConsultarModificarDepartamento' value='" . $aDepartamento['codDepartamento'] . "'>");
                         echo ("<button type='submit'><img src='webroot/media/images/consultarModificarDepartamento.png' alt='EDIT'></button>");
@@ -99,18 +106,24 @@
 
                     // Formulario para alta lógica
                     echo ("<td>");
+                    // Compruebo la variable que almacena la fecha de baja para mostrar/ocultar el elemento
+                    if (!empty($aDepartamento['fechaBajaDep'])) {
                     echo ("<form method='post'>");
                     echo ("<input type='hidden' name='cRehabilitacionDepartamento' value='" . $aDepartamento['codDepartamento'] . "'>");
                     echo ("<button type='submit'><img src='webroot/media/images/flechaAlta.png' alt='ALTA'></button>");
                     echo ("</form>");
+                    }
                     echo ("</td>");
 
                     // Formulario para baja lógica
                     echo ("<td>");
+                    // Compruebo la variable que almacena la fecha de baja para mostrar/ocultar el elemento
+                    if (empty($aDepartamento['fechaBajaDep'])) {
                     echo ("<form method='post'>");
                     echo ("<input type='hidden' name='cBajaLogicaDepartamento' value='" . $aDepartamento['codDepartamento'] . "'>");
                     echo ("<button type='submit'><img src='webroot/media/images/flechaBaja.png' alt='BAJA'></button>");
                     echo ("</form>");
+                    }
                     echo ("</td>");
 
                     echo ("</tr>");
@@ -118,20 +131,32 @@
             }
             if ($aDepartamentosVista != null) {
                 echo ("</tbody>");
-                /* Ahora usamos la función 'rowCount()' que nos devuelve el número de filas afectadas por la consulta y 
-                 * almacenamos el valor en la variable '$numeroDeRegistros'
-                 */
-                // Y mostramos el número de registros
-                echo ("<tfoot ><tr style='background-color: black; color:white;'><td colspan='9'>Número de registros en la tabla Departamento: " . $numeroDeRegistrosConsulta . '</td></tr></tfoot>');
                 echo ("</table>");
                 echo ("</div>");
             }
             ?>
         </div>
     </div>
-    <div class="row">
-        <div class="col grupoDeBotones">
+    <div class="row grupoDeBotones">
+        <div class="col">
             <form name="indexMtoDepartamentos" method="post">
+                <div class="row grupoDeBotonesPaginacion">
+                    <div class="col">
+                        <button class="botones" type="submit" name="paginaPrimera">PRIMERA PAGINA</button>
+                    </div>
+                    <div class="col">
+                        <button class="botones" type="submit" name="paginaAnterior">PAGINA ANTERIOR</button>
+                    </div>
+                    <div class="col">
+                        <?php echo $_SESSION['numPaginacionDepartamentos'] ?> / <?php echo ceil($iDepartamentosTotales) ?>
+                    </div>
+                    <div class="col">
+                        <button class="botones" type="submit" name="paginaSiguiente">PAGINA SIGUIENTE</button>
+                    </div>
+                    <div class="col">
+                        <button class="botones" type="submit" name="paginaUltima">ULTIMA PAGINA</button>
+                    </div>
+                </div>
                 <div class="btn-container">
                     <div class="descripcionExportar">Si pulsas exportar descarga un fichero '.zip' que contiene todos los departamentos en '.json' y '.xml'</div>
                     <button id="exportButton" class="botones" role="button" aria-disabled="true" type="submit" name="exportarDepartamentos">Exportar</button>

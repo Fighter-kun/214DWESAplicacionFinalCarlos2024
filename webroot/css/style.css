@@ -78,6 +78,10 @@ main {
     margin-bottom: 100px;
 }
 
+button[name="tecnologias"] {
+    margin-left: 10px;
+}
+
 /* ESTILO DEL BANNER */
 #banner {
     background-color: #000;
@@ -213,17 +217,43 @@ input[name="DescDepartamento"] {
 }
 
 /* DEPARTAMENTOS */
+input[type="radio"] {
+    /* Oculta el punto predeterminado del radio */
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+
+    width: 12px;
+    height: 12px;
+
+    border-radius: 50%;
+
+    /* Establece el estilo del borde del nuevo punto */
+    border: 2px solid black;
+
+    /* Agrega un margen para separar el punto del texto */
+    margin-right: 5px;
+
+    /* Posiciona el cursor como puntero al pasar sobre el radio */
+    cursor: pointer;
+}
+input[type="radio"]:checked {
+    /* Cambia el color del fondo del punto cuando está seleccionado */
+    background-color: black;
+}
+
+.error-MtoDep {
+    padding-bottom: 50px;
+}
 .tablaMuestra {
-    position: absolute;
-    top: 20%;
-    right: 15%;
-    width: 70%;
-    /*SOLUCIÓN HASTA IMPLANTAR SISTEMA DE PAGINACIÓN*/
-    max-height: 60vh; /* Establece una altura máxima del 50% de la altura visible del navegador */
-    overflow-y: auto; /* Agrega una barra de desplazamiento vertical si es necesario */
+    padding-top: 70px;
 }
 #buscarDepartamentos {
     height: 15%;
+}
+
+.error-MtoDep {
+    height: 5px;
 }
 
 .btn-container {
@@ -238,7 +268,7 @@ input[name="DescDepartamento"] {
     top: -200%;
     left: 50%;
     transform: translateX(-50%);
-    background-color: #555;
+    background-color: black;
     color: #fff;
     padding: 5px;
     border-radius: 5px;
@@ -252,6 +282,14 @@ input[name="DescDepartamento"] {
     width: 90%;
 }
 
+.grupoDeBotones {
+    margin-top: -125px;
+}
+
+.grupoDeBotonesPaginacion {
+    margin-bottom: 75px;
+}
+
 /* IMPORTAR DEPARTAMENTOS */
 .form-control {
     background-color: black;
@@ -259,4 +297,13 @@ input[name="DescDepartamento"] {
 }
 .fileControl {
     height: 20%;
+}
+
+/* API */
+.card-text-instruction{
+    border: 1px solid black;
+    width: 415px;
+    height: 290px;
+    font-size: 1.1rem;
+    text-align: start;
 }

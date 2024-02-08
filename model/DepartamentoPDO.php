@@ -70,8 +70,10 @@ class DepartamentoPDO {
                         $oDepartamento->T02_VolumenDeNegocio,
                         $oDepartamento->T02_FechaBajaDepartamento);
             } else {
-                return $oDepartamento; // Si no devuelvo el valor por defecto 'NULL'
+                return $oDepartamento; // Devuelvo el objeto Departamento
             }
+        } else {
+            return false; // En caso de fallar devuelvo false
         }
     }
 
@@ -179,5 +181,109 @@ class DepartamentoPDO {
         CONSULTA;
 
         return DBPDO::ejecutaConsulta($consulta); // Ejecutamos y devolvemos la consulta
+    }
+
+    /**
+     * @author Alberto Fernandez Ramirez
+     * @package AppFinal
+     * @since 31/01/2022
+     * @copyright Copyright (c) 2021, Alberto Fernandez Ramirez
+     * Modificado por @author Carlos García Cachón
+     * 
+     * Metodo buscaDepartamentosPorEstado()
+     * 
+     * Metodo que nos sirve para buscar un departamento mediante la descripción del departamento en la BD y filtrar su búsqueda por 'todos', 'altas' o 'bajas'
+     * 
+     * @param string $descDepartamento Descripción del Departamento
+     * @param int $sEstado Estado del filtrado de la busqueda por altas o bajas
+     * @param int $iPagina Número de pagina que ha solicitado el usuario
+     * 
+     * @return boolean|\Departamento Si no ha sido correcta la consulta devuelvo false, si ha sido correcta devuelvo un nuevo Departamento
+     */
+    public static function buscaDepartamentosPorEstado($descDepartamento = '', $sEstado = 0, $iPagina = 0) {
+        /*
+         * Variable para determinar desde qué registro empezar a obtener resultados en la consulta SQL.
+         * Cada vez que se pasa a una nueva página, se multiplica el número de página por 5 
+         * para obtener el índice de inicio de la siguiente página.
+         */
+        $iPagina = $iPagina * 5;
+        
+        // Switch para añadir código a la consulta en función de los parámetros de búsqueda
+        switch ($sEstado) {
+            case 0:
+                $sEstado = '';
+                break;
+            case 1:
+                $sEstado = 'AND T02_FechaBajaDepartamento IS NULL';
+                break;
+            case 2:
+                $sEstado = 'AND T02_FechaBajaDepartamento IS NOT NULL';
+                break;
+        }
+
+        /*
+         * Consulta SQL para validar si la descripción del Departamento existe, filtrar por estado, y comprobar el número de pagina.
+         * Y devolvemos 5 registros desde el 'puntero' asociado a esta variable '$iPagina'.
+         */
+        $consultaBuscarDepartamentoDesc = <<<CONSULTA
+            SELECT * FROM T02_Departamento WHERE T02_DescDepartamento LIKE '%{$descDepartamento}%' {$sEstado} LIMIT {$iPagina}, 5;
+        CONSULTA;
+
+        $resultadoConsulta = DBPDO::ejecutaConsulta($consultaBuscarDepartamentoDesc); // Ejecutamos la consulta
+
+        $aDepartamentos = []; // Declaro el array para almacenar los Departamentos
+        if ($resultadoConsulta !== false) {
+            while ($oDepartamento = $resultadoConsulta->fetchObject()) { // Recorro el resultado de la consulta y creo un objeto por iteración (elemento)
+                $aDepartamentos[$oDepartamento->T02_CodDepartamento] = new Departamento( // Creo un array asociativo usando de key el propio código de Departamento y almaceno un objeto Departamento
+                        $oDepartamento->T02_CodDepartamento,
+                        $oDepartamento->T02_DescDepartamento,
+                        $oDepartamento->T02_FechaCreacionDepartamento,
+                        $oDepartamento->T02_VolumenDeNegocio,
+                        $oDepartamento->T02_FechaBajaDepartamento
+                );
+            }
+            return $aDepartamentos; // Devuelvo el 'array' con todos los Departamentos
+        } else {
+            return false; // Si ocurre algún error devolvemos 'false'
+        }
+    }
+
+    /**
+     * @author Alberto Fernandez Ramirez
+     * @package AppFinal
+     * @since 31/01/2022
+     * @copyright Copyright (c) 2021, Alberto Fernandez Ramirez
+     * Modificado por @author Carlos García Cachón
+     * 
+     * Metodo buscaDepartamentosTotales()
+     * 
+     * Metodo que permite devolver el total de departamentos que existen en la BD
+     * 
+     * @param string $sBusqueda Descripción del Departamento
+     * @param int $sEstado Recibe un número para indicar el tipo de busqueda (Todos, Altas, Bajas)
+     * 
+     * @return int El número total de Departamentos
+     */
+    public static function buscaDepartamentosTotales($sBusqueda = '', $sEstado = 0) {
+        switch ($sEstado) {
+            case 0:
+                $sEstado = '';
+                break;
+            case 1:
+                $sEstado = 'AND T02_FechaBajaDepartamento IS NULL';
+                break;
+            case 2:
+                $sEstado = 'AND T02_FechaBajaDepartamento IS NOT NULL';
+                break;
+        }
+        //Consulta SQL para obtener el total de Departamentos según el criterio que aplicamos
+        $consultaBuscarDepartamentoTotales = <<<CONSULTA
+            SELECT * FROM T02_Departamento WHERE T02_DescDepartamento LIKE '%{$sBusqueda}%' {$sEstado};
+        CONSULTA;
+
+        $resultadoConsulta = DBPDO::ejecutaConsulta($consultaBuscarDepartamentoTotales); //Ejecuto la consulta
+        $iDepartamentos = $resultadoConsulta->rowCount(); //Cuento el total de departamentos que tiene la consulta
+
+        return $iDepartamentos; //Devuelvo el total de departamentos
     }
 }

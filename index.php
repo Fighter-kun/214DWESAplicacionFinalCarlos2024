@@ -25,6 +25,16 @@ if(isset($_REQUEST['tecnologias'])){ // Si desde el footer pulso el boton de tec
     $_SESSION['paginaEnCurso'] = 'tecnologias';
 }
 
+/*
+ * Verifico si la variable no se a declarado aún y le pongo un valor por defecto,
+ * en este caso le cargo el botón que lleva al usuario al login
+ */
+if (!isset($_SESSION['encabezadoLogin'])) {
+    $_SESSION['encabezadoLogin'] = $encabezado = <<<LOGIN
+                                                    <button type="submit" name="login"><img width="45px" src="webroot/media/images/login.svg" alt="LOGIN"/></button>
+                                                LOGIN;
+}
+
  if (!isset($_COOKIE['idioma'])) { // Comprobamos si la cookie esta declarada
    setcookie("idioma", "SP", time() + 2592000); // En caso negativo la creamos y ponemos el valor por defecto
    header('Location: index.php'); // Redirecciono al index de la APP

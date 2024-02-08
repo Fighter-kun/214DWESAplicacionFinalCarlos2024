@@ -34,8 +34,8 @@
                     <p class="titulo">APLICACION FINAL</p>
                 </div>
                 <div class="col">
-                    <button type="submit" name="login"><img width="45px" src="webroot/media/images/login.svg" alt="LOGIN"/></button>
-                    <img width="25px" src="webroot/media/images/iconoMenu.svg" alt="MENU"/>
+                    <?php echo $_SESSION['encabezadoLogin']?>
+                    <button type="submit" name="tecnologias"><img width="25px" src="webroot/media/images/iconoMenu.svg" alt="MENU"/></button>
                     </form>
                 </div>
             </div>
