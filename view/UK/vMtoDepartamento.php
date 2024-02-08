@@ -87,7 +87,8 @@
 
                     // Formulario para editar
                     echo ("<td>");
-                    if (empty($aDepartamento['fechaBajaDep'])) {
+                    // Compruebo la variable que almacena la fecha de baja para mostrar/ocultar el elemento
+                    if (empty($aDepartamento['fechaBajaDep'])) { 
                         echo ("<form method='post'>");
                         echo ("<input type='hidden' name='cConsultarModificarDepartamento' value='" . $aDepartamento['codDepartamento'] . "'>");
                         echo ("<button type='submit'><img src='webroot/media/images/consultarModificarDepartamento.png' alt='EDIT'></button>");
@@ -105,18 +106,24 @@
 
                     // Formulario para alta lógica
                     echo ("<td>");
+                    // Compruebo la variable que almacena la fecha de baja para mostrar/ocultar el elemento
+                    if (!empty($aDepartamento['fechaBajaDep'])) {
                     echo ("<form method='post'>");
                     echo ("<input type='hidden' name='cRehabilitacionDepartamento' value='" . $aDepartamento['codDepartamento'] . "'>");
                     echo ("<button type='submit'><img src='webroot/media/images/flechaAlta.png' alt='ALTA'></button>");
                     echo ("</form>");
+                    }
                     echo ("</td>");
 
                     // Formulario para baja lógica
                     echo ("<td>");
+                    // Compruebo la variable que almacena la fecha de baja para mostrar/ocultar el elemento
+                    if (empty($aDepartamento['fechaBajaDep'])) {
                     echo ("<form method='post'>");
                     echo ("<input type='hidden' name='cBajaLogicaDepartamento' value='" . $aDepartamento['codDepartamento'] . "'>");
                     echo ("<button type='submit'><img src='webroot/media/images/flechaBaja.png' alt='BAJA'></button>");
                     echo ("</form>");
+                    }
                     echo ("</td>");
 
                     echo ("</tr>");
