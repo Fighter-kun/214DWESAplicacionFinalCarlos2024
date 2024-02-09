@@ -34,6 +34,17 @@ CREATE TABLE T02_Departamento (
     T02_FechaBajaDepartamento DATETIME
 )ENGINE=INNODB;
 
+--Crear la tabla T06_Animales
+CREATE TABLE T06_Animales (
+    T06_CodAnimal CHAR(3) PRIMARY KEY,
+    T06_DescAnimal VARCHAR(255),
+    T06_FechaNacimiento DATETIME DEFAULT CURRENT_TIMESTAMP,
+    T06_Sexo ENUM('macho','hembra'),
+    T06_Raza VARCHAR(255),
+    T06_Precio DECIMAL(10, 2),
+    T06_FechaBaja DATETIME DEFAULT NULL
+)ENGINE=INNODB;
+
 --Creación del usuario de la base de datos
 CREATE USER 'user214DWESLoginLogoffTema5'@'%' IDENTIFIED BY 'paso';
 

@@ -70,7 +70,7 @@
                         <form method='post'>
                         <button type="submit" name="tecnologias">Tecnologias</button>
                         </form>
-                        <a target="_blank" href="webroot/rss/rss.xml">RSS</a>
+                        <a target="_blank" href="doc/rss/rss.xml">RSS</a>
                     </div>
                     <div class="col">
                         <h5>PAGINA IMITADA</h5>

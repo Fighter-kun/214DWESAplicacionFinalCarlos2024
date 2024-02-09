@@ -53,19 +53,19 @@
                     <button class="botones" aria-disabled="true" type="submit" name="confirmarFechaREST">Request image</button>
                 </div>
                 <?php
-                if (isset($_SESSION['apiNasa']) && !is_null($_SESSION['apiNasa'])) {
+                if (isset($aRespuestaNasa['apiNasa']) && !is_null($aRespuestaNasa['apiNasa'])) {
                     $respuestaAPI = <<<IMAGENTITULOAPI
             <div class="container">
             <div class="row-description row align-items-center">
                 <div class="col mt-5">
-                    <img class='card-img-top' src='{$_SESSION['apiNasa']['url']}' alt='{$_SESSION['apiNasa']['titulo']}' style="width:250px; heigth:100px;">
+                    <img class='card-img-top' src='{$aRespuestaNasa['apiNasa']['url']}' alt='{$aRespuestaNasa['apiNasa']['titulo']}' style="width:250px; heigth:100px;">
                 </div>
             </div>
             <div class="row">
                     <div class="col ">
                     <div class="card-body">
-                        <p class="card-text">{$_SESSION['apiNasa']['titulo']}</p><br>
-                        <p class="card-text">{$_SESSION['apiNasa']['explicacion']}</p>
+                        <p class="card-text">{$aRespuestaNasa['apiNasa']['titulo']}</p><br>
+                        <p class="card-text">{$aRespuestaNasa['apiNasa']['explicacion']}</p>
                     </div>
                 </div>
                 </div>
@@ -121,8 +121,8 @@
         </form>
         <div class="row mt-5 text-center">
             <?php
-            if (isset($_SESSION['HP']) && !is_null($_SESSION['HP'])) {
-                $aHP = $_SESSION['HP'];
+            if (isset($aRespuestaHP['HP']) && !is_null($aRespuestaHP['HP'])) {
+                $aHP = $aRespuestaHP['HP'];
                 echo "<table class='text-center'>";
                 echo "<tr><th>Character</th><th>Actor</th></tr>";
                 foreach ($aHP as $item) {
