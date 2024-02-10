@@ -158,7 +158,7 @@
                     <button id="exportButton" class="botones" role="button" aria-disabled="true" type="submit" name="exportarAnimales">Exportar</button>
                 </div>
                 <button class="botones" role="button" aria-disabled="true" type="submit" name="importarAnimales">Importar</button>
-                <button class="botones" role="button" aria-disabled="true" type="submit" name="añadirAnimal">Añadir Departamento</button>
+                <button class="botones" role="button" aria-disabled="true" type="submit" name="añadirAnimal">Añadir Animal</button>
                 <button class="botones" role="button" aria-disabled="true" type="submit" name="salirGranja">Salir</button>
             </form>
         </div>
