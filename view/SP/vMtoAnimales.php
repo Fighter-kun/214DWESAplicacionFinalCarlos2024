@@ -136,7 +136,6 @@
     <div class="row grupoDeBotones">
         <div class="col">
             <form name="indexMtoDepartamentos" method="post">
-                <!-- 
                 <div class="row grupoDeBotonesPaginacion">
                     <div class="col">
                         <button class="botones" type="submit" name="paginaPrimera">PRIMERA PAGINA</button>
@@ -145,7 +144,7 @@
                         <button class="botones" type="submit" name="paginaAnterior">PAGINA ANTERIOR</button>
                     </div>
                     <div class="col">
-                        <?php //echo $_SESSION['numPaginacionDepartamentos'] ?> / <?php //echo ceil($iDepartamentosTotales) ?>
+                        <?php echo $_SESSION['numPaginacionAnimales'] ?> / <?php echo ceil($iAnimalesTotales) ?>
                     </div>
                     <div class="col">
                         <button class="botones" type="submit" name="paginaSiguiente">PAGINA SIGUIENTE</button>
@@ -154,7 +153,6 @@
                         <button class="botones" type="submit" name="paginaUltima">ULTIMA PAGINA</button>
                     </div>
                 </div>
-                -->
                 <div class="btn-container">
                     <div class="descripcionExportar">Si pulsas exportar descarga un fichero '.zip' que contiene todos los departamentos en '.json' y '.xml'</div>
                     <button id="exportButton" class="botones" role="button" aria-disabled="true" type="submit" name="exportarAnimales">Exportar</button>

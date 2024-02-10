@@ -43,6 +43,75 @@ class AnimalPDO {
             return false;
         }
     }
+    /**
+     * Busca a un Animal por su descripción de manera paginada
+     * 
+     * Metodo que nos sirve para buscar un Animal mediante la descripción del departamento en la BD 
+     * 
+     * @param string $descAnimal Descripción del Animal a buscar
+     * @param int $iPagina Número de pagina que ha solicitado el usuario
+     * 
+     * @return array[object] $aAnimales Con todos los Animales de la busqueda
+     * @return boolean false En caso de que la consulta sea incorrecta
+     */
+    public static function buscaDepartamentosPorDescPaginados($descAnimal = '', $iPagina = 0) {
+        /*
+         * Variable para determinar desde qué registro empezar a obtener resultados en la consulta SQL.
+         * Cada vez que se pasa a una nueva página, se multiplica el número de página por 5 
+         * para obtener el índice de inicio de la siguiente página.
+         */
+        $iPagina = $iPagina * 5;
+
+        /*
+         * Consulta SQL para validar si la descripción del Departamento existe, filtrar por estado, y comprobar el número de pagina.
+         * Y devolvemos 5 registros desde el 'puntero' asociado a esta variable '$iPagina'.
+         */
+        $consultaBuscarDepartamentoDesc = <<<CONSULTA
+            SELECT * FROM T06_Animal 
+            WHERE T06_DescAnimal LIKE'%{$descAnimal}%' LIMIT {$iPagina}, 5;
+        CONSULTA;
+
+        $resultadoConsulta = DBPDO::ejecutaConsulta($consultaBuscarDepartamentoDesc); // Ejecutamos la consulta
+
+        $aAnimales = []; // Declaro el array para almacenar los Departamentos
+        if ($resultadoConsulta !== false) {
+            while ($oAnimal = $resultadoConsulta->fetchObject()) { // Recorro el resultado de la consulta y creo un objeto por iteración (elemento)
+                $aAnimales[$oAnimal->T06_CodAnimal] = new Animal(
+                        $oAnimal->T06_CodAnimal, 
+                        $oAnimal->T06_DescAnimal, 
+                        $oAnimal->T06_FechaNacimiento, 
+                        $oAnimal->T06_Sexo, 
+                        $oAnimal->T06_Raza, 
+                        $oAnimal->T06_Precio, 
+                        $oAnimal->T06_FechaBaja);
+            }
+            return $aAnimales; // Devuelvo el 'array' con todos los Departamentos
+        } else {
+            return false; // Si ocurre algún error devolvemos 'false'
+        }
+    }
+    
+    /**
+     * Cuenta todos los Animales 
+     * 
+     * Metodo que permite devolver el total de Animales que existen en la BD
+     * 
+     * @param string $descAnimal Descripción del Departamento
+     * 
+     * @return int $iAnimales El número total de Animales
+     */
+    public static function buscaAnimalesTotales($descAnimal = '') {
+        //Consulta SQL para obtener el total de Departamentos según el criterio que aplicamos
+        $consultaBuscarDepartamentoTotales = <<<CONSULTA
+            SELECT * FROM T06_Animal 
+            WHERE T06_DescAnimal LIKE'%{$descAnimal}%';
+        CONSULTA;
+
+        $resultadoConsulta = DBPDO::ejecutaConsulta($consultaBuscarDepartamentoTotales); //Ejecuto la consulta
+        $iAnimales = $resultadoConsulta->rowCount(); //Cuento el total de departamentos que tiene la consulta
+
+        return $iAnimales; //Devuelvo el total de departamentos
+    }
     
     /**
      * Modifica los valores de un Animal
