@@ -71,7 +71,7 @@ class Animal {
      *
      * @return string El código de Animal.
      */
-    public function getCodAnimal(): string {
+    public function getCodAnimal() {
         return $this->codAnimal;
     }
 
@@ -80,7 +80,7 @@ class Animal {
      *
      * @return string La descripción de Animal.
      */
-    public function getDescAnimal(): string {
+    public function getDescAnimal() {
         return $this->descAnimal;
     }
 
@@ -89,7 +89,7 @@ class Animal {
      *
      * @return DateTime La Fecha de Nacimiento de Animal.
      */
-    public function getFechaNacimiento(): DateTime {
+    public function getFechaNacimiento() {
         return $this->fechaNacimiento;
     }
 
@@ -98,7 +98,7 @@ class Animal {
      *
      * @return string El sexo de Animal.
      */
-    public function getSexo(): string {
+    public function getSexo() {
         return $this->sexo;
     }
 
@@ -107,7 +107,7 @@ class Animal {
      *
      * @return string La raza de Animal.
      */
-    public function getRaza(): string {
+    public function getRaza() {
         return $this->raza;
     }
 
@@ -116,7 +116,7 @@ class Animal {
      *
      * @return float El precio de Animal.
      */
-    public function getPrecio(): float {
+    public function getPrecio() {
         return $this->precio;
     }
 
@@ -125,7 +125,7 @@ class Animal {
      *
      * @return DateTime La Fecha de Baja de Animal.
      */
-    public function getFechaBaja(): DateTime {
+    public function getFechaBaja() {
         return $this->fechaBaja;
     }
 
@@ -134,7 +134,7 @@ class Animal {
      *
      * @param string $codAnimal El nuevo código de Animal.
      */
-    public function setCodAnimal(string $codAnimal): void {
+    public function setCodAnimal($codAnimal) {
         $this->codAnimal = $codAnimal;
     }
 
@@ -143,7 +143,7 @@ class Animal {
      *
      * @param string $descAnimal La nueva descripción de Animal.
      */
-    public function setDescAnimal(string $descAnimal): void {
+    public function setDescAnimal($descAnimal) {
         $this->descAnimal = $descAnimal;
     }
 
@@ -152,7 +152,7 @@ class Animal {
      *
      * @param DateTime $fechaNacimiento La nueva Fecha de Nacimiento de Animal.
      */
-    public function setFechaNacimiento(DateTime $fechaNacimiento): void {
+    public function setFechaNacimiento($fechaNacimiento) {
         $this->fechaNacimiento = $fechaNacimiento;
     }
 
@@ -161,7 +161,7 @@ class Animal {
      *
      * @param string $sexo El nuevo sexo de Animal.
      */
-    public function setSexo(string $sexo): void {
+    public function setSexo($sexo) {
         $this->sexo = $sexo;
     }
 
@@ -170,7 +170,7 @@ class Animal {
      *
      * @param string $raza La nueva raza de Animal.
      */
-    public function setRaza(string $raza): void {
+    public function setRaza($raza) {
         $this->raza = $raza;
     }
 
@@ -179,7 +179,7 @@ class Animal {
      *
      * @param float $precio El nuevo precio de Animal.
      */
-    public function setPrecio(float $precio): void {
+    public function setPrecio($precio) {
         $this->precio = $precio;
     }
 
@@ -188,7 +188,7 @@ class Animal {
      *
      * @param DateTime $fechaBaja La nueva Fecha de Baja de Animal.
      */
-    public function setFechaBaja(DateTime $fechaBaja): void {
+    public function setFechaBaja($fechaBaja) {
         $this->fechaBaja = $fechaBaja;
     }
 

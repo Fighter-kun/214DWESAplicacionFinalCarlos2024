@@ -20,6 +20,8 @@ require_once 'model/UsuarioPDO.php';
 require_once 'model/Departamento.php';
 require_once 'model/DepartamentoPDO.php';
 require_once 'model/REST.php';
+require_once 'model/Animal.php';
+require_once 'model/AnimalPDO.php';
 
 // Constantes para la busqueda de Mto.Departamento
 define("ESTADO_TODOS", 0);

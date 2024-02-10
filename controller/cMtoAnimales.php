@@ -77,6 +77,9 @@ if (isset($_REQUEST['añadirAnimal'])) {
     exit;
 }
 
+if (!isset($_SESSION['criterioBusquedaAnimal']['descripcionBuscada'])) {
+    $_SESSION['criterioBusquedaAnimal']['descripcionBuscada'] = '';
+}
 //Declaración de variables de estructura para validar la ENTRADA de RESPUESTAS o ERRORES
 //Valores por defecto
 $entradaOK = true; //Indica si todas las respuestas son correctas
@@ -102,25 +105,28 @@ if (isset($_REQUEST['buscarAnimalPorDesc'])) {
 if ($entradaOK) {
     //Almacenamos el valor en el array
     $_SESSION['criterioBusquedaAnimal']['descripcionBuscada'] = $_REQUEST['DescAnimal'];
-    
 }
 
+$aAnimalesBuscados = AnimalPDO::buscaDepartamentosPorDesc($_SESSION['criterioBusquedaAnimal']['descripcionBuscada']);
+$aAnimalesBuscadosVista = [];
 // Ejecutando la declaración SQL
-if ($aDepartamentosBuscados) {
-    foreach ($aDepartamentosBuscados as $aDepartamento) {//Recorro el objeto del resultado que contiene un array
-        array_push($aDepartamentosVista, [//Hago uso del metodo array push para meter los valores en el array $aDepartamentosVista
-            'codDepartamento' => $aDepartamento->get_CodDepartamento(), //Guardo en el valor codDepartamento el codigo del departamento
-            'descDepartamento' => $aDepartamento->get_DescDepartamento(), //Guardo en el valor descDepartamento la descripcion del departamento
-            'fechaCreacionDep' => $aDepartamento->get_FechaCreacionDepartamento(), //Guardo en el valor fechaAlta la fecha de alta del departamento
-            'volumenDeNegocio' => $aDepartamento->get_VolumenDeNegocio(), //Guardo en el valor volumenNegocio el volumen de negocio del departamento
-            'fechaBajaDep' => !is_null($aDepartamento->get_FechaBajaDepartamento()) ? $aDepartamento->get_FechaBajaDepartamento() : '' //Guardo en el valor fechaBaja la fecha de baja del departamento
-        ]);
+if ($aAnimalesBuscados) {
+    foreach ($aAnimalesBuscados as $aAnimal) {//Recorro el objeto del resultado que contiene un array
+        $aAnimalesBuscadosVista[] = [
+            'codAnimal' => $aAnimal->getCodAnimal(),
+            'descAnimal' => $aAnimal->getDescAnimal(),
+            'fechaNacimientoAnimal' => $aAnimal->getFechaNacimiento(),
+            'sexoAnimal' => $aAnimal->getSexo(),
+            'razaAnimal' => $aAnimal->getRaza(),
+            'precioAnimal' => $aAnimal->getPrecio(),
+            'fechaBajaAnimal' => !is_null($aAnimal->getFechaBaja()) ? $aAnimal->getFechaBaja() : ''
+        ];
     }
 } else {
     if ($_COOKIE['idioma'] == 'SP') {
-        $aErrores['DescDepartamento'] = "No existen animales con esa descripcion";
+        $aErrores['DescAnimal'] = "No existen animales con esa descripcion";
     } else {
-        $aErrores['DescDepartamento'] = "There are no animals with that description";
+        $aErrores['DescAnimal'] = "There are no animals with that description";
     }
 }
 

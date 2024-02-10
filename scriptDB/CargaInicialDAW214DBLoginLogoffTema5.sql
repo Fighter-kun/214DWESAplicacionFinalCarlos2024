@@ -34,8 +34,8 @@ INSERT INTO DB214DWESLoginLogoffTema5.T01_Usuario (T01_CodUsuario, T01_Password,
     ('heraclio', SHA2('heracliopaso', 256), 'Heraclio Borbujo Moran', 'usuario'),
     ('amor', SHA2('amorpaso', 256), 'Amor Rodriguez Navarro', 'usuario');
 
--- Inserto los datos iniciales en la tabla T06_Animales
-INSERT INTO DB214DWESLoginLogoffTema5.T06_Animales (T06_CodAnimal, T06_DescAnimal, T06_FechaNacimiento, T06_Sexo, T06_Raza, T06_Precio, T06_FechaBaja) VALUES
+-- Inserto los datos iniciales en la tabla T06_Animal
+INSERT INTO DB214DWESLoginLogoffTema5.T06_Animal (T06_CodAnimal, T06_DescAnimal, T06_FechaNacimiento, T06_Sexo, T06_Raza, T06_Precio, T06_FechaBaja) VALUES
     ('A01', 'Vaca', '2023-01-15 10:30:00', 'hembra', 'Holstein', 1200.50, NULL),
     ('A02', 'Cerdo', '2022-08-05 15:45:00', 'macho', 'Large Black', 800.75, NULL),
     ('A03', 'Gallina', '2021-05-20 08:00:00', 'hembra', 'Rhode Island Red', 25.99, NULL),

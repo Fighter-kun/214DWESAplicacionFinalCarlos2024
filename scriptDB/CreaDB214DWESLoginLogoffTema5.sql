@@ -35,7 +35,7 @@ CREATE TABLE T02_Departamento (
 )ENGINE=INNODB;
 
 --Crear la tabla T06_Animales
-CREATE TABLE T06_Animales (
+CREATE TABLE T06_Animal (
     T06_CodAnimal CHAR(3) PRIMARY KEY,
     T06_DescAnimal VARCHAR(255),
     T06_FechaNacimiento DATETIME DEFAULT CURRENT_TIMESTAMP,

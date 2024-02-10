@@ -28,8 +28,8 @@
                             <tr>
                                 <td class="error error-MtoDep" colspan="3">
                                     <?php
-                                    if (!empty($aErrores['DescDepartamento'])) {
-                                        echo $aErrores['DescDepartamento'];
+                                    if (!empty($aErrores['DescAnimal'])) {
+                                        echo $aErrores['DescAnimal'];
                                     }
                                     ?> <!-- Aquí comprobamos que el campo del array '$aErrores' no esta vacío, si es así, mostramos el error. -->
                                 </td>
@@ -41,15 +41,17 @@
                 </fieldset>
             </form>
             <?php
-            if ($aDepartamentosVista != null) {
+            if ($aAnimalesBuscadosVista != null) {
                 echo ("<div class='list-group text-center tablaMuestra'>");
                 echo ("<table>
                         <thead>
                         <tr>
                             <th>Código</th>
                             <th>Descripción</th>
-                            <th>Fecha de Creación</th>
-                            <th>Volumen de Negocio</th>
+                            <th>Fecha de Nacimiento</th>
+                            <th>Sexo</th>
+                            <th>Raza</th>
+                            <th>Precio</th>
                             <th>Fecha de Baja</th>
                             <th colspan='4'><-T-></th>
                         </tr>
@@ -58,9 +60,9 @@
             }
             ?>
             <?php
-            if ($aDepartamentosVista) {
+            if ($aAnimalesBuscadosVista) {
 
-                foreach ($aDepartamentosVista as $aDepartamento) {//Recorro el objeto del resultado que contiene un array
+                foreach ($aAnimalesBuscadosVista as $aAnimales) {//Recorro el objeto del resultado que contiene un array
 
 
                     /* Aqui recorremos todos los valores de la tabla, columna por columna, usando el parametro 'PDO::FETCH_ASSOC' , 
@@ -71,18 +73,20 @@
 
                     echo ("<tr>");
 
-                    echo ("<td>" . $aDepartamento['codDepartamento'] . "</td>");
-                    echo ("<td>" . $aDepartamento['descDepartamento'] . "</td>");
-                    echo ("<td>" . $aDepartamento['fechaCreacionDep'] . "</td>");
-                    echo ("<td>" . $aDepartamento['volumenDeNegocio'] . "</td>");
-                    echo ("<td>" . $aDepartamento['fechaBajaDep'] . "</td>");
+                    echo ("<td>" . $aAnimales['codAnimal'] . "</td>");
+                    echo ("<td>" . $aAnimales['descAnimal'] . "</td>");
+                    echo ("<td>" . $aAnimales['fechaNacimientoAnimal'] . "</td>");
+                    echo ("<td>" . $aAnimales['sexoAnimal'] . "</td>");
+                    echo ("<td>" . $aAnimales['razaAnimal'] . "</td>");
+                    echo ("<td>" . $aAnimales['precioAnimal'] . "</td>");
+                    echo ("<td>" . $aAnimales['fechaBajaAnimal'] . "</td>");
 
                     // Formulario para editar
                     echo ("<td>");
                     // Compruebo la variable que almacena la fecha de baja para mostrar/ocultar el elemento
-                    if (empty($aDepartamento['fechaBajaDep'])) { 
+                    if (empty($aAnimales['fechaBajaAnimal'])) { 
                         echo ("<form method='post'>");
-                        echo ("<input type='hidden' name='cConsultarModificarDepartamento' value='" . $aDepartamento['codDepartamento'] . "'>");
+                        echo ("<input type='hidden' name='cConsultarModificarDepartamento' value='" . $aAnimales['codAnimal'] . "'>");
                         echo ("<button type='submit'><img src='webroot/media/images/consultarModificarDepartamento.png' alt='EDIT'></button>");
                         echo ("</form>");
                     }
@@ -91,7 +95,7 @@
                     // Formulario para eliminar
                     echo ("<td>");
                     echo ("<form method='post'>");
-                    echo ("<input type='hidden' name='cEliminarDepartamento' value='" . $aDepartamento['codDepartamento'] . "'>");
+                    echo ("<input type='hidden' name='cEliminarDepartamento' value='" . $aAnimales['codAnimal'] . "'>");
                     echo ("<button type='submit'><img src='webroot/media/images/eliminarDepartamento.png' alt='DELETE'></button>");
                     echo ("</form>");
                     echo ("</td>");
@@ -99,9 +103,9 @@
                     // Formulario para alta lógica
                     echo ("<td>");
                     // Compruebo la variable que almacena la fecha de baja para mostrar/ocultar el elemento
-                    if (!empty($aDepartamento['fechaBajaDep'])) {
+                    if (!empty($aAnimales['fechaBajaAnimal'])) {
                     echo ("<form method='post'>");
-                    echo ("<input type='hidden' name='cRehabilitacionDepartamento' value='" . $aDepartamento['codDepartamento'] . "'>");
+                    echo ("<input type='hidden' name='cRehabilitacionDepartamento' value='" . $aAnimales['codAnimal'] . "'>");
                     echo ("<button type='submit'><img src='webroot/media/images/flechaAlta.png' alt='ALTA'></button>");
                     echo ("</form>");
                     }
@@ -110,9 +114,9 @@
                     // Formulario para baja lógica
                     echo ("<td>");
                     // Compruebo la variable que almacena la fecha de baja para mostrar/ocultar el elemento
-                    if (empty($aDepartamento['fechaBajaDep'])) {
+                    if (empty($aAnimales['fechaBajaAnimal'])) {
                     echo ("<form method='post'>");
-                    echo ("<input type='hidden' name='cBajaLogicaDepartamento' value='" . $aDepartamento['codDepartamento'] . "'>");
+                    echo ("<input type='hidden' name='cBajaLogicaDepartamento' value='" . $aAnimales['codAnimal'] . "'>");
                     echo ("<button type='submit'><img src='webroot/media/images/flechaBaja.png' alt='BAJA'></button>");
                     echo ("</form>");
                     }
@@ -121,7 +125,7 @@
                     echo ("</tr>");
                 }
             }
-            if ($aDepartamentosVista != null) {
+            if ($aAnimalesBuscadosVista != null) {
                 echo ("</tbody>");
                 echo ("</table>");
                 echo ("</div>");
