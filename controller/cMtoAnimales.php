@@ -19,16 +19,16 @@ if (isset($_REQUEST['salirGranja'])) {
 
 // Estructura del botón editarDepartamento, si el usuario pulsa el botón del icono de un 'lapiz'
 if (isset($_REQUEST['cConsultarModificarAnimal'])) {
-    $_SESSION['codDepartamentoActual'] = $_REQUEST['cConsultarModificarDepartamento']; // Almaceno en una variable de sesión el Codigo del Departamento Seleccionado
+    $_SESSION['codAnimalActual'] = $_REQUEST['cConsultarModificarAnimal']; // Almaceno en una variable de sesión el Codigo del Departamento Seleccionado
     $_SESSION['paginaAnterior'] = 'consultarAnimales'; // Almaceno la página anterior para poder volver
-    $_SESSION['paginaEnCurso'] = 'wip'; // Asigno a la página en curso la pagina de ConsultarModificarDepartamento
+    $_SESSION['paginaEnCurso'] = 'editarAnimal'; // Asigno a la página en curso la pagina de ConsultarModificarDepartamento
     header('Location: index.php'); // Redirecciono al index de la APP
     exit;
 }
 
 // Estructura del botón eliminarDepartamento, si el usuario pulsa el botón del icono de una 'X'
 if (isset($_REQUEST['cEliminarAnimal'])) {
-    $_SESSION['codDepartamentoActual'] = $_REQUEST['cEliminarDepartamento']; // Almaceno en una variable de sesión el Codigo del Departamento Seleccionado
+    $_SESSION['codAnimalActual'] = $_REQUEST['cEliminarAnimal']; // Almaceno en una variable de sesión el Codigo del Departamento Seleccionado
     $_SESSION['paginaAnterior'] = 'consultarAnimales'; // Almaceno la página anterior para poder volver
     $_SESSION['paginaEnCurso'] = 'wip'; // Asigno a la página en curso la pagina de eliminarDepartamento
     header('Location: index.php'); // Redirecciono al index de la APP
@@ -37,7 +37,7 @@ if (isset($_REQUEST['cEliminarAnimal'])) {
 
 // Estructura del boton baja, si el usuario pulsa el icono de la flecha roja 
 if (isset($_REQUEST['cBajaLogicaAnimal'])) {
-    $_SESSION['codDepartamentoActual'] = $_REQUEST['cBajaLogicaDepartamento']; // Almaceno en una variable de sesión el Codigo del Departamento Seleccionado
+    $_SESSION['codAnimalActual'] = $_REQUEST['cBajaLogicaAnimal']; // Almaceno en una variable de sesión el Codigo del Departamento Seleccionado
     $_SESSION['paginaAnterior'] = 'consultarAnimales'; // Almaceno la página anterior para poder volver
     $_SESSION['paginaEnCurso'] = 'wip'; // Asigno a la página en curso la pagina de bajaDepartamento
     header('Location: index.php'); // Redirecciono al index de la APP
@@ -46,7 +46,7 @@ if (isset($_REQUEST['cBajaLogicaAnimal'])) {
 
 // Estructura del boton alta, si el usuario pulsa el icono de la flecha verde 
 if (isset($_REQUEST['cRehabilitacionAnimal'])) {
-    $_SESSION['codDepartamentoActual'] = $_REQUEST['cRehabilitacionDepartamento']; // Almaceno en una variable de sesión el Codigo del Departamento Seleccionado
+    $_SESSION['codAnimalActual'] = $_REQUEST['cRehabilitacionAnimal']; // Almaceno en una variable de sesión el Codigo del Departamento Seleccionado
     $_SESSION['paginaAnterior'] = 'consultarAnimales'; // Almaceno la página anterior para poder volver
     $_SESSION['paginaEnCurso'] = 'wip'; // Asigno a la página en curso la pagina de altaDepartamento
     header('Location: index.php'); // Redirecciono al index de la APP

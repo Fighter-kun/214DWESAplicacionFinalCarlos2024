@@ -51,7 +51,8 @@ $aController = [
     'exportarDepartamento' => 'controller/cExportarDepartamentos.php',
     'importarDepartamento' => 'controller/cImportarDepartamentos.php',
     'apiREST' => 'controller/cREST.php',
-    'consultarAnimales' => 'controller/cMtoAnimales.php'
+    'consultarAnimales' => 'controller/cMtoAnimales.php',
+    'editarAnimal' => 'controller/cConsultarModificarAnimal.php'
 ];
 
 // En el array de '$aView' almacenamos un array por idioma, para mostrar la vista en el idioma elegído por el usuario
@@ -76,7 +77,8 @@ $aView = [
         'eliminarDepartamento' => 'view/SP/vEliminarDepartamento.php',
         'importarDepartamento' => 'view/SP/vImportarDepartamentos.php',
         'apiREST' => 'view/SP/vREST.php',
-        'consultarAnimales' => 'view/SP/vMtoAnimales.php'
+        'consultarAnimales' => 'view/SP/vMtoAnimales.php',
+        'editarAnimal' => 'view/SP/vConsultarModificarAnimal.php'
     ],
     'UK' => [
         'layout' => 'view/UK/layout.php',
@@ -98,7 +100,8 @@ $aView = [
         'eliminarDepartamento' => 'view/UK/vEliminarDepartamento.php',
         'importarDepartamento' => 'view/UK/vImportarDepartamentos.php',
         'apiREST' => 'view/UK/vREST.php',
-        'consultarAnimales' => 'view/UK/vMtoAnimales.php'
+        'consultarAnimales' => 'view/UK/vMtoAnimales.php',
+        'editarAnimal' => 'view/UK/vConsultarModificarAnimal.php'
     ]
 ];
 
@@ -122,7 +125,8 @@ $aTitleLang = [
         'eliminarDepartamento' => 'Eliminar Departamento',
         'importarDepartamento' => 'Importar Departamentos',
         'apiREST' => 'REST',
-        'consultarAnimales' => 'Mantenimiento Granja'
+        'consultarAnimales' => 'Mantenimiento Granja',
+        'editarAnimal' => 'Editar Animal'
     ],
     'UK' => [//Inglés
         'inicioPublico' => 'Public Home',
@@ -142,7 +146,8 @@ $aTitleLang = [
         'eliminarDepartamento' => 'Delete Department',
         'importarDepartamento' => 'Import Departments',
         'apiREST' => 'REST',
-        'consultarAnimales' => 'Farm Maintenance '
+        'consultarAnimales' => 'Farm Maintenance',
+        'editarAnimal' => 'Edit Animal'
     ]
 ];
 

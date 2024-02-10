@@ -299,6 +299,12 @@ input[type="radio"]:checked {
     height: 20%;
 }
 
+/* ANIMALES */
+input[name="DescAnimal"] {
+    width: 110%;
+    margin-right: 50%;
+}
+
 /* API */
 .card-text-instruction{
     border: 1px solid black;

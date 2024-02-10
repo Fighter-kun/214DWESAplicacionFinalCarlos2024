@@ -85,7 +85,7 @@ class AnimalPDO {
             $oAnimal = $resultado->fetchObject(); // Guardo en la variable el resultado de la consulta en forma de objeto
 
             if ($oAnimal) { // Instancio un nuevo objeto Departamento con todos sus datos
-                return new Departamento(// Y lo devuelvo
+                return new Animal(// Y lo devuelvo
                         $oAnimal->T06_CodAnimal, 
                         $oAnimal->T06_DescAnimal, 
                         $oAnimal->T06_FechaNacimiento, 
