@@ -154,7 +154,7 @@
                     </div>
                 </div>
                 <div class="btn-container">
-                    <div class="descripcionExportar">Si pulsas exportar descarga un fichero '.zip' que contiene todos los departamentos en '.json' y '.xml'</div>
+                    <div class="descripcionExportar">Si pulsas exportar descarga un fichero '.zip' que contiene todos los Animales en '.json' y '.xml'</div>
                     <button id="exportButton" class="botones" role="button" aria-disabled="true" type="submit" name="exportarAnimales">Exportar</button>
                 </div>
                 <button class="botones" role="button" aria-disabled="true" type="submit" name="importarAnimales">Importar</button>

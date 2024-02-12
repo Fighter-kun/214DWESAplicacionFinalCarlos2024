@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <!--
-        Descripción: Aplicación Final - vMtoAnimales.php (Castellano)
+        Descripción: Aplicación Final - vMtoAnimales.php (Inglés)
         Autor: Carlos García Cachón
-        Fecha de creación/modificación: 16/01/2024
+        Fecha de creación/modificación: 09/02/2024
 -->
 <div class="container mt-3">
     <div class="row mb-2">
@@ -15,7 +15,7 @@
                             <tr>
                                 <!-- CodDepartamento Obligatorio -->
                                 <td class="d-flex justify-content-start" colspan='2'>
-                                    <label for="DescAnimal">Descripción:</label>
+                                    <label for="DescAnimal">Description:</label>
                                 </td>
                                 <td>                                                                                                <!-- El value contiene una operador ternario en el que por medio de un metodo 'isset()'
                                                                                                                                     comprobamos que exista la variable y no sea 'null'. En el caso verdadero devovleremos el contenido del campo
@@ -23,7 +23,7 @@
                                     <input class="d-flex justify-content-start" type="text" name="DescAnimal" value="<?php echo $_SESSION['criterioBusquedaAnimal']['descripcionBuscada'] ?? ''; ?>">
                                     
                                 </td>
-                                <td><button class="botones" role="button" aria-disabled="true" type="submit" name="buscarAnimalPorDesc">Buscar</button></td>
+                                <td><button class="botones" role="button" aria-disabled="true" type="submit" name="buscarAnimalPorDesc">Search</button></td>
                             </tr>
                             <tr>
                                 <td class="error error-MtoDep" colspan="3">
@@ -46,13 +46,13 @@
                 echo ("<table>
                         <thead>
                         <tr>
-                            <th>Código</th>
-                            <th>Descripción</th>
-                            <th>Fecha de Nacimiento</th>
-                            <th>Sexo</th>
-                            <th>Raza</th>
-                            <th>Precio</th>
-                            <th>Fecha de Baja</th>
+                            <th>Code</th>
+                            <th>Description</th>
+                            <th>Birthdate</th>
+                            <th>Gender</th>
+                            <th>Race</th>
+                            <th>Price</th>
+                            <th>Discharge date</th>
                             <th colspan='4'><-T-></th>
                         </tr>
                         </thead>");
@@ -138,28 +138,28 @@
             <form name="indexMtoDepartamentos" method="post">
                 <div class="row grupoDeBotonesPaginacion">
                     <div class="col">
-                        <button class="botones" type="submit" name="paginaPrimera">PRIMERA PAGINA</button>
+                        <button class="botones" type="submit" name="paginaPrimera">FIRST PAGE</button>
                     </div>
                     <div class="col">
-                        <button class="botones" type="submit" name="paginaAnterior">PAGINA ANTERIOR</button>
+                        <button class="botones" type="submit" name="paginaAnterior">PREVIOUS PAGE</button>
                     </div>
                     <div class="col">
                         <?php echo $_SESSION['numPaginacionAnimales'] ?> / <?php echo ceil($iAnimalesTotales) ?>
                     </div>
                     <div class="col">
-                        <button class="botones" type="submit" name="paginaSiguiente">PAGINA SIGUIENTE</button>
+                        <button class="botones" type="submit" name="paginaSiguiente">NEXT PAGE</button>
                     </div>
                     <div class="col">
-                        <button class="botones" type="submit" name="paginaUltima">ULTIMA PAGINA</button>
+                        <button class="botones" type="submit" name="paginaUltima">LAST PAGE</button>
                     </div>
                 </div>
                 <div class="btn-container">
-                    <div class="descripcionExportar">Si pulsas exportar descarga un fichero '.zip' que contiene todos los departamentos en '.json' y '.xml'</div>
-                    <button id="exportButton" class="botones" role="button" aria-disabled="true" type="submit" name="exportarAnimales">Exportar</button>
+                    <div class="descripcionExportar">If you click export, download a '.zip' file that contains all the animals in '.json' and '.xml'</div>
+                    <button id="exportButton" class="botones" role="button" aria-disabled="true" type="submit" name="exportarAnimales">Export</button>
                 </div>
-                <button class="botones" role="button" aria-disabled="true" type="submit" name="importarAnimales">Importar</button>
-                <button class="botones" role="button" aria-disabled="true" type="submit" name="añadirAnimal">Añadir Animal</button>
-                <button class="botones" role="button" aria-disabled="true" type="submit" name="salirGranja">Salir</button>
+                <button class="botones" role="button" aria-disabled="true" type="submit" name="importarAnimales">Import</button>
+                <button class="botones" role="button" aria-disabled="true" type="submit" name="añadirAnimal">Add Animal</button>
+                <button class="botones" role="button" aria-disabled="true" type="submit" name="salirGranja">Exit</button>
             </form>
         </div>
     </div>

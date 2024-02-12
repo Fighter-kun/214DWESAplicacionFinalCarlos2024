@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!--
-        Descripción: Aplicación Final - vConsultarModificarAnimal.php (Castellano)
+        Descripción: Aplicación Final - vConsultarModificarAnimal.php (Inglés)
         Autor: Carlos García Cachón
         Fecha de creación/modificación: 10/02/2024
 -->
@@ -17,7 +17,7 @@
                         <input type="hidden" name="codDepartamento" value="<?php echo $codAnimalAEditar ; ?>">
                         <!-- Codigo Departamento Deshabilitado -->
                         <td class="d-flex justify-content-start">
-                            <label for="codAnimalAEditar ">Código de Animal:</label>
+                            <label for="codAnimalAEditar ">Animal Code:</label>
                         </td>
                         <td>
                             <input class="bloqueado d-flex justify-content-start modDep" type="text" name="codAnimalAEditar "
@@ -29,7 +29,7 @@
                         <tr>
                             <!-- Descripcion Departamento Obligatorio -->
                             <td class="d-flex justify-content-start">
-                                <label for="DescAnimal ">Descripción de Animal:</label>
+                                <label for="DescAnimal ">Description of Animal:</label>
                             </td>
                             <td>                                                                                                <!-- El value contiene una operador ternario en el que por medio de un metodo 'isset()'
                                                                                                                                 comprobamos que exista la variable y no sea 'null'. En el caso verdadero devovleremos el contenido del campo
@@ -47,7 +47,7 @@
                         <tr>
                             <!-- Fecha Creación Departamento Deshabilitado -->
                             <td class="d-flex justify-content-start">
-                                <label for="fechaNacimientoAEditar">Fecha de Nacimiento:</label>
+                                <label for="fechaNacimientoAEditar">Birthdate:</label>
                             </td>
                             <td>
                                 <input class="bloqueado d-flex justify-content-start modDep" type="text" name="fechaNacimientoAEditar"
@@ -59,7 +59,7 @@
                         <tr>
                             <!-- Fecha Creación Departamento Deshabilitado -->
                             <td class="d-flex justify-content-start">
-                                <label for="sexoAEditar ">Sexo:</label>
+                                <label for="sexoAEditar ">Gender:</label>
                             </td>
                             <td>
                                 <input class="bloqueado d-flex justify-content-start modDep" type="text" name="sexoAEditar "
@@ -71,7 +71,7 @@
                         <tr>
                             <!-- Fecha Creación Departamento Deshabilitado -->
                             <td class="d-flex justify-content-start">
-                                <label for="razaAEditar ">Raza:</label>
+                                <label for="razaAEditar ">Race:</label>
                             </td>
                             <td>
                                 <input class="bloqueado d-flex justify-content-start modDep" type="text" name="razaAEditar "
@@ -83,7 +83,7 @@
                         <tr>
                             <!-- Volumen Negocio Departamento Opcional -->
                             <td class="d-flex justify-content-start">
-                                <label for="Precio">Precio:</label>
+                                <label for="Precio">Price:</label>
                             </td>
                             <td>                                                                                                <!-- El value contiene una operador ternario en el que por medio de un metodo 'isset()'
                                                                                                                                 comprobamos que exista la variable y no sea 'null'. En el caso verdadero devovleremos el contenido del campo
@@ -101,8 +101,8 @@
                         </tbody>
                     </table>
                     <div class="text-center">
-                        <button class="botones" aria-disabled="true" type="submit" name="confirmarCambiosEditar">Confirmar Cambios</button>
-                        <button class="botones" aria-disabled="true" type="submit" name="cancelarEditar">Cancelar</button>
+                        <button class="botones" aria-disabled="true" type="submit" name="confirmarCambiosEditar">Confirm Changes</button>
+                        <button class="botones" aria-disabled="true" type="submit" name="cancelarEditar">Cancel</button>
                     </div>
                 </fieldset>
             </form> 
