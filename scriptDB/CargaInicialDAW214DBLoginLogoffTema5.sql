@@ -33,3 +33,16 @@ INSERT INTO DB214DWESLoginLogoffTema5.T01_Usuario (T01_CodUsuario, T01_Password,
     ('ismael', SHA2('ismaelpaso', 256), 'Ismael Ferreras García', 'usuario'),
     ('heraclio', SHA2('heracliopaso', 256), 'Heraclio Borbujo Moran', 'usuario'),
     ('amor', SHA2('amorpaso', 256), 'Amor Rodriguez Navarro', 'usuario');
+
+-- Inserto los datos iniciales en la tabla T06_Animal
+INSERT INTO DB214DWESLoginLogoffTema5.T06_Animal (T06_CodAnimal, T06_DescAnimal, T06_FechaNacimiento, T06_Sexo, T06_Raza, T06_Precio, T06_FechaBaja) VALUES
+    ('A01', 'Vaca', '2023-01-15 10:30:00', 'hembra', 'Holstein', 1200.50, NULL),
+    ('A02', 'Cerdo', '2022-08-05 15:45:00', 'macho', 'Large Black', 800.75, NULL),
+    ('A03', 'Gallina', '2021-05-20 08:00:00', 'hembra', 'Rhode Island Red', 25.99, NULL),
+    ('A04', 'Cabra', '2023-03-12 12:15:00', 'hembra', 'Saanen', 500.00, '2023-11-01 14:20:00'),
+    ('A05', 'Caballo', '2022-11-30 18:30:00', 'macho', 'Thoroughbred', 2500.25, NULL),
+    ('A06', 'Oveja', '2022-02-28 09:45:00', 'hembra', 'Dorset Horn', 700.99, NULL),
+    ('A07', 'Pato', '2022-07-10 16:00:00', 'macho', 'Pekin', 35.50, NULL),
+    ('A08', 'Burro', '2021-12-05 11:20:00', 'macho', 'Miniature', 1200.00, NULL),
+    ('A09', 'Conejo', '2023-04-18 14:00:00', 'macho', 'Holland Lop', 50.00, NULL),
+    ('A10', 'Perro', '2022-09-22 20:10:00', 'macho', 'Golden Retriever', 1200.00, NULL);

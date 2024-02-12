@@ -20,6 +20,8 @@ require_once 'model/UsuarioPDO.php';
 require_once 'model/Departamento.php';
 require_once 'model/DepartamentoPDO.php';
 require_once 'model/REST.php';
+require_once 'model/Animal.php';
+require_once 'model/AnimalPDO.php';
 
 // Constantes para la busqueda de Mto.Departamento
 define("ESTADO_TODOS", 0);
@@ -48,7 +50,9 @@ $aController = [
     'altaDepartamento' => 'controller/cRehabilitacionDepartamento.php',
     'exportarDepartamento' => 'controller/cExportarDepartamentos.php',
     'importarDepartamento' => 'controller/cImportarDepartamentos.php',
-    'apiREST' => 'controller/cREST.php'
+    'apiREST' => 'controller/cREST.php',
+    'consultarAnimales' => 'controller/cMtoAnimales.php',
+    'editarAnimal' => 'controller/cConsultarModificarAnimal.php'
 ];
 
 // En el array de '$aView' almacenamos un array por idioma, para mostrar la vista en el idioma elegído por el usuario
@@ -72,7 +76,9 @@ $aView = [
         'editarDepartamento' => 'view/SP/vConsultarModificarDepartamento.php',
         'eliminarDepartamento' => 'view/SP/vEliminarDepartamento.php',
         'importarDepartamento' => 'view/SP/vImportarDepartamentos.php',
-        'apiREST' => 'view/SP/vREST.php'
+        'apiREST' => 'view/SP/vREST.php',
+        'consultarAnimales' => 'view/SP/vMtoAnimales.php',
+        'editarAnimal' => 'view/SP/vConsultarModificarAnimal.php'
     ],
     'UK' => [
         'layout' => 'view/UK/layout.php',
@@ -93,7 +99,9 @@ $aView = [
         'editarDepartamento' => 'view/UK/vConsultarModificarDepartamento.php',
         'eliminarDepartamento' => 'view/UK/vEliminarDepartamento.php',
         'importarDepartamento' => 'view/UK/vImportarDepartamentos.php',
-        'apiREST' => 'view/UK/vREST.php'
+        'apiREST' => 'view/UK/vREST.php',
+        'consultarAnimales' => 'view/UK/vMtoAnimales.php',
+        'editarAnimal' => 'view/UK/vConsultarModificarAnimal.php'
     ]
 ];
 
@@ -116,7 +124,9 @@ $aTitleLang = [
         'editarDepartamento' => 'Editar Departamento',
         'eliminarDepartamento' => 'Eliminar Departamento',
         'importarDepartamento' => 'Importar Departamentos',
-        'apiREST' => 'REST'
+        'apiREST' => 'REST',
+        'consultarAnimales' => 'Mantenimiento Granja',
+        'editarAnimal' => 'Editar Animal'
     ],
     'UK' => [//Inglés
         'inicioPublico' => 'Public Home',
@@ -135,7 +145,9 @@ $aTitleLang = [
         'editarDepartamento' => 'Edit Department',
         'eliminarDepartamento' => 'Delete Department',
         'importarDepartamento' => 'Import Departments',
-        'apiREST' => 'REST'
+        'apiREST' => 'REST',
+        'consultarAnimales' => 'Farm Maintenance',
+        'editarAnimal' => 'Edit Animal'
     ]
 ];
 

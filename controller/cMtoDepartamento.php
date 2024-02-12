@@ -174,6 +174,9 @@ $aDepartamentosVista = []; //Array para guardar el contenido de un departamento
  * Por medio del método 'buscaDepartamentosPorEstado' de la clase 'DepartamentoPDO' busco todos los Departamentos
  * con los siguientes parametros. 
  * La descripción si esta declarada si no vacío, el estado esta declarado por defecto y el número de paginación también.
+ * 
+ * Le restamos 1 a la variable de '$_SESSION['numPaginacionDepartamentos']' para indicar el indice 0 de la paginación y que así nos muestre los 5 primeros resultado,
+ * si no hicieramos esto nos mostraría a partir de los 5 siguiente, porque es lo que le indico en el método.
  */
 $aDepartamentosBuscados = DepartamentoPDO::buscaDepartamentosPorEstado($_SESSION['criterioBusquedaDepartamentos']['descripcionBuscada'] ?? '', $_SESSION['criterioBusquedaDepartamentos']['estado'], $_SESSION['numPaginacionDepartamentos']-1); 
 

@@ -32,7 +32,7 @@ if(isset($_REQUEST['editarPerfil'])){
     exit;
 }
 
-//Si el usuario pulsa el botón 'Detalle', mando al usuario al index de DWES
+//Si el usuario pulsa el botón 'Mto.Departamentos', mando al usuario al index de DWES
 if(isset($_REQUEST['mtoDepartamentos'])){
     $_SESSION['paginaAnterior'] = 'inicioPrivado'; // Almaceno la página anterior para poder volver
     $_SESSION['paginaEnCurso'] = 'consultarDepartamento'; // Asigno a la página en curso la pagina de consultarDepartamento
@@ -40,10 +40,18 @@ if(isset($_REQUEST['mtoDepartamentos'])){
     exit;
 }
 
-//Si el usuario pulsa el botón 'Detalle', mando al usuario al index de DWES
+//Si el usuario pulsa el botón 'REST', mando al usuario al index de DWES
 if(isset($_REQUEST['apiREST'])){
     $_SESSION['paginaAnterior'] = 'inicioPrivado'; // Almaceno la página anterior para poder volver
     $_SESSION['paginaEnCurso'] = 'apiREST'; // Asigno a la página en curso la pagina de apiREST
+    header('Location: index.php'); // Redirecciono al index de la APP
+    exit;
+}
+
+//Si el usuario pulsa el botón 'Mto.Animales', mando al usuario al index de DWES
+if(isset($_REQUEST['mtoAnimales'])){
+    $_SESSION['paginaAnterior'] = 'inicioPrivado'; // Almaceno la página anterior para poder volver
+    $_SESSION['paginaEnCurso'] = 'consultarAnimales'; // Asigno a la página en curso la pagina de apiREST
     header('Location: index.php'); // Redirecciono al index de la APP
     exit;
 }

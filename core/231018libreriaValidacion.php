@@ -183,6 +183,58 @@ class validacionFormularios {  //ELIMINA EL METODO VALIDATEDATE Y LO INCLUYE EN 
         return $mensajeError;
     }
 
+    /**
+     * Funcion comprobarFloat
+     * 
+     * Funcion que compueba si el parametro recibido es un numero decimal.
+     *    
+     * Origen @author Javier Nieto y Cristina Núñez
+     * @since 30/11/2020
+     * Modificado por @author Carlos García Cachón
+     * @param float $float Número entero a comprobar
+     * @param int $max Valor máximo del entero
+     * @param int $min Valor mínimo del entero
+     * @param int $maxDecimales Valor máximo de decimales
+     * @param int $minDecimales Valor máximo de decimales
+     * @param boolean $obligatorio Valor booleano indicado mediante 1, si es obligatorio o 0 si no lo es.
+     * 
+     * @return null|string Devuelve null en el caso en el que esté correcto, si no devuelve una cadena con el mensaje de error.
+     */
+    public static function comprobarFloatMejorado($float, $max = PHP_FLOAT_MAX, $min = -PHP_FLOAT_MAX, $maxDecimales = PHP_FLOAT_DIG, $minDecimales = -PHP_FLOAT_DIG, $obligatorio = 0) {
+        $mensajeError = null;
+
+        if ($obligatorio == 1 && $float != '0') {
+            $mensajeError = self::comprobarNoVacio($float);
+        }
+
+        if (($obligatorio == 0 && $float != null) || ($obligatorio == 1 && empty($mensajeError))) {
+            if (!is_numeric($float)) {
+                $mensajeError = "El campo no es un decimal. (Debe llevar punto(.) entre la parte entera y la parte decimal)";
+            } else {
+                $partes = explode('.', $float);
+
+                // Verificar el número total de decimales
+                $totalDecimales = isset($partes[1]) ? strlen($partes[1]) : 0;
+
+                if ($totalDecimales > $maxDecimales) {
+                    $mensajeError = "El número no puede tener más de $maxDecimales decimales.";
+                } elseif ($totalDecimales < $minDecimales) {
+                    $mensajeError = "El número no puede tener menos de $minDecimales decimales.";
+                } else {
+                    // Verificar rango y número de decimales
+                    if ($float > $max) {
+                        $mensajeError .= "El número no puede ser mayor que $max.";
+                    }
+                    if ($float < $min) {
+                        $mensajeError .= "El número no puede ser menor que $min.";
+                    }
+                }
+            }
+        }
+
+        return $mensajeError;
+    }
+
 // Función para comprobar si es un correo electronico
 // Return nada si es correcto, si hay errores devuelve un mensaje de error
 // Si es un 1 es obligatorio, si es un 0 no lo es
@@ -514,60 +566,59 @@ class validacionFormularios {  //ELIMINA EL METODO VALIDATEDATE Y LO INCLUYE EN 
          * En el caso que el campo fuese obligatorio, ya se habría validado en la
          * función comprobarAlfaNumerico.
          */
-        if(!empty($nombreArchivo)){
+        if (!empty($nombreArchivo)) {
             $sExtension = substr($nombreArchivo, strpos($nombreArchivo, '.') + 1);
             if (!in_array($sExtension, $aExtensiones)) {
-                $mensajeError = "El archivo no tiene una extensión válida. Sólo se admite ".implode(', ', $aExtensiones).".";
+                $mensajeError = "El archivo no tiene una extensión válida. Sólo se admite " . implode(', ', $aExtensiones) . ".";
             }
         }
         return $mensajeError;
     }
-    
+
     //Función para validar una hora con formato "hh:mm"
     public static function validarFormatoHora($hora, $obligatorio = 0) {
         //Expresión regular para el formato de hora hh:mm
         $patron = '/^(0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$/';
         $mensajeError = null;
-        
+
         //Si es olbigatorio se comprueba si está vacío, si no es obligatorio, no es necesario
         if ($obligatorio == 1) {
             $mensajeError = self::comprobarNoVacio($hora);
         }
         /*
-        * Para verificar si la cadena cumple con el patrón usamos el metodo 'preg_match' que permite 
-        * verificar si una cadena cumple con un patrón específico definido mediante una expresión regular, 
-        * y comprobamos si la variable '$hora' esta vacía.
-        * En la condición si no coincide pero no esta vacía devuelve el mensaje. 
-        */
+         * Para verificar si la cadena cumple con el patrón usamos el metodo 'preg_match' que permite 
+         * verificar si una cadena cumple con un patrón específico definido mediante una expresión regular, 
+         * y comprobamos si la variable '$hora' esta vacía.
+         * En la condición si no coincide pero no esta vacía devuelve el mensaje. 
+         */
         if (!preg_match($patron, $hora) && !empty($hora)) {
-           return "Formato de la hora incorrecto use hh:mm";
+            return "Formato de la hora incorrecto use hh:mm";
         }
         return $mensajeError;
     }
-    
+
     //Función para validar una hora con formato "hh:mm:ss"
     public static function validarFormatoHoraConSegundos($hora, $obligatorio = 0) {
         //Expresión regular para el formato de hora hh:mm:ss
         $patron = '/^(0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]:[0-5][0-9]$/';
         $mensajeError = null;
-        
+
         //Si es olbigatorio se comprueba si está vacío, si no es obligatorio, no es necesario
         if ($obligatorio == 1) {
             $mensajeError = self::comprobarNoVacio($hora);
         }
         /*
-        * Para verificar si la cadena cumple con el patrón usamos el metodo 'preg_match' que permite 
-        * verificar si una cadena cumple con un patrón específico definido mediante una expresión regular, 
-        * y comprobamos si la variable '$hora' esta vacía.
-        * En la condición si no coincide pero no esta vacía devuelve el mensaje. 
-        */
+         * Para verificar si la cadena cumple con el patrón usamos el metodo 'preg_match' que permite 
+         * verificar si una cadena cumple con un patrón específico definido mediante una expresión regular, 
+         * y comprobamos si la variable '$hora' esta vacía.
+         * En la condición si no coincide pero no esta vacía devuelve el mensaje. 
+         */
         if (!preg_match($patron, $hora) && !empty($hora)) {
-           return "Formato de la hora incorrecto use hh:mm";
+            return "Formato de la hora incorrecto use hh:mm";
         }
         return $mensajeError;
-   
     }
-    
+
     public static function validarColorHex($colorHex, $obligatorio = 0) {
         //Expresión regular para validar un color hexadecimal válido
         $patron = "/^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/";
@@ -586,31 +637,28 @@ class validacionFormularios {  //ELIMINA EL METODO VALIDATEDATE Y LO INCLUYE EN 
             return "El color no es válido. Debe ser un código hexadecimal válido (por ejemplo, #RRGGBB o #RGB).";
         }
     }
-    
+
     public static function validarFechaHora($fechaHora, $fechaMaxima = '2200-01-01 00:00:00', $fechaMinima = '1900-01-01 00:00:00', $obligatorio = 0) {
-    $mensajeError = null;
-    $fechaMaxima = strtotime($fechaMaxima);
-    $fechaMinima = strtotime($fechaMinima);
-    
-    if ($obligatorio == 1) {
-        $mensajeError = self::comprobarNoVacio($fechaHora);
-    }
+        $mensajeError = null;
+        $fechaMaxima = strtotime($fechaMaxima);
+        $fechaMinima = strtotime($fechaMinima);
 
-    $fechaHoraFormateada = strtotime($fechaHora);
-    
-    if (is_bool($fechaHoraFormateada) && !empty($fechaHora)) {
-        $mensajeError = "Formato incorrecto de fecha y hora (Año-Mes-dia Hora:Minuto:Segundo) (ejemplo: 2022-01-15 08:00:00).";
-    } else {
-        if (!empty($fechaHora) && ($fechaHoraFormateada < $fechaMinima || $fechaHoraFormateada > $fechaMaxima)) {
-            $mensajeError = "Por favor introduzca una fecha y hora entre " . date('Y-m-d H:i:s', $fechaMinima) . " y " . date('Y-m-d H:i:s', $fechaMaxima) . ".";
+        if ($obligatorio == 1) {
+            $mensajeError = self::comprobarNoVacio($fechaHora);
         }
+
+        $fechaHoraFormateada = strtotime($fechaHora);
+
+        if (is_bool($fechaHoraFormateada) && !empty($fechaHora)) {
+            $mensajeError = "Formato incorrecto de fecha y hora (Año-Mes-dia Hora:Minuto:Segundo) (ejemplo: 2022-01-15 08:00:00).";
+        } else {
+            if (!empty($fechaHora) && ($fechaHoraFormateada < $fechaMinima || $fechaHoraFormateada > $fechaMaxima)) {
+                $mensajeError = "Por favor introduzca una fecha y hora entre " . date('Y-m-d H:i:s', $fechaMinima) . " y " . date('Y-m-d H:i:s', $fechaMaxima) . ".";
+            }
+        }
+
+        return $mensajeError;
     }
-
-    return $mensajeError;
-}
-
-    
-    
 }
 
 ?>
