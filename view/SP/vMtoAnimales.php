@@ -64,13 +64,6 @@
 
                 foreach ($aAnimalesBuscadosVista as $aAnimales) {//Recorro el objeto del resultado que contiene un array
 
-
-                    /* Aqui recorremos todos los valores de la tabla, columna por columna, usando el parametro 'PDO::FETCH_ASSOC' , 
-                     * el cual nos indica que los resultados deben ser devueltos como un array asociativo, donde los nombres de las columnas de 
-                     * la tabla se utilizan como claves (keys) en el array.
-                     */
-
-
                     echo ("<tr>");
 
                     echo ("<td>" . $aAnimales['codAnimal'] . "</td>");

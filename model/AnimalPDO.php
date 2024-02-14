@@ -9,6 +9,7 @@
  * 
  */
 class AnimalPDO {
+
     /**
      * Busca a un Animal por su descripción.
      *
@@ -17,7 +18,7 @@ class AnimalPDO {
      * @return array[object] $aAnimales Con todos los Animales de la busqueda
      * @return boolean false En caso de que la consulta sea incorrecta
      */
-    public static function buscaDepartamentosPorDesc($descAnimal = '') {
+    public static function buscarAnimalesPorDesc($descAnimal = '') {
         $aAnimales = [];
         // Consulta de busqueda según el valor del parametro introducido
         $consulta = <<<CONSULTA
@@ -30,12 +31,12 @@ class AnimalPDO {
         if (!is_null($resultadoConsulta)) {
             while ($oAnimal = $resultadoConsulta->fetchObject()) { // Guardo en la variable el resultado de la consulta en forma de objeto y lo recorro
                 $aAnimales[$oAnimal->T06_CodAnimal] = new Animal(
-                        $oAnimal->T06_CodAnimal, 
-                        $oAnimal->T06_DescAnimal, 
-                        $oAnimal->T06_FechaNacimiento, 
-                        $oAnimal->T06_Sexo, 
-                        $oAnimal->T06_Raza, 
-                        $oAnimal->T06_Precio, 
+                        $oAnimal->T06_CodAnimal,
+                        $oAnimal->T06_DescAnimal,
+                        $oAnimal->T06_FechaNacimiento,
+                        $oAnimal->T06_Sexo,
+                        $oAnimal->T06_Raza,
+                        $oAnimal->T06_Precio,
                         $oAnimal->T06_FechaBaja);
             }
             return $aAnimales;
@@ -43,6 +44,7 @@ class AnimalPDO {
             return false;
         }
     }
+
     /**
      * Busca a un Animal por su descripción de manera paginada
      * 
@@ -54,7 +56,7 @@ class AnimalPDO {
      * @return array[object] $aAnimales Con todos los Animales de la busqueda
      * @return boolean false En caso de que la consulta sea incorrecta
      */
-    public static function buscaDepartamentosPorDescPaginados($descAnimal = '', $iPagina = 0) {
+    public static function buscarAnimalesPorDescPaginados($descAnimal = '', $iPagina = 0) {
         /*
          * Variable para determinar desde qué registro empezar a obtener resultados en la consulta SQL.
          * Cada vez que se pasa a una nueva página, se multiplica el número de página por 5 
@@ -65,32 +67,36 @@ class AnimalPDO {
         /*
          * Consulta SQL para validar si la descripción del Departamento existe, filtrar por estado, y comprobar el número de pagina.
          * Y devolvemos 5 registros desde el 'puntero' asociado a esta variable '$iPagina'.
+         * También se agrega la cláusula ORDER BY para ordenar por T06_DescAnimal de manera ascendente.
          */
         $consultaBuscarDepartamentoDesc = <<<CONSULTA
-            SELECT * FROM T06_Animal 
-            WHERE T06_DescAnimal LIKE'%{$descAnimal}%' LIMIT {$iPagina}, 5;
-        CONSULTA;
+        SELECT * FROM T06_Animal 
+        WHERE T06_DescAnimal LIKE'%{$descAnimal}%'
+        ORDER BY T06_DescAnimal ASC
+        LIMIT {$iPagina}, 5;
+    CONSULTA;
 
         $resultadoConsulta = DBPDO::ejecutaConsulta($consultaBuscarDepartamentoDesc); // Ejecutamos la consulta
 
         $aAnimales = []; // Declaro el array para almacenar los Departamentos
         if ($resultadoConsulta !== false) {
-            while ($oAnimal = $resultadoConsulta->fetchObject()) { // Recorro el resultado de la consulta y creo un objeto por iteración (elemento)
-                $aAnimales[$oAnimal->T06_CodAnimal] = new Animal(
-                        $oAnimal->T06_CodAnimal, 
-                        $oAnimal->T06_DescAnimal, 
-                        $oAnimal->T06_FechaNacimiento, 
-                        $oAnimal->T06_Sexo, 
-                        $oAnimal->T06_Raza, 
-                        $oAnimal->T06_Precio, 
-                        $oAnimal->T06_FechaBaja);
+            while ($oT06_Animal = $resultadoConsulta->fetchObject()) { // Recorro el resultado de la consulta y creo un objeto por iteración (elemento)
+                $aAnimales[$oT06_Animal->T06_CodAnimal] = new Animal(
+                        $oT06_Animal->T06_CodAnimal,
+                        $oT06_Animal->T06_DescAnimal,
+                        $oT06_Animal->T06_FechaNacimiento,
+                        $oT06_Animal->T06_Sexo,
+                        $oT06_Animal->T06_Raza,
+                        $oT06_Animal->T06_Precio,
+                        $oT06_Animal->T06_FechaBaja
+                );
             }
             return $aAnimales; // Devuelvo el 'array' con todos los Departamentos
         } else {
             return false; // Si ocurre algún error devolvemos 'false'
         }
     }
-    
+
     /**
      * Cuenta todos los Animales 
      * 
@@ -112,7 +118,7 @@ class AnimalPDO {
 
         return $iAnimales; //Devuelvo el total de departamentos
     }
-    
+
     /**
      * Modifica los valores de un Animal
      *
@@ -133,7 +139,7 @@ class AnimalPDO {
 
         return DBPDO::ejecutaConsulta($consulta); // Ejecutamos y devolvemos la consulta
     }
-    
+
     /**
      * Metodo que nos permite buscar un Animal por el código 
      * 
@@ -155,12 +161,12 @@ class AnimalPDO {
 
             if ($oAnimal) { // Instancio un nuevo objeto Departamento con todos sus datos
                 return new Animal(// Y lo devuelvo
-                        $oAnimal->T06_CodAnimal, 
-                        $oAnimal->T06_DescAnimal, 
-                        $oAnimal->T06_FechaNacimiento, 
-                        $oAnimal->T06_Sexo, 
-                        $oAnimal->T06_Raza, 
-                        $oAnimal->T06_Precio, 
+                        $oAnimal->T06_CodAnimal,
+                        $oAnimal->T06_DescAnimal,
+                        $oAnimal->T06_FechaNacimiento,
+                        $oAnimal->T06_Sexo,
+                        $oAnimal->T06_Raza,
+                        $oAnimal->T06_Precio,
                         $oAnimal->T06_FechaBaja);
             } else {
                 return $oAnimal; // Devuelvo el objeto Departamento

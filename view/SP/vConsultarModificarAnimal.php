@@ -29,12 +29,12 @@
                         <tr>
                             <!-- Descripcion Departamento Obligatorio -->
                             <td class="d-flex justify-content-start">
-                                <label for="DescAnimal ">Descripción de Animal:</label>
+                                <label for="DescAnimal_">Descripción de Animal:</label>
                             </td>
                             <td>                                                                                                <!-- El value contiene una operador ternario en el que por medio de un metodo 'isset()'
                                                                                                                                 comprobamos que exista la variable y no sea 'null'. En el caso verdadero devovleremos el contenido del campo
                                                                                                                                 que contiene '$_REQUEST' , en caso falso sobrescribira el campo a '' .-->
-                                <input class="d-flex justify-content-start obligatorio modDep" type="text" name="DescAnimal" value="<?php echo (isset($_REQUEST['DescAnimal']) ? $_REQUEST['DescAnimal'] : $descAnimalAEditar ); ?>">
+                                <input class="d-flex justify-content-start obligatorio modDep" type="text" name="DescAnimal_" value="<?php echo (isset($_REQUEST['DescAnimal']) ? $_REQUEST['DescAnimal'] : $descAnimalAEditar ); ?>">
                             </td>
                             <td class="error">
                                 <?php

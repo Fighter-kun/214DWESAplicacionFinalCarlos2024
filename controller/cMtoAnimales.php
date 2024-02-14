@@ -160,19 +160,19 @@ $iAnimalesTotales = AnimalPDO::buscaAnimalesTotales($_SESSION['criterioBusquedaA
  * si no hicieramos esto nos mostraría a partir de los 5 siguiente, porque es lo que le indico en el método.
  */
 
-$aAnimalesBuscados = AnimalPDO::buscaDepartamentosPorDescPaginados($_SESSION['criterioBusquedaAnimal']['descripcionBuscada'], $_SESSION['numPaginacionAnimales']-1);
+$aAnimalesBuscados = AnimalPDO::buscarAnimalesPorDescPaginados($_SESSION['criterioBusquedaAnimal']['descripcionBuscada'], $_SESSION['numPaginacionAnimales']-1);
 $aAnimalesBuscadosVista = []; // Array para guardar el contenido de los animales
 // Ejecutando la declaración SQL
 if ($aAnimalesBuscados) {
-    foreach ($aAnimalesBuscados as $aAnimal) {//Recorro el objeto del resultado que contiene un array
+    foreach ($aAnimalesBuscados as $oAnimal) {//Recorro el objeto del resultado que contiene un array
         $aAnimalesBuscadosVista[] = [
-            'codAnimal' => $aAnimal->getCodAnimal(),
-            'descAnimal' => $aAnimal->getDescAnimal(),
-            'fechaNacimientoAnimal' => $aAnimal->getFechaNacimiento(),
-            'sexoAnimal' => $aAnimal->getSexo(),
-            'razaAnimal' => $aAnimal->getRaza(),
-            'precioAnimal' => $aAnimal->getPrecio(),
-            'fechaBajaAnimal' => !is_null($aAnimal->getFechaBaja()) ? $aAnimal->getFechaBaja() : ''
+            'codAnimal' => $oAnimal->getCodAnimal(),
+            'descAnimal' => $oAnimal->getDescAnimal(),
+            'fechaNacimientoAnimal' => $oAnimal->getFechaNacimiento(),
+            'sexoAnimal' => $oAnimal->getSexo(),
+            'razaAnimal' => $oAnimal->getRaza(),
+            'precioAnimal' => $oAnimal->getPrecio(),
+            'fechaBajaAnimal' => !is_null($oAnimal->getFechaBaja()) ? $oAnimal->getFechaBaja() : ''
         ];
     }
 } else {
