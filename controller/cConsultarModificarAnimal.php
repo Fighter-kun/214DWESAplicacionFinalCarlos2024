@@ -42,7 +42,7 @@ if ($oAnimalAEditar) {
 
 if (isset($_REQUEST['confirmarCambiosEditar'])) { // Comprobamos que el usuario haya enviado el formulario para 'confirmar los cambios'
     $aErrores['DescAnimal'] = validacionFormularios::comprobarAlfaNumerico($_REQUEST['DescAnimal'], 255, 3, 1);
-    $aErrores['Precio'] = validacionFormularios::comprobarFloatMejorado($_REQUEST['Precio'], PHP_FLOAT_MAX, -PHP_FLOAT_MAX, 2, 2, 1);
+    $aErrores['Precio'] = validacionFormularios::comprobarFloatMejorado($_REQUEST['Precio'], 9999999999, 0, 2, 2, 1);
 
 // Recorremos el array de errores
     foreach ($aErrores as $campo => $error) {

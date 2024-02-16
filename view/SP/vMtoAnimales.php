@@ -60,7 +60,7 @@
                             <th>Fecha de Nacimiento</th>
                             <th>Sexo</th>
                             <th>Raza</th>
-                            <th>Precio</th>
+                            <th>Precio del Animal</th>
                             <th>Fecha de Baja</th>
                             <th colspan='4'><-T-></th>
                         </tr>

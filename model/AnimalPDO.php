@@ -175,4 +175,29 @@ class AnimalPDO {
             return false; // En caso de fallar devuelvo false
         }
     }
+    
+    /**
+     * Metodo que permite dar de alta un nuevo Animal en la BD
+     * 
+     * @param string $codAnimal El codigo de Animal
+     * @param string $descAnimal La descripción de Animal
+     * @param string $fechaNacimientoAnimal La fecha de nacimiento del Animal
+     * @param string $sexoAnimal Sexo de Animal
+     * @param string $razaAnimal Raza de Animal
+     * @param string $precioAnimal Precio de Animal
+     * 
+     * @return boolean false | object Animal Devuelve un objeto Animal nuevo si se ha podido crear, de lo contrario devuelve un @boolean que sera 'false'
+     */
+    public static function altaAnimal($codAnimal, $descAnimal, $fechaNacimientoAnimal, $sexoAnimal, $razaAnimal, $precioAnimal) {
+        //CONSULTA SQL - INSERT
+        $consulta = <<<CONSULTA
+            INSERT INTO T06_Animal VALUES ('{$codAnimal}','{$descAnimal}', '{$fechaNacimientoAnimal}', '{$sexoAnimal}', '{$razaAnimal}', '{$precioAnimal}', NULL);
+        CONSULTA;
+
+        if (DBPDO::ejecutaConsulta($consulta)) { // Ejecuto la consulta
+            return new Animal($codAnimal, $descAnimal, $fechaNacimientoAnimal, $sexoAnimal, $razaAnimal, $precioAnimal, NULL); // Creo el Animal con los valores recogidos
+        } else {
+            return false; // Si la consulta falla devuelvo 'false'
+        }
+    }
 }

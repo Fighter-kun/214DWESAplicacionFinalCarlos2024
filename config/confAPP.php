@@ -52,7 +52,8 @@ $aController = [
     'importarDepartamento' => 'controller/cImportarDepartamentos.php',
     'apiREST' => 'controller/cREST.php',
     'consultarAnimales' => 'controller/cMtoAnimales.php',
-    'editarAnimal' => 'controller/cConsultarModificarAnimal.php'
+    'editarAnimal' => 'controller/cConsultarModificarAnimal.php',
+    'añadirAnimal' => 'controller/cAltaAnimal.php'
 ];
 
 // En el array de '$aView' almacenamos un array por idioma, para mostrar la vista en el idioma elegído por el usuario
@@ -78,7 +79,8 @@ $aView = [
         'importarDepartamento' => 'view/SP/vImportarDepartamentos.php',
         'apiREST' => 'view/SP/vREST.php',
         'consultarAnimales' => 'view/SP/vMtoAnimales.php',
-        'editarAnimal' => 'view/SP/vConsultarModificarAnimal.php'
+        'editarAnimal' => 'view/SP/vConsultarModificarAnimal.php',
+        'añadirAnimal' => 'view/SP/vAltaAnimal.php'
     ],
     'UK' => [
         'layout' => 'view/UK/layout.php',
@@ -101,7 +103,8 @@ $aView = [
         'importarDepartamento' => 'view/UK/vImportarDepartamentos.php',
         'apiREST' => 'view/UK/vREST.php',
         'consultarAnimales' => 'view/UK/vMtoAnimales.php',
-        'editarAnimal' => 'view/UK/vConsultarModificarAnimal.php'
+        'editarAnimal' => 'view/UK/vConsultarModificarAnimal.php',
+        'añadirAnimal' => 'view/UK/vAltaAnimal.php'
     ]
 ];
 
@@ -126,7 +129,8 @@ $aTitleLang = [
         'importarDepartamento' => 'Importar Departamentos',
         'apiREST' => 'REST',
         'consultarAnimales' => 'Mantenimiento Granja',
-        'editarAnimal' => 'Editar Animal'
+        'editarAnimal' => 'Editar Animal',
+        'añadirAnimal' => 'Añadir Animal'
     ],
     'UK' => [//Inglés
         'inicioPublico' => 'Public Home',
@@ -147,7 +151,8 @@ $aTitleLang = [
         'importarDepartamento' => 'Import Departments',
         'apiREST' => 'REST',
         'consultarAnimales' => 'Farm Maintenance',
-        'editarAnimal' => 'Edit Animal'
+        'editarAnimal' => 'Edit Animal',
+        'añadirAnimal' => 'Add Animal'
     ]
 ];
 
