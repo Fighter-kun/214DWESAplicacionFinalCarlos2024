@@ -304,7 +304,25 @@ input[name="DescAnimal"] {
     width: 110%;
     margin-right: 50%;
 }
+.bordeBusquedaAnimal {
+    border: 1px solid black;
+}
 
+.sin-baja {
+    background-color: #77FF6C;
+    font-weight: bold;
+}
+
+
+.con-baja {
+    background-color: #ec5353;
+    font-weight: bold;
+}
+
+.grupoDeBotonesPaginacion {
+    width: 300px;
+    margin-left: 38%;
+}
 /* API */
 .card-text-instruction{
     border: 1px solid black;
