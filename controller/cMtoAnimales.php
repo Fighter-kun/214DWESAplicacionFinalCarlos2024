@@ -39,7 +39,7 @@ if (isset($_REQUEST['cEliminarAnimal'])) {
 if (isset($_REQUEST['cBajaLogicaAnimal'])) {
     $_SESSION['codAnimalActual'] = $_REQUEST['cBajaLogicaAnimal']; // Almaceno en una variable de sesión el Codigo del Departamento Seleccionado
     $_SESSION['paginaAnterior'] = 'consultarAnimales'; // Almaceno la página anterior para poder volver
-    $_SESSION['paginaEnCurso'] = 'wip'; // Asigno a la página en curso la pagina de bajaDepartamento
+    $_SESSION['paginaEnCurso'] = 'bajaAnimal'; // Asigno a la página en curso la pagina de bajaDepartamento
     header('Location: index.php'); // Redirecciono al index de la APP
     exit;
 }
@@ -48,7 +48,7 @@ if (isset($_REQUEST['cBajaLogicaAnimal'])) {
 if (isset($_REQUEST['cRehabilitacionAnimal'])) {
     $_SESSION['codAnimalActual'] = $_REQUEST['cRehabilitacionAnimal']; // Almaceno en una variable de sesión el Codigo del Departamento Seleccionado
     $_SESSION['paginaAnterior'] = 'consultarAnimales'; // Almaceno la página anterior para poder volver
-    $_SESSION['paginaEnCurso'] = 'wip'; // Asigno a la página en curso la pagina de altaDepartamento
+    $_SESSION['paginaEnCurso'] = 'rehabilitacionAnimal'; // Asigno a la página en curso la pagina de altaDepartamento
     header('Location: index.php'); // Redirecciono al index de la APP
     exit;
 }

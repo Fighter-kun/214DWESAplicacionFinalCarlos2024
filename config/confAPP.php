@@ -54,7 +54,9 @@ $aController = [
     'consultarAnimales' => 'controller/cMtoAnimales.php',
     'editarAnimal' => 'controller/cConsultarModificarAnimal.php',
     'añadirAnimal' => 'controller/cAltaAnimal.php',
-    'eliminarAnimal' => 'controller/cEliminarAnimal.php'
+    'eliminarAnimal' => 'controller/cEliminarAnimal.php',
+    'rehabilitacionAnimal' => 'controller/cRehabilitacionAnimal.php',
+    'bajaAnimal' => 'controller/cBajaLogicaAnimal.php'
 ];
 
 // En el array de '$aView' almacenamos un array por idioma, para mostrar la vista en el idioma elegído por el usuario

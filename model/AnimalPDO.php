@@ -216,4 +216,36 @@ class AnimalPDO {
 
         return DBPDO::ejecutaConsulta($consulta); // Ejecutamos y devolvemos la consulta
     }
+    
+    /**
+     * Modifica el valor de la fecha de baja a un Animal (Baja Lógica)
+     *
+     * @param string $codAnimal Codigo del Animal a modificar
+     * 
+     * @return PDOStatment Devuelve el resultado de la coonsulta
+     */
+    public static function bajaLogicaAnimal($codAnimal) {
+        // Consulta - UPDATE
+        $consulta = <<<CONSULTA
+            UPDATE T06_Animal SET T06_FechaBaja = NOW() WHERE T06_CodAnimal = '{$codAnimal}';
+        CONSULTA;
+
+        return DBPDO::ejecutaConsulta($consulta); // Ejecutamos y devolvemos la consulta
+    }
+
+    /**
+     * Modifica el valor de la fecha de baja a un Animal (Alta Lógica)
+     *
+     * @param string $codAnimal Codigo del Animal a modificar
+     * 
+     * @return PDOStatment Devuelve el resultado de la coonsulta
+     */
+    public static function rehabilitarAnimal($codAnimal) {
+        // Consulta - UPDATE
+        $consulta = <<<CONSULTA
+            UPDATE T06_Animal SET T06_FechaBaja = NULL WHERE T06_CodAnimal = '{$codAnimal}';
+        CONSULTA;
+
+        return DBPDO::ejecutaConsulta($consulta); // Ejecutamos y devolvemos la consulta
+    }
 }
