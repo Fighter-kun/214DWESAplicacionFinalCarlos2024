@@ -8,7 +8,7 @@
     <div class="row mb-2">
         <div class="col text-center">
             <form name="indexMtoAnimales" method="post">
-            <div class="btn-container">
+                <div class="btn-container">
                     <div class="descripcionExportar">Si pulsas exportar descarga un fichero '.zip' que contiene todos los Animales en '.json' y '.xml'</div>
                     <button id="exportButton" class="botones" role="button" aria-disabled="true" type="submit" name="exportarAnimales">Exportar</button>
                 </div>
@@ -77,7 +77,16 @@
                     echo ("<td>" . $aAnimales['codAnimal'] . "</td>");
                     echo ("<td>" . $aAnimales['descAnimal'] . "</td>");
                     echo ("<td>" . $aAnimales['fechaNacimientoAnimal'] . "</td>");
-                    echo ("<td>" . $aAnimales['sexoAnimal'] . "</td>");
+                    echo "<td>";
+
+                    if ($aAnimales['sexoAnimal'] == 'macho') {
+                        echo "<i class='fas fa-mars'></i>"; // Icono de Macho
+                    }  else {
+                        echo "<i class='fas fa-venus'></i>"; // Icono de Hembra
+                    }
+
+                    echo "</td>";
+                    
                     echo ("<td>" . $aAnimales['razaAnimal'] . "</td>");
                     echo ("<td>" . $aAnimales['precioAnimal'] . "</td>");
                     echo ("<td class='fecha-baja'>" . $aAnimales['fechaBajaAnimal'] . "</td>");
