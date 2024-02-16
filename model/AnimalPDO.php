@@ -200,4 +200,20 @@ class AnimalPDO {
             return false; // Si la consulta falla devuelvo 'false'
         }
     }
+    
+    /**
+     * Eliminar un Animal (Baja Física)
+     *
+     * @param string $codAnimal Codigo del Animal a eliminar
+     * 
+     * @return PDOStatment Devuelve el resultado de la consulta
+     */
+    public static function bajaFisicaAnimal($codAnimal) {
+        // Consulta de busqueda según el valor del parametro introducido
+        $consulta = <<<CONSULTA
+            DELETE FROM T06_Animal WHERE T06_CodAnimal = '{$codAnimal}';
+        CONSULTA;
+
+        return DBPDO::ejecutaConsulta($consulta); // Ejecutamos y devolvemos la consulta
+    }
 }

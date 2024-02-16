@@ -54,7 +54,7 @@
                                     <label for="fechaNacimientoAnimal">Fecha de Creación:</label>
                                 </td>
                                 <td>
-                                    <input class="obligatorio d-flex justify-content-start" type="text" name="fechaNacimientoAnimal"  placeholder="YYYY-mm-dd" value="<?php echo (isset($_REQUEST['fechaNacimientoAnimal']) ? $_REQUEST['fechaNacimientoAnimal'] : ''); ?>">
+                                    <input class="obligatorio d-flex justify-content-start" type="text" name="fechaNacimientoAnimal"  placeholder="YYYY-mm-dd HH:ii:ss" value="<?php echo (isset($_REQUEST['fechaNacimientoAnimal']) ? $_REQUEST['fechaNacimientoAnimal'] : ''); ?>">
                                 </td>
                                 <td class="error">
                                      <?php

@@ -53,7 +53,8 @@ $aController = [
     'apiREST' => 'controller/cREST.php',
     'consultarAnimales' => 'controller/cMtoAnimales.php',
     'editarAnimal' => 'controller/cConsultarModificarAnimal.php',
-    'añadirAnimal' => 'controller/cAltaAnimal.php'
+    'añadirAnimal' => 'controller/cAltaAnimal.php',
+    'eliminarAnimal' => 'controller/cEliminarAnimal.php'
 ];
 
 // En el array de '$aView' almacenamos un array por idioma, para mostrar la vista en el idioma elegído por el usuario
@@ -80,7 +81,8 @@ $aView = [
         'apiREST' => 'view/SP/vREST.php',
         'consultarAnimales' => 'view/SP/vMtoAnimales.php',
         'editarAnimal' => 'view/SP/vConsultarModificarAnimal.php',
-        'añadirAnimal' => 'view/SP/vAltaAnimal.php'
+        'añadirAnimal' => 'view/SP/vAltaAnimal.php',
+        'eliminarAnimal' => 'view/SP/vEliminarAnimal.php'
     ],
     'UK' => [
         'layout' => 'view/UK/layout.php',
@@ -104,7 +106,8 @@ $aView = [
         'apiREST' => 'view/UK/vREST.php',
         'consultarAnimales' => 'view/UK/vMtoAnimales.php',
         'editarAnimal' => 'view/UK/vConsultarModificarAnimal.php',
-        'añadirAnimal' => 'view/UK/vAltaAnimal.php'
+        'añadirAnimal' => 'view/UK/vAltaAnimal.php',
+        'eliminarAnimal' => 'view/UK/vEliminarAnimal.php'
     ]
 ];
 
@@ -130,7 +133,8 @@ $aTitleLang = [
         'apiREST' => 'REST',
         'consultarAnimales' => 'Mantenimiento Granja',
         'editarAnimal' => 'Editar Animal',
-        'añadirAnimal' => 'Añadir Animal'
+        'añadirAnimal' => 'Añadir Animal',
+        'eliminarAnimal' => 'Eliminar Animal'
     ],
     'UK' => [//Inglés
         'inicioPublico' => 'Public Home',
@@ -152,7 +156,8 @@ $aTitleLang = [
         'apiREST' => 'REST',
         'consultarAnimales' => 'Farm Maintenance',
         'editarAnimal' => 'Edit Animal',
-        'añadirAnimal' => 'Add Animal'
+        'añadirAnimal' => 'Add Animal',
+        'eliminarAnimal' => 'Delete Animal'
     ]
 ];
 

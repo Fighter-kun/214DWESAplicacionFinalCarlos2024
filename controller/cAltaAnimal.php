@@ -35,13 +35,6 @@ $aErrores = [
 // Variable DateTime
 $fechaYHoraActualCreacion = new DateTime('now', new DateTimeZone('Europe/Madrid'));
 
-// Modificar la fecha para obtener el día de mañana
-$fechaYHoraMañana = clone $fechaYHoraActualCreacion;
-$fechaYHoraMañana->modify('+1 day');
-
-// Formatear la variable '$fechaYHoraManana' para que aparezca en el formato 'YYYY-mm-dd'
-$fechaYHoraMañanaFormateada = $fechaYHoraMañana->format('Y-m-d');
-
 //En el siguiente if pregunto si el '$_REQUEST' recupero el valor 'enviar' que enviamos al pulsar el boton de enviar del formulario.
 if (isset($_REQUEST['añadirAnimal'])) {
     /*
@@ -62,7 +55,7 @@ if (isset($_REQUEST['añadirAnimal'])) {
         }
     }
     $aErrores['descAnimal'] = validacionFormularios::comprobarAlfaNumerico($_REQUEST['descAnimal'], 255, 1, 1);
-    $aErrores['fechaNacimientoAnimal'] = validacionFormularios::validarFecha($_REQUEST['fechaNacimientoAnimal'], $fechaYHoraMañanaFormateada, '01/01/2010', 1);
+    $aErrores['fechaNacimientoAnimal'] = validacionFormularios::validarFechaHora($_REQUEST['fechaNacimientoAnimal'], $fechaYHoraActualCreacion->format('Y-m-d H:i:s'), '01/01/2010 00:00:00', 1);
     $aErrores['razaAnimal'] = validacionFormularios::comprobarAlfabetico($_REQUEST['razaAnimal'], 255, 3, 1);
     $aErrores['precioAnimal'] = validacionFormularios::comprobarFloatMejorado($_REQUEST['precioAnimal'], 9999999999, 0, 2, 2, 1);
     

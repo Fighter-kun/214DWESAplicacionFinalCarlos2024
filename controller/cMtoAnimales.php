@@ -30,7 +30,7 @@ if (isset($_REQUEST['cConsultarModificarAnimal'])) {
 if (isset($_REQUEST['cEliminarAnimal'])) {
     $_SESSION['codAnimalActual'] = $_REQUEST['cEliminarAnimal']; // Almaceno en una variable de sesión el Codigo del Departamento Seleccionado
     $_SESSION['paginaAnterior'] = 'consultarAnimales'; // Almaceno la página anterior para poder volver
-    $_SESSION['paginaEnCurso'] = 'wip'; // Asigno a la página en curso la pagina de eliminarDepartamento
+    $_SESSION['paginaEnCurso'] = 'eliminarAnimal'; // Asigno a la página en curso la pagina de eliminarDepartamento
     header('Location: index.php'); // Redirecciono al index de la APP
     exit;
 }
