@@ -77,8 +77,14 @@ if (isset($_REQUEST['añadirAnimal'])) {
     exit;
 }
 
-if (!isset($_SESSION['criterioBusquedaAnimal']['descripcionBuscada'])) {
-    $_SESSION['criterioBusquedaAnimal']['descripcionBuscada'] = '';
+// Si la variable no esta declarada le asigno un valor por defecto
+if (!isset($_SESSION['criterioBusquedaAnimales']['descripcionBuscada'])) {
+    $_SESSION['criterioBusquedaAnimales']['descripcionBuscada'] = '';
+}
+
+// Si la variable no esta declarada le asigno un valor por defecto
+if (!isset($_SESSION['criterioBusquedaAnimales']['estado'])) {
+    $_SESSION['criterioBusquedaAnimales']['estado'] = ESTADO_TODOS;
 }
 
 // Si la variable no esta declarada le asigno un valor por defecto
@@ -92,7 +98,7 @@ if (!isset($_SESSION['numPaginacionAnimales'])) {
  * 
  * Divido por 5 para obtener el número total de páginas, ya que cada página tiene 5 resultados.
  */
-$iAnimalesTotales = AnimalPDO::buscaAnimalesTotales($_SESSION['criterioBusquedaAnimal']['descripcionBuscada']) / 5;
+$iAnimalesTotales = AnimalPDO::buscaAnimalesTotales($_SESSION['criterioBusquedaAnimales']['descripcionBuscada']) / 5;
 
 if(isset($_REQUEST['paginaPrimera'])){ //Si el usuario pulsa el boton de paginaPrimera
     $_SESSION['numPaginacionAnimales'] = 1; //Le situo en la primera pagina
@@ -138,7 +144,21 @@ if (isset($_REQUEST['buscarAnimalPorDesc'])) {
 //Si la entrada es Ok almacenamos el valor de la respuesta del usuario en el array $aRespuestas
 if ($entradaOK) {
     // Almacenamos el valor en el array en la variable de sesion e inicializamos el número de paginas a 1
-    $_SESSION['criterioBusquedaAnimal']['descripcionBuscada'] = $_REQUEST['DescAnimal'];
+    $_SESSION['criterioBusquedaAnimales']['descripcionBuscada'] = $_REQUEST['DescAnimal'];
+    
+    switch ($_REQUEST['estado']){ //Guardo el estado que ha seleccionado el usuario en el filtrado de la busqueda
+        case 'todos':
+            $sEstado = ESTADO_TODOS;
+            break;
+        case 'altas':
+            $sEstado = ESTADO_ALTAS;
+            break;
+        case 'bajas':
+            $sEstado = ESTADO_BAJAS;
+            break;
+    }
+    // El valor de $sEstado son una constantes que valen (0-1-2)
+    $_SESSION['criterioBusquedaAnimales']['estado'] = $sEstado; // Guardo el valor del estado en la sesión
     $_SESSION['numPaginacionAnimales'] = 1;
 }
 
@@ -149,7 +169,7 @@ if ($entradaOK) {
  * 
  * Divido por 5 para obtener el número total de páginas, ya que cada página tiene 5 resultados.
  */
-$iAnimalesTotales = AnimalPDO::buscaAnimalesTotales($_SESSION['criterioBusquedaAnimal']['descripcionBuscada']) / 5;
+$iAnimalesTotales = AnimalPDO::buscaAnimalesTotales($_SESSION['criterioBusquedaAnimales']['descripcionBuscada']) / 5;
 
 /*
  * Por medio del método 'buscaDepartamentosPorDescPaginados' de la clase 'AnimalPDO' busco todos los Animales
@@ -160,7 +180,7 @@ $iAnimalesTotales = AnimalPDO::buscaAnimalesTotales($_SESSION['criterioBusquedaA
  * si no hicieramos esto nos mostraría a partir de los 5 siguiente, porque es lo que le indico en el método.
  */
 
-$aAnimalesBuscados = AnimalPDO::buscarAnimalesPorDescPaginados($_SESSION['criterioBusquedaAnimal']['descripcionBuscada'], $_SESSION['numPaginacionAnimales']-1);
+$aAnimalesBuscados = AnimalPDO::buscarAnimalesPorDescYEstadoPaginados($_SESSION['criterioBusquedaAnimales']['descripcionBuscada'], $_SESSION['criterioBusquedaAnimales']['estado'], $_SESSION['numPaginacionAnimales']-1);
 $aAnimalesBuscadosVista = []; // Array para guardar el contenido de los animales
 // Ejecutando la declaración SQL
 if ($aAnimalesBuscados) {

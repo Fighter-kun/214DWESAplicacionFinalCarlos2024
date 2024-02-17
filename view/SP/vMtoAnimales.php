@@ -29,8 +29,16 @@
                                 <td>                                                                                                <!-- El value contiene una operador ternario en el que por medio de un metodo 'isset()'
                                                                                                                                     comprobamos que exista la variable y no sea 'null'. En el caso verdadero devovleremos el contenido del campo
                                                                                                                                     que contiene '$_REQUEST' , en caso falso sobrescribira el campo a '' .-->
-                                    <input class="d-flex justify-content-start" type="text" name="DescAnimal" value="<?php echo $_SESSION['criterioBusquedaAnimal']['descripcionBuscada'] ?? ''; ?>">
-
+                                    <input class="d-flex justify-content-start" type="text" name="DescAnimal" value="<?php echo $_SESSION['criterioBusquedaAnimales']['descripcionBuscada'] ?? ''; ?>">
+                                    <div>
+                                        <a class="pBuscarDepartamento">Estado: </a>
+                                        <label for="tipoDepartamentoTodos"><a class="rFiltrarDepartamento">Todos</a></label>
+                                        <input name="estado" id="tipoDepartamentoTodos" type="radio" value="todos" <?php echo isset($_SESSION['criterioBusquedaAnimales']['estado']) ? ($_SESSION['criterioBusquedaAnimales']['estado'] == ESTADO_TODOS ? 'checked' : '') : 'checked'; ?>>
+                                        <label for="tipoDepartamentoAltas"><a class="rFiltrarDepartamento">Altas</a></label>
+                                        <input name="estado" id="tipoDepartamentoAltas" type="radio" value="altas" <?php echo isset($_SESSION['criterioBusquedaAnimales']['estado']) ? ($_SESSION['criterioBusquedaAnimales']['estado'] == ESTADO_ALTAS ? 'checked' : '') : ''; ?>>
+                                        <label for="tipoDepartamentoBajas"><a class="rFiltrarDepartamento">Bajas</a></label>
+                                        <input name="estado" id="tipoDepartamentoBajas" type="radio" value="bajas" <?php echo isset($_SESSION['criterioBusquedaAnimales']['estado']) ? ($_SESSION['criterioBusquedaAnimales']['estado'] == ESTADO_BAJAS ? 'checked' : '') : ''; ?>>
+                                    </div>
                                 </td>
                                 <td><button class="botones" role="button" aria-disabled="true" type="submit" name="buscarAnimalPorDesc">Buscar</button></td>
                             </tr>

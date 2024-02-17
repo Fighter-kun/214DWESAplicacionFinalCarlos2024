@@ -20,7 +20,7 @@
                                 <td>                                                                                                <!-- El value contiene una operador ternario en el que por medio de un metodo 'isset()'
                                                                                                                                     comprobamos que exista la variable y no sea 'null'. En el caso verdadero devovleremos el contenido del campo
                                                                                                                                     que contiene '$_REQUEST' , en caso falso sobrescribira el campo a '' .-->
-                                    <input class="d-flex justify-content-start" type="text" name="DescAnimal" value="<?php echo $_SESSION['criterioBusquedaAnimal']['descripcionBuscada'] ?? ''; ?>">
+                                    <input class="d-flex justify-content-start" type="text" name="DescAnimal" value="<?php echo $_SESSION['criterioBusquedaAnimales']['descripcionBuscada'] ?? ''; ?>">
                                     
                                 </td>
                                 <td><button class="botones" role="button" aria-disabled="true" type="submit" name="buscarAnimalPorDesc">Search</button></td>

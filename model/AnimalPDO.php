@@ -48,21 +48,35 @@ class AnimalPDO {
     /**
      * Busca a un Animal por su descripción de manera paginada
      * 
-     * Metodo que nos sirve para buscar un Animal mediante la descripción del departamento en la BD 
+     * Metodo que nos sirve para buscar un Animal mediante la descripción y el estado de un Animal en la BD 
      * 
      * @param string $descAnimal Descripción del Animal a buscar
+     * @param int $sEstado Estado del filtrado de la busqueda por altas o bajas
      * @param int $iPagina Número de pagina que ha solicitado el usuario
      * 
      * @return array[object] $aAnimales Con todos los Animales de la busqueda
      * @return boolean false En caso de que la consulta sea incorrecta
      */
-    public static function buscarAnimalesPorDescPaginados($descAnimal = '', $iPagina = 0) {
+    public static function buscarAnimalesPorDescYEstadoPaginados($descAnimal = '', $sEstado = 0, $iPagina = 0) {
         /*
          * Variable para determinar desde qué registro empezar a obtener resultados en la consulta SQL.
          * Cada vez que se pasa a una nueva página, se multiplica el número de página por 5 
          * para obtener el índice de inicio de la siguiente página.
          */
         $iPagina = $iPagina * 5;
+        
+        // Switch para añadir código a la consulta en función de los parámetros de búsqueda
+        switch ($sEstado) {
+            case 0:
+                $sEstado = '';
+                break;
+            case 1:
+                $sEstado = 'AND T06_FechaBaja IS NULL';
+                break;
+            case 2:
+                $sEstado = 'AND T06_FechaBaja IS NOT NULL';
+                break;
+        }
 
         /*
          * Consulta SQL para validar si la descripción del Departamento existe, filtrar por estado, y comprobar el número de pagina.
@@ -71,9 +85,7 @@ class AnimalPDO {
          */
         $consultaBuscarDepartamentoDesc = <<<CONSULTA
         SELECT * FROM T06_Animal 
-        WHERE T06_DescAnimal LIKE'%{$descAnimal}%'
-        ORDER BY T06_DescAnimal ASC
-        LIMIT {$iPagina}, 5;
+        WHERE T06_DescAnimal LIKE'%{$descAnimal}%' {$sEstado} ORDER BY T06_DescAnimal ASC LIMIT {$iPagina}, 5;
     CONSULTA;
 
         $resultadoConsulta = DBPDO::ejecutaConsulta($consultaBuscarDepartamentoDesc); // Ejecutamos la consulta
