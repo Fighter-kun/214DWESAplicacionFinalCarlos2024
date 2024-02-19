@@ -19,36 +19,45 @@ if (isset($_REQUEST['salirGranja'])) {
 
 // Estructura del botón editarDepartamento, si el usuario pulsa el botón del icono de un 'lapiz'
 if (isset($_REQUEST['cConsultarModificarAnimal'])) {
-    $_SESSION['codAnimalActual'] = $_REQUEST['cConsultarModificarAnimal']; // Almaceno en una variable de sesión el Codigo del Departamento Seleccionado
+    $_SESSION['codAnimalActual'] = $_REQUEST['cConsultarModificarAnimal']; // Almaceno en una variable de sesión el Codigo del Animal Seleccionado
     $_SESSION['paginaAnterior'] = 'consultarAnimales'; // Almaceno la página anterior para poder volver
-    $_SESSION['paginaEnCurso'] = 'editarAnimal'; // Asigno a la página en curso la pagina de ConsultarModificarDepartamento
+    $_SESSION['paginaEnCurso'] = 'editarAnimal'; // Asigno a la página en curso la pagina de ConsultarModificarAnimal
     header('Location: index.php'); // Redirecciono al index de la APP
     exit;
 }
 
 // Estructura del botón eliminarDepartamento, si el usuario pulsa el botón del icono de una 'X'
 if (isset($_REQUEST['cEliminarAnimal'])) {
-    $_SESSION['codAnimalActual'] = $_REQUEST['cEliminarAnimal']; // Almaceno en una variable de sesión el Codigo del Departamento Seleccionado
+    $_SESSION['codAnimalActual'] = $_REQUEST['cEliminarAnimal']; // Almaceno en una variable de sesión el Codigo del Animal Seleccionado
     $_SESSION['paginaAnterior'] = 'consultarAnimales'; // Almaceno la página anterior para poder volver
-    $_SESSION['paginaEnCurso'] = 'eliminarAnimal'; // Asigno a la página en curso la pagina de eliminarDepartamento
+    $_SESSION['paginaEnCurso'] = 'eliminarAnimal'; // Asigno a la página en curso la pagina de eliminarAnimal
     header('Location: index.php'); // Redirecciono al index de la APP
     exit;
 }
 
 // Estructura del boton baja, si el usuario pulsa el icono de la flecha roja 
 if (isset($_REQUEST['cBajaLogicaAnimal'])) {
-    $_SESSION['codAnimalActual'] = $_REQUEST['cBajaLogicaAnimal']; // Almaceno en una variable de sesión el Codigo del Departamento Seleccionado
+    $_SESSION['codAnimalActual'] = $_REQUEST['cBajaLogicaAnimal']; // Almaceno en una variable de sesión el Codigo del Animal Seleccionado
     $_SESSION['paginaAnterior'] = 'consultarAnimales'; // Almaceno la página anterior para poder volver
-    $_SESSION['paginaEnCurso'] = 'bajaAnimal'; // Asigno a la página en curso la pagina de bajaDepartamento
+    $_SESSION['paginaEnCurso'] = 'bajaAnimal'; // Asigno a la página en curso la pagina de bajaAnimal
     header('Location: index.php'); // Redirecciono al index de la APP
     exit;
 }
 
 // Estructura del boton alta, si el usuario pulsa el icono de la flecha verde 
 if (isset($_REQUEST['cRehabilitacionAnimal'])) {
-    $_SESSION['codAnimalActual'] = $_REQUEST['cRehabilitacionAnimal']; // Almaceno en una variable de sesión el Codigo del Departamento Seleccionado
+    $_SESSION['codAnimalActual'] = $_REQUEST['cRehabilitacionAnimal']; // Almaceno en una variable de sesión el Codigo del Animal Seleccionado
     $_SESSION['paginaAnterior'] = 'consultarAnimales'; // Almaceno la página anterior para poder volver
-    $_SESSION['paginaEnCurso'] = 'rehabilitacionAnimal'; // Asigno a la página en curso la pagina de altaDepartamento
+    $_SESSION['paginaEnCurso'] = 'rehabilitacionAnimal'; // Asigno a la página en curso la pagina de altaAnimal
+    header('Location: index.php'); // Redirecciono al index de la APP
+    exit;
+}
+
+// Estructura del boton detalle Animal, si el usuario pulsa el boton
+if (isset($_REQUEST['cDetalleAnimal'])) {
+    $_SESSION['codAnimalActual'] = $_REQUEST['cDetalleAnimal']; // Almaceno en una variable de sesión el Codigo del Animal Seleccionado
+    $_SESSION['paginaAnterior'] = 'consultarAnimales'; // Almaceno la página anterior para poder volver
+    $_SESSION['paginaEnCurso'] = 'detalleAnimal'; // Asigno a la página en curso la pagina de detalleAnimal
     header('Location: index.php'); // Redirecciono al index de la APP
     exit;
 }
@@ -56,7 +65,7 @@ if (isset($_REQUEST['cRehabilitacionAnimal'])) {
 // Estructura del botón exportar, si el usuario pulsa el botón 'exportar'
 if (isset($_REQUEST['exportarAnimales'])) {
     $_SESSION['paginaAnterior'] = 'consultarAnimales'; // Almaceno la página anterior para poder volver
-    $_SESSION['paginaEnCurso'] = 'wip'; // Asigno a la página en curso la pagina de exportarDepartamentos
+    $_SESSION['paginaEnCurso'] = 'wip'; // Asigno a la página en curso la pagina de exportarAnimal
     header('Location: index.php'); // Redirecciono al index de la APP
     exit;
 }
@@ -64,15 +73,15 @@ if (isset($_REQUEST['exportarAnimales'])) {
 // Estructura del botón importar, si el usuario pulsa el botón 'importar'
 if (isset($_REQUEST['importarAnimales'])) {
     $_SESSION['paginaAnterior'] = 'consultarAnimales'; // Almaceno la página anterior para poder volver
-    $_SESSION['paginaEnCurso'] = 'wip'; // Asigno a la página en curso la pagina de importarDepartamentos
+    $_SESSION['paginaEnCurso'] = 'wip'; // Asigno a la página en curso la pagina de importarAnimal
     header('Location: index.php'); // Redirecciono al index de la APP
     exit;
 }
 
-// Estructura del botón añadir departamento, si el usuario pulsa el botón 'añadir departameto'
+// Estructura del botón añadir departamento, si el usuario pulsa el botón 'añadir Animal'
 if (isset($_REQUEST['añadirAnimal'])) {
     $_SESSION['paginaAnterior'] = 'consultarAnimales'; // Almaceno la página anterior para poder volver
-    $_SESSION['paginaEnCurso'] = 'añadirAnimal'; // Asigno a la página en curso la pagina de añadirDepartamento
+    $_SESSION['paginaEnCurso'] = 'añadirAnimal'; // Asigno a la página en curso la pagina de añadirAnimal
     header('Location: index.php'); // Redirecciono al index de la APP
     exit;
 }

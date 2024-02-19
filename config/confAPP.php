@@ -56,7 +56,8 @@ $aController = [
     'añadirAnimal' => 'controller/cAltaAnimal.php',
     'eliminarAnimal' => 'controller/cEliminarAnimal.php',
     'rehabilitacionAnimal' => 'controller/cRehabilitacionAnimal.php',
-    'bajaAnimal' => 'controller/cBajaLogicaAnimal.php'
+    'bajaAnimal' => 'controller/cBajaLogicaAnimal.php',
+    'detalleAnimal' => 'controller/cDetalleAnimal.php'
 ];
 
 // En el array de '$aView' almacenamos un array por idioma, para mostrar la vista en el idioma elegído por el usuario
@@ -84,7 +85,8 @@ $aView = [
         'consultarAnimales' => 'view/SP/vMtoAnimales.php',
         'editarAnimal' => 'view/SP/vConsultarModificarAnimal.php',
         'añadirAnimal' => 'view/SP/vAltaAnimal.php',
-        'eliminarAnimal' => 'view/SP/vEliminarAnimal.php'
+        'eliminarAnimal' => 'view/SP/vEliminarAnimal.php',
+        'detalleAnimal' => 'view/SP/vDetalleAnimal.php'
     ],
     'UK' => [
         'layout' => 'view/UK/layout.php',
@@ -109,7 +111,8 @@ $aView = [
         'consultarAnimales' => 'view/UK/vMtoAnimales.php',
         'editarAnimal' => 'view/UK/vConsultarModificarAnimal.php',
         'añadirAnimal' => 'view/UK/vAltaAnimal.php',
-        'eliminarAnimal' => 'view/UK/vEliminarAnimal.php'
+        'eliminarAnimal' => 'view/UK/vEliminarAnimal.php',
+        'detalleAnimal' => 'view/UK/vDetalleAnimal.php'
     ]
 ];
 
@@ -133,10 +136,11 @@ $aTitleLang = [
         'eliminarDepartamento' => 'Eliminar Departamento',
         'importarDepartamento' => 'Importar Departamentos',
         'apiREST' => 'REST',
-        'consultarAnimales' => 'Mantenimiento Granja',
+        'consultarAnimales' => 'Mantenimiento Animales',
         'editarAnimal' => 'Editar Animal',
         'añadirAnimal' => 'Añadir Animal',
-        'eliminarAnimal' => 'Eliminar Animal'
+        'eliminarAnimal' => 'Eliminar Animal',
+        'detalleAnimal' => 'Detalles Del Animal'
     ],
     'UK' => [//Inglés
         'inicioPublico' => 'Public Home',
@@ -156,10 +160,11 @@ $aTitleLang = [
         'eliminarDepartamento' => 'Delete Department',
         'importarDepartamento' => 'Import Departments',
         'apiREST' => 'REST',
-        'consultarAnimales' => 'Farm Maintenance',
+        'consultarAnimales' => 'Animal Maintenance',
         'editarAnimal' => 'Edit Animal',
         'añadirAnimal' => 'Add Animal',
-        'eliminarAnimal' => 'Delete Animal'
+        'eliminarAnimal' => 'Delete Animal',
+        'detalleAnimal' => 'Animal Details'
     ]
 ];
 

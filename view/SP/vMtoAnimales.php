@@ -70,7 +70,7 @@
                             <th>Raza</th>
                             <th>Precio del Animal</th>
                             <th>Fecha de Baja</th>
-                            <th colspan='4'><-T-></th>
+                            <th colspan='5'><-T-></th>
                         </tr>
                         </thead>");
                 echo ("<tbody>");
@@ -99,6 +99,14 @@
                     echo ("<td>" . $aAnimales['precioAnimal'] . "</td>");
                     echo ("<td class='fecha-baja'>" . $aAnimales['fechaBajaAnimal'] . "</td>");
 
+                    // Formulario para eliminar
+                    echo ("<td>");
+                    echo ("<form method='post'>");
+                    echo ("<input type='hidden' name='cDetalleAnimal' value='" . $aAnimales['codAnimal'] . "'>");
+                    echo ("<button type='submit'><i class='fas fa-eye'></i></button>");
+                    echo ("</form>");
+                    echo ("</td>");
+                    
                     // Formulario para editar
                     echo ("<td>");
                     // Compruebo la variable que almacena la fecha de baja para mostrar/ocultar el elemento

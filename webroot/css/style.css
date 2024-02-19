@@ -309,13 +309,13 @@ input[name="DescAnimal"] {
 }
 
 .sin-baja {
-    background-color: #77FF6C;
+    color: #77FF6C;
     font-weight: bold;
 }
 
 
 .con-baja {
-    background-color: #ec5353;
+    color: #ec5353;
     font-weight: bold;
 }
 
