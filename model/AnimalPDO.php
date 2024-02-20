@@ -117,14 +117,29 @@ class AnimalPDO {
      * Metodo que permite devolver el total de Animales que existen en la BD
      * 
      * @param string $descAnimal Descripción del Departamento
+     * @param int $sEstado Estado del filtrado de la busqueda por altas o bajas
+     * 
      * 
      * @return int $iAnimales El número total de Animales
      */
-    public static function buscaAnimalesTotales($descAnimal = '') {
+    public static function buscaAnimalesTotalesPorDescYEstado($descAnimal = '', $sEstado = 0) {
         //Consulta SQL para obtener el total de Departamentos según el criterio que aplicamos
+        
+        // Switch para añadir código a la consulta en función de los parámetros de búsqueda
+        switch ($sEstado) {
+            case 0:
+                $sEstado = '';
+                break;
+            case 1:
+                $sEstado = 'AND T06_FechaBaja IS NULL';
+                break;
+            case 2:
+                $sEstado = 'AND T06_FechaBaja IS NOT NULL';
+                break;
+        }
         $consultaBuscarDepartamentoTotales = <<<CONSULTA
             SELECT * FROM T06_Animal 
-            WHERE T06_DescAnimal LIKE'%{$descAnimal}%';
+            WHERE T06_DescAnimal LIKE'%{$descAnimal}%' {$sEstado};
         CONSULTA;
 
         $resultadoConsulta = DBPDO::ejecutaConsulta($consultaBuscarDepartamentoTotales); //Ejecuto la consulta
@@ -262,4 +277,6 @@ class AnimalPDO {
 
         return DBPDO::ejecutaConsulta($consulta); // Ejecutamos y devolvemos la consulta
     }
+    
+   
 }

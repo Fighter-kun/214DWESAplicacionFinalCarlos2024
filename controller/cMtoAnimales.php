@@ -102,12 +102,12 @@ if (!isset($_SESSION['numPaginacionAnimales'])) {
 }
 
 /*
- * Por medio del método 'buscaAnimalesTotales' de la clase 'AnimalPDO' cuento todos los Animales 
+ * Por medio del método 'buscaAnimalesTotalesPorDescYEstado' de la clase 'AnimalPDO' cuento todos los Animales 
  * que le pido según los parametros y los almaceno en una variable.
  * 
  * Divido por 5 para obtener el número total de páginas, ya que cada página tiene 5 resultados.
  */
-$iAnimalesTotales = AnimalPDO::buscaAnimalesTotales($_SESSION['criterioBusquedaAnimales']['descripcionBuscada']) / 5;
+$iAnimalesTotales = AnimalPDO::buscaAnimalesTotalesPorDescYEstado($_SESSION['criterioBusquedaAnimales']['descripcionBuscada'], $_SESSION['criterioBusquedaAnimales']['estado']) / 5;
 
 if(isset($_REQUEST['paginaPrimera'])){ //Si el usuario pulsa el boton de paginaPrimera
     $_SESSION['numPaginacionAnimales'] = 1; //Le situo en la primera pagina
@@ -165,12 +165,12 @@ if ($entradaOK) {
 
 
 /*
- * Por medio del método 'buscaAnimalesTotales' de la clase 'AnimalPDO' cuento todos los Animales 
+ * Por medio del método 'buscaAnimalesTotalesPorDescYEstado' de la clase 'AnimalPDO' cuento todos los Animales 
  * que le pido según los parametros y los almaceno en una variable.
  * 
  * Divido por 5 para obtener el número total de páginas, ya que cada página tiene 5 resultados.
  */
-$iAnimalesTotales = AnimalPDO::buscaAnimalesTotales($_SESSION['criterioBusquedaAnimales']['descripcionBuscada']) / 5;
+$iAnimalesTotales = AnimalPDO::buscaAnimalesTotalesPorDescYEstado($_SESSION['criterioBusquedaAnimales']['descripcionBuscada'], $_SESSION['criterioBusquedaAnimales']['estado']) / 5;
 
 /*
  * Por medio del método 'buscaDepartamentosPorDescPaginados' de la clase 'AnimalPDO' busco todos los Animales
