@@ -111,23 +111,15 @@ $iAnimalesTotales = AnimalPDO::buscaAnimalesTotales($_SESSION['criterioBusquedaA
 
 if(isset($_REQUEST['paginaPrimera'])){ //Si el usuario pulsa el boton de paginaPrimera
     $_SESSION['numPaginacionAnimales'] = 1; //Le situo en la primera pagina
-    header('Location: index.php');
-    exit;
 }
 if(isset($_REQUEST['paginaAnterior']) && $_SESSION['numPaginacionAnimales'] >= 2){ //Si el usuario pulsa el boton de paginaAnterior
-    $_SESSION['numPaginacionAnimales']--; //Le situo una pagina mas atras
-    header('Location: index.php');
-    exit;
+    $_SESSION['numPaginacionAnimales']--; //Le situo una pagina mas atras 
 }
 if(isset($_REQUEST['paginaSiguiente']) && $_SESSION['numPaginacionAnimales'] < $iAnimalesTotales){ //Si el usuario pulsa el boton de paginaSiguiente
-    $_SESSION['numPaginacionAnimales']++; //Le situo una pagina mas adelante
-    header('Location: index.php');
-    exit;
+    $_SESSION['numPaginacionAnimales']++; //Le situo una pagina mas adelante  
 }
 if(isset($_REQUEST['paginaUltima'])){ //Si el usuario pulsa el boton de paginaUltima
-    $_SESSION['numPaginacionAnimales'] = ceil($iAnimalesTotales); // Redondeo hacia arriba el número
-    header('Location: index.php');
-    exit;
+    $_SESSION['numPaginacionAnimales'] = ceil($iAnimalesTotales); // Redondeo hacia arriba el número 
 }
 //Declaración de variables de estructura para validar la ENTRADA de RESPUESTAS o ERRORES
 //Valores por defecto

@@ -21,7 +21,7 @@ if (isset($_REQUEST['cancelarEditar'])) {
 $entradaOK = true;
 
 // Declaramos el array de errores y lo inicializamos vacío
-$aErrores['DescAnimal'] = '';
+$aErrores['DescripAnimal'] = '';
 $aErrores['Precio'] = '';
 
 /*
@@ -41,7 +41,7 @@ if ($oAnimalAEditar) {
 }
 
 if (isset($_REQUEST['confirmarCambiosEditar'])) { // Comprobamos que el usuario haya enviado el formulario para 'confirmar los cambios'
-    $aErrores['DescAnimal'] = validacionFormularios::comprobarAlfaNumerico($_REQUEST['DescAnimal'], 255, 3, 1);
+    $aErrores['DescripAnimal'] = validacionFormularios::comprobarAlfaNumerico($_REQUEST['DescripAnimal'], 255, 3, 1);
     $aErrores['Precio'] = validacionFormularios::comprobarFloatMejorado($_REQUEST['Precio'], 9999999999, 0, 2, 2, 1);
 
 // Recorremos el array de errores
@@ -56,7 +56,7 @@ if (isset($_REQUEST['confirmarCambiosEditar'])) { // Comprobamos que el usuario 
 }
 if ($entradaOK) { // Si el usuario ha rellenado el formulario correctamente 
     // Usando el metodo 'modificarAnimal' de la clase 'AnimalPDO' para modificar el Animal
-    AnimalPDO::modificarAnimal($_SESSION['codAnimalActual'],$_REQUEST['DescAnimal'],$_REQUEST['Precio']);
+    AnimalPDO::modificarAnimal($_SESSION['codAnimalActual'],$_REQUEST['DescripAnimal'],$_REQUEST['Precio']);
     $_SESSION['paginaAnterior'] = 'editarAnimal'; // Almaceno la página anterior para poder volver
     $_SESSION['paginaEnCurso'] = 'consultarAnimales'; // Asigno a la página en curso la pagina de consultarDepartamento
     header('Location: index.php'); // Redirecciono al index de la APP

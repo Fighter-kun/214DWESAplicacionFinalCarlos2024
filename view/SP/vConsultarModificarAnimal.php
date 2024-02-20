@@ -29,17 +29,17 @@
                         <tr>
                             <!-- Descripcion Departamento Obligatorio -->
                             <td class="d-flex justify-content-start">
-                                <label for="DescAnimal_">Descripción de Animal:</label>
+                                <label for="DescripAnimal">Descripción de Animal:</label>
                             </td>
                             <td>                                                                                                <!-- El value contiene una operador ternario en el que por medio de un metodo 'isset()'
                                                                                                                                 comprobamos que exista la variable y no sea 'null'. En el caso verdadero devovleremos el contenido del campo
                                                                                                                                 que contiene '$_REQUEST' , en caso falso sobrescribira el campo a '' .-->
-                                <input class="d-flex justify-content-start obligatorio modDep" type="text" name="DescAnimal_" value="<?php echo (isset($_REQUEST['DescAnimal']) ? $_REQUEST['DescAnimal'] : $descAnimalAEditar ); ?>">
+                                <input class="d-flex justify-content-start obligatorio modDep" type="text" name="DescripAnimal" value="<?php echo (isset($_REQUEST['DescripAnimal']) ? $_REQUEST['DescripAnimal'] : $descAnimalAEditar ); ?>">
                             </td>
                             <td class="error">
                                 <?php
-                                if (!empty($aErrores['DescAnimal'])) {
-                                    echo $aErrores['DescAnimal'];
+                                if (!empty($aErrores['DescripAnimal'])) {
+                                    echo $aErrores['DescripAnimal'];
                                 }
                                 ?> <!-- Aquí comprobamos que el campo del array '$aErrores' no esta vacío, si es así, mostramos el error. -->
                             </td>

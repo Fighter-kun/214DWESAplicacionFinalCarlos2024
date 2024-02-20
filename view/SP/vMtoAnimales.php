@@ -70,7 +70,7 @@
                             <th>Raza</th>
                             <th>Precio del Animal</th>
                             <th>Fecha de Baja</th>
-                            <th colspan='5'><-T-></th>
+                            <th colspan='4'><-T-></th>
                         </tr>
                         </thead>");
                 echo ("<tbody>");
@@ -135,10 +135,8 @@
                         echo ("<button type='submit'><img src='webroot/media/images/flechaAlta.png' alt='ALTA'></button>");
                         echo ("</form>");
                     }
-                    echo ("</td>");
 
                     // Formulario para baja lógica
-                    echo ("<td>");
                     // Compruebo la variable que almacena la fecha de baja para mostrar/ocultar el elemento
                     if (empty($aAnimales['fechaBajaAnimal'])) {
                         echo ("<form method='post'>");
@@ -165,19 +163,19 @@
             <form name="indexMtoAnimales" method="post">
                 <div class="row grupoDeBotonesPaginacion">
                     <div class="col">
-                        <button class="fas fa-angle-double-left" type="submit" name="paginaPrimera"></button>
+                        <button class="fas fa-angle-double-left" type="submit" name="paginaPrimera" <?php if ($_SESSION['numPaginacionAnimales'] == 1) {echo "hidden";} ?>></button>
                     </div>
                     <div class="col">
-                        <button class="fas fa-angle-left"type="submit" name="paginaAnterior"></button>
+                        <button class="fas fa-angle-left"type="submit" name="paginaAnterior" <?php if ($_SESSION['numPaginacionAnimales'] == 1) {echo "hidden";} ?>></button>
                     </div>
                     <div class="col tamaño-paginacion">
                         <?php echo $_SESSION['numPaginacionAnimales'] ?> / <?php echo ceil($iAnimalesTotales) ?>
                     </div>
                     <div class="col">
-                        <button class="fas fa-angle-right" type="submit" name="paginaSiguiente"></button>
+                        <button class="fas fa-angle-right" type="submit" name="paginaSiguiente" <?php if ($_SESSION['numPaginacionAnimales'] == ceil($iAnimalesTotales)) {echo "hidden";} ?>></button>
                     </div>
                     <div class="col">
-                        <button class="fas fa-angle-double-right" type="submit" name="paginaUltima"></button>
+                        <button class="fas fa-angle-double-right" type="submit" name="paginaUltima" <?php if ($_SESSION['numPaginacionAnimales'] == ceil($iAnimalesTotales)) {echo "hidden";} ?>></button>
                     </div>
                 </div>
             </form>
