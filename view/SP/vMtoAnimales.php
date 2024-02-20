@@ -33,9 +33,9 @@
                                     <div>
                                         <a class="pBuscarDepartamento">Estado: </a>
                                         <label for="tipoDepartamentoTodos"><a class="rFiltrarDepartamento">Todos</a></label>
-                                        <input name="estado" id="tipoDepartamentoTodos" type="radio" value="todos" <?php echo isset($_SESSION['criterioBusquedaAnimales']['estado']) ? ($_SESSION['criterioBusquedaAnimales']['estado'] == ESTADO_TODOS ? 'checked' : '') : 'checked'; ?>>
+                                        <input name="estado" id="tipoDepartamentoTodos" type="radio" value="todos" <?php echo isset($_SESSION['criterioBusquedaAnimales']['estado']) ? ($_SESSION['criterioBusquedaAnimales']['estado'] == ESTADO_TODOS ? 'checked' : '') : ''; ?>>
                                         <label for="tipoDepartamentoAltas"><a class="rFiltrarDepartamento">Altas</a></label>
-                                        <input name="estado" id="tipoDepartamentoAltas" type="radio" value="altas" <?php echo isset($_SESSION['criterioBusquedaAnimales']['estado']) ? ($_SESSION['criterioBusquedaAnimales']['estado'] == ESTADO_ALTAS ? 'checked' : '') : ''; ?>>
+                                        <input name="estado" id="tipoDepartamentoAltas" type="radio" value="altas" <?php echo isset($_SESSION['criterioBusquedaAnimales']['estado']) ? ($_SESSION['criterioBusquedaAnimales']['estado'] == ESTADO_ALTAS ? 'checked' : '') : 'checked'; ?>>
                                         <label for="tipoDepartamentoBajas"><a class="rFiltrarDepartamento">Bajas</a></label>
                                         <input name="estado" id="tipoDepartamentoBajas" type="radio" value="bajas" <?php echo isset($_SESSION['criterioBusquedaAnimales']['estado']) ? ($_SESSION['criterioBusquedaAnimales']['estado'] == ESTADO_BAJAS ? 'checked' : '') : ''; ?>>
                                     </div>
@@ -64,7 +64,7 @@
                         <thead>
                         <tr>
                             <th>Código De Referencia</th>
-                            <th>Descripción Del Animal</th>
+                            <th>Descripción Del Animal <i class='fas fa-arrow-up'></i></th>
                             <th>Fecha de Nacimiento</th>
                             <th>Sexo</th>
                             <th>Raza</th>
@@ -170,7 +170,7 @@
                     <div class="col">
                         <button class="fas fa-angle-left"type="submit" name="paginaAnterior"></button>
                     </div>
-                    <div class="col">
+                    <div class="col tamaño-paginacion">
                         <?php echo $_SESSION['numPaginacionAnimales'] ?> / <?php echo ceil($iAnimalesTotales) ?>
                     </div>
                     <div class="col">

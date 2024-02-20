@@ -62,8 +62,10 @@ class AnimalPDO {
          * Variable para determinar desde qué registro empezar a obtener resultados en la consulta SQL.
          * Cada vez que se pasa a una nueva página, se multiplica el número de página por 5 
          * para obtener el índice de inicio de la siguiente página.
+         * 
+         * Le restamos 1 a la variable de '$iPagina' para indicar el indice 0 de la paginación y que así nos muestre los 5 primeros resultado.
          */
-        $iPagina = $iPagina * 5;
+        $iPagina = ($iPagina - 1) * 5;
         
         // Switch para añadir código a la consulta en función de los parámetros de búsqueda
         switch ($sEstado) {

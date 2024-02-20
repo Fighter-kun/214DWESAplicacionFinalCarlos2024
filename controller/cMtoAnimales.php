@@ -93,7 +93,7 @@ if (!isset($_SESSION['criterioBusquedaAnimales']['descripcionBuscada'])) {
 
 // Si la variable no esta declarada le asigno un valor por defecto
 if (!isset($_SESSION['criterioBusquedaAnimales']['estado'])) {
-    $_SESSION['criterioBusquedaAnimales']['estado'] = ESTADO_TODOS;
+    $_SESSION['criterioBusquedaAnimales']['estado'] = ESTADO_ALTAS;
 }
 
 // Si la variable no esta declarada le asigno un valor por defecto
@@ -184,12 +184,9 @@ $iAnimalesTotales = AnimalPDO::buscaAnimalesTotales($_SESSION['criterioBusquedaA
  * Por medio del método 'buscaDepartamentosPorDescPaginados' de la clase 'AnimalPDO' busco todos los Animales
  * con los siguientes parametros. 
  * La descripción y el número de paginación también.
- * 
- * Le restamos 1 a la variable de '$_SESSION['numPaginacionAnimales']' para indicar el indice 0 de la paginación y que así nos muestre los 5 primeros resultado,
- * si no hicieramos esto nos mostraría a partir de los 5 siguiente, porque es lo que le indico en el método.
  */
 
-$aAnimalesBuscados = AnimalPDO::buscarAnimalesPorDescYEstadoPaginados($_SESSION['criterioBusquedaAnimales']['descripcionBuscada'], $_SESSION['criterioBusquedaAnimales']['estado'], $_SESSION['numPaginacionAnimales']-1);
+$aAnimalesBuscados = AnimalPDO::buscarAnimalesPorDescYEstadoPaginados($_SESSION['criterioBusquedaAnimales']['descripcionBuscada'], $_SESSION['criterioBusquedaAnimales']['estado'], $_SESSION['numPaginacionAnimales']);
 $aAnimalesBuscadosVista = []; // Array para guardar el contenido de los animales
 // Ejecutando la declaración SQL
 if ($aAnimalesBuscados) {
