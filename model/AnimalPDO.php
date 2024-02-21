@@ -66,7 +66,7 @@ class AnimalPDO {
          * Le restamos 1 a la variable de '$iPagina' para indicar el indice 0 de la paginación y que así nos muestre los 5 primeros resultado.
          */
         $iPagina = ($iPagina - 1) * 5;
-        
+
         // Switch para añadir código a la consulta en función de los parámetros de búsqueda
         switch ($sEstado) {
             case 0:
@@ -124,7 +124,6 @@ class AnimalPDO {
      */
     public static function buscaAnimalesTotalesPorDescYEstado($descAnimal = '', $sEstado = 0) {
         //Consulta SQL para obtener el total de Departamentos según el criterio que aplicamos
-        
         // Switch para añadir código a la consulta en función de los parámetros de búsqueda
         switch ($sEstado) {
             case 0:
@@ -204,7 +203,7 @@ class AnimalPDO {
             return false; // En caso de fallar devuelvo false
         }
     }
-    
+
     /**
      * Metodo que permite dar de alta un nuevo Animal en la BD
      * 
@@ -229,7 +228,7 @@ class AnimalPDO {
             return false; // Si la consulta falla devuelvo 'false'
         }
     }
-    
+
     /**
      * Eliminar un Animal (Baja Física)
      *
@@ -245,7 +244,7 @@ class AnimalPDO {
 
         return DBPDO::ejecutaConsulta($consulta); // Ejecutamos y devolvemos la consulta
     }
-    
+
     /**
      * Modifica el valor de la fecha de baja a un Animal (Baja Lógica)
      *
@@ -277,6 +276,106 @@ class AnimalPDO {
 
         return DBPDO::ejecutaConsulta($consulta); // Ejecutamos y devolvemos la consulta
     }
-    
-   
+
+    public static function exportarAnimalesJSON() {
+        // Consulta - SELECT
+        $consulta = <<<CONSULTA
+            SELECT * FROM T06_Animal;
+        CONSULTA;
+
+        $resultadoConsulta = DBPDO::ejecutaConsulta($consulta); // Ejecutamos y devolvemos la consulta
+
+        $oResultadoJson = $resultadoConsulta->fetchObject();
+
+        $aAnimales = []; // Inicializamos un array vacío para almacenar todos los Animales
+        $numeroAnimales = 0; // Inicializamos el contador
+        // Recorro los registros que devuelve la consulta y obtengo por cada valor su resultado
+        while ($oResultadoJson) {
+            //Guardamos los valores en un array asociativo
+            $aAnimal = [
+                'T06_CodAnimal' => $oResultadoJson->T06_CodAnimal,
+                'T06_DescAnimal' => $oResultadoJson->T06_DescAnimal,
+                'T06_FechaNacimiento' => $oResultadoJson->T06_FechaNacimiento,
+                'T06_Sexo' => $oResultadoJson->T06_Sexo,
+                'T06_Raza' => $oResultadoJson->T06_Raza,
+                'T06_Precio' => $oResultadoJson->T06_Precio,
+                'T06_FechaBaja' => $oResultadoJson->T06_FechaBaja
+            ];
+
+            // Añadimos el array $aDepartamento al array $aAnimal
+            $aAnimales[] = $aAnimal;
+
+            //Incremento el contador de departamentos para almacenar información en la siguiente posición        
+            $numeroAnimales++;
+
+            //Guardo el registro actual y avanzo el puntero al siguiente registro que obtengo de la consulta
+            $oResultadoJson = $resultadoConsulta->fetchObject();
+        }
+
+
+        /**
+         * La funcion json_encode devuelve un string con la representacion JSON
+         * Le pasamos el array aDepartamentos y utilizanos el atributo JSON_PRRETY_PRINT para que use espacios en blanco para formatear los datos devueltos.
+         */
+        $json = json_encode($aAnimales, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
+
+        /**
+         * Mediante la funcion file_put_contents() podremos escribir informacion en un fichero
+         * Pasandole como parametros la ruta donde queresmos que se guarde y el que queremos sobrescribir
+         * JSON_UNESCAPED_UNICODE: Codifica caracteres Unicode multibyte literalmente
+         */
+        // Ruta del archivo JSON
+        $rutaArchivoJSON = "../tmp/animales.json";
+        
+        // Intenta escribir en el archivo
+        file_put_contents($rutaArchivoJSON, $json);
+
+        // Verificamos que existe una carpeta para archivos temporales
+        if (!file_exists("../tmp/")) {
+            mkdir("../tmp/", 0777, true); // En caso negativo la creamos
+        }
+
+        // Ruta del archivo ZIP
+        $rutaArchivoZIP = "../tmp/animales.zip";
+
+        $oZip = new ZipArchive(); // Intancio un objeto de la clase 'ZipArchive()' para guardar en zip ambos archivos 
+        /*
+         * En la siguiente condición abrimos el objeto '$oZIP' y en los parámetros le indicamos
+         * la ruta donde se encuentra el ZIP y que debe crear el archivo si no existe, o actualizarlo.
+         * Comprobamos con el operador '=== true' que 'open()' a sido exitoso.
+         */
+        if ($oZip->open($rutaArchivoZIP, ZipArchive::CREATE) === true) {
+
+            // Agregamos los archivos JSON y XML al ZIP
+            $oZip->addFile("../tmp/animales.json", "animales.json");
+
+            $oZip->close(); // Cerramos el ZIP
+            // Descarga el archivo ZIP
+            header('Content-Type: application/zip');
+            header('Content-disposition: attachment; filename=' . basename($rutaArchivoZIP));
+            header('Content-Length: ' . filesize($rutaArchivoZIP));
+
+            /*
+             * La función 'ob_clean()' la utilizaremos para limpiar el almacenamiento del 
+             * buffer antes de enviar los datos al navegador de manera que solo se manden el arhivo zip 
+             */
+            ob_clean();
+
+            /*
+             * La función 'flush()' asegura que todos los datos almacenados en el buffer se envíen 
+             * inmediatamente al navegador para evitar que el navegador espere a que se ejecute todo el script
+             */
+            flush();
+
+            /*
+             * La función 'readfile()' que recibe como parámetro la ruta del archivo zip, se encarga de leer
+             * el archivo y enviarlo directamente a la salida del buffer
+             */
+            readfile($rutaArchivoZIP);
+
+            // Por último eliminamos los archivos temporales después de la descarga
+            unlink($rutaArchivoZIP);
+            unlink("../tmp/animales.json");
+        }
+    }
 }

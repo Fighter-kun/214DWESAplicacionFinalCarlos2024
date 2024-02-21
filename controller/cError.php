@@ -23,9 +23,6 @@ if(isset($_SESSION['error'])){
     $sDescError = $_SESSION['error']->get_DescError(); // Descripción del error
     $sArchivoError = $_SESSION['error']->get_ArchivoError(); // Archivo donde ocurrio el error
     $iLineaError = $_SESSION['error']->get_LineaError(); // Línea en la cual se produjo el error
-    
-    header('Location: index.php'); // Redirecciono al index de la APP
-    exit;
 }
 
 require_once $aView[$_COOKIE['idioma']]['layout']; // Cargo la vista de 'error'
