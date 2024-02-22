@@ -401,8 +401,10 @@ class AnimalPDO {
      * Importa un fichero JSON y lo inserta en la tabla T06_Animal
      * 
      * 
-     * @return string Devuelve un mensaje de confirmación si no hay ningún problema
-     * @return null Devuelve null y se descarga de manera automática un 'log' indicando los errores
+     * @return string Devuelve un mensaje de confirmación si se insertan los valores de manera exitosa
+     * 
+     * @return null Devuelve null si el contenido del JSON no es del formato esperado o hay algún error al decodificarlo
+     * @return 'archivo' Devuelve un 'log' con contenido de que problema hubo a la hora de insertar y si inserto algún valor
      */
     public static function importarAnimalesJSON() {
         // Verificamos que existe una carpeta para archivos temporales
@@ -461,26 +463,45 @@ class AnimalPDO {
                     // Verificamos si el resultado es false (falló la inserción)
                     if ($resultado === false) {
                         $totalErrores++; // Cuento cuantos fallan
-                        $aErrores[] = "Error al insertar el animal con código {$codAnimal}.";
+                        if ($_COOKIE['idioma'] == 'SP') {
+                            $aErrores[] = "Error al insertar el animal con código {$codAnimal}.";
+                        } else {
+                            $aErrores[] = "Error when inserting the animal with code {$codAnimal}.";
+                        }
                     } else {
                         $totalInserciones++; // Cuento cuantos se insertan correctamente
                     }
                 } else {
                     // El animal ya existe en la base de datos
                     $totalErrores++;
-                    $aErrores[] = "El animal con código {$codAnimal} ya existe en la base de datos.";
+                    if ($_COOKIE['idioma'] == 'SP') {
+                        $aErrores[] = "El animal con código {$codAnimal} ya existe en la base de datos.";
+                    } else {
+                        $aErrores[] = "The animal with code {$codAnimal} already exists in the database.";
+                    }
                 }
             }
-                    
+
             // En caso de contabilizar algún error
             if ($totalErrores > 0) {
                 // Creo el mensaje introduciendo los errores
                 $mensajeLog = implode(PHP_EOL, $aErrores);
 
                 // Concateno el número de excepciones almacenadas en '$totalErrores' (PHP_EOL: Representa un salto de línea)
-                $mensajeLog .= PHP_EOL . 'Total de errores: ' . $totalErrores;
-                
-                $mensajeLog .= PHP_EOL . "Solo se han podido insertar " . $totalInserciones . " Animal(es).";
+                if ($_COOKIE['idioma'] == 'SP') {
+                    $mensajeLog .= PHP_EOL . 'Total de errores: ' . $totalErrores;
+                } else {
+                    $mensajeLog .= PHP_EOL . 'Total errors: ' . $totalErrores;
+                }
+
+
+                if ($totalInserciones > 0) {
+                    if ($_COOKIE['idioma'] == 'SP') {
+                        $mensajeLog .= PHP_EOL . "Solo se han podido insertar " . $totalInserciones . " Animal(es).";
+                    } else {
+                        $mensajeLog .= PHP_EOL . "They could only be inserted " . $totalInserciones . " Animal(s).";
+                    }
+                }
 
                 // Escribe en el archivo de registro
                 file_put_contents('../tmp/errorImportar(JSON).log', $mensajeLog, FILE_APPEND | LOCK_EX);
@@ -512,7 +533,11 @@ class AnimalPDO {
                 unlink('../tmp/errorImportar(JSON).log');
                 exit(); // Detenemos el script
             } else {
-                return "Importación exitosa, se han podido insertar " . $totalInserciones . " Animal(es).";
+                if ($_COOKIE['idioma'] == 'SP') {
+                    return "Importación exitosa, se han podido insertar " . $totalInserciones . " Animal(es).";
+                } else {
+                    return "Successful import, could be inserted " . $totalInserciones . " Animal(s).";
+                }
             }
         } else {
             return null; // En caso de subir un archivo que no sea JSON

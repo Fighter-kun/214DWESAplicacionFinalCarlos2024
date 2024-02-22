@@ -13,6 +13,7 @@
                 <button class="botones" aria-disabled="true" type="submit" name="detalle">Detail</button><br><br>
                 <button class="botones" aria-disabled="true" type="submit" name="editarPerfil">Edit profile</button><br><br>
                 <button class="botones" aria-disabled="true" type="submit" name="mtoDepartamentos">Mt. Departments</button><br><br>
+                <button class="botones" aria-disabled="true" type="submit" name="mtoAnimales">Mt. Animals</button><br><br>
                 <button class="botones" aria-disabled="true" type="submit" name="apiREST">REST</button>
             </form>        
         </div>

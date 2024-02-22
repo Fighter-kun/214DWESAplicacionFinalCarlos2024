@@ -328,8 +328,13 @@ Search.appendIndex(
         },                {
             "fqsen": "\\AnimalPDO\u003A\u003AexportarAnimalesJSON\u0028\u0029",
             "name": "exportarAnimalesJSON",
-            "summary": "",
+            "summary": "Exporta\u0020la\u0020tabla\u0020T06_Animal\u0020en\u0020formato\u0020JSON",
             "url": "classes/AnimalPDO.html#method_exportarAnimalesJSON"
+        },                {
+            "fqsen": "\\AnimalPDO\u003A\u003AimportarAnimalesJSON\u0028\u0029",
+            "name": "importarAnimalesJSON",
+            "summary": "Importa\u0020un\u0020fichero\u0020JSON\u0020y\u0020lo\u0020inserta\u0020en\u0020la\u0020tabla\u0020T06_Animal",
+            "url": "classes/AnimalPDO.html#method_importarAnimalesJSON"
         },                {
             "fqsen": "\\DB",
             "name": "DB",
