@@ -235,8 +235,16 @@
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/AnimalPDO.html#method_exportarAnimalesJSON">exportarAnimalesJSON()</a>
     <span>
-                                &nbsp;: mixed    </span>
+                                &nbsp;: <abbr title="\Devuelve">Devuelve</abbr>    </span>
 </dt>
+<dd>Exporta la tabla T06_Animal en formato JSON</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/AnimalPDO.html#method_importarAnimalesJSON">importarAnimalesJSON()</a>
+    <span>
+                                &nbsp;: string    </span>
+</dt>
+<dd>Importa un fichero JSON y lo inserta en la tabla T06_Animal</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/AnimalPDO.html#method_modificarAnimal">modificarAnimal()</a>
@@ -289,7 +297,7 @@
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">altaAnimal</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$codAnimal</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$descAnimal</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$fechaNacimientoAnimal</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$sexoAnimal</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$razaAnimal</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$precioAnimal</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">altaAnimal</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$codAnimal</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$descAnimal</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$fechaNacimientoAnimal</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$sexoAnimal</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$razaAnimal</span></span><span class="phpdocumentor-signature__argument"><span>, </span><span class="phpdocumentor-signature__argument__return-type">string&nbsp;</span><span class="phpdocumentor-signature__argument__name">$precioAnimal</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">mixed&nbsp;</span><span class="phpdocumentor-signature__argument__name">$fechaBajaAnimal</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">null</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">bool</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -350,6 +358,13 @@
 </section>
 
             </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$fechaBajaAnimal</span>
+                : <span class="phpdocumentor-signature__argument__return-type">mixed</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">null</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                
+            </dd>
             </dl>
 
     
@@ -378,7 +393,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="model/AnimalPDO.php"><a href="files/model-animalpdo.html"><abbr title="model/AnimalPDO.php">AnimalPDO.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">249</span>
+    <span class="phpdocumentor-element-found-in__line">252</span>
 
     </aside>
 
@@ -430,7 +445,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="model/AnimalPDO.php"><a href="files/model-animalpdo.html"><abbr title="model/AnimalPDO.php">AnimalPDO.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">265</span>
+    <span class="phpdocumentor-element-found-in__line">268</span>
 
     </aside>
 
@@ -721,14 +736,15 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="model/AnimalPDO.php"><a href="files/model-animalpdo.html"><abbr title="model/AnimalPDO.php">AnimalPDO.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">290</span>
+    <span class="phpdocumentor-element-found-in__line">298</span>
 
     </aside>
 
-    
+        <p class="phpdocumentor-summary">Exporta la tabla T06_Animal en formato JSON</p>
+
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">exportarAnimalesJSON</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">mixed</span></code>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">exportarAnimalesJSON</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\Devuelve">Devuelve</abbr></span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
@@ -736,7 +752,55 @@
     
     
 
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type"><abbr title="\Devuelve">Devuelve</abbr></span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>un archivo ZIP con un archivo 'animales.json' dentro.</p>
+</section>
+
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                    -static                    "
+>
+    <h4 class="phpdocumentor-element__name" id="method_importarAnimalesJSON">
+        importarAnimalesJSON()
+        <a href="classes/AnimalPDO.html#method_importarAnimalesJSON" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="model/AnimalPDO.php"><a href="files/model-animalpdo.html"><abbr title="model/AnimalPDO.php">AnimalPDO.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">407</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Importa un fichero JSON y lo inserta en la tabla T06_Animal</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">importarAnimalesJSON</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">string</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
     
+    
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">string</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>Devuelve un mensaje de confirmación si no hay ningún problema</p>
+</section>
+
+            </section>
+
 </article>
                     <article
         class="phpdocumentor-element
@@ -822,7 +886,7 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="model/AnimalPDO.php"><a href="files/model-animalpdo.html"><abbr title="model/AnimalPDO.php">AnimalPDO.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">281</span>
+    <span class="phpdocumentor-element-found-in__line">284</span>
 
     </aside>
 
@@ -854,7 +918,7 @@
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type"><abbr title="\PDOStatment">PDOStatment</abbr></span>
                     &mdash;
-                <section class="phpdocumentor-description"><p>Devuelve el resultado de la coonsulta</p>
+                <section class="phpdocumentor-description"><p>Devuelve el resultado de la consulta</p>
 </section>
 
             </section>
@@ -981,6 +1045,7 @@
                                             <li><a href="classes/AnimalPDO.html#method_buscarAnimalesPorDescYEstadoPaginados">buscarAnimalesPorDescYEstadoPaginados()</a></li>
                                             <li><a href="classes/AnimalPDO.html#method_buscarAnimalPorCod">buscarAnimalPorCod()</a></li>
                                             <li><a href="classes/AnimalPDO.html#method_exportarAnimalesJSON">exportarAnimalesJSON()</a></li>
+                                            <li><a href="classes/AnimalPDO.html#method_importarAnimalesJSON">importarAnimalesJSON()</a></li>
                                             <li><a href="classes/AnimalPDO.html#method_modificarAnimal">modificarAnimal()</a></li>
                                             <li><a href="classes/AnimalPDO.html#method_rehabilitarAnimal">rehabilitarAnimal()</a></li>
                                     </ul>

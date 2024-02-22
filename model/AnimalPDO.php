@@ -17,7 +17,7 @@
  * @since 09/02/2024
  * 
  * @Annotation Aplicación Final - Clase AnimalPDO
-*/
+ */
 class AnimalPDO {
 
     /**
@@ -226,14 +226,17 @@ class AnimalPDO {
      * 
      * @return boolean false | object Animal Devuelve un objeto Animal nuevo si se ha podido crear, de lo contrario devuelve un @boolean que sera 'false'
      */
-    public static function altaAnimal($codAnimal, $descAnimal, $fechaNacimientoAnimal, $sexoAnimal, $razaAnimal, $precioAnimal) {
+    public static function altaAnimal($codAnimal, $descAnimal, $fechaNacimientoAnimal, $sexoAnimal, $razaAnimal, $precioAnimal, $fechaBajaAnimal = null) {
+        // Asegurémonos de que la fecha de baja tenga un formato válido si se proporciona
+        $fechaBajaAnimal = ($fechaBajaAnimal !== null) ? "'{$fechaBajaAnimal}'" : 'NULL';
+
         //CONSULTA SQL - INSERT
         $consulta = <<<CONSULTA
-            INSERT INTO T06_Animal VALUES ('{$codAnimal}','{$descAnimal}', '{$fechaNacimientoAnimal}', '{$sexoAnimal}', '{$razaAnimal}', '{$precioAnimal}', NULL);
-        CONSULTA;
+        INSERT INTO T06_Animal VALUES ('{$codAnimal}','{$descAnimal}', '{$fechaNacimientoAnimal}', '{$sexoAnimal}', '{$razaAnimal}', '{$precioAnimal}', {$fechaBajaAnimal});
+    CONSULTA;
 
         if (DBPDO::ejecutaConsulta($consulta)) { // Ejecuto la consulta
-            return new Animal($codAnimal, $descAnimal, $fechaNacimientoAnimal, $sexoAnimal, $razaAnimal, $precioAnimal, NULL); // Creo el Animal con los valores recogidos
+            return new Animal($codAnimal, $descAnimal, $fechaNacimientoAnimal, $sexoAnimal, $razaAnimal, $precioAnimal, $fechaBajaAnimal); // Creo el Animal con los valores recogidos
         } else {
             return false; // Si la consulta falla devuelvo 'false'
         }
@@ -276,7 +279,7 @@ class AnimalPDO {
      *
      * @param string $codAnimal Codigo del Animal a modificar
      * 
-     * @return PDOStatment Devuelve el resultado de la coonsulta
+     * @return PDOStatment Devuelve el resultado de la consulta
      */
     public static function rehabilitarAnimal($codAnimal) {
         // Consulta - UPDATE
@@ -287,6 +290,11 @@ class AnimalPDO {
         return DBPDO::ejecutaConsulta($consulta); // Ejecutamos y devolvemos la consulta
     }
 
+    /**
+     * Exporta la tabla T06_Animal en formato JSON
+     * 
+     * @return Devuelve un archivo ZIP con un archivo 'animales.json' dentro.
+     */
     public static function exportarAnimalesJSON() {
         // Consulta - SELECT
         $consulta = <<<CONSULTA
@@ -336,7 +344,7 @@ class AnimalPDO {
          */
         // Ruta del archivo JSON
         $rutaArchivoJSON = "../tmp/animales.json";
-        
+
         // Intenta escribir en el archivo
         file_put_contents($rutaArchivoJSON, $json);
 
@@ -386,6 +394,153 @@ class AnimalPDO {
             // Por último eliminamos los archivos temporales después de la descarga
             unlink($rutaArchivoZIP);
             unlink("../tmp/animales.json");
+        }
+    }
+
+    /**
+     * Importa un fichero JSON y lo inserta en la tabla T06_Animal
+     * 
+     * 
+     * @return string Devuelve un mensaje de confirmación si se insertan los valores de manera exitosa
+     * 
+     * @return null Devuelve null si el contenido del JSON no es del formato esperado o hay algún error al decodificarlo
+     * @return 'archivo' Devuelve un 'log' con contenido de que problema hubo a la hora de insertar y si inserto algún valor
+     */
+    public static function importarAnimalesJSON() {
+        // Verificamos que existe una carpeta para archivos temporales
+        if (!file_exists("../tmp/")) {
+            mkdir("../tmp/", 0777, true); // En caso negativo la creamos
+        }
+
+        // Recuperamos el nombre temporal del archivo
+        $nombreDelArchivo = $_FILES['archivo']['tmp_name'];
+
+        // Ahora compruebo el tipo del archivo es JSON 
+        if ($_FILES['archivo']['type'] == 'application/json') {
+            // Movemos a la siguiente ruta y los renombramos el archivo
+            move_uploaded_file($nombreDelArchivo, '../tmp/animales.json');
+
+            // Leemos el contenido del archivo JSON
+            $contenidoArchivoJSON = file_get_contents('../tmp/animales.json');
+
+            // Decodificamos el JSON a un array asociativo
+            $aContenidoDecodificadoArchivoJSON = json_decode($contenidoArchivoJSON, true);
+
+            // Verificamos si la decodificación fue exitosa
+            if ($aContenidoDecodificadoArchivoJSON === null && json_last_error() !== JSON_ERROR_NONE) {
+                // En caso negativo devolvemos null
+                return null;
+            }
+
+            // Variable para contabilizar errores
+            $totalErrores = 0;
+            // Variable para contabilizar inserciones
+            $totalInserciones = 0;
+            // Array para almacenar los mensajes de error
+            $aErrores = [];
+
+            // Recorremos el array de animales decodificado
+            foreach ($aContenidoDecodificadoArchivoJSON as $animal) {
+                // Esta comprobación la hago para comprobar que existe el indice 'T06_CodAnimal', para evitar meter un JSON erroneo
+                if (isset($animal['T06_CodAnimal'])) {
+                    $codAnimal = $animal['T06_CodAnimal'];
+                } else {
+                    return null;
+                }
+
+                // Verificamos si el animal ya existe en la base de datos
+                if (!self::buscarAnimalPorCod($codAnimal)) {
+                    // Si no existe, procedemos a dar de alta el animal en la base de datos
+                    $descAnimal = $animal['T06_DescAnimal'];
+                    $fechaNacimientoAnimal = $animal['T06_FechaNacimiento'];
+                    $sexoAnimal = $animal['T06_Sexo'];
+                    $razaAnimal = $animal['T06_Raza'];
+                    $precioAnimal = $animal['T06_Precio'];
+                    $fechaBajaAnimal = $animal['T06_FechaBaja'];
+
+                    // Llamamos al método altaAnimal para insertar el nuevo animal
+                    $resultado = self::altaAnimal($codAnimal, $descAnimal, $fechaNacimientoAnimal, $sexoAnimal, $razaAnimal, $precioAnimal, $fechaBajaAnimal);
+                    // Verificamos si el resultado es false (falló la inserción)
+                    if ($resultado === false) {
+                        $totalErrores++; // Cuento cuantos fallan
+                        if ($_COOKIE['idioma'] == 'SP') {
+                            $aErrores[] = "Error al insertar el animal con código {$codAnimal}.";
+                        } else {
+                            $aErrores[] = "Error when inserting the animal with code {$codAnimal}.";
+                        }
+                    } else {
+                        $totalInserciones++; // Cuento cuantos se insertan correctamente
+                    }
+                } else {
+                    // El animal ya existe en la base de datos
+                    $totalErrores++;
+                    if ($_COOKIE['idioma'] == 'SP') {
+                        $aErrores[] = "El animal con código {$codAnimal} ya existe en la base de datos.";
+                    } else {
+                        $aErrores[] = "The animal with code {$codAnimal} already exists in the database.";
+                    }
+                }
+            }
+
+            // En caso de contabilizar algún error
+            if ($totalErrores > 0) {
+                // Creo el mensaje introduciendo los errores
+                $mensajeLog = implode(PHP_EOL, $aErrores);
+
+                // Concateno el número de excepciones almacenadas en '$totalErrores' (PHP_EOL: Representa un salto de línea)
+                if ($_COOKIE['idioma'] == 'SP') {
+                    $mensajeLog .= PHP_EOL . 'Total de errores: ' . $totalErrores;
+                } else {
+                    $mensajeLog .= PHP_EOL . 'Total errors: ' . $totalErrores;
+                }
+
+
+                if ($totalInserciones > 0) {
+                    if ($_COOKIE['idioma'] == 'SP') {
+                        $mensajeLog .= PHP_EOL . "Solo se han podido insertar " . $totalInserciones . " Animal(es).";
+                    } else {
+                        $mensajeLog .= PHP_EOL . "They could only be inserted " . $totalInserciones . " Animal(s).";
+                    }
+                }
+
+                // Escribe en el archivo de registro
+                file_put_contents('../tmp/errorImportar(JSON).log', $mensajeLog, FILE_APPEND | LOCK_EX);
+
+                // Descargamos el archivo
+                header('Content-Type: text/xml');
+                header('Content-disposition: attachment; filename=' . basename('../tmp/errorImportar(JSON).log'));
+                header('Content-Length: ' . filesize('../tmp/errorImportar(JSON).log'));
+
+                /*
+                 * La función 'ob_clean()' la utilizaremos para limpiar el almacenamiento del 
+                 * buffer antes de enviar los datos al navegador de manera que solo se manden el arhivo zip 
+                 */
+                ob_clean();
+
+                /*
+                 * La función 'flush()' asegura que todos los datos almacenados en el buffer se envíen 
+                 * inmediatamente al navegador para evitar que el navegador espere a que se ejecute todo el script
+                 */
+                flush();
+
+                /*
+                 * La función 'readfile()' que recibe como parámetro la ruta del archivo zip, se encarga de leer
+                 * el archivo y enviarlo directamente a la salida del buffer
+                 */
+                readfile('../tmp/errorImportar(JSON).log');
+
+                // Por último eliminamos los archivos temporales después de la descarga
+                unlink('../tmp/errorImportar(JSON).log');
+                exit(); // Detenemos el script
+            } else {
+                if ($_COOKIE['idioma'] == 'SP') {
+                    return "Importación exitosa, se han podido insertar " . $totalInserciones . " Animal(es).";
+                } else {
+                    return "Successful import, could be inserted " . $totalInserciones . " Animal(s).";
+                }
+            }
+        } else {
+            return null; // En caso de subir un archivo que no sea JSON
         }
     }
 }

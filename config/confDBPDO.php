@@ -5,10 +5,6 @@
  * @since 12/01/2024
  */ 
 
-//define('DSN', 'mysql:host=db5014806801.hosting-data.io;dbname=dbs12302455'); // Host y nombre de la base de datos
-//define('USERNAME','dbu132588'); // Nombre de usuario de la base de datos
-//define('PASSWORD','daw2_Sauces'); // Contraseña de la base de datos
-
-define('DSN', 'mysql:host=192.168.20.19;dbname=DB214DWESLoginLogoffTema5'); // Host 'IP' y nombre de la base de datos
-define('USERNAME','user214DWESLoginLogoffTema5'); // Nombre de usuario de la base de datos
-define('PASSWORD','paso'); // Contraseña de la base de datos
+define('DSN', 'mysql:host=db5014806801.hosting-data.io;dbname=dbs12302455'); // Host y nombre de la base de datos
+define('USERNAME','dbu132588'); // Nombre de usuario de la base de datos
+define('PASSWORD','daw2_Sauces'); // Contraseña de la base de datos

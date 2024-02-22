@@ -71,7 +71,7 @@ if (isset($_REQUEST['exportarAnimales'])) {
 // Estructura del botón importar, si el usuario pulsa el botón 'importar'
 if (isset($_REQUEST['importarAnimales'])) {
     $_SESSION['paginaAnterior'] = 'consultarAnimales'; // Almaceno la página anterior para poder volver
-    $_SESSION['paginaEnCurso'] = 'wip'; // Asigno a la página en curso la pagina de importarAnimal
+    $_SESSION['paginaEnCurso'] = 'importarAnimales'; // Asigno a la página en curso la pagina de importarAnimal
     header('Location: index.php'); // Redirecciono al index de la APP
     exit;
 }
