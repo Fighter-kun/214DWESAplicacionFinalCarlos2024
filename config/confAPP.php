@@ -57,7 +57,8 @@ $aController = [
     'eliminarAnimal' => 'controller/cEliminarAnimal.php',
     'rehabilitacionAnimal' => 'controller/cRehabilitacionAnimal.php',
     'bajaAnimal' => 'controller/cBajaLogicaAnimal.php',
-    'detalleAnimal' => 'controller/cDetalleAnimal.php'
+    'detalleAnimal' => 'controller/cDetalleAnimal.php',
+    'importarAnimales' => 'controller/cImportarAnimales.php'
 ];
 
 // En el array de '$aView' almacenamos un array por idioma, para mostrar la vista en el idioma elegído por el usuario
@@ -86,7 +87,8 @@ $aView = [
         'editarAnimal' => 'view/SP/vConsultarModificarAnimal.php',
         'añadirAnimal' => 'view/SP/vAltaAnimal.php',
         'eliminarAnimal' => 'view/SP/vEliminarAnimal.php',
-        'detalleAnimal' => 'view/SP/vDetalleAnimal.php'
+        'detalleAnimal' => 'view/SP/vDetalleAnimal.php',
+        'importarAnimales' => 'view/SP/vImportarAnimales.php'
     ],
     'UK' => [
         'layout' => 'view/UK/layout.php',
@@ -112,7 +114,8 @@ $aView = [
         'editarAnimal' => 'view/UK/vConsultarModificarAnimal.php',
         'añadirAnimal' => 'view/UK/vAltaAnimal.php',
         'eliminarAnimal' => 'view/UK/vEliminarAnimal.php',
-        'detalleAnimal' => 'view/UK/vDetalleAnimal.php'
+        'detalleAnimal' => 'view/UK/vDetalleAnimal.php',
+        'importarAnimales' => 'view/UK/vImportarAnimales.php'
     ]
 ];
 
@@ -140,7 +143,8 @@ $aTitleLang = [
         'editarAnimal' => 'Editar Animal',
         'añadirAnimal' => 'Añadir Animal',
         'eliminarAnimal' => 'Eliminar Animal',
-        'detalleAnimal' => 'Detalles Del Animal'
+        'detalleAnimal' => 'Detalles Del Animal',
+        'importarAnimales' => 'Importar Animales'
     ],
     'UK' => [//Inglés
         'inicioPublico' => 'Public Home',
@@ -164,7 +168,8 @@ $aTitleLang = [
         'editarAnimal' => 'Edit Animal',
         'añadirAnimal' => 'Add Animal',
         'eliminarAnimal' => 'Delete Animal',
-        'detalleAnimal' => 'Animal Details'
+        'detalleAnimal' => 'Animal Details',
+        'importarAnimales' => 'Import Animals'
     ]
 ];
 
