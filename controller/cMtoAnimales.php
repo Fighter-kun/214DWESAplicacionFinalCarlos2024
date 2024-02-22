@@ -65,11 +65,7 @@ if (isset($_REQUEST['cDetalleAnimal'])) {
 
 // Estructura del botón exportar, si el usuario pulsa el botón 'exportar'
 if (isset($_REQUEST['exportarAnimales'])) {
-    $_SESSION['paginaAnterior'] = 'consultarAnimales'; // Almaceno la página anterior para poder volver
-    $_SESSION['paginaEnCurso'] = 'wip'; // Asigno a la página en curso la pagina de importarAnimal
-    header('Location: index.php'); // Redirecciono al index de la APP
-    exit;
-    //AnimalPDO::exportarAnimalesJSON();
+    AnimalPDO::exportarAnimalesJSON();
 }
 
 // Estructura del botón importar, si el usuario pulsa el botón 'importar'
