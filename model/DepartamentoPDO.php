@@ -1,13 +1,23 @@
 <?php
 
 /**
+ * Clase DepartamentoPDO
+ *
+ * Fichero con la clase DepartamentoPDO 
+ *
+ */
+
+/**
+ * Clase DepartamentoPDO
+ * 
+ * Clase que utilizamos de acceso a datos con todos los metodos que usamos con los objetos Departamento
+ * 
  * @author Carlos García Cachón
  * @version 1.0
  * @since 18/01/2024
  * 
  * @Annotation Aplicación Final - Clase DepartamentoPDO
- * 
- */
+*/
 class DepartamentoPDO {
 
     /**

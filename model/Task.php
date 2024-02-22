@@ -1,14 +1,24 @@
 <?php
 
 /**
+ * Clase Task
+ *
+ * Fichero con la clase Task 
+ *
+ */
+
+/**
+ * Clase Task
+ * 
+ * Clase que utilizamos para crear una Tarea
+ * 
  * @author Carlos García Cachón
  * @version 1.0
  * @since 06/02/2024
  * @copyright Todos los derechos reservados a Carlos García
  * 
  * @Annotation Aplicación Final - Task
- * 
- */
+*/
 class Task {
     /**
      * Codigo de la Tarea

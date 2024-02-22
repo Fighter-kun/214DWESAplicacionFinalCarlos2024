@@ -1,14 +1,24 @@
 <?php
+
 /**
+ * Clase Usuario
+ *
+ * Fichero con la clase Usuario 
+ *
+ */
+
+/**
+ * Clase Usuario
+ * 
+ * Clase que utilizamos para el modelo de objetos Usuario
+ * 
  * @author Carlos García Cachón
  * @version 1.0
  * @since 03/01/2024
  * @copyright Todos los derechos reservados a Carlos García
  * 
  * @Annotation Aplicación Final - Clase Usuario 
- * 
- */
-
+*/
 class Usuario {
     /**
      * Codigo del Usuario

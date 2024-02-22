@@ -1,13 +1,24 @@
 <?php
+
 /**
+ * Clase ErrorApp
+ *
+ * Fichero con la clase ErrorApp 
+ *
+ */
+
+/**
+ * Clase ErrorApp
+ * 
+ * Clase que utilizamos para crear un objeto Error
+ * 
  * @author Carlos García Cachón
  * @version 1.1
  * @since 03/01/2024
  * @copyright Todos los derechos reservados a Carlos García
  * 
  * @Annotation Aplicación Final - Clase ErrorApp
- * 
- */
+*/
 class ErrorApp {
     /**
      * Codigo del ErrorApp

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @author Carlos García Cachón
  * @version 1.0
@@ -6,6 +7,14 @@
  * @copyright Todos los derechos reservados a Carlos García
  * 
  * @Annotation Aplicación Final - Clase Animal 
+ * 
+ */
+
+/**
+ * 
+ * Clase Animal
+ * 
+ * Clase que utilizamos para el modelo de objetos Animal
  * 
  */
 class Animal {

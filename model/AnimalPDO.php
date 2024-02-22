@@ -1,13 +1,23 @@
 <?php
 
 /**
+ * Clase AnimalPDO
+ *
+ * Fichero con la clase AnimalPDO 
+ *
+ */
+
+/**
+ * Clase AnimalPDO
+ * 
+ * Clase que utilizamos de acceso a datos con todos los metodos que usamos con los objetos Animal
+ * 
  * @author Carlos García Cachón
  * @version 1.0
  * @since 09/02/2024
  * 
  * @Annotation Aplicación Final - Clase AnimalPDO
- * 
- */
+*/
 class AnimalPDO {
 
     /**

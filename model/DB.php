@@ -1,13 +1,24 @@
 <?php
+
 /**
+ * Interfaz DB
+ *
+ * Fichero con la interfaz DB
+ *
+ */
+
+/**
+ * Interfaz DB
+ * 
+ * Interfaz de la Base de Datos para ejecutar las consultas con o sin parametros
+ * 
  * @author Carlos García Cachón
  * @version 1.0
  * @since 03/01/2024
  * @copyright Todos los derechos reservados a Carlos García
  * 
  * @Annotation Aplicación Final - Interfaz DB
- * 
- */
+*/
 interface DB {
     /**
      * Ejecuta las sentencias recibidas junto con los parametros

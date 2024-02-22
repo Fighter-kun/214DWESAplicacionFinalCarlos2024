@@ -1,15 +1,24 @@
 <?php
 
 /**
+ * Clase Departamento
+ *
+ * Fichero con la clase Departamento
+ *
+ */
+
+/**
+ * Clase Departamento
+ * 
+ * Clase que utilizamos para el modelo de objetos Departamento
+ * 
  * @author Carlos García Cachón
  * @version 1.0
  * @since 03/01/2024
  * @copyright Todos los derechos reservados a Carlos García
  * 
  * @Annotation Aplicación Final - Clase Usuario 
- * 
- */
-
+*/
 class Departamento {
     /**
      * Código de Departamento
