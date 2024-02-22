@@ -52,7 +52,12 @@ $aController = [
     'importarDepartamento' => 'controller/cImportarDepartamentos.php',
     'apiREST' => 'controller/cREST.php',
     'consultarAnimales' => 'controller/cMtoAnimales.php',
-    'editarAnimal' => 'controller/cConsultarModificarAnimal.php'
+    'editarAnimal' => 'controller/cConsultarModificarAnimal.php',
+    'añadirAnimal' => 'controller/cAltaAnimal.php',
+    'eliminarAnimal' => 'controller/cEliminarAnimal.php',
+    'rehabilitacionAnimal' => 'controller/cRehabilitacionAnimal.php',
+    'bajaAnimal' => 'controller/cBajaLogicaAnimal.php',
+    'detalleAnimal' => 'controller/cDetalleAnimal.php'
 ];
 
 // En el array de '$aView' almacenamos un array por idioma, para mostrar la vista en el idioma elegído por el usuario
@@ -78,7 +83,10 @@ $aView = [
         'importarDepartamento' => 'view/SP/vImportarDepartamentos.php',
         'apiREST' => 'view/SP/vREST.php',
         'consultarAnimales' => 'view/SP/vMtoAnimales.php',
-        'editarAnimal' => 'view/SP/vConsultarModificarAnimal.php'
+        'editarAnimal' => 'view/SP/vConsultarModificarAnimal.php',
+        'añadirAnimal' => 'view/SP/vAltaAnimal.php',
+        'eliminarAnimal' => 'view/SP/vEliminarAnimal.php',
+        'detalleAnimal' => 'view/SP/vDetalleAnimal.php'
     ],
     'UK' => [
         'layout' => 'view/UK/layout.php',
@@ -101,7 +109,10 @@ $aView = [
         'importarDepartamento' => 'view/UK/vImportarDepartamentos.php',
         'apiREST' => 'view/UK/vREST.php',
         'consultarAnimales' => 'view/UK/vMtoAnimales.php',
-        'editarAnimal' => 'view/UK/vConsultarModificarAnimal.php'
+        'editarAnimal' => 'view/UK/vConsultarModificarAnimal.php',
+        'añadirAnimal' => 'view/UK/vAltaAnimal.php',
+        'eliminarAnimal' => 'view/UK/vEliminarAnimal.php',
+        'detalleAnimal' => 'view/UK/vDetalleAnimal.php'
     ]
 ];
 
@@ -125,8 +136,11 @@ $aTitleLang = [
         'eliminarDepartamento' => 'Eliminar Departamento',
         'importarDepartamento' => 'Importar Departamentos',
         'apiREST' => 'REST',
-        'consultarAnimales' => 'Mantenimiento Granja',
-        'editarAnimal' => 'Editar Animal'
+        'consultarAnimales' => 'Mantenimiento Animales',
+        'editarAnimal' => 'Editar Animal',
+        'añadirAnimal' => 'Añadir Animal',
+        'eliminarAnimal' => 'Eliminar Animal',
+        'detalleAnimal' => 'Detalles Del Animal'
     ],
     'UK' => [//Inglés
         'inicioPublico' => 'Public Home',
@@ -146,8 +160,11 @@ $aTitleLang = [
         'eliminarDepartamento' => 'Delete Department',
         'importarDepartamento' => 'Import Departments',
         'apiREST' => 'REST',
-        'consultarAnimales' => 'Farm Maintenance',
-        'editarAnimal' => 'Edit Animal'
+        'consultarAnimales' => 'Animal Maintenance',
+        'editarAnimal' => 'Edit Animal',
+        'añadirAnimal' => 'Add Animal',
+        'eliminarAnimal' => 'Delete Animal',
+        'detalleAnimal' => 'Animal Details'
     ]
 ];
 

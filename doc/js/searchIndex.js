@@ -1,6 +1,21 @@
 Search.appendIndex(
     [
                 {
+            "fqsen": "\\ESTADO_TODOS",
+            "name": "ESTADO_TODOS",
+            "summary": "",
+            "url": "namespaces/default.html#constant_ESTADO_TODOS"
+        },                {
+            "fqsen": "\\ESTADO_ALTAS",
+            "name": "ESTADO_ALTAS",
+            "summary": "",
+            "url": "namespaces/default.html#constant_ESTADO_ALTAS"
+        },                {
+            "fqsen": "\\ESTADO_BAJAS",
+            "name": "ESTADO_BAJAS",
+            "summary": "",
+            "url": "namespaces/default.html#constant_ESTADO_BAJAS"
+        },                {
             "fqsen": "\\DSN",
             "name": "DSN",
             "summary": "",
@@ -60,6 +75,11 @@ Search.appendIndex(
             "name": "comprobarFloat",
             "summary": "Funcion\u0020comprobarFloat",
             "url": "classes/validacionFormularios.html#method_comprobarFloat"
+        },                {
+            "fqsen": "\\validacionFormularios\u003A\u003AcomprobarFloatMejorado\u0028\u0029",
+            "name": "comprobarFloatMejorado",
+            "summary": "Funcion\u0020comprobarFloat",
+            "url": "classes/validacionFormularios.html#method_comprobarFloatMejorado"
         },                {
             "fqsen": "\\validacionFormularios\u003A\u003AvalidarEmail\u0028\u0029",
             "name": "validarEmail",
@@ -140,6 +160,176 @@ Search.appendIndex(
             "name": "validarFechaHora",
             "summary": "",
             "url": "classes/validacionFormularios.html#method_validarFechaHora"
+        },                {
+            "fqsen": "\\Animal",
+            "name": "Animal",
+            "summary": "",
+            "url": "classes/Animal.html"
+        },                {
+            "fqsen": "\\Animal\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "Contructor\u0020de\u0020la\u0020clase\u0020Animal",
+            "url": "classes/Animal.html#method___construct"
+        },                {
+            "fqsen": "\\Animal\u003A\u003AgetCodAnimal\u0028\u0029",
+            "name": "getCodAnimal",
+            "summary": "Obtiene\u0020el\u0020c\u00F3digo\u0020de\u0020Animal.",
+            "url": "classes/Animal.html#method_getCodAnimal"
+        },                {
+            "fqsen": "\\Animal\u003A\u003AgetDescAnimal\u0028\u0029",
+            "name": "getDescAnimal",
+            "summary": "Obtiene\u0020la\u0020descripci\u00F3n\u0020de\u0020Animal.",
+            "url": "classes/Animal.html#method_getDescAnimal"
+        },                {
+            "fqsen": "\\Animal\u003A\u003AgetFechaNacimiento\u0028\u0029",
+            "name": "getFechaNacimiento",
+            "summary": "Obtiene\u0020la\u0020Fecha\u0020de\u0020Nacimiento\u0020de\u0020Animal.",
+            "url": "classes/Animal.html#method_getFechaNacimiento"
+        },                {
+            "fqsen": "\\Animal\u003A\u003AgetSexo\u0028\u0029",
+            "name": "getSexo",
+            "summary": "Obtiene\u0020el\u0020sexo\u0020de\u0020Animal.",
+            "url": "classes/Animal.html#method_getSexo"
+        },                {
+            "fqsen": "\\Animal\u003A\u003AgetRaza\u0028\u0029",
+            "name": "getRaza",
+            "summary": "Obtiene\u0020la\u0020raza\u0020de\u0020Animal.",
+            "url": "classes/Animal.html#method_getRaza"
+        },                {
+            "fqsen": "\\Animal\u003A\u003AgetPrecio\u0028\u0029",
+            "name": "getPrecio",
+            "summary": "Obtiene\u0020el\u0020precio\u0020de\u0020Animal.",
+            "url": "classes/Animal.html#method_getPrecio"
+        },                {
+            "fqsen": "\\Animal\u003A\u003AgetFechaBaja\u0028\u0029",
+            "name": "getFechaBaja",
+            "summary": "Obtiene\u0020la\u0020Fecha\u0020de\u0020Baja\u0020de\u0020Animal.",
+            "url": "classes/Animal.html#method_getFechaBaja"
+        },                {
+            "fqsen": "\\Animal\u003A\u003AsetCodAnimal\u0028\u0029",
+            "name": "setCodAnimal",
+            "summary": "Establece\u0020el\u0020c\u00F3digo\u0020de\u0020Animal",
+            "url": "classes/Animal.html#method_setCodAnimal"
+        },                {
+            "fqsen": "\\Animal\u003A\u003AsetDescAnimal\u0028\u0029",
+            "name": "setDescAnimal",
+            "summary": "Establece\u0020la\u0020descripci\u00F3n\u0020de\u0020Animal",
+            "url": "classes/Animal.html#method_setDescAnimal"
+        },                {
+            "fqsen": "\\Animal\u003A\u003AsetFechaNacimiento\u0028\u0029",
+            "name": "setFechaNacimiento",
+            "summary": "Establece\u0020la\u0020Fecha\u0020de\u0020Nacimiento\u0020de\u0020Animal",
+            "url": "classes/Animal.html#method_setFechaNacimiento"
+        },                {
+            "fqsen": "\\Animal\u003A\u003AsetSexo\u0028\u0029",
+            "name": "setSexo",
+            "summary": "Establece\u0020el\u0020sexo\u0020de\u0020Animal",
+            "url": "classes/Animal.html#method_setSexo"
+        },                {
+            "fqsen": "\\Animal\u003A\u003AsetRaza\u0028\u0029",
+            "name": "setRaza",
+            "summary": "Establece\u0020la\u0020raza\u0020de\u0020Animal",
+            "url": "classes/Animal.html#method_setRaza"
+        },                {
+            "fqsen": "\\Animal\u003A\u003AsetPrecio\u0028\u0029",
+            "name": "setPrecio",
+            "summary": "Establece\u0020el\u0020precio\u0020de\u0020Animal",
+            "url": "classes/Animal.html#method_setPrecio"
+        },                {
+            "fqsen": "\\Animal\u003A\u003AsetFechaBaja\u0028\u0029",
+            "name": "setFechaBaja",
+            "summary": "Establece\u0020la\u0020Fecha\u0020de\u0020Baja\u0020de\u0020Animal",
+            "url": "classes/Animal.html#method_setFechaBaja"
+        },                {
+            "fqsen": "\\Animal\u003A\u003A\u0024codAnimal",
+            "name": "codAnimal",
+            "summary": "C\u00F3digo\u0020de\u0020Animal",
+            "url": "classes/Animal.html#property_codAnimal"
+        },                {
+            "fqsen": "\\Animal\u003A\u003A\u0024descAnimal",
+            "name": "descAnimal",
+            "summary": "Descripci\u00F3n\u0020de\u0020Animal",
+            "url": "classes/Animal.html#property_descAnimal"
+        },                {
+            "fqsen": "\\Animal\u003A\u003A\u0024fechaNacimiento",
+            "name": "fechaNacimiento",
+            "summary": "Fecha\u0020de\u0020Nacimiento\u0020de\u0020Animal",
+            "url": "classes/Animal.html#property_fechaNacimiento"
+        },                {
+            "fqsen": "\\Animal\u003A\u003A\u0024sexo",
+            "name": "sexo",
+            "summary": "Sexo\u0020del\u0020Animal",
+            "url": "classes/Animal.html#property_sexo"
+        },                {
+            "fqsen": "\\Animal\u003A\u003A\u0024raza",
+            "name": "raza",
+            "summary": "Raza\u0020del\u0020Animal",
+            "url": "classes/Animal.html#property_raza"
+        },                {
+            "fqsen": "\\Animal\u003A\u003A\u0024precio",
+            "name": "precio",
+            "summary": "Precio\u0020del\u0020Animal",
+            "url": "classes/Animal.html#property_precio"
+        },                {
+            "fqsen": "\\Animal\u003A\u003A\u0024fechaBaja",
+            "name": "fechaBaja",
+            "summary": "Fecha\u0020de\u0020Baja\u0020de\u0020Animal",
+            "url": "classes/Animal.html#property_fechaBaja"
+        },                {
+            "fqsen": "\\AnimalPDO",
+            "name": "AnimalPDO",
+            "summary": "",
+            "url": "classes/AnimalPDO.html"
+        },                {
+            "fqsen": "\\AnimalPDO\u003A\u003AbuscarAnimalesPorDesc\u0028\u0029",
+            "name": "buscarAnimalesPorDesc",
+            "summary": "Busca\u0020a\u0020un\u0020Animal\u0020por\u0020su\u0020descripci\u00F3n.",
+            "url": "classes/AnimalPDO.html#method_buscarAnimalesPorDesc"
+        },                {
+            "fqsen": "\\AnimalPDO\u003A\u003AbuscarAnimalesPorDescYEstadoPaginados\u0028\u0029",
+            "name": "buscarAnimalesPorDescYEstadoPaginados",
+            "summary": "Busca\u0020a\u0020un\u0020Animal\u0020por\u0020su\u0020descripci\u00F3n\u0020de\u0020manera\u0020paginada",
+            "url": "classes/AnimalPDO.html#method_buscarAnimalesPorDescYEstadoPaginados"
+        },                {
+            "fqsen": "\\AnimalPDO\u003A\u003AbuscaAnimalesTotalesPorDescYEstado\u0028\u0029",
+            "name": "buscaAnimalesTotalesPorDescYEstado",
+            "summary": "Cuenta\u0020todos\u0020los\u0020Animales",
+            "url": "classes/AnimalPDO.html#method_buscaAnimalesTotalesPorDescYEstado"
+        },                {
+            "fqsen": "\\AnimalPDO\u003A\u003AmodificarAnimal\u0028\u0029",
+            "name": "modificarAnimal",
+            "summary": "Modifica\u0020los\u0020valores\u0020de\u0020un\u0020Animal",
+            "url": "classes/AnimalPDO.html#method_modificarAnimal"
+        },                {
+            "fqsen": "\\AnimalPDO\u003A\u003AbuscarAnimalPorCod\u0028\u0029",
+            "name": "buscarAnimalPorCod",
+            "summary": "Metodo\u0020que\u0020nos\u0020permite\u0020buscar\u0020un\u0020Animal\u0020por\u0020el\u0020c\u00F3digo",
+            "url": "classes/AnimalPDO.html#method_buscarAnimalPorCod"
+        },                {
+            "fqsen": "\\AnimalPDO\u003A\u003AaltaAnimal\u0028\u0029",
+            "name": "altaAnimal",
+            "summary": "Metodo\u0020que\u0020permite\u0020dar\u0020de\u0020alta\u0020un\u0020nuevo\u0020Animal\u0020en\u0020la\u0020BD",
+            "url": "classes/AnimalPDO.html#method_altaAnimal"
+        },                {
+            "fqsen": "\\AnimalPDO\u003A\u003AbajaFisicaAnimal\u0028\u0029",
+            "name": "bajaFisicaAnimal",
+            "summary": "Eliminar\u0020un\u0020Animal\u0020\u0028Baja\u0020F\u00EDsica\u0029",
+            "url": "classes/AnimalPDO.html#method_bajaFisicaAnimal"
+        },                {
+            "fqsen": "\\AnimalPDO\u003A\u003AbajaLogicaAnimal\u0028\u0029",
+            "name": "bajaLogicaAnimal",
+            "summary": "Modifica\u0020el\u0020valor\u0020de\u0020la\u0020fecha\u0020de\u0020baja\u0020a\u0020un\u0020Animal\u0020\u0028Baja\u0020L\u00F3gica\u0029",
+            "url": "classes/AnimalPDO.html#method_bajaLogicaAnimal"
+        },                {
+            "fqsen": "\\AnimalPDO\u003A\u003ArehabilitarAnimal\u0028\u0029",
+            "name": "rehabilitarAnimal",
+            "summary": "Modifica\u0020el\u0020valor\u0020de\u0020la\u0020fecha\u0020de\u0020baja\u0020a\u0020un\u0020Animal\u0020\u0028Alta\u0020L\u00F3gica\u0029",
+            "url": "classes/AnimalPDO.html#method_rehabilitarAnimal"
+        },                {
+            "fqsen": "\\AnimalPDO\u003A\u003AexportarAnimalesJSON\u0028\u0029",
+            "name": "exportarAnimalesJSON",
+            "summary": "",
+            "url": "classes/AnimalPDO.html#method_exportarAnimalesJSON"
         },                {
             "fqsen": "\\DB",
             "name": "DB",
@@ -291,6 +481,16 @@ Search.appendIndex(
             "summary": "Modifica\u0020el\u0020valor\u0020de\u0020la\u0020fecha\u0020de\u0020baja\u0020a\u0020un\u0020Departamento\u0020\u0028Alta\u0020L\u00F3gica\u0029",
             "url": "classes/DepartamentoPDO.html#method_rehabilitaDepartamento"
         },                {
+            "fqsen": "\\DepartamentoPDO\u003A\u003AbuscaDepartamentosPorEstado\u0028\u0029",
+            "name": "buscaDepartamentosPorEstado",
+            "summary": "",
+            "url": "classes/DepartamentoPDO.html#method_buscaDepartamentosPorEstado"
+        },                {
+            "fqsen": "\\DepartamentoPDO\u003A\u003AbuscaDepartamentosTotales\u0028\u0029",
+            "name": "buscaDepartamentosTotales",
+            "summary": "",
+            "url": "classes/DepartamentoPDO.html#method_buscaDepartamentosTotales"
+        },                {
             "fqsen": "\\ErrorApp",
             "name": "ErrorApp",
             "summary": "",
@@ -358,8 +558,73 @@ Search.appendIndex(
         },                {
             "fqsen": "\\REST\u003A\u003AapiNasa\u0028\u0029",
             "name": "apiNasa",
-            "summary": "Obtenemos\u0020la\u0020imagen\u0020de\u0020la\u0020API\u0020de\u0020la\u0020NASA.",
+            "summary": "",
             "url": "classes/REST.html#method_apiNasa"
+        },                {
+            "fqsen": "\\REST\u003A\u003AapiHarryPotter\u0028\u0029",
+            "name": "apiHarryPotter",
+            "summary": "",
+            "url": "classes/REST.html#method_apiHarryPotter"
+        },                {
+            "fqsen": "\\REST\u003A\u003AapiTask\u0028\u0029",
+            "name": "apiTask",
+            "summary": "",
+            "url": "classes/REST.html#method_apiTask"
+        },                {
+            "fqsen": "\\Task",
+            "name": "Task",
+            "summary": "",
+            "url": "classes/Task.html"
+        },                {
+            "fqsen": "\\Task\u003A\u003A__construct\u0028\u0029",
+            "name": "__construct",
+            "summary": "Contructor\u0020de\u0020la\u0020clase\u0020Task",
+            "url": "classes/Task.html#method___construct"
+        },                {
+            "fqsen": "\\Task\u003A\u003AgetId\u0028\u0029",
+            "name": "getId",
+            "summary": "Obtiene\u0020el\u0020c\u00F3digo\u0020de\u0020la\u0020Tarea.",
+            "url": "classes/Task.html#method_getId"
+        },                {
+            "fqsen": "\\Task\u003A\u003AgetDescripcion\u0028\u0029",
+            "name": "getDescripcion",
+            "summary": "Obtiene\u0020la\u0020descripci\u00F3n\u0020de\u0020la\u0020Tarea.",
+            "url": "classes/Task.html#method_getDescripcion"
+        },                {
+            "fqsen": "\\Task\u003A\u003AgetEstado\u0028\u0029",
+            "name": "getEstado",
+            "summary": "Obtiene\u0020el\u0020estado\u0020de\u0020la\u0020Tarea.",
+            "url": "classes/Task.html#method_getEstado"
+        },                {
+            "fqsen": "\\Task\u003A\u003AsetId\u0028\u0029",
+            "name": "setId",
+            "summary": "Establece\u0020el\u0020c\u00F3digo\u0020de\u0020la\u0020Tarea",
+            "url": "classes/Task.html#method_setId"
+        },                {
+            "fqsen": "\\Task\u003A\u003AsetDescripcion\u0028\u0029",
+            "name": "setDescripcion",
+            "summary": "Establece\u0020la\u0020descripci\u00F3n\u0020de\u0020la\u0020Tarea",
+            "url": "classes/Task.html#method_setDescripcion"
+        },                {
+            "fqsen": "\\Task\u003A\u003AsetEstado\u0028\u0029",
+            "name": "setEstado",
+            "summary": "Establece\u0020el\u0020estado\u0020de\u0020la\u0020Tarea",
+            "url": "classes/Task.html#method_setEstado"
+        },                {
+            "fqsen": "\\Task\u003A\u003A\u0024id",
+            "name": "id",
+            "summary": "Codigo\u0020de\u0020la\u0020Tarea",
+            "url": "classes/Task.html#property_id"
+        },                {
+            "fqsen": "\\Task\u003A\u003A\u0024descripcion",
+            "name": "descripcion",
+            "summary": "Descripci\u00F3\u0020de\u0020la\u0020Tarea",
+            "url": "classes/Task.html#property_descripcion"
+        },                {
+            "fqsen": "\\Task\u003A\u003A\u0024estado",
+            "name": "estado",
+            "summary": "Estado\u0020de\u0020la\u0020Tarea",
+            "url": "classes/Task.html#property_estado"
         },                {
             "fqsen": "\\Usuario",
             "name": "Usuario",

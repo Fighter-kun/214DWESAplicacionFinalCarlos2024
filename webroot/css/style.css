@@ -283,7 +283,7 @@ input[type="radio"]:checked {
 }
 
 .grupoDeBotones {
-    margin-top: -125px;
+    margin-top: -150px;
 }
 
 .grupoDeBotonesPaginacion {
@@ -304,7 +304,36 @@ input[name="DescAnimal"] {
     width: 110%;
     margin-right: 50%;
 }
+.bordeBusquedaAnimal {
+    border: 1px solid black;
+}
 
+.sin-baja {
+    color: black;
+    font-weight: bold;
+}
+
+
+.con-baja {
+    color: #ff0000;
+    font-weight: bold;
+}
+
+.grupoDeBotonesPaginacion {
+    width: 350px;
+    margin-left: 38%;
+}
+
+.fa-angle-double-left,
+    .fa-angle-left,
+    .fa-angle-right,
+    .fa-angle-double-right {
+        font-size: 32px; /* Ajusta el tamaño según sea necesario */
+    }
+    
+    .tamaño-paginacion {
+        font-size: 24px; /* Ajusta el tamaño según sea necesario */
+    }
 /* API */
 .card-text-instruction{
     border: 1px solid black;

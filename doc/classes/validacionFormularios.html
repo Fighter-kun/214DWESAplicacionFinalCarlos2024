@@ -292,6 +292,13 @@ devuelven una cadena con el mensaje de error. Estas 3 anteriores funciones se em
 <dd>Funcion comprobarFloat</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/validacionFormularios.html#method_comprobarFloatMejorado">comprobarFloatMejorado()</a>
+    <span>
+                                &nbsp;: null|string    </span>
+</dt>
+<dd>Funcion comprobarFloat</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/validacionFormularios.html#method_comprobarMaxTamanio">comprobarMaxTamanio()</a>
     <span>
                                 &nbsp;: null|string    </span>
@@ -863,6 +870,123 @@ concatenando esos errores en una cadena. Y comprobando que está vacío siempre 
             -public
                                     -static                    "
 >
+    <h4 class="phpdocumentor-element__name" id="method_comprobarFloatMejorado">
+        comprobarFloatMejorado()
+        <a href="classes/validacionFormularios.html#method_comprobarFloatMejorado" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="core/231018libreriaValidacion.php"><a href="files/core-231018libreriavalidacion.html"><abbr title="core/231018libreriaValidacion.php">231018libreriaValidacion.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">203</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Funcion comprobarFloat</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">comprobarFloatMejorado</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">float&nbsp;</span><span class="phpdocumentor-signature__argument__name">$float</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$max</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">PHP_FLOAT_MAX</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$min</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">-PHP_FLOAT_MAX</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$maxDecimales</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">PHP_FLOAT_DIG</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">int&nbsp;</span><span class="phpdocumentor-signature__argument__name">$minDecimales</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">-PHP_FLOAT_DIG</span><span> ]</span></span><span class="phpdocumentor-signature__argument"><span>[</span><span>, </span><span class="phpdocumentor-signature__argument__return-type">bool&nbsp;</span><span class="phpdocumentor-signature__argument__name">$obligatorio</span><span> = </span><span class="phpdocumentor-signature__argument__default-value">0</span><span> ]</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">null|string</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+        <section class="phpdocumentor-description"><p>Funcion que compueba si el parametro recibido es un numero decimal.</p>
+<p>Origen @author Javier Nieto y Cristina Núñez</p>
+</section>
+
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$float</span>
+                : <span class="phpdocumentor-signature__argument__return-type">float</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Número entero a comprobar</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$max</span>
+                : <span class="phpdocumentor-signature__argument__return-type">int</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">PHP_FLOAT_MAX</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Valor máximo del entero</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$min</span>
+                : <span class="phpdocumentor-signature__argument__return-type">int</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">-PHP_FLOAT_MAX</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Valor mínimo del entero</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$maxDecimales</span>
+                : <span class="phpdocumentor-signature__argument__return-type">int</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">PHP_FLOAT_DIG</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Valor máximo de decimales</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$minDecimales</span>
+                : <span class="phpdocumentor-signature__argument__return-type">int</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">-PHP_FLOAT_DIG</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Valor máximo de decimales</p>
+</section>
+
+            </dd>
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$obligatorio</span>
+                : <span class="phpdocumentor-signature__argument__return-type">bool</span>
+                 = <span class="phpdocumentor-signature__argument__default-value">0</span>            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Valor booleano indicado mediante 1, si es obligatorio o 0 si no lo es.</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+    <h5 class="phpdocumentor-tag-list__heading" id="tags">
+        Tags
+        <a href="classes/validacionFormularios.html#method_comprobarFloatMejorado#tags" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h5>
+    <dl class="phpdocumentor-tag-list">
+                                    <dt class="phpdocumentor-tag-list__entry">
+                    <span class="phpdocumentor-tag__name">since</span>
+                </dt>
+                <dd class="phpdocumentor-tag-list__definition">
+                                            <span class="phpdocumentor-tag-link">30/11/2020</span>
+                                                                                
+                                                 <section class="phpdocumentor-description"><p>Modificado por @author Carlos García Cachón</p>
+</section>
+
+                                    </dd>
+                                            </dl>
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">null|string</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>Devuelve null en el caso en el que esté correcto, si no devuelve una cadena con el mensaje de error.</p>
+</section>
+
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                    -static                    "
+>
     <h4 class="phpdocumentor-element__name" id="method_comprobarMaxTamanio">
         comprobarMaxTamanio()
         <a href="classes/validacionFormularios.html#method_comprobarMaxTamanio" class="headerlink"><i class="fas fa-link"></i></a>
@@ -871,7 +995,7 @@ concatenando esos errores en una cadena. Y comprobando que está vacío siempre 
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/231018libreriaValidacion.php"><a href="files/core-231018libreriavalidacion.html"><abbr title="core/231018libreriaValidacion.php">231018libreriaValidacion.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">417</span>
+    <span class="phpdocumentor-element-found-in__line">469</span>
 
     </aside>
 
@@ -968,7 +1092,7 @@ concatenando esos errores en una cadena. Y comprobando que está vacío siempre 
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/231018libreriaValidacion.php"><a href="files/core-231018libreriavalidacion.html"><abbr title="core/231018libreriaValidacion.php">231018libreriaValidacion.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">441</span>
+    <span class="phpdocumentor-element-found-in__line">493</span>
 
     </aside>
 
@@ -1065,7 +1189,7 @@ concatenando esos errores en una cadena. Y comprobando que está vacío siempre 
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/231018libreriaValidacion.php"><a href="files/core-231018libreriavalidacion.html"><abbr title="core/231018libreriaValidacion.php">231018libreriaValidacion.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">391</span>
+    <span class="phpdocumentor-element-found-in__line">443</span>
 
     </aside>
 
@@ -1153,7 +1277,7 @@ concatenando esos errores en una cadena. Y comprobando que está vacío siempre 
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/231018libreriaValidacion.php"><a href="files/core-231018libreriavalidacion.html"><abbr title="core/231018libreriaValidacion.php">231018libreriaValidacion.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">571</span>
+    <span class="phpdocumentor-element-found-in__line">622</span>
 
     </aside>
 
@@ -1201,7 +1325,7 @@ concatenando esos errores en una cadena. Y comprobando que está vacío siempre 
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/231018libreriaValidacion.php"><a href="files/core-231018libreriavalidacion.html"><abbr title="core/231018libreriaValidacion.php">231018libreriaValidacion.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">316</span>
+    <span class="phpdocumentor-element-found-in__line">368</span>
 
     </aside>
 
@@ -1281,7 +1405,7 @@ Valida el código postal, si es opcional da por válido que sea correcto o este 
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/231018libreriaValidacion.php"><a href="files/core-231018libreriavalidacion.html"><abbr title="core/231018libreriaValidacion.php">231018libreriaValidacion.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">284</span>
+    <span class="phpdocumentor-element-found-in__line">336</span>
 
     </aside>
 
@@ -1361,7 +1485,7 @@ Si no es obligatorio, da por válido un campo vacío o un DNI, si lo es, será n
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/231018libreriaValidacion.php"><a href="files/core-231018libreriavalidacion.html"><abbr title="core/231018libreriaValidacion.php">231018libreriaValidacion.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">459</span>
+    <span class="phpdocumentor-element-found-in__line">511</span>
 
     </aside>
 
@@ -1440,7 +1564,7 @@ Si no es obligatorio, da por válido un campo vacío o un DNI, si lo es, será n
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/231018libreriaValidacion.php"><a href="files/core-231018libreriavalidacion.html"><abbr title="core/231018libreriaValidacion.php">231018libreriaValidacion.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">203</span>
+    <span class="phpdocumentor-element-found-in__line">255</span>
 
     </aside>
 
@@ -1538,7 +1662,7 @@ He añadido nuevos comentarios explicando el nuevo funcionamiento.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/231018libreriaValidacion.php"><a href="files/core-231018libreriavalidacion.html"><abbr title="core/231018libreriaValidacion.php">231018libreriaValidacion.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">254</span>
+    <span class="phpdocumentor-element-found-in__line">306</span>
 
     </aside>
 
@@ -1550,7 +1674,7 @@ He añadido nuevos comentarios explicando el nuevo funcionamiento.</p>
 
     <div class="phpdocumentor-label-line">
         </div>
-        <section class="phpdocumentor-description"><p>Funcion que compueba si el parametro recibido es una fecha valida.</p>
+        <section class="phpdocumentor-description"><p>Funcion que compueba si el parametro recibido es una fecha valida. (Formato: m/d/Y)</p>
 </section>
 
         <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
@@ -1619,7 +1743,7 @@ He añadido nuevos comentarios explicando el nuevo funcionamiento.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/231018libreriaValidacion.php"><a href="files/core-231018libreriavalidacion.html"><abbr title="core/231018libreriaValidacion.php">231018libreriaValidacion.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">590</span>
+    <span class="phpdocumentor-element-found-in__line">641</span>
 
     </aside>
 
@@ -1681,7 +1805,7 @@ He añadido nuevos comentarios explicando el nuevo funcionamiento.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/231018libreriaValidacion.php"><a href="files/core-231018libreriavalidacion.html"><abbr title="core/231018libreriaValidacion.php">231018libreriaValidacion.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">527</span>
+    <span class="phpdocumentor-element-found-in__line">579</span>
 
     </aside>
 
@@ -1729,7 +1853,7 @@ He añadido nuevos comentarios explicando el nuevo funcionamiento.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/231018libreriaValidacion.php"><a href="files/core-231018libreriavalidacion.html"><abbr title="core/231018libreriaValidacion.php">231018libreriaValidacion.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">549</span>
+    <span class="phpdocumentor-element-found-in__line">601</span>
 
     </aside>
 
@@ -1777,7 +1901,7 @@ He añadido nuevos comentarios explicando el nuevo funcionamiento.</p>
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/231018libreriaValidacion.php"><a href="files/core-231018libreriavalidacion.html"><abbr title="core/231018libreriaValidacion.php">231018libreriaValidacion.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">508</span>
+    <span class="phpdocumentor-element-found-in__line">560</span>
 
     </aside>
 
@@ -1900,7 +2024,7 @@ archivo tiene una extensión válida entre un array de extensiones admitidas.</p
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/231018libreriaValidacion.php"><a href="files/core-231018libreriavalidacion.html"><abbr title="core/231018libreriaValidacion.php">231018libreriaValidacion.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">345</span>
+    <span class="phpdocumentor-element-found-in__line">397</span>
 
     </aside>
 
@@ -2015,7 +2139,7 @@ Hay tres tipos de validacion diferentes segun su complejidad: alfabetico, alfanu
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/231018libreriaValidacion.php"><a href="files/core-231018libreriavalidacion.html"><abbr title="core/231018libreriaValidacion.php">231018libreriaValidacion.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">482</span>
+    <span class="phpdocumentor-element-found-in__line">534</span>
 
     </aside>
 
@@ -2131,7 +2255,7 @@ Hay tres tipos de validacion diferentes segun su complejidad: alfabetico, alfanu
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="core/231018libreriaValidacion.php"><a href="files/core-231018libreriavalidacion.html"><abbr title="core/231018libreriaValidacion.php">231018libreriaValidacion.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">232</span>
+    <span class="phpdocumentor-element-found-in__line">284</span>
 
     </aside>
 
@@ -2313,6 +2437,7 @@ Hay tres tipos de validacion diferentes segun su complejidad: alfabetico, alfanu
                                             <li><a href="classes/validacionFormularios.html#method_comprobarAlfaNumerico">comprobarAlfaNumerico()</a></li>
                                             <li><a href="classes/validacionFormularios.html#method_comprobarEntero">comprobarEntero()</a></li>
                                             <li><a href="classes/validacionFormularios.html#method_comprobarFloat">comprobarFloat()</a></li>
+                                            <li><a href="classes/validacionFormularios.html#method_comprobarFloatMejorado">comprobarFloatMejorado()</a></li>
                                             <li><a href="classes/validacionFormularios.html#method_comprobarMaxTamanio">comprobarMaxTamanio()</a></li>
                                             <li><a href="classes/validacionFormularios.html#method_comprobarMinTamanio">comprobarMinTamanio()</a></li>
                                             <li><a href="classes/validacionFormularios.html#method_comprobarNoVacio">comprobarNoVacio()</a></li>
