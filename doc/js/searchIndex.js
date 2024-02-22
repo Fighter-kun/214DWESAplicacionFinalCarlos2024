@@ -163,7 +163,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\Animal",
             "name": "Animal",
-            "summary": "",
+            "summary": "Clase\u0020Animal",
             "url": "classes/Animal.html"
         },                {
             "fqsen": "\\Animal\u003A\u003A__construct\u0028\u0029",
@@ -278,7 +278,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\AnimalPDO",
             "name": "AnimalPDO",
-            "summary": "",
+            "summary": "Clase\u0020AnimalPDO",
             "url": "classes/AnimalPDO.html"
         },                {
             "fqsen": "\\AnimalPDO\u003A\u003AbuscarAnimalesPorDesc\u0028\u0029",
@@ -333,7 +333,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\DB",
             "name": "DB",
-            "summary": "",
+            "summary": "Interfaz\u0020DB",
             "url": "classes/DB.html"
         },                {
             "fqsen": "\\DB\u003A\u003AejecutaConsulta\u0028\u0029",
@@ -343,7 +343,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\DBPDO",
             "name": "DBPDO",
-            "summary": "",
+            "summary": "Clase\u0020DBPDO\u0020\u0028Implementa\u0020la\u0020Interfaz\u0020DB\u0029",
             "url": "classes/DBPDO.html"
         },                {
             "fqsen": "\\DBPDO\u003A\u003AejecutaConsulta\u0028\u0029",
@@ -353,7 +353,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\Departamento",
             "name": "Departamento",
-            "summary": "",
+            "summary": "Clase\u0020Departamento",
             "url": "classes/Departamento.html"
         },                {
             "fqsen": "\\Departamento\u003A\u003A__construct\u0028\u0029",
@@ -438,7 +438,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\DepartamentoPDO",
             "name": "DepartamentoPDO",
-            "summary": "",
+            "summary": "Clase\u0020DepartamentoPDO",
             "url": "classes/DepartamentoPDO.html"
         },                {
             "fqsen": "\\DepartamentoPDO\u003A\u003AbuscaDepartamentosPorDesc\u0028\u0029",
@@ -493,7 +493,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\ErrorApp",
             "name": "ErrorApp",
-            "summary": "",
+            "summary": "Clase\u0020ErrorApp",
             "url": "classes/ErrorApp.html"
         },                {
             "fqsen": "\\ErrorApp\u003A\u003A__construct\u0028\u0029",
@@ -553,7 +553,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\REST",
             "name": "REST",
-            "summary": "",
+            "summary": "Clase\u0020REST",
             "url": "classes/REST.html"
         },                {
             "fqsen": "\\REST\u003A\u003AapiNasa\u0028\u0029",
@@ -573,7 +573,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\Task",
             "name": "Task",
-            "summary": "",
+            "summary": "Clase\u0020Task",
             "url": "classes/Task.html"
         },                {
             "fqsen": "\\Task\u003A\u003A__construct\u0028\u0029",
@@ -628,7 +628,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\Usuario",
             "name": "Usuario",
-            "summary": "",
+            "summary": "Clase\u0020Usuario",
             "url": "classes/Usuario.html"
         },                {
             "fqsen": "\\Usuario\u003A\u003A__construct\u0028\u0029",
@@ -738,7 +738,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\UsuarioDB",
             "name": "UsuarioDB",
-            "summary": "",
+            "summary": "Interfaz\u0020UsuarioDB",
             "url": "classes/UsuarioDB.html"
         },                {
             "fqsen": "\\UsuarioDB\u003A\u003AvalidarUsuario\u0028\u0029",
@@ -748,7 +748,7 @@ Search.appendIndex(
         },                {
             "fqsen": "\\UsuarioPDO",
             "name": "UsuarioPDO",
-            "summary": "",
+            "summary": "Clase\u0020UsuarioPDO\u0020\u0028Implementa\u0020la\u0020Interfaz\u0020UsuarioDB\u0029",
             "url": "classes/UsuarioPDO.html"
         },                {
             "fqsen": "\\UsuarioPDO\u003A\u003AvalidarUsuario\u0028\u0029",

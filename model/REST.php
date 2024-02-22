@@ -1,14 +1,24 @@
 <?php
 
 /**
+ * Clase REST
+ *
+ * Fichero con la clase REST 
+ *
+ */
+
+/**
+ * Clase REST
+ * 
+ * Clase que utilizamos para ejecutar las peticiones a las API REST 
+ * 
  * @author Carlos García Cachón
  * @version 1.0
  * @since 22/01/2024
  * @copyright Todos los derechos reservados a Carlos García
  * 
  * @Annotation Aplicación Final - REST 
- * 
- */
+*/
 class REST {
 
     /**

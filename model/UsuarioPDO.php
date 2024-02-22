@@ -1,14 +1,24 @@
 <?php
 
 /**
+ * Clase UsuarioPDO
+ *
+ * Fichero con la clase UsuarioPDO
+ *
+ */
+
+/**
+ * Clase UsuarioPDO (Implementa la Interfaz UsuarioDB)
+ * 
+ * Clase que utilizamos de acceso a datos con todos los metodos que usamos con los objetos Usuario
+ * 
  * @author Original Alberto Fernández Ramírez
  * @version 1.0
  * @since 03/01/2024
  * Modificado por @author Carlos García Cachón
  * 
  * @Annotation Aplicación Final - Clase UsuarioPDO
- * 
- */
+*/
 class UsuarioPDO implements UsuarioDB {
     /**
      * Valida las credenciales de un usuario.

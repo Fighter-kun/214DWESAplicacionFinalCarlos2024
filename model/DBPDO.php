@@ -1,13 +1,24 @@
 <?php
+
 /**
+ * Clase DBPDO (Implementa la Interfaz DB)
+ *
+ * Fichero con la clase DBPDO
+ *
+ */
+
+/**
+ * Clase DBPDO (Implementa la Interfaz DB)
+ * 
+ * Clase que utilizamos para la ejecución de las consultas con la BD 
+ * 
  * @author Carlos García Cachón
  * @version 1.0
  * @since 03/01/2024
  * @copyright Todos los derechos reservados a Carlos García
  * 
  * @Annotation Aplicación Final - Clase DBPDO
- * 
- */
+*/
 class DBPDO implements DB {
     /**
      * Ejecuta las sentencias recibidas junto con los parametros
