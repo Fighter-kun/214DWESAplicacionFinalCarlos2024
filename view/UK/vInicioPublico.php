@@ -20,6 +20,7 @@
                     <div class="swiper-slide"><a target="_blank" href="webroot/pdf/InstruccionesAPI.pdf"><img src="webroot/media/images/instruccionApiS.png" class="img-fluid" alt="IntruccionApis"></a></div>
                     <div class="swiper-slide"><a target="_blank" href="webroot/pdf/ModeloFisicoDeDatos.pdf"><img src="webroot/media/images/modeloDatosS.png" class="img-fluid" alt="ModeloDeDatos"></a></div>
                     <div class="swiper-slide"><a target="_blank" href="webroot/pdf/DiagramaDeClases.svg"><img src="webroot/media/images/diagramaClasesS.png" class="img-fluid" alt="DiagramaDeClases"></a></div>
+                    <div class="swiper-slide"><img src="webroot/media/images/instruccionesApiREST.png" class="img-fluid" alt="InstruccionesAPIREST"></div>
                 </div>
                 <div class="swiper-pagination"></div>
             </div>
