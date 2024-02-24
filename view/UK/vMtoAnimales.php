@@ -160,7 +160,7 @@
     <div class="row grupoDeBotones">
         <script src="webroot/js/e4845e6bf2.js" crossorigin="anonymous"></script>
         <div class="col">
-            <form name="indexMtoAnimales" method="post">
+            <form name="indexMtoAnimales" method="post" <?php if (!empty($aErrores['DescAnimal'])) { echo "style='display: none;'";}?>>
                 <div class="row grupoDeBotonesPaginacion">
                     <div class="col">
                         <button class="fas fa-angle-double-left" type="submit" name="paginaPrimera" <?php if ($_SESSION['numPaginacionAnimales'] == 1) {echo "hidden";} ?>></button>
