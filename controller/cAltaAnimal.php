@@ -55,9 +55,9 @@ if (isset($_REQUEST['añadirAnimal'])) {
         }
     }
     // Verifico las siguientes entradas de del formulario
-    $aErrores['descAnimal'] = validacionFormularios::comprobarAlfaNumerico($_REQUEST['descAnimal'], 255, 1, 1);
+    $aErrores['descAnimal'] = validacionFormularios::comprobarAlfaNumerico($_REQUEST['descAnimal'], 255, 5, 1);
     $aErrores['fechaNacimientoAnimal'] = validacionFormularios::validarFechaHora($_REQUEST['fechaNacimientoAnimal'], $fechaYHoraActualCreacion->format('Y-m-d H:i:s'), '01/01/2010 00:00:00', 1);
-    $aErrores['razaAnimal'] = validacionFormularios::comprobarAlfabetico($_REQUEST['razaAnimal'], 255, 3, 1);
+    $aErrores['razaAnimal'] = validacionFormularios::comprobarAlfabetico($_REQUEST['razaAnimal'], 255, 5, 1);
     $aErrores['precioAnimal'] = validacionFormularios::comprobarFloatMejorado($_REQUEST['precioAnimal'], 9999999999, 0, 2, 2, 1);
 
     // Para verificar el input 'radio' 
