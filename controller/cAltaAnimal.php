@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @author Carlos García Cachón
  * @version 1.0
@@ -31,7 +32,6 @@ $aErrores = [
     'precioAnimal' => ""
 ];
 
-
 // Variable DateTime
 $fechaYHoraActualCreacion = new DateTime('now', new DateTimeZone('Europe/Madrid'));
 
@@ -43,10 +43,10 @@ if (isset($_REQUEST['añadirAnimal'])) {
      * o un mensaje de error personalizado por cada función dependiendo de lo que validemos.
      */
     //Introducimos valores en el array $aErrores si ocurre un error
-    $aErrores['CodDepartamento'] = validacionFormularios::comprobarAlfanumerico($_REQUEST['codAnimal'], 3, 3, 1);
+    $aErrores['codAnimal'] = validacionFormularios::comprobarAlfanumerico($_REQUEST['codAnimal'], 3, 3, 1);
 
     // Ahora validamos que el codigo introducido no exista en la BD, haciendo una consulta 
-    if ($aErrores['CodDepartamento'] == null) {
+    if ($aErrores['codAnimal'] == null) {
         /*
          * Por medio del metodo 'validarCodNoExiste' de la clase 'DepartamentoPDO' comprobamos que el código no este en uso
          */
@@ -54,13 +54,19 @@ if (isset($_REQUEST['añadirAnimal'])) {
             $aErrores['codAnimal'] = "El código de Animal ya existe";
         }
     }
+    // Verifico las siguientes entradas de del formulario
     $aErrores['descAnimal'] = validacionFormularios::comprobarAlfaNumerico($_REQUEST['descAnimal'], 255, 1, 1);
     $aErrores['fechaNacimientoAnimal'] = validacionFormularios::validarFechaHora($_REQUEST['fechaNacimientoAnimal'], $fechaYHoraActualCreacion->format('Y-m-d H:i:s'), '01/01/2010 00:00:00', 1);
     $aErrores['razaAnimal'] = validacionFormularios::comprobarAlfabetico($_REQUEST['razaAnimal'], 255, 3, 1);
     $aErrores['precioAnimal'] = validacionFormularios::comprobarFloatMejorado($_REQUEST['precioAnimal'], 9999999999, 0, 2, 2, 1);
-    
-    if (!isset($_REQUEST['sexoAnimal'])) {$aErrores['sexoAnimal'] = "Debes elegir al menos 1 opción.";}
-    
+
+    // Para verificar el input 'radio' 
+    if (!isset($_REQUEST['sexoAnimal'])) {
+        $aErrores['sexoAnimal'] = "Debes elegir al menos 1 opción.";
+    } else {
+        $aErrores['sexoAnimal'] = null;
+    }
+
 
     /*
      * En este foreach recorremos el array buscando que exista NULL (Los metodos anteriores si son correctos devuelven NULL)
