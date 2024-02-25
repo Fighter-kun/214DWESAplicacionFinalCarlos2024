@@ -328,13 +328,18 @@ Search.appendIndex(
         },                {
             "fqsen": "\\AnimalPDO\u003A\u003AexportarAnimalesJSON\u0028\u0029",
             "name": "exportarAnimalesJSON",
-            "summary": "Exporta\u0020la\u0020tabla\u0020T06_Animal\u0020en\u0020formato\u0020JSON",
+            "summary": "Exporta\u0020la\u0020tabla\u0020T06_Animal\u0020en\u0020formato\u0020JSON.",
             "url": "classes/AnimalPDO.html#method_exportarAnimalesJSON"
         },                {
             "fqsen": "\\AnimalPDO\u003A\u003AimportarAnimalesJSON\u0028\u0029",
             "name": "importarAnimalesJSON",
-            "summary": "Importa\u0020un\u0020fichero\u0020JSON\u0020y\u0020lo\u0020inserta\u0020en\u0020la\u0020tabla\u0020T06_Animal",
+            "summary": "Importa\u0020un\u0020fichero\u0020JSON\u0020y\u0020lo\u0020inserta\u0020en\u0020la\u0020tabla\u0020T06_Animal.",
             "url": "classes/AnimalPDO.html#method_importarAnimalesJSON"
+        },                {
+            "fqsen": "\\AnimalPDO\u003A\u003AvalidarAnimal\u0028\u0029",
+            "name": "validarAnimal",
+            "summary": "M\u00E9todo\u0020para\u0020validar\u0020un\u0020animal\u0020dentro\u0020del\u0020m\u00E9todo\u0020de\u0020importarAnimalesJSON\u0028\u0029.",
+            "url": "classes/AnimalPDO.html#method_validarAnimal"
         },                {
             "fqsen": "\\DB",
             "name": "DB",

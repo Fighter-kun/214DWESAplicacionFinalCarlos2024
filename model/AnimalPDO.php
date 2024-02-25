@@ -291,9 +291,11 @@ class AnimalPDO {
     }
 
     /**
-     * Exporta la tabla T06_Animal en formato JSON
-     * 
-     * @return Devuelve un archivo ZIP con un archivo 'animales.json' dentro.
+     * Exporta la tabla T06_Animal en formato JSON.
+     *
+     * Este método realiza una consulta a la base de datos y exporta los resultados en un archivo ZIP con un archivo 'animales.json' dentro.
+     *
+     * @return void No devuelve nada, pero genera un archivo ZIP para descargar.
      */
     public static function exportarAnimalesJSON() {
         // Consulta - SELECT
@@ -398,13 +400,13 @@ class AnimalPDO {
     }
 
     /**
-     * Importa un fichero JSON y lo inserta en la tabla T06_Animal
-     * 
-     * 
-     * @return string Devuelve un mensaje de confirmación si se insertan los valores de manera exitosa
-     * 
-     * @return null Devuelve null si el contenido del JSON no es del formato esperado o hay algún error al decodificarlo
-     * @return 'archivo' Devuelve un 'log' con contenido de que problema hubo a la hora de insertar y si inserto algún valor
+     * Importa un fichero JSON y lo inserta en la tabla T06_Animal.
+     *
+     * Este método realiza la importación de un archivo JSON, verifica su formato y contenido, y procede a insertar los valores en la base de datos.
+     *
+     * @return string Devuelve un mensaje de confirmación si se insertan los valores de manera exitosa.
+     * @return null Devuelve null si el contenido del JSON no es del formato esperado o hay algún error al decodificarlo.
+     * @return 'archivo' Devuelve un 'log' con contenido que describe los problemas encontrados durante la inserción y si se insertó algún valor.
      */
     public static function importarAnimalesJSON() {
         // Verificamos que existe una carpeta para archivos temporales
@@ -442,7 +444,7 @@ class AnimalPDO {
             // Recorremos el array de animales decodificado
             foreach ($aContenidoDecodificadoArchivoJSON as $animal) {
                 // Compruebo los indices de cada animal para comprobar que no esta mal el formato del JSON
-                if (isset($animal['T06_CodAnimal'], $animal['T06_DescAnimal'], $animal['T06_FechaNacimiento'],$animal['T06_Sexo'], $animal['T06_Raza'], $animal['T06_Precio'], $animal['T06_FechaBaja'])) {
+                if (isset($animal['T06_CodAnimal'], $animal['T06_DescAnimal'], $animal['T06_FechaNacimiento'], $animal['T06_Sexo'], $animal['T06_Raza'], $animal['T06_Precio'], $animal['T06_FechaBaja'])) {
                     $codAnimal = $animal['T06_CodAnimal'];
                     $descAnimal = $animal['T06_DescAnimal'];
                     $fechaNacimientoAnimal = $animal['T06_FechaNacimiento'];
@@ -450,7 +452,7 @@ class AnimalPDO {
                     $razaAnimal = $animal['T06_Raza'];
                     $precioAnimal = $animal['T06_Precio'];
                     $fechaBajaAnimal = $animal['T06_FechaBaja'];
-                    
+
                     // Con el metodo 'validarAnimal()' de la propia clase, comprobamos si los valores del Animal son correctos
                     if (self::validarAnimal($animal)) {
                         // Verificamos si el animal ya existe en la base de datos
@@ -548,12 +550,14 @@ class AnimalPDO {
     }
 
     /**
-     * Metodo para validar un animal dentro del metodo de importarAnimalesJSON()
-     * 
-     * @param array $aAnimal Recibe un array con los atributos de un Animal
-     * 
-     * @return null Devuelve null si hay algún error en el array
-     * @return true Devuelve true si el array tiene el formato correcto
+     * Método para validar un animal dentro del método de importarAnimalesJSON().
+     *
+     * Este método valida un array que representa los atributos de un Animal antes de su inserción en la base de datos.
+     *
+     * @param array $aAnimal Recibe un array con los atributos de un Animal.
+     *
+     * @return null Devuelve null si hay algún error en el array.
+     * @return true Devuelve true si el array tiene el formato correcto.
      */
     public static function validarAnimal($aAnimal) {
         // Iniciaizo las variables para comprobar el array
