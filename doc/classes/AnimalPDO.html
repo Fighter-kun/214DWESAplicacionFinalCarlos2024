@@ -235,16 +235,16 @@
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/AnimalPDO.html#method_exportarAnimalesJSON">exportarAnimalesJSON()</a>
     <span>
-                                &nbsp;: <abbr title="\Devuelve">Devuelve</abbr>    </span>
+                                &nbsp;: void    </span>
 </dt>
-<dd>Exporta la tabla T06_Animal en formato JSON</dd>
+<dd>Exporta la tabla T06_Animal en formato JSON.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/AnimalPDO.html#method_importarAnimalesJSON">importarAnimalesJSON()</a>
     <span>
                                 &nbsp;: string    </span>
 </dt>
-<dd>Importa un fichero JSON y lo inserta en la tabla T06_Animal</dd>
+<dd>Importa un fichero JSON y lo inserta en la tabla T06_Animal.</dd>
 
             <dt class="phpdocumentor-table-of-contents__entry -method -public">
     <a href="classes/AnimalPDO.html#method_modificarAnimal">modificarAnimal()</a>
@@ -259,6 +259,13 @@
                                 &nbsp;: <abbr title="\PDOStatment">PDOStatment</abbr>    </span>
 </dt>
 <dd>Modifica el valor de la fecha de baja a un Animal (Alta Lógica)</dd>
+
+            <dt class="phpdocumentor-table-of-contents__entry -method -public">
+    <a href="classes/AnimalPDO.html#method_validarAnimal">validarAnimal()</a>
+    <span>
+                                &nbsp;: null    </span>
+</dt>
+<dd>Método para validar un animal dentro del método de importarAnimalesJSON().</dd>
 
     </dl>
 
@@ -736,27 +743,29 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="model/AnimalPDO.php"><a href="files/model-animalpdo.html"><abbr title="model/AnimalPDO.php">AnimalPDO.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">298</span>
+    <span class="phpdocumentor-element-found-in__line">300</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Exporta la tabla T06_Animal en formato JSON</p>
+        <p class="phpdocumentor-summary">Exporta la tabla T06_Animal en formato JSON.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
-            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">exportarAnimalesJSON</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type"><abbr title="\Devuelve">Devuelve</abbr></span></code>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">exportarAnimalesJSON</span><span>(</span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">void</span></code>
 
     <div class="phpdocumentor-label-line">
         </div>
-    
+        <section class="phpdocumentor-description"><p>Este método realiza una consulta a la base de datos y exporta los resultados en un archivo ZIP con un archivo 'animales.json' dentro.</p>
+</section>
+
     
     
 
             <section>
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
-        <span class="phpdocumentor-signature__response_type"><abbr title="\Devuelve">Devuelve</abbr></span>
+        <span class="phpdocumentor-signature__response_type">void</span>
                     &mdash;
-                <section class="phpdocumentor-description"><p>un archivo ZIP con un archivo 'animales.json' dentro.</p>
+                <section class="phpdocumentor-description"><p>No devuelve nada, pero genera un archivo ZIP para descargar.</p>
 </section>
 
             </section>
@@ -776,11 +785,11 @@
     <aside class="phpdocumentor-element-found-in">
     <abbr class="phpdocumentor-element-found-in__file" title="model/AnimalPDO.php"><a href="files/model-animalpdo.html"><abbr title="model/AnimalPDO.php">AnimalPDO.php</abbr></a></abbr>
     :
-    <span class="phpdocumentor-element-found-in__line">407</span>
+    <span class="phpdocumentor-element-found-in__line">411</span>
 
     </aside>
 
-        <p class="phpdocumentor-summary">Importa un fichero JSON y lo inserta en la tabla T06_Animal</p>
+        <p class="phpdocumentor-summary">Importa un fichero JSON y lo inserta en la tabla T06_Animal.</p>
 
     <code class="phpdocumentor-code phpdocumentor-signature ">
     <span class="phpdocumentor-signature__visibility">public</span>
@@ -788,7 +797,9 @@
 
     <div class="phpdocumentor-label-line">
         </div>
-    
+        <section class="phpdocumentor-description"><p>Este método realiza la importación de un archivo JSON, verifica su formato y contenido, y procede a insertar los valores en la base de datos.</p>
+</section>
+
     
     
 
@@ -796,7 +807,7 @@
         <h5 class="phpdocumentor-return-value__heading">Return values</h5>
         <span class="phpdocumentor-signature__response_type">string</span>
                     &mdash;
-                <section class="phpdocumentor-description"><p>Devuelve un mensaje de confirmación si no hay ningún problema</p>
+                <section class="phpdocumentor-description"><p>Devuelve un mensaje de confirmación si se insertan los valores de manera exitosa.</p>
 </section>
 
             </section>
@@ -919,6 +930,60 @@
         <span class="phpdocumentor-signature__response_type"><abbr title="\PDOStatment">PDOStatment</abbr></span>
                     &mdash;
                 <section class="phpdocumentor-description"><p>Devuelve el resultado de la consulta</p>
+</section>
+
+            </section>
+
+</article>
+                    <article
+        class="phpdocumentor-element
+            -method
+            -public
+                                    -static                    "
+>
+    <h4 class="phpdocumentor-element__name" id="method_validarAnimal">
+        validarAnimal()
+        <a href="classes/AnimalPDO.html#method_validarAnimal" class="headerlink"><i class="fas fa-link"></i></a>
+
+    </h4>
+    <aside class="phpdocumentor-element-found-in">
+    <abbr class="phpdocumentor-element-found-in__file" title="model/AnimalPDO.php"><a href="files/model-animalpdo.html"><abbr title="model/AnimalPDO.php">AnimalPDO.php</abbr></a></abbr>
+    :
+    <span class="phpdocumentor-element-found-in__line">562</span>
+
+    </aside>
+
+        <p class="phpdocumentor-summary">Método para validar un animal dentro del método de importarAnimalesJSON().</p>
+
+    <code class="phpdocumentor-code phpdocumentor-signature ">
+    <span class="phpdocumentor-signature__visibility">public</span>
+            <span class="phpdocumentor-signature__static">static</span>        <span class="phpdocumentor-signature__name">validarAnimal</span><span>(</span><span class="phpdocumentor-signature__argument"><span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;&nbsp;</span><span class="phpdocumentor-signature__argument__name">$aAnimal</span></span><span>)</span><span> : </span><span class="phpdocumentor-signature__response_type">null</span></code>
+
+    <div class="phpdocumentor-label-line">
+        </div>
+        <section class="phpdocumentor-description"><p>Este método valida un array que representa los atributos de un Animal antes de su inserción en la base de datos.</p>
+</section>
+
+        <h5 class="phpdocumentor-argument-list__heading">Parameters</h5>
+    <dl class="phpdocumentor-argument-list">
+                    <dt class="phpdocumentor-argument-list__entry">
+                <span class="phpdocumentor-signature__argument__name">$aAnimal</span>
+                : <span class="phpdocumentor-signature__argument__return-type">array&lt;string|int, mixed&gt;</span>
+                            </dt>
+            <dd class="phpdocumentor-argument-list__definition">
+                    <section class="phpdocumentor-description"><p>Recibe un array con los atributos de un Animal.</p>
+</section>
+
+            </dd>
+            </dl>
+
+    
+
+            <section>
+        <h5 class="phpdocumentor-return-value__heading">Return values</h5>
+        <span class="phpdocumentor-signature__response_type">null</span>
+                    &mdash;
+                <section class="phpdocumentor-description"><p>Devuelve null si hay algún error en el array.</p>
 </section>
 
             </section>
@@ -1048,6 +1113,7 @@
                                             <li><a href="classes/AnimalPDO.html#method_importarAnimalesJSON">importarAnimalesJSON()</a></li>
                                             <li><a href="classes/AnimalPDO.html#method_modificarAnimal">modificarAnimal()</a></li>
                                             <li><a href="classes/AnimalPDO.html#method_rehabilitarAnimal">rehabilitarAnimal()</a></li>
+                                            <li><a href="classes/AnimalPDO.html#method_validarAnimal">validarAnimal()</a></li>
                                     </ul>
             </li>
                     </ul>

@@ -160,24 +160,24 @@
     <div class="row grupoDeBotones">
         <script src="webroot/js/e4845e6bf2.js" crossorigin="anonymous"></script>
         <div class="col">
-            <form name="indexMtoAnimales" method="post">
-                <div class="row grupoDeBotonesPaginacion">
-                    <div class="col">
-                        <button class="fas fa-angle-double-left" type="submit" name="paginaPrimera" <?php if ($_SESSION['numPaginacionAnimales'] == 1) {echo "hidden";} ?>></button>
+            <form name="indexMtoAnimales" method="post" <?php if (!empty($aErrores['DescAnimal'])) { echo "style='display: none;'";}?>>
+                    <div class="row grupoDeBotonesPaginacion">
+                        <div class="col">
+                            <button class="fas fa-angle-double-left" type="submit" name="paginaPrimera" <?php if ($_SESSION['numPaginacionAnimales'] == 1) {echo "hidden";} ?>></button>
+                        </div>
+                        <div class="col">
+                            <button class="fas fa-angle-left"type="submit" name="paginaAnterior" <?php if ($_SESSION['numPaginacionAnimales'] == 1) {echo "hidden";} ?>></button>
+                        </div>
+                        <div class="col tamaño-paginacion">
+                            <?php echo $_SESSION['numPaginacionAnimales'] ?> / <?php echo ceil($iAnimalesTotales) ?>
+                        </div>
+                        <div class="col">
+                            <button class="fas fa-angle-right" type="submit" name="paginaSiguiente" <?php if ($_SESSION['numPaginacionAnimales'] == ceil($iAnimalesTotales)) {echo "hidden";} ?>></button>
+                        </div>
+                        <div class="col">
+                            <button class="fas fa-angle-double-right" type="submit" name="paginaUltima" <?php if ($_SESSION['numPaginacionAnimales'] == ceil($iAnimalesTotales)) {echo "hidden";} ?>></button>
+                        </div>
                     </div>
-                    <div class="col">
-                        <button class="fas fa-angle-left"type="submit" name="paginaAnterior" <?php if ($_SESSION['numPaginacionAnimales'] == 1) {echo "hidden";} ?>></button>
-                    </div>
-                    <div class="col tamaño-paginacion">
-                        <?php echo $_SESSION['numPaginacionAnimales'] ?> / <?php echo ceil($iAnimalesTotales) ?>
-                    </div>
-                    <div class="col">
-                        <button class="fas fa-angle-right" type="submit" name="paginaSiguiente" <?php if ($_SESSION['numPaginacionAnimales'] == ceil($iAnimalesTotales)) {echo "hidden";} ?>></button>
-                    </div>
-                    <div class="col">
-                        <button class="fas fa-angle-double-right" type="submit" name="paginaUltima" <?php if ($_SESSION['numPaginacionAnimales'] == ceil($iAnimalesTotales)) {echo "hidden";} ?>></button>
-                    </div>
-                </div>
             </form>
         </div>
     </div>

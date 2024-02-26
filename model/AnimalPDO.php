@@ -291,9 +291,11 @@ class AnimalPDO {
     }
 
     /**
-     * Exporta la tabla T06_Animal en formato JSON
-     * 
-     * @return Devuelve un archivo ZIP con un archivo 'animales.json' dentro.
+     * Exporta la tabla T06_Animal en formato JSON.
+     *
+     * Este método realiza una consulta a la base de datos y exporta los resultados en un archivo ZIP con un archivo 'animales.json' dentro.
+     *
+     * @return void No devuelve nada, pero genera un archivo ZIP para descargar.
      */
     public static function exportarAnimalesJSON() {
         // Consulta - SELECT
@@ -398,13 +400,13 @@ class AnimalPDO {
     }
 
     /**
-     * Importa un fichero JSON y lo inserta en la tabla T06_Animal
-     * 
-     * 
-     * @return string Devuelve un mensaje de confirmación si se insertan los valores de manera exitosa
-     * 
-     * @return null Devuelve null si el contenido del JSON no es del formato esperado o hay algún error al decodificarlo
-     * @return 'archivo' Devuelve un 'log' con contenido de que problema hubo a la hora de insertar y si inserto algún valor
+     * Importa un fichero JSON y lo inserta en la tabla T06_Animal.
+     *
+     * Este método realiza la importación de un archivo JSON, verifica su formato y contenido, y procede a insertar los valores en la base de datos.
+     *
+     * @return string Devuelve un mensaje de confirmación si se insertan los valores de manera exitosa.
+     * @return null Devuelve null si el contenido del JSON no es del formato esperado o hay algún error al decodificarlo.
+     * @return 'archivo' Devuelve un 'log' con contenido que describe los problemas encontrados durante la inserción y si se insertó algún valor.
      */
     public static function importarAnimalesJSON() {
         // Verificamos que existe una carpeta para archivos temporales
@@ -441,16 +443,9 @@ class AnimalPDO {
 
             // Recorremos el array de animales decodificado
             foreach ($aContenidoDecodificadoArchivoJSON as $animal) {
-                // Esta comprobación la hago para comprobar que existe el indice 'T06_CodAnimal', para evitar meter un JSON erroneo
-                if (isset($animal['T06_CodAnimal'])) {
+                // Compruebo los indices de cada animal para comprobar que no esta mal el formato del JSON
+                if (isset($animal['T06_CodAnimal'], $animal['T06_DescAnimal'], $animal['T06_FechaNacimiento'], $animal['T06_Sexo'], $animal['T06_Raza'], $animal['T06_Precio'], $animal['T06_FechaBaja'])) {
                     $codAnimal = $animal['T06_CodAnimal'];
-                } else {
-                    return null;
-                }
-
-                // Verificamos si el animal ya existe en la base de datos
-                if (!self::buscarAnimalPorCod($codAnimal)) {
-                    // Si no existe, procedemos a dar de alta el animal en la base de datos
                     $descAnimal = $animal['T06_DescAnimal'];
                     $fechaNacimientoAnimal = $animal['T06_FechaNacimiento'];
                     $sexoAnimal = $animal['T06_Sexo'];
@@ -458,27 +453,37 @@ class AnimalPDO {
                     $precioAnimal = $animal['T06_Precio'];
                     $fechaBajaAnimal = $animal['T06_FechaBaja'];
 
-                    // Llamamos al método altaAnimal para insertar el nuevo animal
-                    $resultado = self::altaAnimal($codAnimal, $descAnimal, $fechaNacimientoAnimal, $sexoAnimal, $razaAnimal, $precioAnimal, $fechaBajaAnimal);
-                    // Verificamos si el resultado es false (falló la inserción)
-                    if ($resultado === false) {
-                        $totalErrores++; // Cuento cuantos fallan
-                        if ($_COOKIE['idioma'] == 'SP') {
-                            $aErrores[] = "Error al insertar el animal con código {$codAnimal}.";
+                    // Con el metodo 'validarAnimal()' de la propia clase, comprobamos si los valores del Animal son correctos
+                    if (self::validarAnimal($animal)) {
+                        // Verificamos si el animal ya existe en la base de datos
+                        if (!self::buscarAnimalPorCod($codAnimal)) {
+                            // Si no existe, procedemos a dar de alta el animal en la base de datos
+                            // Llamamos al método altaAnimal para insertar el nuevo animal
+                            $resultado = self::altaAnimal($codAnimal, $descAnimal, $fechaNacimientoAnimal, $sexoAnimal, $razaAnimal, $precioAnimal, $fechaBajaAnimal);
+
+                            // Verificamos si el resultado es false (falló la inserción)
+                            if ($resultado === false) {
+                                $totalErrores++; // Cuento cuantos fallan
+                                if ($_COOKIE['idioma'] == 'SP') {
+                                    $aErrores[] = "Error al insertar el animal con código {$codAnimal}.";
+                                } else {
+                                    $aErrores[] = "Error when inserting the animal with code {$codAnimal}.";
+                                }
+                            } else {
+                                $totalInserciones++; // Cuento cuantos se insertan correctamente
+                            }
                         } else {
-                            $aErrores[] = "Error when inserting the animal with code {$codAnimal}.";
+                            // El animal ya existe en la base de datos
+                            $totalErrores++;
+                            if ($_COOKIE['idioma'] == 'SP') {
+                                $aErrores[] = "El animal con código {$codAnimal} ya existe en la base de datos.";
+                            } else {
+                                $aErrores[] = "The animal with code {$codAnimal} already exists in the database.";
+                            }
                         }
-                    } else {
-                        $totalInserciones++; // Cuento cuantos se insertan correctamente
                     }
                 } else {
-                    // El animal ya existe en la base de datos
-                    $totalErrores++;
-                    if ($_COOKIE['idioma'] == 'SP') {
-                        $aErrores[] = "El animal con código {$codAnimal} ya existe en la base de datos.";
-                    } else {
-                        $aErrores[] = "The animal with code {$codAnimal} already exists in the database.";
-                    }
+                    return null;
                 }
             }
 
@@ -541,6 +546,83 @@ class AnimalPDO {
             }
         } else {
             return null; // En caso de subir un archivo que no sea JSON
+        }
+    }
+
+    /**
+     * Método para validar un animal dentro del método de importarAnimalesJSON().
+     *
+     * Este método valida un array que representa los atributos de un Animal antes de su inserción en la base de datos.
+     *
+     * @param array $aAnimal Recibe un array con los atributos de un Animal.
+     *
+     * @return null Devuelve null si hay algún error en el array.
+     * @return true Devuelve true si el array tiene el formato correcto.
+     */
+    public static function validarAnimal($aAnimal) {
+        // Iniciaizo las variables para comprobar el array
+        $arrayOK = true;
+
+        $aErrores = [
+            'codAnimal' => "",
+            'descAnimal' => "",
+            'fechaNacimientoAnimal' => "",
+            'sexoAnimal' => "",
+            'razaAnimal' => "",
+            'precioAnimal' => "",
+            'fechaBajaAnimal' => ""
+        ];
+
+        // Variable DateTime
+        $fechaYHoraActualCreacion = new DateTime('now', new DateTimeZone('Europe/Madrid'));
+
+        /*
+         * Ahora inicializo cada 'key' del ARRAY utilizando las funciónes de la clase de 'validacionFormularios' , la cuál 
+         * comprueba el valor recibido (en este caso el que recibe la variable '$_REQUEST') y devuelve 'null' si el valor es correcto,
+         * o un mensaje de error personalizado por cada función dependiendo de lo que validemos.
+         */
+        //Introducimos valores en el array $aErrores si ocurre un error
+        $aErrores['codAnimal'] = validacionFormularios::comprobarAlfanumerico($aAnimal['T06_CodAnimal'], 3, 3, 1);
+
+        // Ahora validamos que el codigo introducido no exista en la BD, haciendo una consulta 
+        if ($aErrores['codAnimal'] == null) {
+            /*
+             * Por medio del metodo 'buscarAnimalPorCod' de la clase 'AnimalPDO' comprobamos que el código no este en uso
+             */
+            if (self::buscarAnimalPorCod($aAnimal['T06_CodAnimal'])) {
+                return null;
+            }
+        }
+        // Verifico las siguientes entradas de del formulario
+        $aErrores['descAnimal'] = validacionFormularios::comprobarAlfaNumerico($aAnimal['T06_DescAnimal'], 255, 5, 1);
+        $aErrores['fechaNacimientoAnimal'] = validacionFormularios::validarFechaHora($aAnimal['T06_FechaNacimiento'], $fechaYHoraActualCreacion->format('Y-m-d H:i:s'), '01/01/2010 00:00:00', 1);
+        $aErrores['razaAnimal'] = validacionFormularios::comprobarAlfabetico($aAnimal['T06_Raza'], 255, 5, 1);
+        $aErrores['precioAnimal'] = validacionFormularios::comprobarFloatMejorado($aAnimal['T06_Precio'], 9999999999, 0, 2, 2, 1);
+
+        if (!is_null($aAnimal['T06_FechaBaja'])) {
+            $aErrores['fechaBajaAnimal'] = validacionFormularios::validarFechaHora($aAnimal['T06_FechaBaja'], $fechaYHoraActualCreacion->format('Y-m-d H:i:s'), '01/01/2010 00:00:00', 1);
+        }
+
+        // Para verificar el input 'radio' 
+        if ($aAnimal['T06_Sexo'] == 'macho' || $aAnimal['T06_Sexo'] == 'hembra') {
+            $aErrores['sexoAnimal'] = null;
+        }
+
+        /*
+         * En este foreach recorremos el array buscando que exista NULL (Los metodos anteriores si son correctos devuelven NULL)
+         * y en caso negativo cambiara el valor de '$entradaOK' a false.
+         */
+        foreach ($aErrores as $campo => $error) {
+            if ($error != null) {
+                $arrayOK = false;
+            }
+        }
+
+        //En caso de que '$arrayOK' sea true
+        if ($arrayOK) {
+            return true; // Devuelvo true 
+        } else {
+            return null; // En caso negativo devuelvo null
         }
     }
 }
